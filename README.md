@@ -8,7 +8,7 @@ Efficient management of **personal contacts** for optimal nurturing of **social 
 
 ## About
 
-Gunther is beeing developed by [Aljoscha Zöller](https://web.aljoschazoeller.com) as a capstone project of the [neue fische web development bootcamp](https://www.neuefische.de/bootcamp/web-development).
+Gunther is beeing developed by [Aljoscha Zöller](https://www.linkedin.com/in/aljoschazoeller/) as a capstone project of the [neue fische web development bootcamp](https://www.neuefische.de/bootcamp/web-development).
 
 | Milestone            | Date       |
 | -------------------- | ---------- |
