@@ -1,4 +1,30 @@
-# New Next Project
+# Gunther - Personal Relationship Management
+
+Efficient management of **personal contacts** for optimal nurturing of **social interactions**.
+
+**As a** busy business man/woman\
+**I want to** keep track of my social life\
+**so that** I don't die alone
+
+## About
+
+Gunther is beeing developed by [Aljoscha Zöller](https://web.aljoschazoeller.com) as a capstone project of the [neue fische web development bootcamp](https://www.neuefische.de/bootcamp/web-development).
+
+| Milestone            | Date       |
+| -------------------- | ---------- |
+| Bootcamp Finale      | 2023-08-02 |
+| Public Sprint Review | 2023-07-27 |
+| Public Sprint Review | 2023-07-20 |
+| Public Sprint Review | 2023-07-13 |
+| Project Start        | 2023-07-06 |
+
+## Environments
+
+| Environment | Link                                                               |
+| ----------- | ------------------------------------------------------------------ |
+| Production  | [gunther.aljoschazoeller.com](https://gunther.aljoschazoeller.com) |
+
+## Template
 
 This project was created from the neue fische `next` template.
 
