@@ -6,7 +6,6 @@ export default function HomePage() {
     <div>
       <h1>Contacts</h1>
       <ContactList />
-      <ContactListItem />
     </div>
   );
 }
