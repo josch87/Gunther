@@ -36,10 +36,7 @@ export const contactsSampleData = [
     profilePicture: "64a3c09b67fab6ab881108f7.jpg",
     dateOfBirth: "1967-10-18T00:00:00.000+00:00",
     email: { value: "ross@friends.com", type: "Home" },
-    phone: [
-      { value: "+1 234 567 8901", type: "Work" },
-      { value: "+1 876 543 2109", type: "Mobile" },
-    ],
+    phone: [{ value: "+1 234 567 8901", type: "Work" }],
     address: {
       street: "Grove Street 456",
       zipCode: "90210",
@@ -67,6 +64,7 @@ export const contactsSampleData = [
     phone: [
       { value: "+1 345 678 9012", type: "Work" },
       { value: "+1 210 987 6543", type: "Mobile" },
+      { value: "+1 325 215 3152", type: "Work" },
     ],
     address: {
       street: "Madison Avenue 789",
