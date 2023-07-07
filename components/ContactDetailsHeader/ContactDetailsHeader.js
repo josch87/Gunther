@@ -8,9 +8,17 @@ import {
   ProfileImagePlaceholder,
   StyledHeader,
 } from "./ContactDetailsHeader.styled";
-import { materialImage } from "@/assets/Icons8";
+import { materialImage, materialBirthday } from "@/assets/Icons8";
+import Image from "next/image";
 
 export default function ContactDetailsHeader({ contact }) {
+  function formatDateOfBirth(dateOfBirth) {
+    const birthDate = new Date(dateOfBirth);
+    const options = { day: "numeric", month: "long", year: "numeric" };
+    const formattedDate = birthDate.toLocaleDateString("en-US", options);
+    return formattedDate;
+  }
+
   if (!contact) {
     return <>Loading</>;
   }
@@ -35,7 +43,17 @@ export default function ContactDetailsHeader({ contact }) {
       )}
       <DetailsContainer>
         <NameContainer>{getFullName(contact)}</NameContainer>
-        <BirthdayContainer>test</BirthdayContainer>
+        {contact.dateOfBirth ? (
+          <BirthdayContainer>
+            <Image
+              src={materialBirthday}
+              width={20}
+              height={20}
+              alt={"Birthday icon"}
+            />
+            <div> {formatDateOfBirth(contact.dateOfBirth)}</div>
+          </BirthdayContainer>
+        ) : null}
       </DetailsContainer>
     </StyledHeader>
   );

@@ -24,5 +24,8 @@ export const NameContainer = styled.h2`
 `;
 
 export const BirthdayContainer = styled.div`
-  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
 `;

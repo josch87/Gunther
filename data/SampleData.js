@@ -6,7 +6,7 @@ export const contactsSampleData = [
     lastName: "Bing",
     gender: "male",
     profilePicture: "649e91836af01f9b18155053.jpg",
-    dateOfBirth: "1967-10-31T00:00:00.000+00:00",
+    dateOfBirth: "1967-10-31T00:00:00.000Z",
     email: { value: "chandler@friends.com", type: "Home" },
     phone: [
       { value: "+1 123 456 7890", type: "Work" },
@@ -146,7 +146,7 @@ export const contactsSampleData = [
     lastName: "Buffay",
     gender: "female",
     profilePicture: "",
-    dateOfBirth: "1965-02-16T00:00:00.000+00:00",
+    dateOfBirth: "",
     email: { value: "phoebe@friends.com", type: "Home" },
     phone: [
       { value: "+1 789 012 3456", type: "Work" },
