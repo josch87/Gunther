@@ -1,9 +1,10 @@
 import useLocalStorageState from "use-local-storage-state";
 import { contactsSampleData } from "@/data/SampleData";
 import ContactListItem from "../ContactListItem/ContactListItem";
+import { useImmerLocalStorageState } from "@/hooks/useImmerLocalStorageState";
 
 export default function ContactList() {
-  const [contacts, setContacts] = useLocalStorageState("contacts", {
+  const [contacts, updateContacts] = useImmerLocalStorageState("contacts", {
     defaultValue: contactsSampleData,
   });
 
