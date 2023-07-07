@@ -11,6 +11,10 @@ import {
 import { materialImage } from "@/assets/Icons8";
 
 export default function ContactDetailsHeader({ contact }) {
+  if (!contact) {
+    return <>Loading</>;
+  }
+
   return (
     <StyledHeader>
       {contact.profilePicture ? (

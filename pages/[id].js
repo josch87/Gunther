@@ -13,8 +13,11 @@ export default function ContactDetailsPage({ contacts }) {
     <>
       <BackLink href={"/"}>← All Contacts</BackLink>
       <Scopebox>
-        {/* {contact.id} */}
-        <ContactDetailsHeader contact={contact} />
+        {contact ? (
+          <ContactDetailsHeader contact={contact} />
+        ) : (
+          <div>Loading</div>
+        )}
       </Scopebox>
     </>
   );
