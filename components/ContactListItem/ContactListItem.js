@@ -1,4 +1,5 @@
 import { getProfilePicture } from "@/hooks/getProfilePicture";
+import { getFullName } from "@/hooks/getNames";
 import {
   DetailsContainer,
   ListItem,
@@ -9,24 +10,6 @@ import {
 import { materialImage } from "@/assets/Icons8";
 
 export default function ContactListItem({ contact }) {
-  function getFullName(contact) {
-    const { firstName, middleName, lastName } = contact;
-
-    let displayName = "";
-
-    if (firstName) {
-      displayName += firstName;
-    }
-    if (middleName) {
-      displayName += " " + middleName;
-    }
-    if (lastName) {
-      displayName += " " + lastName;
-    }
-
-    return displayName.trim();
-  }
-
   return (
     <ListItem>
       {contact.profilePicture ? (

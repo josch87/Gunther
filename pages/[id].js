@@ -8,11 +8,12 @@ export default function ContactDetailsPage({ contacts }) {
   const { id } = router.query;
 
   const contact = contacts.find((contact) => contact.id === id);
+
   return (
     <>
       <BackLink href={"/"}>← All Contacts</BackLink>
       <Scopebox>
-        {contact.id}
+        {/* {contact.id} */}
         <ContactDetailsHeader contact={contact} />
       </Scopebox>
     </>
