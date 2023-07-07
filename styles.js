@@ -19,8 +19,4 @@ export default createGlobalStyle`
     font-family: system-ui;
     color: var(--primary-text-color);
   }
-
-  h1 {
-    margin: 0.67em 0;
-  }
 `;
