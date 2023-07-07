@@ -21,6 +21,6 @@ export const DetailsContainer = styled.div`
   margin: 10px;
 `;
 
-export const NameContainer = styled.div`
+export const NameContainer = styled.h2`
   font-size: 1.3rem;
 `;
