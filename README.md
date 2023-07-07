@@ -24,6 +24,12 @@ Gunther is beeing developed by [Aljoscha Zöller](https://www.linkedin.com/in/al
 | ----------- | ------------------------------------------------------------------ |
 | Production  | [gunther.aljoschazoeller.com](https://gunther.aljoschazoeller.com) |
 
+## Vision
+
+These wireframes provide an initial glimpse of Gunther before the project kicks off, allowing to form an understanding and visual representation.
+
+![First wireframes of Gunther](/public/vision_wireframes.png)
+
 ## Template
 
 This project was created from the neue fische `next` template.
