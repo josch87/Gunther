@@ -38,7 +38,6 @@ export default function ContactDetailsSection({ contact }) {
                 value={contact.email.value}
                 type={contact.email.type}
                 href={`mailto:${contact.email.value}`}
-                target="_blank"
               />
             ) : null}
 
