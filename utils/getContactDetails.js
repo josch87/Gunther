@@ -6,9 +6,7 @@ import {
 } from "@/assets/Icons8";
 import { Fragment } from "react";
 
-export function getFullName(contact) {
-  const { firstName, middleName, lastName } = contact;
-
+export function getFullName({ firstName, middleName, lastName }) {
   let displayName = "";
 
   if (firstName) {
@@ -24,10 +22,8 @@ export function getFullName(contact) {
   return displayName.trim();
 }
 
-export function getProfilePicture(contact) {
+export function getProfilePicture({ profilePicture }) {
   const path = "/profile-pictures/";
-
-  const { profilePicture } = contact;
 
   if (profilePicture) {
     return path + profilePicture;
@@ -63,8 +59,7 @@ export function getSocialMediaHyperlink(platform, username) {
   return null;
 }
 
-export function getGoogleMapsLink(address) {
-  const { street, zipCode, city, country } = address;
+export function getGoogleMapsLink({ street, zipCode, city, country }) {
   let encodedAddress = "";
 
   if (street) {

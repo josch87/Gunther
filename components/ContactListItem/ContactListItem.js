@@ -1,4 +1,4 @@
-import { getFullName, getProfilePicture } from "@/hooks/getContactDetails";
+import { getFullName, getProfilePicture } from "@/utils/getContactDetails";
 import {
   DetailsContainer,
   ListItem,

@@ -1,4 +1,4 @@
-import { getFullName, getProfilePicture } from "@/hooks/getContactDetails";
+import { getFullName, getProfilePicture } from "@/utils/getContactDetails";
 import {
   BirthdayContainer,
   DetailsContainer,
@@ -10,14 +10,14 @@ import {
 import { materialImage, materialBirthday } from "@/assets/Icons8";
 import Image from "next/image";
 
-export default function ContactDetailsHeader({ contact }) {
-  function formatDateOfBirth(dateOfBirth) {
-    const birthDate = new Date(dateOfBirth);
-    const options = { day: "numeric", month: "long", year: "numeric" };
-    const formattedDate = birthDate.toLocaleDateString("en-US", options);
-    return formattedDate;
-  }
+function formatDateOfBirth(dateOfBirth) {
+  const birthDate = new Date(dateOfBirth);
+  const options = { day: "numeric", month: "long", year: "numeric" };
+  const formattedDate = birthDate.toLocaleDateString("en-US", options);
+  return formattedDate;
+}
 
+export default function ContactDetailsHeader({ contact }) {
   if (!contact) {
     return <>Loading ContactDetailsHeader</>;
   }

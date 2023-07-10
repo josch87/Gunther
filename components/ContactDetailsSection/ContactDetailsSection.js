@@ -11,7 +11,7 @@ import {
   getGoogleMapsLink,
   getSocialMediaHyperlink,
   getSocialMediaIcon,
-} from "@/hooks/getContactDetails";
+} from "@/utils/getContactDetails";
 import { Fragment } from "react";
 
 export default function ContactDetailsSection({ contact }) {
