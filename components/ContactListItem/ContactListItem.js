@@ -1,5 +1,5 @@
 import { getProfilePicture } from "@/hooks/getProfilePicture";
-import { getFullName } from "@/hooks/getNames";
+import { getFullName } from "@/hooks/getContactDetails";
 import {
   DetailsContainer,
   ListItem,

@@ -42,6 +42,7 @@ export default function ContactDetailsPage({ contacts }) {
                   type="Nickname"
                 />
               ) : null}
+
               {contact.email ? (
                 <ContactDetailsItem
                   icon={materialEmail}
@@ -102,12 +103,10 @@ export default function ContactDetailsPage({ contacts }) {
                 : null}
 
               {contact.notes ? (
-                <>
-                  <ContactDetailsItem
-                    icon={materialNotes}
-                    value={contact.notes}
-                  />
-                </>
+                <ContactDetailsItem
+                  icon={materialNotes}
+                  value={contact.notes}
+                />
               ) : null}
             </ul>
           </>
