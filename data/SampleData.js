@@ -33,7 +33,8 @@ export const contactsSampleData = [
       { platform: "Instagram", username: "chandler_bingofficial" },
       { platform: "Twitter", username: "chandler_bing" },
     ],
-    notes: "Sarcastic and funny. Loves to crack jokes.",
+    notes:
+      "Sarcastic and funny. Loves to crack jokes. Chandler Bing, known for his sarcasm and wit, is a beloved character from Friends. With a quick sense of humor, he never fails to crack jokes that leave everyone laughing. Despite his playful demeanor, Chandler also exhibits moments of vulnerability, showing a deeply caring side. His unique blend of charm and comedic timing makes him a memorable and endearing friend. Chandler's ability to navigate life's ups and downs with humor and a big heart is what truly sets him apart.",
     dateCreated: "2023-07-06T16:48:25.000+00:00",
     dateDeleted: "",
     isSampleData: true,
