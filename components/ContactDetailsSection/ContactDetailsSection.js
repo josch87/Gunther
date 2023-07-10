@@ -13,6 +13,7 @@ import {
   getSocialMediaIcon,
 } from "@/utils/getContactDetails";
 import { Fragment } from "react";
+import Address from "../Address/Address";
 
 export default function ContactDetailsSection({ contact }) {
   return (
@@ -62,7 +63,7 @@ export default function ContactDetailsSection({ contact }) {
                       <ContactDetailsItem
                         icon={materialAddress}
                         iconAlt="Address"
-                        value={getAddress(addr)}
+                        value={<Address {...addr} />}
                         type={addr.type}
                         href={getGoogleMapsLink(addr)}
                         target="_blank"

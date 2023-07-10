@@ -91,35 +91,3 @@ export function getGoogleMapsLink({ street, zipCode, city, country }) {
 
   return googleMapsLink;
 }
-
-export function getAddress(address) {
-  const { street, zipCode, city, country } = address;
-  let finalAddress = "";
-
-  if (street) {
-    finalAddress += `${street}\n`;
-  }
-
-  if (zipCode && city) {
-    finalAddress += `${zipCode} ${city}\n`;
-  } else if (zipCode) {
-    finalAddress += `${zipCode}\n`;
-  } else if (city) {
-    finalAddress += `${city}\n`;
-  }
-
-  if (country) {
-    finalAddress += country;
-  }
-
-  return (
-    <>
-      {finalAddress.split("\n").map((line, index) => (
-        <Fragment key={index}>
-          {line}
-          <br />
-        </Fragment>
-      ))}
-    </>
-  );
-}
