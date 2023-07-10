@@ -2,6 +2,7 @@ import {
   materialEmail,
   materialExternalLink,
   materialInstagram,
+  materialNotes,
   materialPhone,
 } from "@/assets/Icons8";
 import BackLink from "@/components/BackLink/BackLink";
@@ -86,6 +87,14 @@ export default function ContactDetailsPage({ contacts }) {
                     );
                   })
                 : null}
+              {contact.notes ? (
+                <>
+                  <ContactDetailsItem
+                    icon={materialNotes}
+                    value={contact.notes}
+                  />
+                </>
+              ) : null}
             </ul>
           </>
         ) : (

@@ -4,6 +4,7 @@ export const contactsSampleData = [
     firstName: "Chandler",
     middleName: "Muriel",
     lastName: "Bing",
+    nickName: "Chan"
     gender: "male",
     profilePicture: "649e91836af01f9b18155053.jpg",
     dateOfBirth: "1967-10-31T00:00:00.000Z",

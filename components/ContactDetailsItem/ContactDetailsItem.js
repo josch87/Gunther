@@ -25,7 +25,7 @@ export default function ContactDetailsItem({
               {value}
             </ExternalLink>
           ) : (
-            { value }
+            value
           )}
         </div>
         <DataType>{type}</DataType>
