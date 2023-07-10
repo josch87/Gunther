@@ -25,6 +25,7 @@ export default function ContactDetailsSection({ contact }) {
             {contact.nickName ? (
               <ContactDetailsItem
                 icon={materialName}
+                iconAlt="Nickname"
                 value={contact.nickName}
                 type="Nickname"
               />
@@ -33,6 +34,7 @@ export default function ContactDetailsSection({ contact }) {
             {contact.email ? (
               <ContactDetailsItem
                 icon={materialEmail}
+                iconAlt={`${contact.email.type} email address`}
                 value={contact.email.value}
                 type={contact.email.type}
                 href={`mailto:${contact.email.value}`}
@@ -45,6 +47,7 @@ export default function ContactDetailsSection({ contact }) {
                   <Fragment key={index}>
                     <ContactDetailsItem
                       icon={materialPhone}
+                      iconAlt={`${phone.type} phone`}
                       value={phone.value}
                       type={phone.type}
                       href={`tel:${phone.value}`}
@@ -59,6 +62,7 @@ export default function ContactDetailsSection({ contact }) {
                     <Fragment key={index}>
                       <ContactDetailsItem
                         icon={materialAddress}
+                        iconAlt="Address"
                         value={getAddress(addr)}
                         type={addr.type}
                         href={getGoogleMapsLink(addr)}
@@ -79,6 +83,7 @@ export default function ContactDetailsSection({ contact }) {
                     <Fragment key={index}>
                       <ContactDetailsItem
                         icon={getSocialMediaIcon(media.platform)}
+                        iconAlt={media.platform}
                         value={media.username}
                         type={media.platform}
                         href={mediaLink}
@@ -90,7 +95,11 @@ export default function ContactDetailsSection({ contact }) {
               : null}
 
             {contact.notes ? (
-              <ContactDetailsItem icon={materialNotes} value={contact.notes} />
+              <ContactDetailsItem
+                icon={materialNotes}
+                iconAlt={"Notes"}
+                value={contact.notes}
+              />
             ) : null}
           </ul>
         </>
