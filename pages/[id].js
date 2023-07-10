@@ -32,6 +32,9 @@ export default function ContactDetailsPage({ contacts }) {
     if (platform === "Twitter") {
       return `https://twitter.com/${username}`;
     }
+    if (platform === "Facebook") {
+      return `https://www.facebook.com/${username}`;
+    }
     return null;
   }
 
