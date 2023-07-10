@@ -1,4 +1,9 @@
-import { materialEmail, materialPhone } from "@/assets/Icons8";
+import {
+  materialEmail,
+  materialExternalLink,
+  materialInstagram,
+  materialPhone,
+} from "@/assets/Icons8";
 import BackLink from "@/components/BackLink/BackLink";
 import ContactDetailsHeader from "@/components/ContactDetailsHeader/ContactDetailsHeader";
 import ContactDetailsItem from "@/components/ContactDetailsItem/ContactDetailsItem";
@@ -11,6 +16,24 @@ export default function ContactDetailsPage({ contacts }) {
   const { id } = router.query;
 
   const contact = contacts.find((contact) => contact.id === id);
+
+  function getSocialMediaIcon(platform) {
+    if (platform === "Instagram") {
+      return materialInstagram;
+    }
+
+    return materialExternalLink;
+  }
+
+  function getSocialMediaHyperlink(platform, username) {
+    if (platform === "Instagram") {
+      return `https://www.instagram.com/${username}/`;
+    }
+    if (platform === "Twitter") {
+      return `https://twitter.com/${username}`;
+    }
+    return null;
+  }
 
   return (
     <>
@@ -40,6 +63,25 @@ export default function ContactDetailsPage({ contacts }) {
                       />
                     </Fragment>
                   ))
+                : null}
+              {contact.socialMedia
+                ? contact.socialMedia.map((media, index) => {
+                    const mediaLink = getSocialMediaHyperlink(
+                      media.platform,
+                      media.username
+                    );
+                    return (
+                      <Fragment key={index}>
+                        <ContactDetailsItem
+                          icon={getSocialMediaIcon(media.platform)}
+                          value={media.username}
+                          type={media.platform}
+                          href={mediaLink}
+                          target={"_blank"}
+                        />
+                      </Fragment>
+                    );
+                  })
                 : null}
             </ul>
           </>
