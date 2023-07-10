@@ -1,10 +1,16 @@
 import Image from "next/image";
+import Link from "next/link";
 import styled from "styled-components";
 
 export const ListItem = styled.li`
-  display: flex;
   margin-bottom: 10px;
   list-style: none;
+`;
+
+export const StyledLink = styled(Link)`
+  display: flex;
+  color: var(--primary-text-color);
+  text-decoration: none;
 `;
 
 export const ProfileImage = styled(Image)`
