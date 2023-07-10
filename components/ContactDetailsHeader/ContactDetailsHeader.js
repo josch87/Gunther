@@ -19,7 +19,7 @@ export default function ContactDetailsHeader({ contact }) {
   }
 
   if (!contact) {
-    return <>Loading</>;
+    return <>Loading ContactDetailsHeader</>;
   }
 
   return (

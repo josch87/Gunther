@@ -103,7 +103,7 @@ export default function ContactDetailsSection({ contact }) {
           </ul>
         </>
       ) : (
-        <div>Loading</div>
+        <div>Loading ContactDetailsSection</div>
       )}
     </>
   );
