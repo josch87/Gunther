@@ -11,12 +11,15 @@ export const contactTestData = {
     { value: "+1 123 456 7890", type: "Work" },
     { value: "+1 987 654 3210", type: "Mobile" },
   ],
-  address: {
-    street: "West Broadway 123",
-    zipCode: "10012",
-    city: "New York",
-    country: "USA",
-  },
+  address: [
+    {
+      type: "Home",
+      street: "West Broadway 123",
+      zipCode: "10012",
+      city: "New York",
+      country: "USA",
+    },
+  ],
   socialMedia: [
     { platform: "Instagram", username: "chandler_bingofficial" },
     { platform: "Twitter", username: "chandler_bing" },
@@ -41,12 +44,22 @@ export const contactsTestData = [
       { value: "+1 123 456 7890", type: "Work" },
       { value: "+1 987 654 3210", type: "Mobile" },
     ],
-    address: {
-      street: "West Broadway 123",
-      zipCode: "10012",
-      city: "New York",
-      country: "USA",
-    },
+    address: [
+      {
+        type: "Home",
+        street: "West Broadway 123",
+        zipCode: "10012",
+        city: "New York",
+        country: "USA",
+      },
+      {
+        type: "Work",
+        street: "5515 Melrose Ave",
+        zipCode: "90038",
+        city: "Los Angeles",
+        country: "USA",
+      },
+    ],
     socialMedia: [
       { platform: "Instagram", username: "chandler_bingofficial" },
       { platform: "Twitter", username: "chandler_bing" },
@@ -69,12 +82,15 @@ export const contactsTestData = [
       { value: "+1 234 567 8901", type: "Work" },
       { value: "+1 876 543 2109", type: "Mobile" },
     ],
-    address: {
-      street: "Grove Street 456",
-      zipCode: "90210",
-      city: "Beverly Hills",
-      country: "USA",
-    },
+    address: [
+      {
+        type: "Home",
+        street: "Grove Street 456",
+        zipCode: "90210",
+        city: "Beverly Hills",
+        country: "USA",
+      },
+    ],
     socialMedia: [
       { platform: "Instagram", username: "rossgeller" },
       { platform: "Facebook", username: "ross.geller" },
@@ -97,12 +113,15 @@ export const contactsTestData = [
       { value: "+1 345 678 9012", type: "Work" },
       { value: "+1 210 987 6543", type: "Mobile" },
     ],
-    address: {
-      street: "Madison Avenue 789",
-      zipCode: "10016",
-      city: "New York",
-      country: "USA",
-    },
+    address: [
+      {
+        type: "Home",
+        street: "Madison Avenue 789",
+        zipCode: "10016",
+        city: "New York",
+        country: "USA",
+      },
+    ],
     socialMedia: [
       { platform: "Instagram", username: "rachelgreen" },
       { platform: "Twitter", username: "rachel_green" },
@@ -125,12 +144,15 @@ export const contactsTestData = [
       { value: "+1 456 789 0123", type: "Work" },
       { value: "+1 321 098 7654", type: "Mobile" },
     ],
-    address: {
-      street: "Broadway 789",
-      zipCode: "10003",
-      city: "New York",
-      country: "USA",
-    },
+    address: [
+      {
+        type: "Home",
+        street: "Broadway 789",
+        zipCode: "10003",
+        city: "New York",
+        country: "USA",
+      },
+    ],
     socialMedia: [
       { platform: "Instagram", username: "joeytribbiani" },
       { platform: "Facebook", username: "joey.tribbiani" },

@@ -51,6 +51,7 @@ export const contactsSampleData = [
     phone: [{ value: "+1 234 567 8901", type: "Work" }],
     address: [
       {
+        type: "Home",
         street: "Grove Street 456",
         zipCode: "90210",
         city: "Beverly Hills",
@@ -82,6 +83,7 @@ export const contactsSampleData = [
     ],
     address: [
       {
+        type: "Home",
         street: "Madison Avenue 789",
         zipCode: "10016",
         city: "New York",
@@ -112,6 +114,7 @@ export const contactsSampleData = [
     ],
     address: [
       {
+        type: "Home",
         street: "Broadway 789",
         zipCode: "10003",
         city: "New York",
@@ -142,6 +145,7 @@ export const contactsSampleData = [
     ],
     address: [
       {
+        type: "Home",
         street: "Grove Street 789",
         zipCode: "90210",
         city: "Beverly Hills",
@@ -172,6 +176,7 @@ export const contactsSampleData = [
     ],
     address: [
       {
+        type: "Home",
         street: "Grove Street 789",
         zipCode: "90210",
         city: "Beverly Hills",

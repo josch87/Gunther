@@ -5,7 +5,6 @@ import {
   materialNotes,
   materialPhone,
 } from "@/assets/Icons8";
-import ContactDetailsHeader from "@/components/ContactDetailsHeader/ContactDetailsHeader";
 import ContactDetailsItem from "@/components/ContactDetailsItem/ContactDetailsItem";
 import {
   getAddress,
@@ -20,8 +19,6 @@ export default function ContactDetailsSection({ contact }) {
     <>
       {contact ? (
         <>
-          <ContactDetailsHeader contact={contact} />
-
           <h2>Contact Details</h2>
 
           <ul>

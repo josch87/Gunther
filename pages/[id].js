@@ -1,4 +1,5 @@
 import BackLink from "@/components/BackLink/BackLink";
+import ContactDetailsHeader from "@/components/ContactDetailsHeader/ContactDetailsHeader";
 import ContactDetailsSection from "@/components/ContactDetailsSection/ContactDetailsSection";
 import Scopebox from "@/components/Scopebox/Scopebox";
 import { useRouter } from "next/router";
@@ -13,6 +14,7 @@ export default function ContactDetailsPage({ contacts }) {
     <>
       <BackLink href={"/"}>← All Contacts</BackLink>
       <Scopebox>
+        <ContactDetailsHeader contact={contact} />
         <ContactDetailsSection contact={contact} />
       </Scopebox>
     </>
