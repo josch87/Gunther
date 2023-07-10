@@ -24,6 +24,16 @@ export function getFullName(contact) {
   return displayName.trim();
 }
 
+export function getProfilePicture(contact) {
+  const path = "/profile-pictures/";
+
+  const { profilePicture } = contact;
+
+  if (profilePicture) {
+    return path + profilePicture;
+  }
+}
+
 export function getSocialMediaIcon(platform) {
   if (platform === "Instagram") {
     return materialInstagram;
