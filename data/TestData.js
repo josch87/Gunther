@@ -116,7 +116,7 @@ export const contactsTestData = [
     id: "4",
     firstName: "Joey",
     middleName: "",
-    lastName: "Tribbiani",
+    lastName: "",
     gender: "male",
     profilePicture: "64a3c09e67fab6ab881108fd.jpg",
     dateOfBirth: "1968-01-25T00:00:00.000+00:00",
