@@ -22,3 +22,11 @@ test("renders the profile picture of the contact with an alt text", () => {
 
   expect(profilePicture).toBeInTheDocument();
 });
+
+test("renders a link to the detail page of the contact", () => {
+  render(<ContactListItem contact={contactTestData} />);
+
+  const link = screen.getByRole("link");
+
+  expect(link).toBeInTheDocument();
+});

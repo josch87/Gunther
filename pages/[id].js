@@ -1,8 +1,6 @@
 import {
   materialAddress,
   materialEmail,
-  materialExternalLink,
-  materialInstagram,
   materialName,
   materialNotes,
   materialPhone,
@@ -11,6 +9,12 @@ import BackLink from "@/components/BackLink/BackLink";
 import ContactDetailsHeader from "@/components/ContactDetailsHeader/ContactDetailsHeader";
 import ContactDetailsItem from "@/components/ContactDetailsItem/ContactDetailsItem";
 import Scopebox from "@/components/Scopebox/Scopebox";
+import {
+  getAddress,
+  getGoogleMapsLink,
+  getSocialMediaHyperlink,
+  getSocialMediaIcon,
+} from "@/hooks/getContactDetails";
 import { useRouter } from "next/router";
 import { Fragment } from "react";
 
@@ -19,95 +23,6 @@ export default function ContactDetailsPage({ contacts }) {
   const { id } = router.query;
 
   const contact = contacts.find((contact) => contact.id === id);
-
-  function getSocialMediaIcon(platform) {
-    if (platform === "Instagram") {
-      return materialInstagram;
-    }
-
-    return materialExternalLink;
-  }
-
-  function getSocialMediaHyperlink(platform, username) {
-    if (platform === "Instagram") {
-      return `https://www.instagram.com/${username}/`;
-    }
-    if (platform === "Twitter") {
-      return `https://twitter.com/${username}`;
-    }
-    if (platform === "Facebook") {
-      return `https://www.facebook.com/${username}`;
-    }
-    return null;
-  }
-
-  function getAddress(address) {
-    const { street, zipCode, city, country } = address;
-    let finalAddress = "";
-
-    if (street) {
-      finalAddress += `${street}\n`;
-    }
-
-    if (zipCode && city) {
-      finalAddress += `${zipCode} ${city}\n`;
-    } else if (zipCode) {
-      finalAddress += `${zipCode}\n`;
-    } else if (city) {
-      finalAddress += `${city}\n`;
-    }
-
-    if (country) {
-      finalAddress += country;
-    }
-
-    return (
-      <>
-        {finalAddress.split("\n").map((line, index) => (
-          <Fragment key={index}>
-            {line}
-            <br />
-          </Fragment>
-        ))}
-      </>
-    );
-
-    return finalAddress.trim();
-  }
-
-  function getGoogleMapsLink(address) {
-    const { street, zipCode, city, country } = address;
-    let encodedAddress = "";
-
-    if (street) {
-      encodedAddress += encodeURIComponent(street);
-    }
-
-    if (zipCode) {
-      if (encodedAddress) {
-        encodedAddress += ", ";
-      }
-      encodedAddress += encodeURIComponent(zipCode);
-    }
-
-    if (city) {
-      if (encodedAddress) {
-        encodedAddress += ", ";
-      }
-      encodedAddress += encodeURIComponent(city);
-    }
-
-    if (country) {
-      if (encodedAddress) {
-        encodedAddress += ", ";
-      }
-      encodedAddress += encodeURIComponent(country);
-    }
-
-    const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
-
-    return googleMapsLink;
-  }
 
   return (
     <>
