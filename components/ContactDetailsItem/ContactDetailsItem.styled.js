@@ -9,7 +9,7 @@ export const StyledDetailsItem = styled.li`
 
 export const DataContainer = styled.div`
   display: flex;
-  align-items: flex-end;
+  align-items: baseline;
   gap: 20px;
 `;
 

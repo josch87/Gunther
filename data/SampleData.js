@@ -4,7 +4,7 @@ export const contactsSampleData = [
     firstName: "Chandler",
     middleName: "Muriel",
     lastName: "Bing",
-    nickName: "Chan"
+    nickName: "Chan",
     gender: "male",
     profilePicture: "649e91836af01f9b18155053.jpg",
     dateOfBirth: "1967-10-31T00:00:00.000Z",
@@ -13,12 +13,22 @@ export const contactsSampleData = [
       { value: "+1 123 456 7890", type: "Work" },
       { value: "+1 987 654 3210", type: "Mobile" },
     ],
-    address: {
-      street: "West Broadway 123",
-      zipCode: "10012",
-      city: "New York",
-      country: "USA",
-    },
+    address: [
+      {
+        type: "Home",
+        street: "West Broadway 123",
+        zipCode: "10012",
+        city: "New York",
+        country: "USA",
+      },
+      {
+        type: "Work",
+        street: "5515 Melrose Ave",
+        zipCode: "90038",
+        city: "Los Angeles",
+        country: "USA",
+      },
+    ],
     socialMedia: [
       { platform: "Instagram", username: "chandler_bingofficial" },
       { platform: "Twitter", username: "chandler_bing" },
@@ -38,12 +48,14 @@ export const contactsSampleData = [
     dateOfBirth: "1967-10-18T00:00:00.000+00:00",
     email: { value: "ross@friends.com", type: "Home" },
     phone: [{ value: "+1 234 567 8901", type: "Work" }],
-    address: {
-      street: "Grove Street 456",
-      zipCode: "90210",
-      city: "Beverly Hills",
-      country: "USA",
-    },
+    address: [
+      {
+        street: "Grove Street 456",
+        zipCode: "90210",
+        city: "Beverly Hills",
+        country: "USA",
+      },
+    ],
     socialMedia: [
       { platform: "Instagram", username: "rossgeller" },
       { platform: "Facebook", username: "ross.geller" },
@@ -67,12 +79,14 @@ export const contactsSampleData = [
       { value: "+1 210 987 6543", type: "Mobile" },
       { value: "+1 325 215 3152", type: "Work" },
     ],
-    address: {
-      street: "Madison Avenue 789",
-      zipCode: "10016",
-      city: "New York",
-      country: "USA",
-    },
+    address: [
+      {
+        street: "Madison Avenue 789",
+        zipCode: "10016",
+        city: "New York",
+        country: "USA",
+      },
+    ],
     socialMedia: [
       { platform: "Instagram", username: "rachelgreen" },
       { platform: "Twitter", username: "rachel_green" },
@@ -95,12 +109,14 @@ export const contactsSampleData = [
       { value: "+1 456 789 0123", type: "Work" },
       { value: "+1 321 098 7654", type: "Mobile" },
     ],
-    address: {
-      street: "Broadway 789",
-      zipCode: "10003",
-      city: "New York",
-      country: "USA",
-    },
+    address: [
+      {
+        street: "Broadway 789",
+        zipCode: "10003",
+        city: "New York",
+        country: "USA",
+      },
+    ],
     socialMedia: [
       { platform: "Instagram", username: "joeytribbiani" },
       { platform: "Facebook", username: "joey.tribbiani" },
@@ -123,12 +139,14 @@ export const contactsSampleData = [
       { value: "+1 567 890 1234", type: "Work" },
       { value: "+1 432 109 8765", type: "Mobile" },
     ],
-    address: {
-      street: "Grove Street 789",
-      zipCode: "90210",
-      city: "Beverly Hills",
-      country: "USA",
-    },
+    address: [
+      {
+        street: "Grove Street 789",
+        zipCode: "90210",
+        city: "Beverly Hills",
+        country: "USA",
+      },
+    ],
     socialMedia: [
       { platform: "Instagram", username: "monica_geller" },
       { platform: "Twitter", username: "monica_geller" },
@@ -151,12 +169,14 @@ export const contactsSampleData = [
       { value: "+1 789 012 3456", type: "Work" },
       { value: "+1 654 321 0987", type: "Mobile" },
     ],
-    address: {
-      street: "Grove Street 789",
-      zipCode: "90210",
-      city: "Beverly Hills",
-      country: "USA",
-    },
+    address: [
+      {
+        street: "Grove Street 789",
+        zipCode: "90210",
+        city: "Beverly Hills",
+        country: "USA",
+      },
+    ],
     socialMedia: [
       { platform: "Instagram", username: "phoebe_buffay" },
       { platform: "Twitter", username: "phoebe_buffay" },
