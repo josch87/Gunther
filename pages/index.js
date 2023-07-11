@@ -1,12 +1,6 @@
 import ContactList from "@/components/ContactList/ContactList";
-import { useImmerLocalStorageState } from "@/hooks/useImmerLocalStorageState";
-import { contactsSampleData } from "@/data/SampleData";
 
-export default function HomePage() {
-  const [contacts, updateContacts] = useImmerLocalStorageState("contacts", {
-    defaultValue: contactsSampleData,
-  });
-
+export default function HomePage({ contacts }) {
   const contactsSortedByFirstName = contacts.slice().sort((a, b) => {
     const fullNameA =
       a.firstName.toLowerCase() +

@@ -1,16 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
-import styled from "styled-components";
+import { styled } from "styled-components";
 
-export const ListItem = styled.li`
-  margin-bottom: 10px;
-  list-style: none;
-`;
-
-export const StyledLink = styled(Link)`
+export const StyledHeader = styled.div`
   display: flex;
-  color: var(--primary-text-color);
-  text-decoration: none;
 `;
 
 export const ProfileImage = styled(Image)`
@@ -27,6 +19,13 @@ export const DetailsContainer = styled.div`
   margin: 10px;
 `;
 
-export const NameContainer = styled.h2`
+export const NameContainer = styled.h1`
   font-size: 1.3rem;
+`;
+
+export const BirthdayContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
 `;
