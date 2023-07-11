@@ -11,14 +11,15 @@ export const StyledHeader = styled.header`
   width: 100%;
   height: var(--app-header-height);
   border-bottom: 1px solid black;
-  margin-bottom: 20px;
 `;
 
 export const StyledLogoContainer = styled.div`
-  width: 60%;
+  display: flex;
+  justify-content: center;
+  /* text-align: center; */
 `;
 
 export const StyledLogo = styled(Image)`
-  height: 60%;
+  height: auto;
   width: 60%;
 `;

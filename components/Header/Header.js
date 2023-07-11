@@ -7,7 +7,13 @@ export default function Header() {
     <StyledHeader>
       <StyledLogoContainer>
         <Link href="/">
-          <StyledLogo src={Logo} width={1500} height={255} alt="Gunther Logo" />
+          <StyledLogo
+            src={Logo}
+            width={1500}
+            height={255}
+            priority={true}
+            alt="Gunther Logo"
+          />
         </Link>
       </StyledLogoContainer>
     </StyledHeader>
