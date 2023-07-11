@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { styled } from "styled-components";
 
 export const StyledHeader = styled.header`
@@ -13,13 +14,13 @@ export const StyledHeader = styled.header`
   border-bottom: 1px solid black;
 `;
 
-export const StyledLogoContainer = styled.div`
+export const LogoLink = styled(Link)`
   display: flex;
   justify-content: center;
-  /* text-align: center; */
 `;
 
 export const StyledLogo = styled(Image)`
   height: auto;
   width: 60%;
+  max-height: calc(var(--app-header-height) + 30px);
 `;
