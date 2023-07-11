@@ -17,7 +17,12 @@ export default function Header() {
         />
       </LogoLink>
       <Link href="/new">
-        <Image src={materialPlus} width={30} height={30} alt="" />
+        <Image
+          src={materialPlus}
+          width={30}
+          height={30}
+          alt="Add new contact"
+        />
       </Link>
     </StyledHeader>
   );
