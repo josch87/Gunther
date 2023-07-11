@@ -1,4 +1,5 @@
 import ContactList from "@/components/ContactList/ContactList";
+import { Heading } from "./index.styled";
 
 export default function HomePage({ contacts }) {
   const contactsSortedByFirstName = contacts.slice().sort((a, b) => {
@@ -22,7 +23,7 @@ export default function HomePage({ contacts }) {
 
   return (
     <div>
-      <h1>Contacts</h1>
+      <Heading>Contacts</Heading>
       <ContactList contacts={contactsSortedByFirstName} />
     </div>
   );

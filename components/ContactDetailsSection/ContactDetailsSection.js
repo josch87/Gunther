@@ -14,13 +14,14 @@ import {
 } from "@/utils/getContactDetails";
 import { Fragment } from "react";
 import Address from "../Address/Address";
+import { Heading } from "./ContactDetailsSection.styled";
 
 export default function ContactDetailsSection({ contact }) {
   return (
     <>
       {contact ? (
         <>
-          <h2>Contact Details</h2>
+          <Heading>Contact Details</Heading>
 
           <ul>
             {contact.nickName ? (
