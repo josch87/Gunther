@@ -4,6 +4,7 @@ export default createGlobalStyle`
 
 :root {
   --primary-text-color: #4b4b4b;
+  --app-header-height: 60px;
 }
 
   *,
