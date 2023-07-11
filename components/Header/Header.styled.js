@@ -12,6 +12,7 @@ export const StyledHeader = styled.header`
   width: 100%;
   height: var(--app-header-height);
   border-bottom: 1px solid black;
+  padding: 0 var(--app-side-padding);
 `;
 
 export const LogoLink = styled(Link)`
@@ -21,6 +22,6 @@ export const LogoLink = styled(Link)`
 
 export const StyledLogo = styled(Image)`
   height: auto;
-  width: 60%;
+  width: 80%;
   max-height: calc(var(--app-header-height) + 30px);
 `;
