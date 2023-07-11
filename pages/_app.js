@@ -1,6 +1,7 @@
 import GlobalStyle from "../styles";
 import { useImmerLocalStorageState } from "@/hooks/useImmerLocalStorageState";
 import { contactsSampleData } from "@/data/SampleData";
+import Layout from "@/components/Layout/Layout";
 
 export default function App({ Component, pageProps }) {
   const [contacts, updateContacts] = useImmerLocalStorageState("contacts", {
@@ -10,7 +11,9 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <Component {...pageProps} contacts={contacts} />
+      <Layout>
+        <Component {...pageProps} contacts={contacts} />
+      </Layout>
     </>
   );
 }
