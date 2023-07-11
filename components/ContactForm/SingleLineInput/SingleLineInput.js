@@ -11,6 +11,7 @@ export default function SingleLineInput({
   id,
   name,
   options,
+  isClearable = false,
   required = false,
 }) {
   if (type === "text") {
@@ -26,7 +27,7 @@ export default function SingleLineInput({
     return (
       <StyledTextInput>
         <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
-        <Select options={options} />
+        <Select options={options} isClearable={isClearable} />
       </StyledTextInput>
     );
   }

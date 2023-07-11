@@ -40,6 +40,7 @@ export default function ContactForm() {
         id="gender"
         name="gender"
         options={baseGender}
+        isClearable={true}
       />
     </form>
   );
