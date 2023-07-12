@@ -31,7 +31,6 @@ export default function TwoLineInput({
             id={`${id}Type`}
             name={`${id}Type`}
             options={baseEmailInputType}
-            required
           />
         </ColumnTwo>
       </Container>

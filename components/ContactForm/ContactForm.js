@@ -3,10 +3,17 @@ import SingleLineInput from "./SingleLineInput/SingleLineInput";
 import TwoLineInput from "./TwoLineInput/TwoLineInput";
 import { ButtonsContainer, StyledFieldset } from "./ContactForm.styled";
 import Button, { PrimaryButton } from "../Button/Button";
+import { useRouter } from "next/router";
 
-export default function ContactForm() {
+export default function ContactForm({ onAddNewContact }) {
+  const router = useRouter();
+
+  function handleCancelButton() {
+    router.back();
+  }
+
   return (
-    <form>
+    <form onSubmit={onAddNewContact}>
       <StyledFieldset>
         <legend>Personal Information</legend>
         <SingleLineInput
@@ -84,8 +91,10 @@ export default function ContactForm() {
       </StyledFieldset>
 
       <ButtonsContainer>
-        <Button type="button">Cancel</Button>
-        <PrimaryButton type="submit">Save</PrimaryButton>
+        <Button type="button" onClick={handleCancelButton}>
+          Cancel
+        </Button>
+        <PrimaryButton type="submit">Add new contact</PrimaryButton>
       </ButtonsContainer>
     </form>
   );

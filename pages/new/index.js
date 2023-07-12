@@ -1,9 +1,9 @@
 import ContactForm from "@/components/ContactForm/ContactForm";
 
-export default function CreateNewContact() {
+export default function CreateNewContact({ onAddNewContact }) {
   return (
     <>
-      <ContactForm />
+      <ContactForm onAddNewContact={onAddNewContact} />
     </>
   );
 }
