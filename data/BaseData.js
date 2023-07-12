@@ -1,3 +1,9 @@
+export const baseGender = [
+  { value: "male", label: "Male" },
+  { value: "female", label: "Female" },
+  { value: "diverse", label: "Diverse" },
+];
+
 export const interactionTypes = [
   {
     slug: "other",

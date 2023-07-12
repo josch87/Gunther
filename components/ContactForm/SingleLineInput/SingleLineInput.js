@@ -10,6 +10,7 @@ export default function SingleLineInput({
   labelContent,
   id,
   name,
+  max,
   options,
   isClearable = false,
   required = false,
@@ -32,5 +33,20 @@ export default function SingleLineInput({
     );
   }
 
-  return "Input type is missing";
+  if (type === "date") {
+    return (
+      <StyledTextInput>
+        <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
+        <StyledInput
+          type="date"
+          id={id}
+          name={name}
+          max={max}
+          required={required}
+        />
+      </StyledTextInput>
+    );
+  }
+
+  return "Input type is missing for SingleLineInput";
 }
