@@ -8,7 +8,9 @@ import SingleLineInput from "./SingleLineInput/SingleLineInput";
 import TwoLineInput from "./TwoLineInput/TwoLineInput";
 import {
   ButtonsContainer,
+  Heading,
   StyledFieldset,
+  StyledHeader,
   StyledTextarea,
 } from "./ContactForm.styled";
 import Button, { PrimaryButton } from "../Button/Button";
@@ -44,7 +46,11 @@ export default function ContactForm({ onAddNewContact }) {
 
   return (
     <>
-      <ContactDetailsHeader contact={currentContact} />
+      <StyledHeader>
+        <ContactDetailsHeader contact={currentContact} />
+      </StyledHeader>
+
+      <Heading>Create new contact</Heading>
       <form onSubmit={onAddNewContact}>
         <StyledFieldset>
           <legend>Personal Information</legend>

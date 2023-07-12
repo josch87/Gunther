@@ -1,5 +1,18 @@
 import { styled } from "styled-components";
 
+export const Heading = styled.h2`
+  font-size: 1rem;
+  margin: 1.5rem 0 1rem 0;
+`;
+
+export const StyledHeader = styled.div`
+  position: sticky;
+  z-index: 1;
+  top: var(--app-header-height);
+  background-color: white;
+  padding: 10px 0;
+`;
+
 export const StyledFieldset = styled.fieldset`
   border: none;
   margin-bottom: 20px;
