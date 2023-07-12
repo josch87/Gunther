@@ -8,7 +8,10 @@ export const contactsSampleData = [
     gender: "male",
     profilePicture: "649e91836af01f9b18155053.jpg",
     dateOfBirth: "1967-10-31T00:00:00.000Z",
-    email: { value: "chandler@friends.com", type: "Home" },
+    email: [
+      { value: "chandler@friends.com", type: "Home" },
+      { value: "chandler@gmail.com", type: "Work" },
+    ],
     phone: [
       { value: "+1 123 456 7890", type: "Work" },
       { value: "+1 987 654 3210", type: "Mobile" },
@@ -47,7 +50,7 @@ export const contactsSampleData = [
     gender: "male",
     profilePicture: "64a3c09b67fab6ab881108f7.jpg",
     dateOfBirth: "1967-10-18T00:00:00.000+00:00",
-    email: { value: "ross@friends.com", type: "Home" },
+    email: [{ value: "ross@friends.com", type: "Home" }],
     phone: [{ value: "+1 234 567 8901", type: "Work" }],
     address: [
       {
@@ -75,7 +78,7 @@ export const contactsSampleData = [
     gender: "female",
     profilePicture: "64a3c09d67fab6ab881108fa.jpg",
     dateOfBirth: "1969-05-05T00:00:00.000+00:00",
-    email: { value: "rachel@friends.com", type: "Home" },
+    email: [{ value: "rachel@friends.com", type: "Home" }],
     phone: [
       { value: "+1 345 678 9012", type: "Work" },
       { value: "+1 210 987 6543", type: "Mobile" },
@@ -107,7 +110,7 @@ export const contactsSampleData = [
     gender: "male",
     profilePicture: "64a3c09e67fab6ab881108fd.jpg",
     dateOfBirth: "1968-01-25T00:00:00.000+00:00",
-    email: { value: "joey@friends.com", type: "Home" },
+    email: [{ value: "joey@friends.com", type: "Home" }],
     phone: [
       { value: "+1 456 789 0123", type: "Work" },
       { value: "+1 321 098 7654", type: "Mobile" },
@@ -138,7 +141,7 @@ export const contactsSampleData = [
     gender: "female",
     profilePicture: "64a3c09e67fab6ab88110900.jpg",
     dateOfBirth: "1964-04-22T00:00:00.000+00:00",
-    email: { value: "monica@friends.com", type: "Home" },
+    email: [{ value: "monica@friends.com", type: "Home" }],
     phone: [
       { value: "+1 567 890 1234", type: "Work" },
       { value: "+1 432 109 8765", type: "Mobile" },
@@ -169,7 +172,7 @@ export const contactsSampleData = [
     gender: "female",
     profilePicture: "",
     dateOfBirth: "",
-    email: { value: "phoebe@friends.com", type: "Home" },
+    email: [{ value: "phoebe@friends.com", type: "Home" }],
     phone: [
       { value: "+1 789 012 3456", type: "Work" },
       { value: "+1 654 321 0987", type: "Mobile" },
@@ -200,7 +203,7 @@ export const contactsSampleData = [
     gender: "male",
     profilePicture: "",
     dateOfBirth: "1975-03-15T00:00:00.000Z",
-    email: { value: "gunther@centralperk.com", type: "Work" },
+    email: [{ value: "gunther@centralperk.com", type: "Work" }],
     phone: [{ value: "+1 123 456 7890", type: "Work" }],
     address: [
       {
@@ -228,7 +231,7 @@ export const contactsSampleData = [
     gender: "female",
     profilePicture: "",
     dateOfBirth: "1972-08-28T00:00:00.000Z",
-    email: { value: "janice@friends.com", type: "Home" },
+    email: [],
     phone: [{ value: "+1 234 567 8901", type: "Work" }],
     address: [
       {
@@ -239,10 +242,7 @@ export const contactsSampleData = [
         country: "USA",
       },
     ],
-    socialMedia: [
-      { platform: "Instagram", username: "janice_friends" },
-      { platform: "Twitter", username: "janice_friends" },
-    ],
+    socialMedia: [],
     notes: "Chandler's on-and-off girlfriend",
     dateCreated: "2023-07-11T10:01:00.000Z",
     dateDeleted: "",
@@ -256,7 +256,7 @@ export const contactsSampleData = [
     gender: "male",
     profilePicture: "",
     dateOfBirth: "1978-11-10T00:00:00.000Z",
-    email: { value: "mike@friends.com", type: "Work" },
+    email: [{ value: "mike@friends.com", type: "Work" }],
     phone: [{ value: "+1 345 678 9012", type: "Work" }],
     address: [
       {
@@ -284,7 +284,7 @@ export const contactsSampleData = [
     gender: "male",
     profilePicture: "",
     dateOfBirth: "1962-05-22T00:00:00.000Z",
-    email: { value: "richard@friends.com", type: "Work" },
+    email: [{ value: "richard@friends.com", type: "Work" }],
     phone: [{ value: "+1 456 789 0123", type: "Work" }],
     address: [
       {
@@ -312,7 +312,7 @@ export const contactsSampleData = [
     gender: "male",
     profilePicture: "",
     dateOfBirth: "1970-12-03T00:00:00.000Z",
-    email: { value: "frank@friends.com", type: "Work" },
+    email: [{ value: "frank@friends.com", type: "Work" }],
     phone: [{ value: "+1 567 890 1234", type: "Work" }],
     address: [
       {
@@ -340,7 +340,7 @@ export const contactsSampleData = [
     gender: "female",
     profilePicture: "",
     dateOfBirth: "",
-    email: { value: "estelle@friends.com", type: "Work" },
+    email: [{ value: "estelle@friends.com", type: "Work" }],
     phone: [{ value: "+1 789 012 3456", type: "Work" }],
     address: [
       {

@@ -7,7 +7,6 @@ import {
 } from "@/assets/Icons8";
 import ContactDetailsItem from "@/components/ContactDetailsItem/ContactDetailsItem";
 import {
-  getAddress,
   getGoogleMapsLink,
   getSocialMediaHyperlink,
   getSocialMediaIcon,
@@ -33,7 +32,24 @@ export default function ContactDetailsSection({ contact }) {
               />
             ) : null}
 
-            {contact.email ? (
+            {contact.email
+              ? contact.email.map((email, index) => {
+                  return (
+                    <Fragment key={index}>
+                      <ContactDetailsItem
+                        icon={materialEmail}
+                        iconAlt={`${contact.email.type} email address`}
+                        value={email.value}
+                        type={email.type}
+                        href={`mailto:${email.value}`}
+                        target="_blank"
+                      />
+                    </Fragment>
+                  );
+                })
+              : null}
+
+            {/* {contact.email ? (
               <ContactDetailsItem
                 icon={materialEmail}
                 iconAlt={`${contact.email.type} email address`}
@@ -41,7 +57,7 @@ export default function ContactDetailsSection({ contact }) {
                 type={contact.email.type}
                 href={`mailto:${contact.email.value}`}
               />
-            ) : null}
+            ) : null} */}
 
             {contact.phone
               ? contact.phone.map((phone, index) => (

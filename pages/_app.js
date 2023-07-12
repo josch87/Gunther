@@ -34,6 +34,7 @@ export default function App({ Component, pageProps }) {
       profilePicture: "",
       dateOfBirth: newContact.dateOfBirth,
       email: [],
+      address: [],
       socialMedia: [],
       notes: "",
       dateCreated: currentUtcDateTime,
