@@ -126,8 +126,7 @@ export default function App({ Component, pageProps }) {
 
     updateContacts([...contacts, formattedContact]);
 
-    console.log(newContact);
-    // router.push(newContactId);
+    router.push(newContactId);
   }
 
   return (
