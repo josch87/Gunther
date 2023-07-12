@@ -6,16 +6,15 @@ import {
   StyledInput,
   StyledLabel,
 } from "./TwoLineInput.styled";
-import { baseEmailInputType } from "@/data/BaseData";
 
 export default function TwoLineInput({
   type,
   labelContent,
   id,
+  typeId,
   name,
-  max,
+  typeName,
   options,
-  isClearable = false,
   required = false,
 }) {
   if (type === "email") {
@@ -26,12 +25,38 @@ export default function TwoLineInput({
           <StyledInput type="email" id={id} name={name} required={required} />
         </ColumnOne>
         <ColumnTwo>
-          <StyledLabel htmlFor={`${id}Type`}>Type</StyledLabel>
-          <CreatableSelect
-            id={`${id}Type`}
-            name={`${id}Type`}
-            options={baseEmailInputType}
-          />
+          <StyledLabel htmlFor={typeId}>Type</StyledLabel>
+          <CreatableSelect id={typeId} name={typeName} options={options} />
+        </ColumnTwo>
+      </Container>
+    );
+  }
+
+  if (type === "tel") {
+    return (
+      <Container>
+        <ColumnOne>
+          <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
+          <StyledInput type="tel" id={id} name={name} required={required} />
+        </ColumnOne>
+        <ColumnTwo>
+          <StyledLabel htmlFor={typeId}>Type</StyledLabel>
+          <CreatableSelect id={typeId} name={typeName} options={options} />
+        </ColumnTwo>
+      </Container>
+    );
+  }
+
+  if (type === "text") {
+    return (
+      <Container>
+        <ColumnOne>
+          <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
+          <StyledInput type="text" id={id} name={name} required={required} />
+        </ColumnOne>
+        <ColumnTwo>
+          <StyledLabel htmlFor={typeId}>Type</StyledLabel>
+          <CreatableSelect id={typeId} name={typeId} options={options} />
         </ColumnTwo>
       </Container>
     );

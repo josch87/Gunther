@@ -17,8 +17,6 @@ export default function App({ Component, pageProps }) {
     const formData = new FormData(event.target);
     const newContact = Object.fromEntries(formData);
 
-    console.log("data:", newContact);
-
     const newContactId = uid();
 
     const date = new Date();
@@ -33,14 +31,20 @@ export default function App({ Component, pageProps }) {
       gender: newContact.gender,
       profilePicture: "",
       dateOfBirth: newContact.dateOfBirth,
+      deceased: false,
       email: [],
+      phone: [],
       address: [],
       socialMedia: [],
-      notes: "",
+      notes: newContact.notes,
       dateCreated: currentUtcDateTime,
       dateDeleted: "",
       isSampleData: false,
     };
+
+    if (newContact.deceased) {
+      formattedContact.deceased = true;
+    }
 
     if (newContact.emailOne) {
       formattedContact.email.push({
@@ -52,6 +56,52 @@ export default function App({ Component, pageProps }) {
       formattedContact.email.push({
         value: newContact.emailTwo,
         type: newContact.emailTwoType,
+      });
+    }
+
+    if (newContact.phoneOne) {
+      formattedContact.phone.push({
+        value: newContact.phoneOne,
+        type: newContact.phoneOneType,
+      });
+    }
+
+    if (newContact.phoneTwo) {
+      formattedContact.phone.push({
+        value: newContact.phoneTwo,
+        type: newContact.phoneTwoType,
+      });
+    }
+
+    if (
+      newContact.addressOneType ||
+      newContact.addressOneStreet ||
+      newContact.addressOneZipCode ||
+      newContact.addressOneCity ||
+      newContact.addressOneCountry
+    ) {
+      formattedContact.address.push({
+        type: newContact.addressOneType,
+        street: newContact.addressOneStreet,
+        zipCode: newContact.addressOneZipCode,
+        city: newContact.addressOneCity,
+        country: newContact.addressOneCountry,
+      });
+    }
+
+    if (
+      newContact.addressTwoType ||
+      newContact.addressTwoStreet ||
+      newContact.addressTwoZipCode ||
+      newContact.addressTwoCity ||
+      newContact.addressTwoCountry
+    ) {
+      formattedContact.address.push({
+        type: newContact.addressTwoType,
+        street: newContact.addressTwoStreet,
+        zipCode: newContact.addressTwoZipCode,
+        city: newContact.addressTwoCity,
+        country: newContact.addressTwoCountry,
       });
     }
 
@@ -76,7 +126,8 @@ export default function App({ Component, pageProps }) {
 
     updateContacts([...contacts, formattedContact]);
 
-    router.push(newContactId);
+    console.log(newContact);
+    // router.push(newContactId);
   }
 
   return (

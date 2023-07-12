@@ -9,6 +9,17 @@ export const baseEmailInputType = [
   { value: "work", label: "Work" },
 ];
 
+export const basePhoneInputType = [
+  { value: "home", label: "Home" },
+  { value: "work", label: "Work" },
+  { value: "mobile", label: "Mobile" },
+];
+
+export const baseAddressInputType = [
+  { value: "home", label: "Home" },
+  { value: "work", label: "Work" },
+];
+
 export const interactionTypes = [
   {
     slug: "other",

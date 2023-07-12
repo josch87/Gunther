@@ -1,9 +1,20 @@
-import { baseGender } from "@/data/BaseData";
+import {
+  baseAddressInputType,
+  baseEmailInputType,
+  baseGender,
+  basePhoneInputType,
+} from "@/data/BaseData";
 import SingleLineInput from "./SingleLineInput/SingleLineInput";
 import TwoLineInput from "./TwoLineInput/TwoLineInput";
-import { ButtonsContainer, StyledFieldset } from "./ContactForm.styled";
+import {
+  ButtonsContainer,
+  StyledFieldset,
+  StyledTextarea,
+} from "./ContactForm.styled";
 import Button, { PrimaryButton } from "../Button/Button";
 import { useRouter } from "next/router";
+import City from "./City/City";
+import Checkbox from "./Checkbox/Checkbox";
 
 export default function ContactForm({ onAddNewContact }) {
   const router = useRouter();
@@ -56,6 +67,7 @@ export default function ContactForm({ onAddNewContact }) {
           name="dateOfBirth"
           max={new Date().toISOString().slice(0, 10)}
         />
+        <Checkbox id="deceased" name="deceased" labelContent="Deceased" />
       </StyledFieldset>
 
       <StyledFieldset>
@@ -64,13 +76,69 @@ export default function ContactForm({ onAddNewContact }) {
           type={"email"}
           labelContent="E-Mail"
           id="emailOne"
+          typeId="emailOneType"
           name="emailOne"
+          typeName="emailOneType"
+          options={baseEmailInputType}
         />
         <TwoLineInput
           type={"email"}
           labelContent="E-Mail"
           id="emailTwo"
+          typeId="emailTwoType"
           name="emailTwo"
+          typeName="emailTwoType"
+          options={baseEmailInputType}
+        />
+        <TwoLineInput
+          type={"tel"}
+          labelContent="Phone"
+          id="phoneOne"
+          typeID="phoneOneType"
+          name="phoneOne"
+          typeName="phoneOneType"
+          options={basePhoneInputType}
+        />
+        <TwoLineInput
+          type={"tel"}
+          labelContent="Phone"
+          id="phoneTwo"
+          typeId="phoneTwoType"
+          name="phoneTwo"
+          typeName="phoneTwoName"
+          options={basePhoneInputType}
+        />
+        <SingleLineInput
+          type={"text"}
+          labelContent="Street"
+          id="addressOneStreet"
+          name="addressOneStreet"
+        />
+        <City id="addressOne" name="addressOne" />
+        <TwoLineInput
+          type={"text"}
+          labelContent="Country"
+          id="addressOneCountry"
+          typeId="addressOneType"
+          name="addressOneCountry"
+          typeName="addressOneType"
+          options={baseAddressInputType}
+        />
+        <SingleLineInput
+          type={"text"}
+          labelContent="Street"
+          id="addressTwoStreet"
+          name="addressTwoStreet"
+        />
+        <City id="addressTwo" name="addressTwo" />
+        <TwoLineInput
+          type={"text"}
+          labelContent="Country"
+          id="addressTwoCountry"
+          typeId="addressTwoType"
+          name="addressTwoCountry"
+          typeName="addressTwoType"
+          options={baseAddressInputType}
         />
       </StyledFieldset>
 
@@ -94,6 +162,11 @@ export default function ContactForm({ onAddNewContact }) {
           id="facebook"
           name="facebook"
         />
+      </StyledFieldset>
+
+      <StyledFieldset>
+        <legend>Notes</legend>
+        <StyledTextarea name="notes" rows="10" maxLength="500"></StyledTextarea>
       </StyledFieldset>
 
       <ButtonsContainer>

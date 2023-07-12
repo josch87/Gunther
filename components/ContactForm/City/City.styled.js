@@ -6,7 +6,6 @@ export const Container = styled.div`
 `;
 
 export const ColumnOne = styled.div`
-  flex-grow: 3;
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;

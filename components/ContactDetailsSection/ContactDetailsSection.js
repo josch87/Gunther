@@ -42,22 +42,11 @@ export default function ContactDetailsSection({ contact }) {
                         value={email.value}
                         type={email.type}
                         href={`mailto:${email.value}`}
-                        target="_blank"
                       />
                     </Fragment>
                   );
                 })
               : null}
-
-            {/* {contact.email ? (
-              <ContactDetailsItem
-                icon={materialEmail}
-                iconAlt={`${contact.email.type} email address`}
-                value={contact.email.value}
-                type={contact.email.type}
-                href={`mailto:${contact.email.value}`}
-              />
-            ) : null} */}
 
             {contact.phone
               ? contact.phone.map((phone, index) => (

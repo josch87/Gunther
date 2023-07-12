@@ -11,3 +11,11 @@ export const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-around;
 `;
+
+export const StyledTextarea = styled.textarea`
+  width: 100%;
+  resize: none;
+  padding: 10px;
+  border: 1px solid var(--primary-text-color);
+  border-radius: 5px;
+`;
