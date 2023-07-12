@@ -2,6 +2,7 @@ import { baseGender } from "@/data/BaseData";
 import SingleLineInput from "./SingleLineInput/SingleLineInput";
 import TwoLineInput from "./TwoLineInput/TwoLineInput";
 import { StyledFieldset } from "./ContactForm.styled";
+import Button, { PrimaryButton } from "../Button/Button";
 
 export default function ContactForm() {
   return (
@@ -81,6 +82,9 @@ export default function ContactForm() {
           name="facebook"
         />
       </StyledFieldset>
+
+      <Button type="button">Cancel</Button>
+      <PrimaryButton type="submit">Save</PrimaryButton>
     </form>
   );
 }

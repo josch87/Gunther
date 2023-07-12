@@ -6,6 +6,7 @@ export default createGlobalStyle`
   --primary-text-color: #4b4b4b;
   --app-header-height: 60px;
   --app-side-padding: 20px;
+  --primary-color: #4dabf7;
 }
 
   *,
