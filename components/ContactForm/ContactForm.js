@@ -56,19 +56,7 @@ export default function ContactForm() {
           type={"email"}
           labelContent="E-Mail"
           id="email"
-          name="phone1"
-        />
-        <TwoLineInput
-          type={"tel"}
-          labelContent="Phone"
-          id="phone1"
-          name="phone1"
-        />
-        <TwoLineInput
-          type={"tel"}
-          labelContent="Phone"
-          id="phone1"
-          name="phone1"
+          name="email"
         />
       </StyledFieldset>
 

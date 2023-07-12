@@ -1,8 +1,12 @@
+import CreatableSelect from "react-select/creatable";
 import {
+  ColumnOne,
+  ColumnTwo,
+  Container,
   StyledInput,
   StyledLabel,
-  StyledTextInput,
 } from "./TwoLineInput.styled";
+import { baseEmailInputType } from "@/data/BaseData";
 
 export default function TwoLineInput({
   type,
@@ -16,19 +20,21 @@ export default function TwoLineInput({
 }) {
   if (type === "email") {
     return (
-      <StyledTextInput>
-        <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
-        <StyledInput type="email" id={id} name={name} required={required} />
-      </StyledTextInput>
-    );
-  }
-
-  if (type === "tel") {
-    return (
-      <StyledTextInput>
-        <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
-        <StyledInput type="tel" id={id} name={name} required={required} />
-      </StyledTextInput>
+      <Container>
+        <ColumnOne>
+          <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
+          <StyledInput type="email" id={id} name={name} required={required} />
+        </ColumnOne>
+        <ColumnTwo>
+          <StyledLabel htmlFor={`${id}Type`}>Type</StyledLabel>
+          <CreatableSelect
+            id={`${id}Type`}
+            name={`${id}Type`}
+            options={baseEmailInputType}
+            required
+          />
+        </ColumnTwo>
+      </Container>
     );
   }
 

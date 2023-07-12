@@ -1,9 +1,5 @@
 import Select from "react-select";
-import {
-  StyledInput,
-  StyledTextInput,
-  StyledLabel,
-} from "./SingleLineInput.styled";
+import { StyledInput, StyledLabel, Container } from "./SingleLineInput.styled";
 
 export default function SingleLineInput({
   type,
@@ -17,25 +13,25 @@ export default function SingleLineInput({
 }) {
   if (type === "text") {
     return (
-      <StyledTextInput>
+      <Container>
         <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
         <StyledInput type="text" id={id} name={name} required={required} />
-      </StyledTextInput>
+      </Container>
     );
   }
 
   if (type === "singleSelect") {
     return (
-      <StyledTextInput>
+      <Container>
         <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
         <Select options={options} isClearable={isClearable} />
-      </StyledTextInput>
+      </Container>
     );
   }
 
   if (type === "date") {
     return (
-      <StyledTextInput>
+      <Container>
         <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
         <StyledInput
           type="date"
@@ -44,7 +40,7 @@ export default function SingleLineInput({
           max={max}
           required={required}
         />
-      </StyledTextInput>
+      </Container>
     );
   }
 

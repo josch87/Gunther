@@ -4,6 +4,11 @@ export const baseGender = [
   { value: "diverse", label: "Diverse" },
 ];
 
+export const baseEmailInputType = [
+  { value: "home", label: "Home" },
+  { value: "work", label: "Work" },
+];
+
 export const interactionTypes = [
   {
     slug: "other",

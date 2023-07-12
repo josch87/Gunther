@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const StyledTextInput = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
