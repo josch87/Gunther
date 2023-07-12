@@ -15,6 +15,7 @@ export const ButtonsContainer = styled.div`
 export const StyledTextarea = styled.textarea`
   width: 100%;
   resize: none;
+  margin-bottom: 15px;
   padding: 10px;
   border: 1px solid var(--primary-text-color);
   border-radius: 5px;
