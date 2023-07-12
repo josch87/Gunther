@@ -10,12 +10,19 @@ export default function SingleLineInput({
   options,
   isClearable = false,
   required = false,
+  onChange,
 }) {
   if (type === "text") {
     return (
       <Container>
         <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
-        <StyledInput type="text" id={id} name={name} required={required} />
+        <StyledInput
+          type="text"
+          id={id}
+          name={name}
+          required={required}
+          onChange={onChange}
+        />
       </Container>
     );
   }
@@ -39,6 +46,7 @@ export default function SingleLineInput({
           name={name}
           max={max}
           required={required}
+          onChange={onChange}
         />
       </Container>
     );
