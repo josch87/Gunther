@@ -33,13 +33,26 @@ export default function App({ Component, pageProps }) {
       gender: newContact.gender,
       profilePicture: "",
       dateOfBirth: newContact.dateOfBirth,
-      email: { value: newContact.email, type: newContact.emailType },
+      email: [],
       socialMedia: [],
       notes: "",
       dateCreated: currentUtcDateTime,
       dateDeleted: "",
       isSampleData: false,
     };
+
+    if (newContact.emailOne) {
+      formattedContact.email.push({
+        value: newContact.emailOne,
+        type: newContact.emailOneType,
+      });
+    }
+    if (newContact.emailTwo) {
+      formattedContact.email.push({
+        value: newContact.emailTwo,
+        type: newContact.emailTwoType,
+      });
+    }
 
     if (newContact.instagram) {
       formattedContact.socialMedia.push({

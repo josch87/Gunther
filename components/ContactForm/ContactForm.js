@@ -63,8 +63,14 @@ export default function ContactForm({ onAddNewContact }) {
         <TwoLineInput
           type={"email"}
           labelContent="E-Mail"
-          id="email"
-          name="email"
+          id="emailOne"
+          name="emailOne"
+        />
+        <TwoLineInput
+          type={"email"}
+          labelContent="E-Mail"
+          id="emailTwo"
+          name="emailTwo"
         />
       </StyledFieldset>
 
