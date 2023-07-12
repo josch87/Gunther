@@ -6,3 +6,8 @@ export const StyledFieldset = styled.fieldset`
   background-color: #f5f5f5;
   padding: 10px 10px 0 10px;
 `;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;

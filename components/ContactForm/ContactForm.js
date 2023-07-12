@@ -1,7 +1,7 @@
 import { baseGender } from "@/data/BaseData";
 import SingleLineInput from "./SingleLineInput/SingleLineInput";
 import TwoLineInput from "./TwoLineInput/TwoLineInput";
-import { StyledFieldset } from "./ContactForm.styled";
+import { ButtonsContainer, StyledFieldset } from "./ContactForm.styled";
 import Button, { PrimaryButton } from "../Button/Button";
 
 export default function ContactForm() {
@@ -83,8 +83,10 @@ export default function ContactForm() {
         />
       </StyledFieldset>
 
-      <Button type="button">Cancel</Button>
-      <PrimaryButton type="submit">Save</PrimaryButton>
+      <ButtonsContainer>
+        <Button type="button">Cancel</Button>
+        <PrimaryButton type="submit">Save</PrimaryButton>
+      </ButtonsContainer>
     </form>
   );
 }
