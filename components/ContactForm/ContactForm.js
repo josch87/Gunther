@@ -24,10 +24,6 @@ import { uid } from "uid";
 export default function ContactForm({ onAddNewContact }) {
   const router = useRouter();
 
-  function handleCancelButton() {
-    router.back();
-  }
-
   const [currentContact, setCurrentContact] = useState({
     firstName: "New contact",
     middleName: "",
@@ -47,6 +43,10 @@ export default function ContactForm({ onAddNewContact }) {
     if (fieldName === "dateOfBirth") {
       setCurrentContact({ ...currentContact, dateOfBirth: event.target.value });
     }
+  }
+
+  function handleCancelButton() {
+    router.back();
   }
 
   function handleSubmitForm(event) {
