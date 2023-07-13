@@ -370,7 +370,9 @@ export default function ContactForm({ onAddNewContact }) {
           <Button type="button" onClick={handleCancelButton}>
             Cancel
           </Button>
-          <PrimaryButton type="submit">Add new contact</PrimaryButton>
+          <Button type="submit" buttonType="primary">
+            Add new contact
+          </Button>
         </ButtonsContainer>
       </form>
     </>
