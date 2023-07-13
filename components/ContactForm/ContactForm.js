@@ -54,8 +54,8 @@ export default function ContactForm({ onAddNewContact }) {
         <ContactDetailsHeader contact={currentContact} />
       </StyledHeader>
 
-      <Heading>Create new contact</Heading>
-      <form onSubmit={onAddNewContact}>
+      <Heading id="form-heading">Create new contact</Heading>
+      <form aria-labelledby="form-heading" onSubmit={onAddNewContact}>
         <StyledFieldset>
           <legend>Personal Information</legend>
           <SingleLineInput
