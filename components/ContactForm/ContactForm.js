@@ -27,7 +27,11 @@ export default function ContactForm({ onAddNewContact }) {
     router.back();
   }
 
-  const [currentContact, setCurrentContact] = useState({});
+  const [currentContact, setCurrentContact] = useState({
+    firstName: "New contact",
+    middleName: "",
+    lastName: "",
+  });
 
   function handleUserInput(event, fieldName) {
     if (fieldName === "firstName") {
@@ -56,7 +60,7 @@ export default function ContactForm({ onAddNewContact }) {
           <legend>Personal Information</legend>
           <SingleLineInput
             type={"text"}
-            labelContent="First name"
+            labelContent="First name (required)"
             id="firstName"
             name="firstName"
             onChange={(event) => handleUserInput(event, "firstName")}
