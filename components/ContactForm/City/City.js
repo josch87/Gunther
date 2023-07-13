@@ -15,6 +15,7 @@ export default function City({ id, name, required = false }) {
           type="text"
           id={`${id}ZipCode`}
           name={`${name}ZipCode`}
+          size="5"
           required={required}
         />
       </ColumnOne>
@@ -24,6 +25,7 @@ export default function City({ id, name, required = false }) {
           type="text"
           id={`${id}City`}
           name={`${name}City`}
+          size="10"
           required={required}
         />
       </ColumnTwo>

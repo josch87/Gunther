@@ -9,11 +9,13 @@ export const ColumnOne = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
+  width: 70%;
 `;
 export const ColumnTwo = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
+  width: 100%;
 `;
 
 export const StyledLabel = styled.label`

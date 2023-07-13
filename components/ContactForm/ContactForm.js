@@ -116,7 +116,7 @@ export default function ContactForm({ onAddNewContact }) {
             typeName="emailOneType"
             options={baseEmailInputType}
           />
-          {/* <TwoLineInput
+          <TwoLineInput
             type={"email"}
             labelContent="E-Mail"
             id="emailTwo"
@@ -174,7 +174,7 @@ export default function ContactForm({ onAddNewContact }) {
             name="addressTwoCountry"
             typeName="addressTwoType"
             options={baseAddressInputType}
-          /> */}
+          />
         </StyledFieldset>
 
         <StyledFieldset>
