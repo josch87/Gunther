@@ -3,10 +3,15 @@ export const contactTestData = {
   firstName: "Chandler",
   middleName: "Muriel",
   lastName: "Bing",
+  nickName: "Chan",
   gender: "male",
   profilePicture: "649e91836af01f9b18155053.jpg",
-  dateOfBirth: "1967-10-31T00:00:00.000+00:00",
-  email: { value: "chandler@friends.com", type: "Home" },
+  dateOfBirth: "1967-10-31T00:00:00.000Z",
+  deceased: "",
+  email: [
+    { value: "chandler@friends.com", type: "Home" },
+    { value: "chandler@gmail.com", type: "Work" },
+  ],
   phone: [
     { value: "+1 123 456 7890", type: "Work" },
     { value: "+1 987 654 3210", type: "Mobile" },
@@ -19,12 +24,21 @@ export const contactTestData = {
       city: "New York",
       country: "USA",
     },
+    {
+      type: "Work",
+      street: "5515 Melrose Ave",
+      zipCode: "90038",
+      city: "Los Angeles",
+      country: "USA",
+    },
   ],
   socialMedia: [
     { platform: "Instagram", username: "chandler_bingofficial" },
     { platform: "Twitter", username: "chandler_bing" },
+    { platform: "Facebook", username: "chandlerbingssarcasm" },
   ],
-  notes: "Sarcastic and funny. Loves to crack jokes.",
+  notes:
+    "Sarcastic and funny. Loves to crack jokes. Chandler Bing, known for his sarcasm and wit, is a beloved character from Friends. With a quick sense of humor, he never fails to crack jokes that leave everyone laughing. Despite his playful demeanor, Chandler also exhibits moments of vulnerability, showing a deeply caring side. His unique blend of charm and comedic timing makes him a memorable and endearing friend. Chandler's ability to navigate life's ups and downs with humor and a big heart is what truly sets him apart.",
   dateCreated: "2023-07-06T16:48:25.000+00:00",
   dateDeleted: "",
   isSampleData: true,
@@ -36,10 +50,15 @@ export const contactsTestData = [
     firstName: "Chandler",
     middleName: "Muriel",
     lastName: "Bing",
+    nickName: "Chan",
     gender: "male",
     profilePicture: "649e91836af01f9b18155053.jpg",
-    dateOfBirth: "1967-10-31T00:00:00.000+00:00",
-    email: { value: "chandler@friends.com", type: "Home" },
+    dateOfBirth: "1967-10-31T00:00:00.000Z",
+    deceased: "",
+    email: [
+      { value: "chandler@friends.com", type: "Home" },
+      { value: "chandler@gmail.com", type: "Work" },
+    ],
     phone: [
       { value: "+1 123 456 7890", type: "Work" },
       { value: "+1 987 654 3210", type: "Mobile" },
@@ -63,8 +82,10 @@ export const contactsTestData = [
     socialMedia: [
       { platform: "Instagram", username: "chandler_bingofficial" },
       { platform: "Twitter", username: "chandler_bing" },
+      { platform: "Facebook", username: "chandlerbingssarcasm" },
     ],
-    notes: "Sarcastic and funny. Loves to crack jokes.",
+    notes:
+      "Sarcastic and funny. Loves to crack jokes. Chandler Bing, known for his sarcasm and wit, is a beloved character from Friends. With a quick sense of humor, he never fails to crack jokes that leave everyone laughing. Despite his playful demeanor, Chandler also exhibits moments of vulnerability, showing a deeply caring side. His unique blend of charm and comedic timing makes him a memorable and endearing friend. Chandler's ability to navigate life's ups and downs with humor and a big heart is what truly sets him apart.",
     dateCreated: "2023-07-06T16:48:25.000+00:00",
     dateDeleted: "",
     isSampleData: true,
@@ -77,11 +98,8 @@ export const contactsTestData = [
     gender: "male",
     profilePicture: "64a3c09b67fab6ab881108f7.jpg",
     dateOfBirth: "1967-10-18T00:00:00.000+00:00",
-    email: { value: "ross@friends.com", type: "Home" },
-    phone: [
-      { value: "+1 234 567 8901", type: "Work" },
-      { value: "+1 876 543 2109", type: "Mobile" },
-    ],
+    email: [{ value: "ross@friends.com", type: "Home" }],
+    phone: [{ value: "+1 234 567 8901", type: "Work" }],
     address: [
       {
         type: "Home",
@@ -108,10 +126,11 @@ export const contactsTestData = [
     gender: "female",
     profilePicture: "64a3c09d67fab6ab881108fa.jpg",
     dateOfBirth: "1969-05-05T00:00:00.000+00:00",
-    email: { value: "rachel@friends.com", type: "Home" },
+    email: [{ value: "rachel@friends.com", type: "Home" }],
     phone: [
       { value: "+1 345 678 9012", type: "Work" },
       { value: "+1 210 987 6543", type: "Mobile" },
+      { value: "+1 325 215 3152", type: "Work" },
     ],
     address: [
       {
@@ -139,7 +158,7 @@ export const contactsTestData = [
     gender: "male",
     profilePicture: "64a3c09e67fab6ab881108fd.jpg",
     dateOfBirth: "1968-01-25T00:00:00.000+00:00",
-    email: { value: "joey@friends.com", type: "Home" },
+    email: [{ value: "joey@friends.com", type: "Home" }],
     phone: [
       { value: "+1 456 789 0123", type: "Work" },
       { value: "+1 321 098 7654", type: "Mobile" },

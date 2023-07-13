@@ -8,6 +8,7 @@ export const contactsSampleData = [
     gender: "male",
     profilePicture: "649e91836af01f9b18155053.jpg",
     dateOfBirth: "1967-10-31T00:00:00.000Z",
+    deceased: "",
     email: [
       { value: "chandler@friends.com", type: "Home" },
       { value: "chandler@gmail.com", type: "Work" },
