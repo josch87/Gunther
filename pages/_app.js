@@ -6,14 +6,12 @@ import useLocalStorageState from "use-local-storage-state";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
-  const [contacts, updateContacts] = useLocalStorageState("contacts", {
+  const [contacts, setContacts] = useLocalStorageState("contacts", {
     defaultValue: contactsSampleData,
   });
 
   function handleAddNewContact(newFormattedContact) {
-    updateContacts([...contacts, newFormattedContact]);
-
-    router.push(newFormattedContact.id);
+    setContacts([...contacts, newFormattedContact]);
   }
 
   return (

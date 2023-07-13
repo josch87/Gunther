@@ -107,82 +107,11 @@ export default function ContactForm({ onAddNewContact }) {
         },
       ].filter((address) => Object.values(address).some(Boolean)),
       socialMedia: [],
-      // socialMedia: [
-      //   newContact.instagram
-      //     ? {
-      //         platform: "Instagram",
-      //         username: newContact.instagram,
-      //       }
-      //     : null,
-      // ],
       notes: newContact.notes,
       dateCreated: currentUtcDateTime,
       dateDeleted: "",
       isSampleData: false,
     };
-
-    // if (newContact.deceased) {
-    //   formattedContact.deceased = true;
-    // }
-
-    // if (newContact.emailOne) {
-    //   formattedContact.email.push({
-    //     value: newContact.emailOne,
-    //     type: newContact.emailOneType,
-    //   });
-    // }
-    // if (newContact.emailTwo) {
-    //   formattedContact.email.push({
-    //     value: newContact.emailTwo,
-    //     type: newContact.emailTwoType,
-    //   });
-    // }
-
-    // if (newContact.phoneOne) {
-    //   formattedContact.phone.push({
-    //     value: newContact.phoneOne,
-    //     type: newContact.phoneOneType,
-    //   });
-    // }
-
-    // if (newContact.phoneTwo) {
-    //   formattedContact.phone.push({
-    //     value: newContact.phoneTwo,
-    //     type: newContact.phoneTwoType,
-    //   });
-    // }
-
-    // if (
-    //   newContact.addressOneType ||
-    //   newContact.addressOneStreet ||
-    //   newContact.addressOneZipCode ||
-    //   newContact.addressOneCity ||
-    //   newContact.addressOneCountry
-    // ) {
-    //   formattedContact.address.push({
-    //     type: newContact.addressOneType,
-    //     street: newContact.addressOneStreet,
-    //     zipCode: newContact.addressOneZipCode,
-    //     city: newContact.addressOneCity,
-    //     country: newContact.addressOneCountry,
-    //   });
-    // }
-
-    // if (
-    //   newContact.addressTwoType ||
-    //   newContact.addressTwoStreet ||
-    //   newContact.addressTwoZipCode ||
-    //   newContact.addressTwoCity ||
-    //   newContact.addressTwoCountry
-    // ) {
-    //   formattedContact.address.push({
-    //     type: newContact.addressTwoType,
-    //     street: newContact.addressTwoStreet,
-    //     zipCode: newContact.addressTwoZipCode,
-    //     city: newContact.addressTwoCity,
-    //     country: newContact.addressTwoCountry,
-    //   });
-    // }
 
     if (newContact.instagram) {
       formattedContact.socialMedia.push({
@@ -204,6 +133,7 @@ export default function ContactForm({ onAddNewContact }) {
     }
 
     onAddNewContact(formattedContact);
+    router.push(formattedContact.id);
   }
 
   return (
