@@ -1,13 +1,12 @@
 import GlobalStyle from "../styles";
-import { useImmerLocalStorageState } from "@/hooks/useImmerLocalStorageState";
 import { contactsSampleData } from "@/data/SampleData";
 import Layout from "@/components/Layout/Layout";
-import { uid } from "uid";
 import { useRouter } from "next/router";
+import useLocalStorageState from "use-local-storage-state";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
-  const [contacts, updateContacts] = useImmerLocalStorageState("contacts", {
+  const [contacts, updateContacts] = useLocalStorageState("contacts", {
     defaultValue: contactsSampleData,
   });
 

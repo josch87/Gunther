@@ -106,14 +106,15 @@ export default function ContactForm({ onAddNewContact }) {
           country: newContact.addressTwoCountry,
         },
       ].filter((address) => Object.values(address).some(Boolean)),
-      socialMedia: [
-        newContact.instagram
-          ? {
-              platform: "Instagram",
-              username: newContact.instagram,
-            }
-          : null,
-      ],
+      socialMedia: [],
+      // socialMedia: [
+      //   newContact.instagram
+      //     ? {
+      //         platform: "Instagram",
+      //         username: newContact.instagram,
+      //       }
+      //     : null,
+      // ],
       notes: newContact.notes,
       dateCreated: currentUtcDateTime,
       dateDeleted: "",
@@ -183,12 +184,12 @@ export default function ContactForm({ onAddNewContact }) {
     //   });
     // }
 
-    // if (newContact.instagram) {
-    //   formattedContact.socialMedia.push({
-    //     platform: "Instagram",
-    //     username: newContact.instagram,
-    //   });
-    // }
+    if (newContact.instagram) {
+      formattedContact.socialMedia.push({
+        platform: "Instagram",
+        username: newContact.instagram,
+      });
+    }
     if (newContact.twitter) {
       formattedContact.socialMedia.push({
         platform: "Twitter",
