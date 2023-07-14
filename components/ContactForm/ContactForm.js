@@ -26,6 +26,7 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
   const router = useRouter();
 
   const [currentContact, setCurrentContact] = useState({ ...contact });
+  const isEqual = JSON.stringify(currentContact) === JSON.stringify(contact);
 
   function handleUserInput(event, fieldName) {
     if (fieldName === "firstName") {
@@ -37,11 +38,24 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
     if (fieldName === "lastName") {
       setCurrentContact({ ...currentContact, lastName: event.target.value });
     }
+    if (fieldName === "nickName") {
+      setCurrentContact({ ...currentContact, nickName: event.target.value });
+    }
     if (fieldName === "dateOfBirth") {
       setCurrentContact({ ...currentContact, dateOfBirth: event.target.value });
     }
-    if (fieldName === "nickName") {
-      setCurrentContact({ ...currentContact, nickName: event.target.value });
+    if (fieldName === "instagram") {
+      const updatedSocialMedia = currentContact.socialMedia.map((media) => {
+        if (media.platform === "Instagram") {
+          return { ...media, username: event.target.value };
+        }
+        return media;
+      });
+
+      setCurrentContact({
+        ...currentContact,
+        socialMedia: { updatedSocialMedia },
+      });
     }
     if (fieldName === "notes") {
       setCurrentContact({ ...currentContact, notes: event.target.value });
@@ -128,6 +142,12 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
     onAddNewContact(formattedContact);
     router.push(formattedContact.id);
   }
+
+  const instagram = currentContact.socialMedia.find(
+    (media) => media.platform === "Instagram"
+  );
+
+  console.log(currentContact);
 
   return (
     <>
@@ -279,7 +299,8 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             labelContent="Instagram"
             id="instagram"
             name="instagram"
-            value={currentContact.instagram}
+            value={instagram ? instagram.username : ""}
+            onChange={(event) => handleUserInput(event, "instagram")}
           />
           <SingleLineInput
             type={"text"}
@@ -310,7 +331,7 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
           <Button type="button" onClick={() => router.back()}>
             Cancel
           </Button>
-          <Button type="submit" buttonType="primary">
+          <Button type="submit" buttonType="primary" disabled={isEqual}>
             {type === "update" ? "Update contact" : "Add new contact"}
           </Button>
         </ButtonsContainer>
