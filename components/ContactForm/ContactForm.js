@@ -57,7 +57,6 @@ export default function ContactForm({ onAddNewContact }) {
     const currentUtcDateTime = date.toISOString();
 
     const formattedContact = {
-      ...newContact,
       id: newContactId,
       firstName: newContact.firstName,
       middleName: newContact.middleName,
