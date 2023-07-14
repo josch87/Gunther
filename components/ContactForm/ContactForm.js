@@ -61,6 +61,7 @@ export default function ContactForm({ onAddNewContact }) {
     const currentUtcDateTime = date.toISOString();
 
     const formattedContact = {
+      ...newContact,
       id: newContactId,
       firstName: newContact.firstName,
       middleName: newContact.middleName,
@@ -106,31 +107,25 @@ export default function ContactForm({ onAddNewContact }) {
           country: newContact.addressTwoCountry,
         },
       ].filter((address) => Object.values(address).some(Boolean)),
-      socialMedia: [],
+      socialMedia: [
+        {
+          platform: "Instagram",
+          username: newContact.instagram,
+        },
+        {
+          platform: "Twitter",
+          username: newContact.twitter,
+        },
+        {
+          platform: "Facebook",
+          username: newContact.facebook,
+        },
+      ].filter((socialMedia) => (socialMedia.username ? true : false)),
       notes: newContact.notes,
       dateCreated: currentUtcDateTime,
       dateDeleted: "",
       isSampleData: false,
     };
-
-    if (newContact.instagram) {
-      formattedContact.socialMedia.push({
-        platform: "Instagram",
-        username: newContact.instagram,
-      });
-    }
-    if (newContact.twitter) {
-      formattedContact.socialMedia.push({
-        platform: "Twitter",
-        username: newContact.twitter,
-      });
-    }
-    if (newContact.facebook) {
-      formattedContact.socialMedia.push({
-        platform: "Facebook",
-        username: newContact.facebook,
-      });
-    }
 
     onAddNewContact(formattedContact);
     router.push(formattedContact.id);

@@ -1,4 +1,3 @@
-import Logo from "@/assets/gunther_logo_transparent_1500.png";
 import { LogoLink, StyledHeader, StyledLogo } from "./Header.styled";
 import Image from "next/image";
 import { materialPlus } from "@/assets/Icons8";
@@ -9,10 +8,10 @@ export default function Header() {
     <StyledHeader>
       <LogoLink href="/">
         <StyledLogo
-          src={Logo}
+          src="/gunther_logo_transparent_1500.png"
           width={1500}
           height={255}
-          priority={true}
+          $priority={true}
           alt="Gunther Logo"
         />
       </LogoLink>
