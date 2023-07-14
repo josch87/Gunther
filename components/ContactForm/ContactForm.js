@@ -45,10 +45,6 @@ export default function ContactForm({ onAddNewContact }) {
     }
   }
 
-  function handleCancelButton() {
-    router.back();
-  }
-
   function handleSubmitForm(event) {
     event.preventDefault();
 
@@ -120,7 +116,7 @@ export default function ContactForm({ onAddNewContact }) {
           platform: "Facebook",
           username: newContact.facebook,
         },
-      ].filter((socialMedia) => (socialMedia.username ? true : false)),
+      ].filter((socialMedia) => socialMedia.username),
       notes: newContact.notes,
       dateCreated: currentUtcDateTime,
       dateDeleted: "",
@@ -292,7 +288,7 @@ export default function ContactForm({ onAddNewContact }) {
         </StyledFieldset>
 
         <ButtonsContainer>
-          <Button type="button" onClick={handleCancelButton}>
+          <Button type="button" onClick={() => router.back()}>
             Cancel
           </Button>
           <Button type="submit" buttonType="primary">
