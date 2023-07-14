@@ -17,7 +17,7 @@ export default function EditContactPage({ contacts }) {
 
   return (
     <>
-      <ContactForm />
+      <ContactForm type="update" contact={contact} />
     </>
   );
 }

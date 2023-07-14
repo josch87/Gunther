@@ -3,7 +3,10 @@ import ContactForm from "@/components/ContactForm/ContactForm";
 export default function CreateNewContactPage({ onAddNewContact }) {
   return (
     <>
-      <ContactForm onAddNewContact={onAddNewContact} />
+      <ContactForm
+        onAddNewContact={onAddNewContact}
+        headingContent="Create new contact"
+      />
     </>
   );
 }

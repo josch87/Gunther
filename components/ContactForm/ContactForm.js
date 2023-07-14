@@ -20,15 +20,12 @@ import Checkbox from "./Checkbox/Checkbox";
 import ContactDetailsHeader from "../ContactDetailsHeader/ContactDetailsHeader";
 import { useState } from "react";
 import { uid } from "uid";
+import { current } from "immer";
 
-export default function ContactForm({ onAddNewContact }) {
+export default function ContactForm({ onAddNewContact, type, contact }) {
   const router = useRouter();
 
-  const [currentContact, setCurrentContact] = useState({
-    firstName: "New contact",
-    middleName: "",
-    lastName: "",
-  });
+  const [currentContact, setCurrentContact] = useState({ ...contact });
 
   function handleUserInput(event, fieldName) {
     if (fieldName === "firstName") {
@@ -42,6 +39,12 @@ export default function ContactForm({ onAddNewContact }) {
     }
     if (fieldName === "dateOfBirth") {
       setCurrentContact({ ...currentContact, dateOfBirth: event.target.value });
+    }
+    if (fieldName === "nickName") {
+      setCurrentContact({ ...currentContact, nickName: event.target.value });
+    }
+    if (fieldName === "notes") {
+      setCurrentContact({ ...currentContact, notes: event.target.value });
     }
   }
 
@@ -132,7 +135,9 @@ export default function ContactForm({ onAddNewContact }) {
         <ContactDetailsHeader contact={currentContact} />
       </StyledHeader>
 
-      <Heading id="form-heading">Create new contact</Heading>
+      <Heading id="form-heading">
+        {type === "update" ? "Update contact" : "Create new contact"}
+      </Heading>
       <form aria-labelledby="form-heading" onSubmit={handleSubmitForm}>
         <StyledFieldset>
           <legend>Personal Information</legend>
@@ -141,6 +146,7 @@ export default function ContactForm({ onAddNewContact }) {
             labelContent="First name (required)"
             id="firstName"
             name="firstName"
+            value={currentContact.firstName}
             onChange={(event) => handleUserInput(event, "firstName")}
             required
           />
@@ -149,6 +155,7 @@ export default function ContactForm({ onAddNewContact }) {
             labelContent="Middle name"
             id="middleName"
             name="middleName"
+            value={currentContact.middleName}
             onChange={(event) => handleUserInput(event, "middleName")}
           />
           <SingleLineInput
@@ -156,6 +163,7 @@ export default function ContactForm({ onAddNewContact }) {
             labelContent="Last name"
             id="lastName"
             name="lastName"
+            value={currentContact.lastName}
             onChange={(event) => handleUserInput(event, "lastName")}
           />
           <SingleLineInput
@@ -163,12 +171,16 @@ export default function ContactForm({ onAddNewContact }) {
             labelContent="Nickname"
             id="nickName"
             name="nickName"
+            value={currentContact.nickName}
+            onChange={(event) => handleUserInput(event, "nickName")}
           />
           <SingleLineInput
             type={"singleSelect"}
             labelContent="Gender"
             id="gender"
             name="gender"
+            value={currentContact.gender}
+            // onChange={(event) => handleUserInput(event, "gender")}
             options={baseGender}
             isClearable={true}
           />
@@ -178,6 +190,11 @@ export default function ContactForm({ onAddNewContact }) {
             id="dateOfBirth"
             name="dateOfBirth"
             max={new Date().toISOString().slice(0, 10)}
+            value={
+              currentContact.dateOfBirth
+                ? currentContact.dateOfBirth.substring(0, 10)
+                : null
+            }
             onChange={(event) => handleUserInput(event, "dateOfBirth")}
           />
           <Checkbox id="deceased" name="deceased" labelContent="Deceased" />
@@ -262,6 +279,7 @@ export default function ContactForm({ onAddNewContact }) {
             labelContent="Instagram"
             id="instagram"
             name="instagram"
+            value={currentContact.instagram}
           />
           <SingleLineInput
             type={"text"}
@@ -282,7 +300,9 @@ export default function ContactForm({ onAddNewContact }) {
           <StyledTextarea
             name="notes"
             rows="10"
-            maxLength="500"
+            maxLength="600"
+            value={currentContact.notes}
+            onChange={(event) => handleUserInput(event, "notes")}
           ></StyledTextarea>
         </StyledFieldset>
 
@@ -291,7 +311,7 @@ export default function ContactForm({ onAddNewContact }) {
             Cancel
           </Button>
           <Button type="submit" buttonType="primary">
-            Add new contact
+            {type === "update" ? "Update contact" : "Add new contact"}
           </Button>
         </ButtonsContainer>
       </form>
