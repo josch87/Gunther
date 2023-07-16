@@ -20,7 +20,6 @@ import Checkbox from "./Checkbox/Checkbox";
 import ContactDetailsHeader from "../ContactDetailsHeader/ContactDetailsHeader";
 import { useState } from "react";
 import { uid } from "uid";
-import { current } from "immer";
 
 export default function ContactForm({ onAddNewContact, type, contact }) {
   const router = useRouter();
@@ -28,7 +27,7 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
   const [currentContact, setCurrentContact] = useState({ ...contact });
   const isEqual = JSON.stringify(currentContact) === JSON.stringify(contact);
 
-  function handleUserInput(event, fieldName) {
+  function handleUserInput(event, fieldName, fieldIndex) {
     if (fieldName === "firstName") {
       setCurrentContact({ ...currentContact, firstName: event.target.value });
     }
@@ -44,6 +43,21 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
     if (fieldName === "dateOfBirth") {
       setCurrentContact({ ...currentContact, dateOfBirth: event.target.value });
     }
+
+    if (fieldName === "emailOne") {
+      const updatedEmailOne = currentContact.email.map((email, index) => {
+        if (index === fieldIndex) {
+          return { ...email, value: event.target.value };
+        }
+        return email;
+      });
+
+      setCurrentContact({
+        ...currentContact,
+        email: updatedEmailOne,
+      });
+    }
+
     if (fieldName === "instagram") {
       const updatedSocialMedia = currentContact.socialMedia.map((media) => {
         if (media.platform === "Instagram") {
@@ -271,7 +285,8 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             name="emailOne"
             typeName="emailOneType"
             options={baseEmailInputType}
-            // value="test"
+            value={currentContact.email ? currentContact.email[0].value : ""}
+            onChange={(event) => handleUserInput(event, "emailOne", 0)}
           />
           <TwoLineInput
             type={"email"}
@@ -281,6 +296,8 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             name="emailTwo"
             typeName="emailTwoType"
             options={baseEmailInputType}
+            value={currentContact.email ? currentContact.email[1].value : ""}
+            onChange={(event) => handleUserInput(event, "emailOne", 1)}
           />
           <TwoLineInput
             type={"tel"}

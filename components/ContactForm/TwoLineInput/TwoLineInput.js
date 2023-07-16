@@ -17,6 +17,7 @@ export default function TwoLineInput({
   options,
   required = false,
   value,
+  onChange,
 }) {
   if (type === "email") {
     return (
@@ -29,6 +30,7 @@ export default function TwoLineInput({
             name={name}
             required={required}
             value={value}
+            onChange={onChange}
           />
         </ColumnOne>
         <ColumnTwo>
