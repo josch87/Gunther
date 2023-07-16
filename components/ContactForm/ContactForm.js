@@ -45,7 +45,7 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
     }
 
     if (fieldName === "emailOne") {
-      const updatedEmailOne = currentContact.email.map((email, index) => {
+      const updatedEmail = currentContact.email.map((email, index) => {
         if (index === fieldIndex) {
           return { ...email, value: event.target.value };
         }
@@ -54,7 +54,21 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
 
       setCurrentContact({
         ...currentContact,
-        email: updatedEmailOne,
+        email: updatedEmail,
+      });
+    }
+
+    if (fieldName === "phoneOne") {
+      const updatedPhone = currentContact.phone.map((phone, index) => {
+        if (index === fieldIndex) {
+          return { ...phone, value: event.target.value };
+        }
+        return phone;
+      });
+
+      setCurrentContact({
+        ...currentContact,
+        phone: updatedPhone,
       });
     }
 
@@ -307,6 +321,8 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             name="phoneOne"
             typeName="phoneOneType"
             options={basePhoneInputType}
+            value={currentContact.email ? currentContact.phone[0].value : ""}
+            onChange={(event) => handleUserInput(event, "phoneOne", 0)}
           />
           <TwoLineInput
             type={"tel"}
@@ -316,6 +332,8 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             name="phoneTwo"
             typeName="phoneTwoName"
             options={basePhoneInputType}
+            value={currentContact.email ? currentContact.phone[1].value : ""}
+            onChange={(event) => handleUserInput(event, "phoneOne", 1)}
           />
           <SingleLineInput
             type={"text"}

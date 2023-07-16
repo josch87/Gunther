@@ -46,7 +46,14 @@ export default function TwoLineInput({
       <Container>
         <ColumnOne>
           <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
-          <StyledInput type="tel" id={id} name={name} required={required} />
+          <StyledInput
+            type="tel"
+            id={id}
+            name={name}
+            required={required}
+            value={value}
+            onChange={onChange}
+          />
         </ColumnOne>
         <ColumnTwo>
           <StyledLabel htmlFor={typeId}>Type</StyledLabel>
