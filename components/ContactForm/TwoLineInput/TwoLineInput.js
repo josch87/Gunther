@@ -16,13 +16,20 @@ export default function TwoLineInput({
   typeName,
   options,
   required = false,
+  value,
 }) {
   if (type === "email") {
     return (
       <Container>
         <ColumnOne>
           <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
-          <StyledInput type="email" id={id} name={name} required={required} />
+          <StyledInput
+            type="email"
+            id={id}
+            name={name}
+            required={required}
+            value={value}
+          />
         </ColumnOne>
         <ColumnTwo>
           <StyledLabel htmlFor={typeId}>Type</StyledLabel>

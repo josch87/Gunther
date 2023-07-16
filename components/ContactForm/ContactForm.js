@@ -54,7 +54,33 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
 
       setCurrentContact({
         ...currentContact,
-        socialMedia: { updatedSocialMedia },
+        socialMedia: updatedSocialMedia,
+      });
+    }
+    if (fieldName === "twitter") {
+      const updatedSocialMedia = currentContact.socialMedia.map((media) => {
+        if (media.platform === "Twitter") {
+          return { ...media, username: event.target.value };
+        }
+        return media;
+      });
+
+      setCurrentContact({
+        ...currentContact,
+        socialMedia: updatedSocialMedia,
+      });
+    }
+    if (fieldName === "facebook") {
+      const updatedSocialMedia = currentContact.socialMedia.map((media) => {
+        if (media.platform === "Facebook") {
+          return { ...media, username: event.target.value };
+        }
+        return media;
+      });
+
+      setCurrentContact({
+        ...currentContact,
+        socialMedia: updatedSocialMedia,
       });
     }
     if (fieldName === "notes") {
@@ -143,11 +169,26 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
     router.push(formattedContact.id);
   }
 
-  const instagram = currentContact.socialMedia.find(
-    (media) => media.platform === "Instagram"
-  );
+  let instagram = {};
+  if (contact) {
+    instagram = currentContact.socialMedia.find(
+      (media) => media.platform === "Instagram"
+    );
+  }
 
-  console.log(currentContact);
+  let twitter = {};
+  if (contact) {
+    twitter = currentContact.socialMedia.find(
+      (media) => media.platform === "Twitter"
+    );
+  }
+
+  let facebook = {};
+  if (contact) {
+    facebook = currentContact.socialMedia.find(
+      (media) => media.platform === "Facebook"
+    );
+  }
 
   return (
     <>
@@ -230,6 +271,7 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             name="emailOne"
             typeName="emailOneType"
             options={baseEmailInputType}
+            // value="test"
           />
           <TwoLineInput
             type={"email"}
@@ -307,12 +349,16 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             labelContent="Twitter"
             id="twitter"
             name="twitter"
+            value={twitter ? twitter.username : ""}
+            onChange={(event) => handleUserInput(event, "twitter")}
           />
           <SingleLineInput
             type={"text"}
             labelContent="Facebook"
             id="facebook"
             name="facebook"
+            value={facebook ? facebook.username : ""}
+            onChange={(event) => handleUserInput(event, "facebook")}
           />
         </StyledFieldset>
 
