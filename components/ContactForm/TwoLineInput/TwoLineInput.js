@@ -17,6 +17,7 @@ export default function TwoLineInput({
   options,
   required = false,
   value,
+  typeValue,
   onChange,
 }) {
   if (type === "email") {
@@ -35,7 +36,14 @@ export default function TwoLineInput({
         </ColumnOne>
         <ColumnTwo>
           <StyledLabel htmlFor={typeId}>Type</StyledLabel>
-          <CreatableSelect id={typeId} name={typeName} options={options} />
+          <CreatableSelect
+            id={typeId}
+            name={typeName}
+            options={options}
+            value={
+              typeValue ? { label: typeValue, value: typeValue } : undefined
+            }
+          />
         </ColumnTwo>
       </Container>
     );

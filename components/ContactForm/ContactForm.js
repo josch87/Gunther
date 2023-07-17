@@ -28,47 +28,24 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
   const isEqual = JSON.stringify(currentContact) === JSON.stringify(contact);
 
   function handleUserInput(event, fieldName, fieldIndex) {
-    if (fieldName === "firstName") {
-      setCurrentContact({ ...currentContact, firstName: event.target.value });
-    }
-    if (fieldName === "middleName") {
-      setCurrentContact({ ...currentContact, middleName: event.target.value });
-    }
-    if (fieldName === "lastName") {
-      setCurrentContact({ ...currentContact, lastName: event.target.value });
-    }
-    if (fieldName === "nickName") {
-      setCurrentContact({ ...currentContact, nickName: event.target.value });
-    }
-    if (fieldName === "dateOfBirth") {
-      setCurrentContact({ ...currentContact, dateOfBirth: event.target.value });
-    }
-
     if (fieldName === "deceased") {
-      if (event.target.name === "On") {
-        setCurrentContact({ ...currentContact, deceased: true });
-      } else {
-        setCurrentContact({ ...currentContact, deceased: false });
+      setCurrentContact({ ...currentContact, deceased: event.target.checked });
+    } else if (fieldName === "emailOne") {
+      let updatedEmail;
+      if (currentContact.email) {
+        updatedEmail = currentContact.email.map((email, index) => {
+          if (index === fieldIndex) {
+            return { ...email, value: event.target.value };
+          }
+          return email;
+        });
       }
-
-      console.log("deceased: ", event.target.value);
-    }
-
-    if (fieldName === "emailOne") {
-      const updatedEmail = currentContact.email.map((email, index) => {
-        if (index === fieldIndex) {
-          return { ...email, value: event.target.value };
-        }
-        return email;
-      });
 
       setCurrentContact({
         ...currentContact,
         email: updatedEmail,
       });
-    }
-
-    if (fieldName === "phoneOne") {
+    } else if (fieldName === "phoneOne") {
       const updatedPhone = currentContact.phone.map((phone, index) => {
         if (index === fieldIndex) {
           return { ...phone, value: event.target.value };
@@ -80,9 +57,7 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
         ...currentContact,
         phone: updatedPhone,
       });
-    }
-
-    if (fieldName === "instagram") {
+    } else if (fieldName === "instagram") {
       const updatedSocialMedia = currentContact.socialMedia.map((media) => {
         if (media.platform === "Instagram") {
           return { ...media, username: event.target.value };
@@ -94,8 +69,7 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
         ...currentContact,
         socialMedia: updatedSocialMedia,
       });
-    }
-    if (fieldName === "twitter") {
+    } else if (fieldName === "twitter") {
       const updatedSocialMedia = currentContact.socialMedia.map((media) => {
         if (media.platform === "Twitter") {
           return { ...media, username: event.target.value };
@@ -107,8 +81,7 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
         ...currentContact,
         socialMedia: updatedSocialMedia,
       });
-    }
-    if (fieldName === "facebook") {
+    } else if (fieldName === "facebook") {
       const updatedSocialMedia = currentContact.socialMedia.map((media) => {
         if (media.platform === "Facebook") {
           return { ...media, username: event.target.value };
@@ -120,9 +93,10 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
         ...currentContact,
         socialMedia: updatedSocialMedia,
       });
-    }
-    if (fieldName === "notes") {
+    } else if (fieldName === "notes") {
       setCurrentContact({ ...currentContact, notes: event.target.value });
+    } else {
+      setCurrentContact({ ...currentContact, [fieldName]: event.target.value });
     }
   }
 
@@ -136,6 +110,8 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
 
     const date = new Date();
     const currentUtcDateTime = date.toISOString();
+
+    // console.log("newContact: ", newContact);
 
     const formattedContact = {
       id: newContactId,
@@ -228,6 +204,34 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
     );
   }
 
+  let emailOneValue = "";
+  if (currentContact.email) {
+    emailOneValue = currentContact.email[0]
+      ? currentContact.email[0].value
+      : "";
+  }
+
+  let emailOneTypeValue = "";
+  if (currentContact.email) {
+    emailOneTypeValue = currentContact.email[0]
+      ? currentContact.email[0].type
+      : "";
+  }
+
+  let emailTwoValue = "";
+  if (currentContact.email) {
+    emailTwoValue = currentContact.email[1]
+      ? currentContact.email[1].value
+      : "";
+  }
+
+  let emailTwoTypeValue = "";
+  if (currentContact.email) {
+    emailTwoTypeValue = currentContact.email[1]
+      ? currentContact.email[1].type
+      : "";
+  }
+
   return (
     <>
       <StyledHeader>
@@ -315,8 +319,9 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             name="emailOne"
             typeName="emailOneType"
             options={baseEmailInputType}
-            value={currentContact.email ? currentContact.email[0].value : ""}
+            value={emailOneValue}
             onChange={(event) => handleUserInput(event, "emailOne", 0)}
+            typeValue={emailOneTypeValue}
           />
           <TwoLineInput
             type={"email"}
@@ -326,8 +331,9 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             name="emailTwo"
             typeName="emailTwoType"
             options={baseEmailInputType}
-            value={currentContact.email[1] ? currentContact.email[1].value : ""}
-            onChange={(event) => handleUserInput(event, "emailOne", 1)}
+            value={emailTwoValue}
+            onChange={(event) => handleUserInput(event, "emailTwo", 1)}
+            typeValue={emailTwoTypeValue}
           />
           <TwoLineInput
             type={"tel"}
@@ -337,7 +343,11 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             name="phoneOne"
             typeName="phoneOneType"
             options={basePhoneInputType}
-            value={currentContact.email ? currentContact.phone[0].value : ""}
+            value={() => {
+              if (currentContact.phone) {
+                currentContact.phone[1] ? currentContact.phone[1].value : "";
+              }
+            }}
             onChange={(event) => handleUserInput(event, "phoneOne", 0)}
           />
           <TwoLineInput
@@ -348,7 +358,11 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             name="phoneTwo"
             typeName="phoneTwoName"
             options={basePhoneInputType}
-            value={currentContact.email[1] ? currentContact.phone[1].value : ""}
+            value={() => {
+              if (currentContact.phone) {
+                currentContact.phone[1] ? currentContact.phone[1].value : "";
+              }
+            }}
             onChange={(event) => handleUserInput(event, "phoneOne", 1)}
           />
           <SingleLineInput
