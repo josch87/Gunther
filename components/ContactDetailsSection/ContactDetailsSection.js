@@ -120,7 +120,7 @@ export default function ContactDetailsSection({ contact }) {
                 icon={materialAddress}
                 iconAlt="Address"
                 value={<Address {...addressTwo} />}
-                type={contact.addressOneType}
+                type={contact.addressTwoType}
                 href={getGoogleMapsLink(addressTwo)}
                 target="_blank"
               />
