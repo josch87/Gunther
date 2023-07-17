@@ -16,35 +16,38 @@ import { Heading } from "./ContactDetailsSection.styled";
 
 export default function ContactDetailsSection({ contact }) {
   let addressOne;
-  if (
-    contact.addressOneStreet ||
-    contact.addressOneZip ||
-    contact.addressOneCity ||
-    contact.addressOneCountry
-  ) {
-    addressOne = {
-      street: contact.addressOneStreet,
-      zipCode: contact.addressOneZipCode,
-      city: contact.addressOneCity,
-      country: contact.addressOneCountry,
-      type: contact.addressOneType,
-    };
-  }
-
   let addressTwo;
-  if (
-    contact.addressTwoStreet ||
-    contact.addressTwoZip ||
-    contact.addressTwoCity ||
-    contact.addressTwoCountry
-  ) {
-    addressTwo = {
-      street: contact.addressTwoStreet,
-      zipCode: contact.addressTwoZipCode,
-      city: contact.addressTwoCity,
-      country: contact.addressTwoCountry,
-      type: contact.addressTwoType,
-    };
+
+  if (contact) {
+    if (
+      contact.addressOneStreet ||
+      contact.addressOneZip ||
+      contact.addressOneCity ||
+      contact.addressOneCountry
+    ) {
+      addressOne = {
+        street: contact.addressOneStreet,
+        zipCode: contact.addressOneZipCode,
+        city: contact.addressOneCity,
+        country: contact.addressOneCountry,
+        type: contact.addressOneType,
+      };
+    }
+
+    if (
+      contact.addressTwoStreet ||
+      contact.addressTwoZip ||
+      contact.addressTwoCity ||
+      contact.addressTwoCountry
+    ) {
+      addressTwo = {
+        street: contact.addressTwoStreet,
+        zipCode: contact.addressTwoZipCode,
+        city: contact.addressTwoCity,
+        country: contact.addressTwoCountry,
+        type: contact.addressTwoType,
+      };
+    }
   }
 
   return (
