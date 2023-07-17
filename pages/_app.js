@@ -11,10 +11,11 @@ export default function App({ Component, pageProps }) {
     defaultValue: contactsSampleData,
   });
 
+  const date = new Date();
+  const currentUtcDateTime = date.toISOString();
+
   function handleAddNewContact(newContact) {
     const newContactId = uid();
-    const date = new Date();
-    const currentUtcDateTime = date.toISOString();
 
     const formattedContact = {
       ...newContact,
@@ -30,17 +31,16 @@ export default function App({ Component, pageProps }) {
   }
 
   function handleUpdateContact(updatedContact) {
-    console.log(updatedContact);
-
     setContacts(
       contacts.map((contact) => {
         if (contact.id === updatedContact.id) {
-          return updatedContact;
+          return { ...updatedContact, dateLastUpdate: currentUtcDateTime };
         } else {
           return contact;
         }
       })
     );
+    router.push(`/${updatedContact.id}`);
   }
 
   return (
