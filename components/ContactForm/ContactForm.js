@@ -225,7 +225,7 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             labelContent="Phone"
             id="phoneTwo"
             typeId="phoneTwoType"
-            name="phoneTwo"
+            name="phoneTwoValue"
             typeName="phoneTwoType"
             options={basePhoneInputType}
             value={currentContact.phoneTwoValue}
