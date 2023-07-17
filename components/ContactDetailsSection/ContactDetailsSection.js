@@ -13,6 +13,7 @@ import {
 } from "@/utils/getContactDetails";
 import Address from "../Address/Address";
 import { Heading } from "./ContactDetailsSection.styled";
+import React from "react";
 
 export default function ContactDetailsSection({ contact }) {
   let addressOne;
@@ -165,7 +166,12 @@ export default function ContactDetailsSection({ contact }) {
               <ContactDetailsItem
                 icon={materialNotes}
                 iconAlt={"Notes"}
-                value={contact.notes}
+                value={contact.notes.split("\n").map((line, index) => (
+                  <React.Fragment key={index}>
+                    {line}
+                    <br />
+                  </React.Fragment>
+                ))}
               />
             ) : null}
           </ul>
