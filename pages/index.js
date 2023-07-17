@@ -9,13 +9,13 @@ const Heading = styled.h1`
 export default function HomePage({ contacts }) {
   const contactsSortedByFirstName = contacts.slice().sort((a, b) => {
     const fullNameA =
-      a.firstName.toLowerCase() +
-      a.middleName.toLowerCase() +
-      a.lastName.toLowerCase();
+      a.firstName?.toLowerCase() +
+      a.middleName?.toLowerCase() +
+      a.lastName?.toLowerCase();
     const fullNameB =
-      b.firstName.toLowerCase() +
-      b.middleName.toLowerCase() +
-      b.lastName.toLowerCase();
+      b.firstName?.toLowerCase() +
+      b.middleName?.toLowerCase() +
+      b.lastName?.toLowerCase();
 
     if (fullNameA < fullNameB) {
       return -1;

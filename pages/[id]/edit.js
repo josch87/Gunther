@@ -1,7 +1,7 @@
 import ContactForm from "@/components/ContactForm/ContactForm";
 import { useRouter } from "next/router";
 
-export default function EditContactPage({ contacts }) {
+export default function EditContactPage({ contacts, onUpdateContact }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -17,7 +17,11 @@ export default function EditContactPage({ contacts }) {
 
   return (
     <>
-      <ContactForm type="update" contact={contact} />
+      <ContactForm
+        type="update"
+        contact={contact}
+        onSubmitForm={onUpdateContact}
+      />
     </>
   );
 }

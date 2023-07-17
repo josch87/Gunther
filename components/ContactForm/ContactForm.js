@@ -19,10 +19,8 @@ import City from "./City/City";
 import Checkbox from "./Checkbox/Checkbox";
 import ContactDetailsHeader from "../ContactDetailsHeader/ContactDetailsHeader";
 import { useState } from "react";
-import { uid } from "uid";
-import { current } from "immer";
 
-export default function ContactForm({ onAddNewContact, type, contact }) {
+export default function ContactForm({ onSubmitForm, type, contact }) {
   const router = useRouter();
 
   const [currentContact, setCurrentContact] = useState({ ...contact });
@@ -72,34 +70,7 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
       setCurrentContact({ ...currentContact, [fieldName]: event.target.value });
     }
 
-    console.log("currentContact: ", currentContact);
-  }
-
-  function handleSubmitForm(event) {
-    event.preventDefault();
-
-    const formData = new FormData(event.target);
-
-    const newContact = Object.fromEntries(formData);
-
-    const newContactId = uid();
-
-    const date = new Date();
-    const currentUtcDateTime = date.toISOString();
-
-    // console.log("newContact: ", newContact);
-
-    const formattedContact = {
-      ...newContact,
-      id: newContactId,
-      dateCreated: currentUtcDateTime,
-      dateDeleted: "",
-      deceased: newContact.deceased ? true : false,
-      isSampleData: false,
-    };
-
-    onAddNewContact(formattedContact);
-    router.push(formattedContact.id);
+    // console.log("currentContact: ", currentContact);
   }
 
   return (
@@ -111,7 +82,13 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
       <Heading id="form-heading">
         {type === "update" ? "Update contact" : "Create new contact"}
       </Heading>
-      <form aria-labelledby="form-heading" onSubmit={handleSubmitForm}>
+      <form
+        aria-labelledby="form-heading"
+        onSubmit={(event) => {
+          event.preventDefault();
+          onSubmitForm(currentContact);
+        }}
+      >
         <StyledFieldset>
           <legend>Personal Information</legend>
           <SingleLineInput
