@@ -44,6 +44,16 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
       setCurrentContact({ ...currentContact, dateOfBirth: event.target.value });
     }
 
+    if (fieldName === "deceased") {
+      if (event.target.name === "On") {
+        setCurrentContact({ ...currentContact, deceased: true });
+      } else {
+        setCurrentContact({ ...currentContact, deceased: false });
+      }
+
+      console.log("deceased: ", event.target.value);
+    }
+
     if (fieldName === "emailOne") {
       const updatedEmail = currentContact.email.map((email, index) => {
         if (index === fieldIndex) {
@@ -286,7 +296,13 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             }
             onChange={(event) => handleUserInput(event, "dateOfBirth")}
           />
-          <Checkbox id="deceased" name="deceased" labelContent="Deceased" />
+          <Checkbox
+            id="deceased"
+            name="deceased"
+            labelContent="Deceased"
+            checked={currentContact.deceased}
+            onChange={(event) => handleUserInput(event, "deceased")}
+          />
         </StyledFieldset>
 
         <StyledFieldset>
@@ -310,7 +326,7 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             name="emailTwo"
             typeName="emailTwoType"
             options={baseEmailInputType}
-            value={currentContact.email ? currentContact.email[1].value : ""}
+            value={currentContact.email[1] ? currentContact.email[1].value : ""}
             onChange={(event) => handleUserInput(event, "emailOne", 1)}
           />
           <TwoLineInput
@@ -332,7 +348,7 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             name="phoneTwo"
             typeName="phoneTwoName"
             options={basePhoneInputType}
-            value={currentContact.email ? currentContact.phone[1].value : ""}
+            value={currentContact.email[1] ? currentContact.phone[1].value : ""}
             onChange={(event) => handleUserInput(event, "phoneOne", 1)}
           />
           <SingleLineInput
