@@ -20,6 +20,7 @@ import Checkbox from "./Checkbox/Checkbox";
 import ContactDetailsHeader from "../ContactDetailsHeader/ContactDetailsHeader";
 import { useState } from "react";
 import { uid } from "uid";
+import { current } from "immer";
 
 export default function ContactForm({ onAddNewContact, type, contact }) {
   const router = useRouter();
@@ -27,83 +28,58 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
   const [currentContact, setCurrentContact] = useState({ ...contact });
   const isEqual = JSON.stringify(currentContact) === JSON.stringify(contact);
 
-  function handleUserInput(event, fieldName, fieldIndex) {
+  function handleUserInput(event, fieldName) {
+    // console.log("handleUserInput EventTarget: ", event.target);
+
     if (fieldName === "deceased") {
       setCurrentContact({ ...currentContact, deceased: event.target.checked });
-    } else if (fieldName === "emailOne") {
-      let updatedEmail;
-      if (currentContact.email) {
-        updatedEmail = currentContact.email.map((email, index) => {
-          if (index === fieldIndex) {
-            return { ...email, value: event.target.value };
-          }
-          return email;
-        });
-      }
-
+    } else if (fieldName === "gender") {
       setCurrentContact({
         ...currentContact,
-        email: updatedEmail,
+        gender: event ? event.value : null,
       });
-    } else if (fieldName === "phoneOne") {
-      const updatedPhone = currentContact.phone.map((phone, index) => {
-        if (index === fieldIndex) {
-          return { ...phone, value: event.target.value };
-        }
-        return phone;
-      });
-
+    } else if (fieldName === "emailOneType") {
       setCurrentContact({
         ...currentContact,
-        phone: updatedPhone,
+        emailOneType: event ? event.value : null,
       });
-    } else if (fieldName === "instagram") {
-      const updatedSocialMedia = currentContact.socialMedia.map((media) => {
-        if (media.platform === "Instagram") {
-          return { ...media, username: event.target.value };
-        }
-        return media;
-      });
-
+    } else if (fieldName === "emailTwoType") {
       setCurrentContact({
         ...currentContact,
-        socialMedia: updatedSocialMedia,
+        emailTwoType: event ? event.value : null,
       });
-    } else if (fieldName === "twitter") {
-      const updatedSocialMedia = currentContact.socialMedia.map((media) => {
-        if (media.platform === "Twitter") {
-          return { ...media, username: event.target.value };
-        }
-        return media;
-      });
-
+    } else if (fieldName === "phoneOneType") {
       setCurrentContact({
         ...currentContact,
-        socialMedia: updatedSocialMedia,
+        phoneOneType: event ? event.value : null,
       });
-    } else if (fieldName === "facebook") {
-      const updatedSocialMedia = currentContact.socialMedia.map((media) => {
-        if (media.platform === "Facebook") {
-          return { ...media, username: event.target.value };
-        }
-        return media;
-      });
-
+    } else if (fieldName === "phoneTwoType") {
       setCurrentContact({
         ...currentContact,
-        socialMedia: updatedSocialMedia,
+        phoneTwoType: event ? event.value : null,
       });
-    } else if (fieldName === "notes") {
-      setCurrentContact({ ...currentContact, notes: event.target.value });
+    } else if (fieldName === "addressOneType") {
+      setCurrentContact({
+        ...currentContact,
+        addressOneType: event ? event.value : null,
+      });
+    } else if (fieldName === "addressTwoType") {
+      setCurrentContact({
+        ...currentContact,
+        addressTwoType: event ? event.value : null,
+      });
     } else {
       setCurrentContact({ ...currentContact, [fieldName]: event.target.value });
     }
+
+    console.log("currentContact: ", currentContact);
   }
 
   function handleSubmitForm(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
+
     const newContact = Object.fromEntries(formData);
 
     const newContactId = uid();
@@ -114,122 +90,16 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
     // console.log("newContact: ", newContact);
 
     const formattedContact = {
+      ...newContact,
       id: newContactId,
-      firstName: newContact.firstName,
-      middleName: newContact.middleName,
-      lastName: newContact.lastName,
-      nickName: newContact.nickName,
-      gender: newContact.gender,
-      profilePicture: "",
-      dateOfBirth: newContact.dateOfBirth,
-      deceased: newContact.deceased || false,
-      email: [
-        {
-          value: newContact.emailOne,
-          type: newContact.emailOneType,
-        },
-        {
-          value: newContact.emailTwo,
-          type: newContact.emailTwoType,
-        },
-      ].filter((email) => email.value),
-      phone: [
-        {
-          value: newContact.phoneOne,
-          type: newContact.phoneOneType,
-        },
-        {
-          value: newContact.phoneTwo,
-          type: newContact.phoneTwoType,
-        },
-      ].filter((phone) => phone.value),
-      address: [
-        {
-          type: newContact.addressOneType,
-          street: newContact.addressOneStreet,
-          zipCode: newContact.addressOneZipCode,
-          city: newContact.addressOneCity,
-          country: newContact.addressOneCountry,
-        },
-        {
-          type: newContact.addressTwoType,
-          street: newContact.addressTwoStreet,
-          zipCode: newContact.addressTwoZipCode,
-          city: newContact.addressTwoCity,
-          country: newContact.addressTwoCountry,
-        },
-      ].filter((address) => Object.values(address).some(Boolean)),
-      socialMedia: [
-        {
-          platform: "Instagram",
-          username: newContact.instagram,
-        },
-        {
-          platform: "Twitter",
-          username: newContact.twitter,
-        },
-        {
-          platform: "Facebook",
-          username: newContact.facebook,
-        },
-      ].filter((socialMedia) => socialMedia.username),
-      notes: newContact.notes,
       dateCreated: currentUtcDateTime,
       dateDeleted: "",
+      deceased: newContact.deceased ? true : false,
       isSampleData: false,
     };
 
     onAddNewContact(formattedContact);
     router.push(formattedContact.id);
-  }
-
-  let instagram = {};
-  if (contact) {
-    instagram = currentContact.socialMedia.find(
-      (media) => media.platform === "Instagram"
-    );
-  }
-
-  let twitter = {};
-  if (contact) {
-    twitter = currentContact.socialMedia.find(
-      (media) => media.platform === "Twitter"
-    );
-  }
-
-  let facebook = {};
-  if (contact) {
-    facebook = currentContact.socialMedia.find(
-      (media) => media.platform === "Facebook"
-    );
-  }
-
-  let emailOneValue = "";
-  if (currentContact.email) {
-    emailOneValue = currentContact.email[0]
-      ? currentContact.email[0].value
-      : "";
-  }
-
-  let emailOneTypeValue = "";
-  if (currentContact.email) {
-    emailOneTypeValue = currentContact.email[0]
-      ? currentContact.email[0].type
-      : "";
-  }
-
-  let emailTwoValue = "";
-  if (currentContact.email) {
-    emailTwoValue = currentContact.email[1]
-      ? currentContact.email[1].value
-      : "";
-  }
-
-  let emailTwoTypeValue = "";
-  if (currentContact.email) {
-    emailTwoTypeValue = currentContact.email[1]
-      ? currentContact.email[1].type
-      : "";
   }
 
   return (
@@ -283,7 +153,7 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             id="gender"
             name="gender"
             value={currentContact.gender}
-            // onChange={(event) => handleUserInput(event, "gender")}
+            onChange={(event) => handleUserInput(event, "gender")}
             options={baseGender}
             isClearable={true}
           />
@@ -316,39 +186,39 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             labelContent="E-Mail"
             id="emailOne"
             typeId="emailOneType"
-            name="emailOne"
+            name="emailOneValue"
             typeName="emailOneType"
             options={baseEmailInputType}
-            value={emailOneValue}
-            onChange={(event) => handleUserInput(event, "emailOne", 0)}
-            typeValue={emailOneTypeValue}
+            value={currentContact.emailOneValue}
+            onChange={(event) => handleUserInput(event, "emailOneValue")}
+            typeValue={currentContact.emailOneType}
+            typeOnChange={(event) => handleUserInput(event, "emailOneType")}
           />
           <TwoLineInput
             type={"email"}
             labelContent="E-Mail"
             id="emailTwo"
             typeId="emailTwoType"
-            name="emailTwo"
+            name="emailTwoValue"
             typeName="emailTwoType"
             options={baseEmailInputType}
-            value={emailTwoValue}
-            onChange={(event) => handleUserInput(event, "emailTwo", 1)}
-            typeValue={emailTwoTypeValue}
+            value={currentContact.emailTwoValue}
+            onChange={(event) => handleUserInput(event, "emailTwoValue")}
+            typeValue={currentContact.emailTwoType}
+            typeOnChange={(event) => handleUserInput(event, "emailTwoType")}
           />
           <TwoLineInput
             type={"tel"}
             labelContent="Phone"
             id="phoneOne"
             typeID="phoneOneType"
-            name="phoneOne"
+            name="phoneOneValue"
             typeName="phoneOneType"
             options={basePhoneInputType}
-            value={() => {
-              if (currentContact.phone) {
-                currentContact.phone[1] ? currentContact.phone[1].value : "";
-              }
-            }}
-            onChange={(event) => handleUserInput(event, "phoneOne", 0)}
+            value={currentContact.phoneOneValue}
+            onChange={(event) => handleUserInput(event, "phoneOneValue")}
+            typeValue={currentContact.phoneOneType}
+            typeOnChange={(event) => handleUserInput(event, "phoneOneType")}
           />
           <TwoLineInput
             type={"tel"}
@@ -356,22 +226,29 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             id="phoneTwo"
             typeId="phoneTwoType"
             name="phoneTwo"
-            typeName="phoneTwoName"
+            typeName="phoneTwoType"
             options={basePhoneInputType}
-            value={() => {
-              if (currentContact.phone) {
-                currentContact.phone[1] ? currentContact.phone[1].value : "";
-              }
-            }}
-            onChange={(event) => handleUserInput(event, "phoneOne", 1)}
+            value={currentContact.phoneTwoValue}
+            onChange={(event) => handleUserInput(event, "phoneTwoValue")}
+            typeValue={currentContact.phoneTwoType}
+            typeOnChange={(event) => handleUserInput(event, "phoneTwoType")}
           />
           <SingleLineInput
             type={"text"}
             labelContent="Street"
             id="addressOneStreet"
             name="addressOneStreet"
+            value={currentContact.addressOneStreet}
+            onChange={(event) => handleUserInput(event, "addressOneStreet")}
           />
-          <City id="addressOne" name="addressOne" />
+          <City
+            id="addressOne"
+            name="addressOne"
+            zipValue={currentContact.addressOneZipCode}
+            zipOnChange={(event) => handleUserInput(event, "addressOneZipCode")}
+            cityValue={currentContact.addressOneCity}
+            cityOnChange={(event) => handleUserInput(event, "addressOneCity")}
+          />
           <TwoLineInput
             type={"text"}
             labelContent="Country"
@@ -380,14 +257,27 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             name="addressOneCountry"
             typeName="addressOneType"
             options={baseAddressInputType}
+            value={currentContact.addressOneCountry}
+            onChange={(event) => handleUserInput(event, "addressOneCountry")}
+            typeValue={currentContact.addressOneType}
+            typeOnChange={(event) => handleUserInput(event, "addressOneType")}
           />
           <SingleLineInput
             type={"text"}
             labelContent="Street"
             id="addressTwoStreet"
             name="addressTwoStreet"
+            value={currentContact.addressTwoStreet}
+            onChange={(event) => handleUserInput(event, "addressTwoStreet")}
           />
-          <City id="addressTwo" name="addressTwo" />
+          <City
+            id="addressTwo"
+            name="addressTwo"
+            zipValue={currentContact.addressTwoZipCode}
+            zipOnChange={(event) => handleUserInput(event, "addressTwoZipCode")}
+            cityValue={currentContact.addressTwoCity}
+            cityOnChange={(event) => handleUserInput(event, "addressTwoCity")}
+          />
           <TwoLineInput
             type={"text"}
             labelContent="Country"
@@ -396,6 +286,10 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             name="addressTwoCountry"
             typeName="addressTwoType"
             options={baseAddressInputType}
+            value={currentContact.addressTwoCountry}
+            onChange={(event) => handleUserInput(event, "addressTwoCountry")}
+            typeValue={currentContact.addressTwoType}
+            typeOnChange={(event) => handleUserInput(event, "addressTwoType")}
           />
         </StyledFieldset>
 
@@ -406,7 +300,7 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             labelContent="Instagram"
             id="instagram"
             name="instagram"
-            value={instagram ? instagram.username : ""}
+            // value={instagram ? instagram.username : ""}
             onChange={(event) => handleUserInput(event, "instagram")}
           />
           <SingleLineInput
@@ -414,7 +308,7 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             labelContent="Twitter"
             id="twitter"
             name="twitter"
-            value={twitter ? twitter.username : ""}
+            // value={twitter ? twitter.username : ""}
             onChange={(event) => handleUserInput(event, "twitter")}
           />
           <SingleLineInput
@@ -422,7 +316,7 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             labelContent="Facebook"
             id="facebook"
             name="facebook"
-            value={facebook ? facebook.username : ""}
+            // value={facebook ? facebook.username : ""}
             onChange={(event) => handleUserInput(event, "facebook")}
           />
         </StyledFieldset>

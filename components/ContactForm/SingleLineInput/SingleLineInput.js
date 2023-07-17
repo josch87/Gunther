@@ -22,8 +22,8 @@ export default function SingleLineInput({
           id={id}
           name={name}
           required={required}
-          onChange={onChange}
           value={value}
+          onChange={onChange}
         />
       </Container>
     );
@@ -36,7 +36,7 @@ export default function SingleLineInput({
         <Select
           options={options}
           isClearable={isClearable}
-          value={value}
+          value={value ? { label: value, value: value } : undefined}
           onChange={onChange}
         />
       </Container>

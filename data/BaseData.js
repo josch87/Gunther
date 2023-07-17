@@ -1,23 +1,23 @@
 export const baseGender = [
-  { value: "male", label: "Male" },
-  { value: "female", label: "Female" },
-  { value: "diverse", label: "Diverse" },
+  { value: "Male", label: "Male" },
+  { value: "Female", label: "Female" },
+  { value: "Diverse", label: "Diverse" },
 ];
 
 export const baseEmailInputType = [
-  { value: "home", label: "Home" },
-  { value: "work", label: "Work" },
+  { value: "Home", label: "Home" },
+  { value: "Work", label: "Work" },
 ];
 
 export const basePhoneInputType = [
-  { value: "home", label: "Home" },
-  { value: "work", label: "Work" },
-  { value: "mobile", label: "Mobile" },
+  { value: "Home", label: "Home" },
+  { value: "Work", label: "Work" },
+  { value: "Mobile", label: "Mobile" },
 ];
 
 export const baseAddressInputType = [
-  { value: "home", label: "Home" },
-  { value: "work", label: "Work" },
+  { value: "Home", label: "Home" },
+  { value: "Work", label: "Work" },
 ];
 
 export const interactionTypes = [

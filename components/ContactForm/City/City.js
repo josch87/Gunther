@@ -6,7 +6,15 @@ import {
   StyledLabel,
 } from "./City.styled";
 
-export default function City({ id, name, required = false }) {
+export default function City({
+  id,
+  name,
+  required = false,
+  zipValue,
+  zipOnChange,
+  cityValue,
+  cityOnChange,
+}) {
   return (
     <Container>
       <ColumnOne>
@@ -17,6 +25,8 @@ export default function City({ id, name, required = false }) {
           name={`${name}ZipCode`}
           size="5"
           required={required}
+          value={zipValue}
+          onChange={zipOnChange}
         />
       </ColumnOne>
       <ColumnTwo>
@@ -27,6 +37,8 @@ export default function City({ id, name, required = false }) {
           name={`${name}City`}
           size="10"
           required={required}
+          value={cityValue}
+          onChange={cityOnChange}
         />
       </ColumnTwo>
     </Container>
