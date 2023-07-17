@@ -11,7 +11,6 @@ import {
   getSocialMediaHyperlink,
   getSocialMediaIcon,
 } from "@/utils/getContactDetails";
-import { Fragment } from "react";
 import Address from "../Address/Address";
 import { Heading } from "./ContactDetailsSection.styled";
 
@@ -25,7 +24,7 @@ export default function ContactDetailsSection({ contact }) {
   ) {
     addressOne = {
       street: contact.addressOneStreet,
-      zip: contact.addressOneZip,
+      zipCode: contact.addressOneZipCode,
       city: contact.addressOneCity,
       country: contact.addressOneCountry,
       type: contact.addressOneType,
@@ -41,7 +40,7 @@ export default function ContactDetailsSection({ contact }) {
   ) {
     addressTwo = {
       street: contact.addressTwoStreet,
-      zip: contact.addressTwoZip,
+      zipCode: contact.addressTwoZipCode,
       city: contact.addressTwoCity,
       country: contact.addressTwoCountry,
       type: contact.addressTwoType,

@@ -300,7 +300,7 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             labelContent="Instagram"
             id="instagram"
             name="instagram"
-            // value={instagram ? instagram.username : ""}
+            value={currentContact.instagram}
             onChange={(event) => handleUserInput(event, "instagram")}
           />
           <SingleLineInput
@@ -308,7 +308,7 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             labelContent="Twitter"
             id="twitter"
             name="twitter"
-            // value={twitter ? twitter.username : ""}
+            value={currentContact.twitter}
             onChange={(event) => handleUserInput(event, "twitter")}
           />
           <SingleLineInput
@@ -316,7 +316,7 @@ export default function ContactForm({ onAddNewContact, type, contact }) {
             labelContent="Facebook"
             id="facebook"
             name="facebook"
-            // value={facebook ? facebook.username : ""}
+            value={currentContact.facebook}
             onChange={(event) => handleUserInput(event, "facebook")}
           />
         </StyledFieldset>
