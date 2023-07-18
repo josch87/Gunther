@@ -8,25 +8,20 @@ import {
   StyledLink,
 } from "./InteractionListItem.styled";
 import { formatDate } from "@/utils/formatDates";
-import {
-  getFullName,
-  getShortName,
-  getSortName,
-} from "@/utils/getContactDetails";
+import { getFullSortName, getShortName } from "@/utils/getContactDetails";
 
 export default function InteractionListItem({ interaction, contacts }) {
-  function getParticipantName(contactId, type) {
-    const participant = contacts.find((contact) => contact.id === contactId);
-
-    if (type === "short") {
-      return getShortName(participant);
-    }
-    return getFullName(participant);
+  function getParticipant(contactId) {
+    return contacts.find((contact) => contact.id === contactId);
   }
 
-  const sortedParticipants = interaction.participants.sort((a, b) => {
-    const nameA = getParticipantName(a).toLowerCase();
-    const nameB = getParticipantName(b).toLowerCase();
+  const participants = interaction.participants.map((participant) => {
+    return getParticipant(participant);
+  });
+
+  const sortedParticipants = participants.slice().sort((a, b) => {
+    const nameA = getFullSortName(a);
+    const nameB = getFullSortName(b);
     if (nameA < nameB) return -1;
     if (nameA > nameB) return 1;
     return 0;
@@ -43,11 +38,11 @@ export default function InteractionListItem({ interaction, contacts }) {
         />
         <DetailsContainer>
           <ParticipantsContainer>
-            {interaction.participants.map((participant, index) => {
-              if (index < interaction.participants.length - 1) {
-                return getParticipantName(participant, "short") + ", ";
+            {sortedParticipants.map((participant, index) => {
+              if (index < sortedParticipants.length - 1) {
+                return getShortName(participant) + ", ";
               }
-              return getParticipantName(participant, "short");
+              return getShortName(participant);
             })}
           </ParticipantsContainer>
           <DateContainer>{formatDate(interaction.date)}</DateContainer>
