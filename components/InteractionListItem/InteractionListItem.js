@@ -3,23 +3,24 @@ import {
   getInteractionIcon2,
 } from "@/utils/getInteractionDetails";
 import {
+  DetailsContainer,
   InteractionIcon,
   ListItem,
   StyledLink,
 } from "./InteractionListItem.styled";
+import { formatDate } from "@/utils/formatDates";
 
 export default function InteractionListItem({ interaction }) {
   return (
     <ListItem>
-      <StyledLink href="#">
+      <StyledLink href="">
         <InteractionIcon
           src={getInteractionIcon(interaction)}
           width={80}
           height={80}
-          alt="Interaction"
+          alt={`Icon of ${interaction.type.toLowerCase()} interaction`}
         />
-
-        {interaction.date}
+        <DetailsContainer>{formatDate(interaction.date)}</DetailsContainer>
       </StyledLink>
     </ListItem>
   );

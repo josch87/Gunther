@@ -470,7 +470,7 @@ export const interactionsSampleData = [
   },
   {
     id: "4",
-    type: "Homecoming",
+    type: "Homecoming Event",
     date: "2038-11-09T20:00:00.000+00:00",
     participants: [2, 5],
 

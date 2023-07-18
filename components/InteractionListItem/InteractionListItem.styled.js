@@ -14,6 +14,11 @@ export const StyledLink = styled(Link)`
 `;
 
 export const InteractionIcon = styled(Image)`
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 10px;
+`;
+
+export const DetailsContainer = styled.div`
+  width: 100%;
+  margin: 10px;
 `;
