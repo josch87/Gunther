@@ -11,7 +11,7 @@ export default function Header() {
           src="/gunther_logo_transparent_1500.png"
           width={1500}
           height={255}
-          $priority={true}
+          priority={true}
           alt="Gunther Logo"
         />
       </LogoLink>

@@ -16,17 +16,36 @@ export default function TwoLineInput({
   typeName,
   options,
   required = false,
+  value,
+  typeValue,
+  onChange,
+  typeOnChange,
 }) {
   if (type === "email") {
     return (
       <Container>
         <ColumnOne>
           <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
-          <StyledInput type="email" id={id} name={name} required={required} />
+          <StyledInput
+            type="email"
+            id={id}
+            name={name}
+            required={required}
+            value={value}
+            onChange={onChange}
+          />
         </ColumnOne>
         <ColumnTwo>
           <StyledLabel htmlFor={typeId}>Type</StyledLabel>
-          <CreatableSelect id={typeId} name={typeName} options={options} />
+          <CreatableSelect
+            id={typeId}
+            name={typeName}
+            options={options}
+            value={
+              typeValue ? { label: typeValue, value: typeValue } : undefined
+            }
+            onChange={typeOnChange}
+          />
         </ColumnTwo>
       </Container>
     );
@@ -37,11 +56,26 @@ export default function TwoLineInput({
       <Container>
         <ColumnOne>
           <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
-          <StyledInput type="tel" id={id} name={name} required={required} />
+          <StyledInput
+            type="tel"
+            id={id}
+            name={name}
+            required={required}
+            value={value}
+            onChange={onChange}
+          />
         </ColumnOne>
         <ColumnTwo>
           <StyledLabel htmlFor={typeId}>Type</StyledLabel>
-          <CreatableSelect id={typeId} name={typeName} options={options} />
+          <CreatableSelect
+            id={typeId}
+            name={typeName}
+            options={options}
+            value={
+              typeValue ? { label: typeValue, value: typeValue } : undefined
+            }
+            onChange={typeOnChange}
+          />
         </ColumnTwo>
       </Container>
     );
@@ -52,11 +86,26 @@ export default function TwoLineInput({
       <Container>
         <ColumnOne>
           <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
-          <StyledInput type="text" id={id} name={name} required={required} />
+          <StyledInput
+            type="text"
+            id={id}
+            name={name}
+            required={required}
+            value={value}
+            onChange={onChange}
+          />
         </ColumnOne>
         <ColumnTwo>
           <StyledLabel htmlFor={typeId}>Type</StyledLabel>
-          <CreatableSelect id={typeId} name={typeId} options={options} />
+          <CreatableSelect
+            id={typeId}
+            name={typeId}
+            options={options}
+            value={
+              typeValue ? { label: typeValue, value: typeValue } : undefined
+            }
+            onChange={typeOnChange}
+          />
         </ColumnTwo>
       </Container>
     );

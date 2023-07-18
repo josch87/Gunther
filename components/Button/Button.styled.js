@@ -15,4 +15,10 @@ export const StyledPrimaryButton = styled.button`
   color: white;
   border-radius: 5px;
   cursor: pointer;
+
+  &:disabled {
+    background-color: color-mix(in srgb, var(--primary-color) 40%, white);
+    border-color: color-mix(in srgb, var(--primary-color) 40%, white);
+    cursor: default;
+  }
 `;

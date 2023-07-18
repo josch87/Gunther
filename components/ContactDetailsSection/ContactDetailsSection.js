@@ -11,11 +11,46 @@ import {
   getSocialMediaHyperlink,
   getSocialMediaIcon,
 } from "@/utils/getContactDetails";
-import { Fragment } from "react";
 import Address from "../Address/Address";
 import { Heading } from "./ContactDetailsSection.styled";
+import React from "react";
 
 export default function ContactDetailsSection({ contact }) {
+  let addressOne;
+  let addressTwo;
+
+  if (contact) {
+    if (
+      contact.addressOneStreet ||
+      contact.addressOneZip ||
+      contact.addressOneCity ||
+      contact.addressOneCountry
+    ) {
+      addressOne = {
+        street: contact.addressOneStreet,
+        zipCode: contact.addressOneZipCode,
+        city: contact.addressOneCity,
+        country: contact.addressOneCountry,
+        type: contact.addressOneType,
+      };
+    }
+
+    if (
+      contact.addressTwoStreet ||
+      contact.addressTwoZip ||
+      contact.addressTwoCity ||
+      contact.addressTwoCountry
+    ) {
+      addressTwo = {
+        street: contact.addressTwoStreet,
+        zipCode: contact.addressTwoZipCode,
+        city: contact.addressTwoCity,
+        country: contact.addressTwoCountry,
+        type: contact.addressTwoType,
+      };
+    }
+  }
+
   return (
     <>
       {contact ? (
@@ -32,79 +67,111 @@ export default function ContactDetailsSection({ contact }) {
               />
             ) : null}
 
-            {contact.email
-              ? contact.email.map((email, index) => {
-                  return (
-                    <Fragment key={index}>
-                      <ContactDetailsItem
-                        icon={materialEmail}
-                        iconAlt={`${contact.email.type} email address`}
-                        value={email.value}
-                        type={email.type}
-                        href={`mailto:${email.value}`}
-                      />
-                    </Fragment>
-                  );
-                })
-              : null}
+            {contact.emailOneValue ? (
+              <ContactDetailsItem
+                icon={materialEmail}
+                iconAlt={`${contact.emailOneValue} email address`}
+                value={contact.emailOneValue}
+                type={contact.emailOneType}
+                href={`mailto:${contact.emailOneValue}`}
+              />
+            ) : null}
 
-            {contact.phone
-              ? contact.phone.map((phone, index) => (
-                  <Fragment key={index}>
-                    <ContactDetailsItem
-                      icon={materialPhone}
-                      iconAlt={`${phone.type} phone`}
-                      value={phone.value}
-                      type={phone.type}
-                      href={`tel:${phone.value}`}
-                    />
-                  </Fragment>
-                ))
-              : null}
+            {contact.emailTwoValue ? (
+              <ContactDetailsItem
+                icon={materialEmail}
+                iconAlt={`${contact.emailTwoValue} email address`}
+                value={contact.emailTwoValue}
+                type={contact.emailTwoType}
+                href={`mailto:${contact.emailTwoValue}`}
+              />
+            ) : null}
 
-            {contact.address
-              ? contact.address.map((addr, index) => {
-                  return (
-                    <Fragment key={index}>
-                      <ContactDetailsItem
-                        icon={materialAddress}
-                        iconAlt="Address"
-                        value={<Address {...addr} />}
-                        type={addr.type}
-                        href={getGoogleMapsLink(addr)}
-                        target="_blank"
-                      />
-                    </Fragment>
-                  );
-                })
-              : null}
+            {contact.phoneOneValue ? (
+              <ContactDetailsItem
+                icon={materialPhone}
+                iconAlt={`${contact.phoneOneType} phone`}
+                value={contact.phoneOneValue}
+                type={contact.phoneOneType}
+                href={`tel:${contact.phoneOneValue}`}
+              />
+            ) : null}
 
-            {contact.socialMedia
-              ? contact.socialMedia.map((media, index) => {
-                  const mediaLink = getSocialMediaHyperlink(
-                    media.platform,
-                    media.username
-                  );
-                  return (
-                    <Fragment key={index}>
-                      <ContactDetailsItem
-                        icon={getSocialMediaIcon(media.platform)}
-                        iconAlt={media.platform}
-                        value={media.username}
-                        type={media.platform}
-                        href={mediaLink}
-                        target="_blank"
-                      />
-                    </Fragment>
-                  );
-                })
-              : null}
+            {contact.phoneTwoValue ? (
+              <ContactDetailsItem
+                icon={materialPhone}
+                iconAlt={`${contact.phoneTwoType} phone`}
+                value={contact.phoneTwoValue}
+                type={contact.phoneTwoType}
+                href={`tel:${contact.phoneTwoValue}`}
+              />
+            ) : null}
+
+            {addressOne ? (
+              <ContactDetailsItem
+                icon={materialAddress}
+                iconAlt="Address"
+                value={<Address {...addressOne} />}
+                type={contact.addressOneType}
+                href={getGoogleMapsLink(addressOne)}
+                target="_blank"
+              />
+            ) : null}
+
+            {addressTwo ? (
+              <ContactDetailsItem
+                icon={materialAddress}
+                iconAlt="Address"
+                value={<Address {...addressTwo} />}
+                type={contact.addressTwoType}
+                href={getGoogleMapsLink(addressTwo)}
+                target="_blank"
+              />
+            ) : null}
+
+            {contact.instagram ? (
+              <ContactDetailsItem
+                icon={getSocialMediaIcon("Instagram")}
+                iconAlt={"Instagram"}
+                value={contact.instagram}
+                type={"Instagram"}
+                href={getSocialMediaHyperlink("Instagram", contact.instagram)}
+                target="_blank"
+              />
+            ) : null}
+
+            {contact.twitter ? (
+              <ContactDetailsItem
+                icon={getSocialMediaIcon("Twitter")}
+                iconAlt={"Twitter"}
+                value={contact.twitter}
+                type={"Twitter"}
+                href={getSocialMediaHyperlink("Twitter", contact.twitter)}
+                target="_blank"
+              />
+            ) : null}
+
+            {contact.facebook ? (
+              <ContactDetailsItem
+                icon={getSocialMediaIcon("Facebook")}
+                iconAlt={"Facebook"}
+                value={contact.facebook}
+                type={"Facebook"}
+                href={getSocialMediaHyperlink("Facebook", contact.facebook)}
+                target="_blank"
+              />
+            ) : null}
 
             {contact.notes ? (
               <ContactDetailsItem
                 icon={materialNotes}
                 iconAlt={"Notes"}
-                value={contact.notes}
+                value={contact.notes.split("\n").map((line, index) => (
+                  <React.Fragment key={index}>
+                    {line}
+                    <br />
+                  </React.Fragment>
+                ))}
               />
             ) : null}
           </ul>
