@@ -25,6 +25,7 @@ export const DetailsContainer = styled.div`
 
 export const ParticipantsContainer = styled.h2`
   font-size: 1rem;
+  line-height: 1.2rem;
 `;
 
 export const DateContainer = styled.div`

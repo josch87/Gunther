@@ -1,7 +1,4 @@
-import {
-  getInteractionIcon,
-  getInteractionIcon2,
-} from "@/utils/getInteractionDetails";
+import { getInteractionIcon } from "@/utils/getInteractionDetails";
 import {
   DateContainer,
   DetailsContainer,
@@ -34,8 +31,12 @@ export default function InteractionListItem({ interaction, contacts }) {
         />
         <DetailsContainer>
           <ParticipantsContainer>
-            {getParticipantName("1", "short")}
-            Chandler B., Estelle L., Gunther
+            {interaction.participants.map((participant, index) => {
+              if (index < interaction.participants.length - 1) {
+                return getParticipantName(participant, "short") + ", ";
+              }
+              return getParticipantName(participant, "short");
+            })}
           </ParticipantsContainer>
           <DateContainer>{formatDate(interaction.date)}</DateContainer>
         </DetailsContainer>
