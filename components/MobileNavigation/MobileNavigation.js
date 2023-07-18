@@ -31,7 +31,7 @@ export default function MobileNavigation() {
           const isActive = router.pathname === linkData.href;
 
           return (
-            <ListItem key={linkData.id} active={isActive}>
+            <ListItem key={linkData.id} $active={isActive}>
               <StyledLink href={linkData.href}>
                 <Image
                   src={linkData.icon}
