@@ -3,10 +3,14 @@ import { createGlobalStyle } from "styled-components";
 export default createGlobalStyle`
 
 :root {
+  --primary-color: #4dabf7;
   --primary-text-color: #4b4b4b;
   --app-header-height: 60px;
   --app-side-padding: 20px;
-  --primary-color: #4dabf7;
+  --mobile-navigation-height: 50px;
+  --mobile-navigation-background-color: #ffffff;
+  --mobile-navigation-background-color-active: #99e9f2;
+
 }
 
   *,

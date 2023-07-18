@@ -1,4 +1,5 @@
 import Header from "../Header/Header";
+import MobileNavigation from "../MobileNavigation/MobileNavigation";
 import { Main } from "./Layout.styled";
 
 export default function Layout({ children }) {
@@ -6,6 +7,7 @@ export default function Layout({ children }) {
     <>
       <Header />
       <Main>{children}</Main>
+      <MobileNavigation />
     </>
   );
 }
