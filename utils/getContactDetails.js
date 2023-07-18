@@ -4,7 +4,6 @@ import {
   materialInstagram,
   materialTwitter,
 } from "@/assets/Icons8";
-import { Fragment } from "react";
 
 export function getFullName({ firstName, middleName, lastName }) {
   let displayName = "";
@@ -20,6 +19,34 @@ export function getFullName({ firstName, middleName, lastName }) {
   }
 
   return displayName.trim();
+}
+
+export function getShortName({ firstName, lastName }) {
+  let displayName = "";
+
+  if (firstName) {
+    displayName += firstName;
+  }
+  if (lastName) {
+    displayName += "\u00A0" + lastName.charAt(0).toUpperCase() + ".";
+  }
+
+  return displayName.trim();
+}
+
+export function getFullSortName({ firstName, middleName, lastName }) {
+  let sortName = "";
+
+  if (firstName) {
+    sortName += firstName.trim().toLowerCase();
+  }
+  if (middleName) {
+    sortName += middleName.trim().toLowerCase();
+  }
+  if (lastName) {
+    sortName += lastName.trim().toLowerCase();
+  }
+  return sortName;
 }
 
 export function getProfilePicture({ profilePicture }) {

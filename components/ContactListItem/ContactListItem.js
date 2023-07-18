@@ -8,7 +8,6 @@ import {
   StyledLink,
 } from "./ContactListItem.styled";
 import { materialImage } from "@/assets/Icons8";
-import Link from "next/link";
 
 export default function ContactListItem({ contact }) {
   return (

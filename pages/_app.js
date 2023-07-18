@@ -1,5 +1,5 @@
 import GlobalStyle from "../styles";
-import { contactsSampleData } from "@/data/SampleData";
+import { contactsSampleData, interactionsSampleData } from "@/data/SampleData";
 import Layout from "@/components/Layout/Layout";
 import { useRouter } from "next/router";
 import useLocalStorageState from "use-local-storage-state";
@@ -9,6 +9,9 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
   const [contacts, setContacts] = useLocalStorageState("contacts", {
     defaultValue: contactsSampleData,
+  });
+  const [interactions, setInteractions] = useLocalStorageState("interactions", {
+    defaultValue: interactionsSampleData,
   });
 
   const date = new Date();
@@ -50,6 +53,7 @@ export default function App({ Component, pageProps }) {
         <Component
           {...pageProps}
           contacts={contacts}
+          interactions={interactions}
           onAddNewContact={handleAddNewContact}
           onUpdateContact={handleUpdateContact}
         />

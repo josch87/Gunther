@@ -9,13 +9,7 @@ import {
 } from "./ContactDetailsHeader.styled";
 import { materialImage, materialBirthday } from "@/assets/Icons8";
 import Image from "next/image";
-
-function formatDateOfBirth(dateOfBirth) {
-  const birthDate = new Date(dateOfBirth);
-  const options = { day: "numeric", month: "long", year: "numeric" };
-  const formattedDate = birthDate.toLocaleDateString("en-US", options);
-  return formattedDate;
-}
+import { formatDate } from "@/utils/formatDates";
 
 export default function ContactDetailsHeader({ contact }) {
   if (!contact) {
@@ -50,7 +44,7 @@ export default function ContactDetailsHeader({ contact }) {
               height={20}
               alt={"Birthday icon"}
             />
-            <div> {formatDateOfBirth(contact.dateOfBirth)}</div>
+            <div> {formatDate(contact.dateOfBirth)}</div>
           </BirthdayContainer>
         ) : null}
       </DetailsContainer>
