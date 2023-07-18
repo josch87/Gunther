@@ -22,3 +22,12 @@ export const DetailsContainer = styled.div`
   width: 100%;
   margin: 10px;
 `;
+
+export const ParticipantsContainer = styled.h2`
+  font-size: 1rem;
+`;
+
+export const DateContainer = styled.div`
+  margin-top: 5px;
+  font-size: 0.8rem;
+`;
