@@ -28,7 +28,7 @@ export function getShortName({ firstName, lastName }) {
     displayName += firstName;
   }
   if (lastName) {
-    displayName += " " + lastName.charAt(0).toUpperCase() + ".";
+    displayName += "\u00A0" + lastName.charAt(0).toUpperCase() + ".";
   }
 
   return displayName.trim();

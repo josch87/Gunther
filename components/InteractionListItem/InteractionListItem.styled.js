@@ -11,6 +11,7 @@ export const StyledLink = styled(Link)`
   display: flex;
   color: var(--primary-text-color);
   text-decoration: none;
+  align-items: center;
 `;
 
 export const InteractionIcon = styled(Image)`

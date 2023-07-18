@@ -32,8 +32,8 @@ export default function InteractionListItem({ interaction, contacts }) {
       <StyledLink href="">
         <InteractionIcon
           src={getInteractionIcon(interaction)}
-          width={80}
-          height={80}
+          width={60}
+          height={60}
           alt={`Icon of ${interaction.type.toLowerCase()} interaction`}
         />
         <DetailsContainer>
