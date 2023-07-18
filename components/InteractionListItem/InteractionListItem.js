@@ -38,12 +38,9 @@ export default function InteractionListItem({ interaction, contacts }) {
         />
         <DetailsContainer>
           <ParticipantsContainer>
-            {sortedParticipants.map((participant, index) => {
-              if (index < sortedParticipants.length - 1) {
-                return getShortName(participant) + ", ";
-              }
-              return getShortName(participant);
-            })}
+            {sortedParticipants
+              .map((participant) => getShortName(participant))
+              .join(", ")}
           </ParticipantsContainer>
           <DateContainer>{formatDate(interaction.date)}</DateContainer>
         </DetailsContainer>

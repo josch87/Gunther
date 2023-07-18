@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import InteractionListItem from "../InteractionListItem/InteractionListItem";
 
 export default function InteractionList({ interactions, contacts }) {
@@ -6,12 +5,11 @@ export default function InteractionList({ interactions, contacts }) {
     <ul>
       {interactions.map((interaction) => {
         return (
-          <Fragment key={interaction.id}>
-            <InteractionListItem
-              interaction={interaction}
-              contacts={contacts}
-            />
-          </Fragment>
+          <InteractionListItem
+            key={interaction.id}
+            interaction={interaction}
+            contacts={contacts}
+          />
         );
       })}
     </ul>
