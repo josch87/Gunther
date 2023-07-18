@@ -437,7 +437,7 @@ export const contactsSampleData = [
 export const interactionsSampleData = [
   {
     id: "1",
-    type: "outgoing-call",
+    type: "Call",
     date: "2038-11-03T00:00:00.000+00:00",
     participants: [1, 3, 4],
     notes:
@@ -448,7 +448,7 @@ export const interactionsSampleData = [
   },
   {
     id: "2",
-    type: "outgoing-call",
+    type: "Call",
     date: "2038-11-07T18:30:00.000+00:00",
     participants: [1, 3],
     notes:
@@ -459,7 +459,7 @@ export const interactionsSampleData = [
   },
   {
     id: "3",
-    type: "video-conference",
+    type: "Video conference",
     date: "2038-11-10T19:00:00.000+00:00",
     participants: [1, 3, 6],
     notes:
@@ -470,7 +470,7 @@ export const interactionsSampleData = [
   },
   {
     id: "4",
-    type: "incoming-call",
+    type: "Homecoming",
     date: "2038-11-09T20:00:00.000+00:00",
     participants: [2, 5],
 
@@ -482,7 +482,7 @@ export const interactionsSampleData = [
   },
   {
     id: "5",
-    type: "party",
+    type: "Party",
     date: "2038-11-01T20:00:00.000+00:00",
     participants: [2, 3, 1, 4],
 
