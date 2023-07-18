@@ -6,7 +6,7 @@ import Scopebox from "@/components/Scopebox/Scopebox";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { styled } from "styled-components";
+import styled from "styled-components";
 
 const StyledLink = styled(Link)`
   position: absolute;
