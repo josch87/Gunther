@@ -1,21 +1,16 @@
 import ContactList from "@/components/ContactList/ContactList";
 import Heading from "@/components/Heading/Heading";
+import { getFullSortName } from "@/utils/getContactDetails";
 
 export default function HomePage({ contacts }) {
   const contactsSortedByFirstName = contacts.slice().sort((a, b) => {
-    const fullNameA =
-      a.firstName?.toLowerCase() +
-      a.middleName?.toLowerCase() +
-      a.lastName?.toLowerCase();
-    const fullNameB =
-      b.firstName?.toLowerCase() +
-      b.middleName?.toLowerCase() +
-      b.lastName?.toLowerCase();
+    const nameA = getFullSortName(a);
+    const nameB = getFullSortName(b);
 
-    if (fullNameA < fullNameB) {
+    if (nameA < nameB) {
       return -1;
     }
-    if (fullNameA > fullNameB) {
+    if (nameA > nameB) {
       return 1;
     }
     return 0;

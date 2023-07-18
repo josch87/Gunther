@@ -8,7 +8,11 @@ import {
   StyledLink,
 } from "./InteractionListItem.styled";
 import { formatDate } from "@/utils/formatDates";
-import { getFullName, getShortName } from "@/utils/getContactDetails";
+import {
+  getFullName,
+  getShortName,
+  getSortName,
+} from "@/utils/getContactDetails";
 
 export default function InteractionListItem({ interaction, contacts }) {
   function getParticipantName(contactId, type) {
@@ -19,6 +23,14 @@ export default function InteractionListItem({ interaction, contacts }) {
     }
     return getFullName(participant);
   }
+
+  const sortedParticipants = interaction.participants.sort((a, b) => {
+    const nameA = getParticipantName(a).toLowerCase();
+    const nameB = getParticipantName(b).toLowerCase();
+    if (nameA < nameB) return -1;
+    if (nameA > nameB) return 1;
+    return 0;
+  });
 
   return (
     <ListItem>

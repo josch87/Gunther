@@ -34,6 +34,21 @@ export function getShortName({ firstName, lastName }) {
   return displayName.trim();
 }
 
+export function getFullSortName({ firstName, middleName, lastName }) {
+  let sortName = "";
+
+  if (firstName) {
+    sortName += firstName.trim().toLowerCase();
+  }
+  if (middleName) {
+    sortName += middleName.trim().toLowerCase();
+  }
+  if (lastName) {
+    sortName += lastName.trim().toLowerCase();
+  }
+  return sortName;
+}
+
 export function getProfilePicture({ profilePicture }) {
   const path = "/profile-pictures/";
 
