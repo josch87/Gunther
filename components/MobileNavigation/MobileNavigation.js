@@ -7,6 +7,7 @@ import {
 import Image from "next/image";
 import { materialContact, materialMeeting } from "@/assets/Icons8";
 import { useRouter } from "next/router";
+import { Tooltip } from "react-tooltip";
 
 export default function MobileNavigation() {
   const router = useRouter();
@@ -26,12 +27,19 @@ export default function MobileNavigation() {
   ];
   return (
     <StyledNavigation>
+      <Tooltip id="mobile-navigation-tooltip" />
       <UnorderedList>
         {linksData.map((linkData) => {
           const isActive = router.pathname === linkData.href;
-
           return (
-            <ListItem key={linkData.id} $active={isActive}>
+            <ListItem
+              key={linkData.id}
+              $active={isActive}
+              aria-label={`${linkData.title} page`}
+              data-tooltip-id="mobile-navigation-tooltip"
+              data-tooltip-content={linkData.title}
+              data-tooltip-place="top"
+            >
               <StyledLink href={linkData.href}>
                 <Image
                   src={linkData.icon}
