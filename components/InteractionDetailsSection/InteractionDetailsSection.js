@@ -47,7 +47,7 @@ export default function InteractionDetailsSection({ interaction, contacts }) {
           <ul>
             <InteractionDetailsItem
               icon={materialPeople}
-              iconAlt="test"
+              iconAlt="Participants"
               value={participantsLinks}
               //   value={"Alfred Jodokus Quak, Benjamin Blümchen, Käptn Blaubär"}
             />
@@ -55,7 +55,7 @@ export default function InteractionDetailsSection({ interaction, contacts }) {
           <ul>
             <InteractionDetailsItem
               icon={materialNotes}
-              iconAlt="test"
+              iconAlt="Notes"
               value={interaction.notes}
             />
           </ul>
