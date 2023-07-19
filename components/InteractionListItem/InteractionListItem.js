@@ -29,7 +29,10 @@ export default function InteractionListItem({ interaction, contacts }) {
 
   return (
     <ListItem>
-      <StyledLink href="">
+      <StyledLink
+        href={`/interactions/${interaction.id}`}
+        title="Show interaction details"
+      >
         <InteractionIcon
           src={getInteractionIcon(interaction)}
           width={60}
