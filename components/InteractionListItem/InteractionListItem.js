@@ -14,9 +14,9 @@ import { getFullSortName, getShortName } from "@/utils/getContactDetails";
 import Image from "next/image";
 
 export default function InteractionListItem({ interaction, contacts }) {
-  const participants = interaction.participants.map((participant) => {
-    return getParticipant(contacts, participant);
-  });
+  const participants = interaction.participants.map((participant) =>
+    getParticipant(contacts, participant)
+  );
 
   const sortedParticipants = participants.slice().sort((a, b) => {
     const nameA = getFullSortName(a);

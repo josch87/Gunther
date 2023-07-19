@@ -1,14 +1,14 @@
 import { materialNotes, materialPeople } from "@/assets/Icons8";
 import InteractionDetailsItem from "../InteractionDetailsItem/InteractionDetailsItem";
-import { Heading } from "./InteractionDetailsSection.styled";
+import { Heading, ParticipantLink } from "./InteractionDetailsSection.styled";
 import { getParticipant } from "@/utils/getInteractionDetails";
 import { getFullName, getFullSortName } from "@/utils/getContactDetails";
-import Link from "next/link";
+import React from "react";
 
 export default function InteractionDetailsSection({ interaction, contacts }) {
-  const participants = interaction.participants.map((participant) => {
-    return getParticipant(contacts, participant);
-  });
+  const participants = interaction.participants.map((participant) =>
+    getParticipant(contacts, participant)
+  );
 
   const sortedParticipants = participants.slice().sort((a, b) => {
     const nameA = getFullSortName(a);
@@ -18,25 +18,19 @@ export default function InteractionDetailsSection({ interaction, contacts }) {
     return 0;
   });
 
-  //   const sortedAndLinkedParticipants = sortedParticipants.map((participant) => (
-  //     <Link key={participant.id} href={`/${participant.id}`}>
-  //       {getFullName(participant)}
-  //     </Link>
-  //   ));
-
-  let participantsLinks;
-  sortedParticipants.forEach((participant) => {
-    return <Link href={`/1`}>Aljoscha Zöller</Link>;
-  });
-
-  const sortedAndLinkedParticipants = (
-    <>
-      <Link href={`/1`}>Aljoscha Zöller</Link>,{" "}
-      <Link href={`/1`}>Aljoscha</Link>, <Link href={`/1`}>Aljoscha</Link>
-    </>
+  const participantsWithLinks = sortedParticipants.map(
+    (sortedParticipant, index) => (
+      <React.Fragment key={sortedParticipant.id}>
+        <ParticipantLink
+          href={`/${sortedParticipant.id}`}
+          title="Show contact details"
+        >
+          {getFullName(sortedParticipant)}
+        </ParticipantLink>
+        {index < sortedParticipants.length - 1 && ", "}
+      </React.Fragment>
+    )
   );
-
-  console.log(sortedAndLinkedParticipants);
 
   return (
     <>
@@ -48,8 +42,7 @@ export default function InteractionDetailsSection({ interaction, contacts }) {
             <InteractionDetailsItem
               icon={materialPeople}
               iconAlt="Participants"
-              value={participantsLinks}
-              //   value={"Alfred Jodokus Quak, Benjamin Blümchen, Käptn Blaubär"}
+              value={participantsWithLinks}
             />
           </ul>
           <ul>
