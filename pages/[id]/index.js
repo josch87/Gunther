@@ -21,11 +21,11 @@ export default function ContactDetailsPage({ contacts }) {
   const contact = contacts.find((contact) => contact.id === id);
 
   if (id === undefined) {
-    return <p>Loading contact details...</p>;
+    return <div>Loading contact details...</div>;
   }
 
   if (contact === undefined) {
-    return <p>Contact with the ID &apos;{id}&apos; not found</p>;
+    return <div>Contact with the ID &apos;{id}&apos; not found</div>;
   }
 
   return (

@@ -10,7 +10,7 @@ import { formatDate } from "@/utils/formatDates";
 
 export default function InteractionDetailsHeader({ interaction }) {
   if (!interaction) {
-    return <>Loading InteractionDetailsHeader</>;
+    return <div>Loading InteractionDetailsHeader</div>;
   }
 
   return (

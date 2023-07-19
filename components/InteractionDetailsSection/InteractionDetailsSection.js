@@ -6,6 +6,10 @@ import { getFullName, getFullSortName } from "@/utils/getContactDetails";
 import React from "react";
 
 export default function InteractionDetailsSection({ interaction, contacts }) {
+  if (!interaction) {
+    return <div>Loading ContactDetailsSection</div>;
+  }
+
   const participants = interaction.participants.map((participant) =>
     getParticipant(contacts, participant)
   );
@@ -34,28 +38,22 @@ export default function InteractionDetailsSection({ interaction, contacts }) {
 
   return (
     <>
-      {interaction ? (
-        <>
-          <Heading>Interaction Details</Heading>
+      <Heading>Interaction Details</Heading>
 
-          <ul>
-            <InteractionDetailsItem
-              icon={materialPeople}
-              iconAlt="Participants"
-              value={participantsWithLinks}
-            />
-          </ul>
-          <ul>
-            <InteractionDetailsItem
-              icon={materialNotes}
-              iconAlt="Notes"
-              value={interaction.notes}
-            />
-          </ul>
-        </>
-      ) : (
-        <div>Loading ContactDetailsSection</div>
-      )}
+      <ul>
+        <InteractionDetailsItem
+          icon={materialPeople}
+          iconAlt="Participants"
+          value={participantsWithLinks}
+        />
+      </ul>
+      <ul>
+        <InteractionDetailsItem
+          icon={materialNotes}
+          iconAlt="Notes"
+          value={interaction.notes}
+        />
+      </ul>
     </>
   );
 }

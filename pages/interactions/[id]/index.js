@@ -11,11 +11,11 @@ export default function InteractionDetailsPage({ interactions, contacts }) {
   const interaction = interactions.find((interaction) => interaction.id === id);
 
   if (id === undefined) {
-    return <p>Loading interaction details...</p>;
+    return <div>Loading interaction details...</div>;
   }
 
   if (interaction === undefined) {
-    return <p>Interaction with the ID &apos;{id}&apos; not found</p>;
+    return <div>Interaction with the ID &apos;{id}&apos; not found</div>;
   }
 
   return (
