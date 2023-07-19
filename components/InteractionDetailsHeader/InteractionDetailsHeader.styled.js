@@ -9,9 +9,8 @@ export const DetailsContainer = styled.div`
   margin: 10px;
 `;
 
-export const InteractionTypeContainer = styled.h2`
-  font-size: 1rem;
-  line-height: 1.2rem;
+export const InteractionTypeContainer = styled.h1`
+  font-size: 1.3rem;
 `;
 
 export const DateContainer = styled.div`

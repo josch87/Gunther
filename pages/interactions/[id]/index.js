@@ -1,9 +1,10 @@
 import BackLink from "@/components/BackLink/BackLink";
 import InteractionDetailsHeader from "@/components/InteractionDetailsHeader/InteractionDetailsHeader";
+import InteractionDetailsSection from "@/components/InteractionDetailsSection/InteractionDetailsSection";
 import Scopebox from "@/components/Scopebox/Scopebox";
 import { useRouter } from "next/router";
 
-export default function InteractionDetailsPage({ interactions }) {
+export default function InteractionDetailsPage({ interactions, contacts }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -23,6 +24,10 @@ export default function InteractionDetailsPage({ interactions }) {
 
       <Scopebox>
         <InteractionDetailsHeader interaction={interaction} />
+        <InteractionDetailsSection
+          interaction={interaction}
+          contacts={contacts}
+        />
       </Scopebox>
     </>
   );

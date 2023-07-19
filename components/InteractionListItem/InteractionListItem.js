@@ -1,4 +1,7 @@
-import { getInteractionIcon } from "@/utils/getInteractionDetails";
+import {
+  getInteractionIcon,
+  getParticipant,
+} from "@/utils/getInteractionDetails";
 import {
   DateContainer,
   DetailsContainer,
@@ -11,12 +14,8 @@ import { getFullSortName, getShortName } from "@/utils/getContactDetails";
 import Image from "next/image";
 
 export default function InteractionListItem({ interaction, contacts }) {
-  function getParticipant(contactId) {
-    return contacts.find((contact) => contact.id === contactId);
-  }
-
   const participants = interaction.participants.map((participant) => {
-    return getParticipant(participant);
+    return getParticipant(contacts, participant);
   });
 
   const sortedParticipants = participants.slice().sort((a, b) => {

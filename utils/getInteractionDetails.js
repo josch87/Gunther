@@ -1,17 +1,16 @@
-import {
-  materialCall,
-  materialEngage,
-  materialParty,
-  materialVideoConference,
-} from "@/assets/Icons8";
+import { materialEngage } from "@/assets/Icons8";
 import { baseInteractionTypes } from "@/data/BaseData";
 
 export function getInteractionIcon({ type }) {
   let icon = materialEngage;
-  baseInteractionTypes.map((interactionType) => {
-    if (type === interactionType.type) {
-      icon = interactionType.icon;
+  baseInteractionTypes.map((baseInteractionType) => {
+    if (type === baseInteractionType.type) {
+      icon = baseInteractionType.icon;
     }
   });
   return icon;
+}
+
+export function getParticipant(contacts, contactId) {
+  return contacts.find((contact) => contact.id === contactId);
 }
