@@ -2,13 +2,13 @@ import { getInteractionIcon } from "@/utils/getInteractionDetails";
 import {
   DateContainer,
   DetailsContainer,
-  InteractionIcon,
   ListItem,
   ParticipantsContainer,
   StyledLink,
 } from "./InteractionListItem.styled";
 import { formatDate } from "@/utils/formatDates";
 import { getFullSortName, getShortName } from "@/utils/getContactDetails";
+import Image from "next/image";
 
 export default function InteractionListItem({ interaction, contacts }) {
   function getParticipant(contactId) {
@@ -33,7 +33,7 @@ export default function InteractionListItem({ interaction, contacts }) {
         href={`/interactions/${interaction.id}`}
         title="Show interaction details"
       >
-        <InteractionIcon
+        <Image
           src={getInteractionIcon(interaction)}
           width={60}
           height={60}
