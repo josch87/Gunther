@@ -27,8 +27,6 @@ export default function ContactForm({ onSubmitForm, type, contact }) {
   const isEqual = JSON.stringify(currentContact) === JSON.stringify(contact);
 
   function handleUserInput(event, fieldName) {
-    // console.log("handleUserInput EventTarget: ", event.target);
-
     if (fieldName === "deceased") {
       setCurrentContact({ ...currentContact, deceased: event.target.checked });
     } else if (fieldName === "gender") {
@@ -69,8 +67,6 @@ export default function ContactForm({ onSubmitForm, type, contact }) {
     } else {
       setCurrentContact({ ...currentContact, [fieldName]: event.target.value });
     }
-
-    // console.log("currentContact: ", currentContact);
   }
 
   return (
@@ -143,7 +139,7 @@ export default function ContactForm({ onSubmitForm, type, contact }) {
             value={
               currentContact.dateOfBirth
                 ? currentContact.dateOfBirth.substring(0, 10)
-                : null
+                : ""
             }
             onChange={(event) => handleUserInput(event, "dateOfBirth")}
           />

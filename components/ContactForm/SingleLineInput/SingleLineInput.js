@@ -1,4 +1,9 @@
-import Select from "react-select";
+import dynamic from "next/dynamic";
+const Select = dynamic(
+  () => import("react-select").then((mod) => mod.default),
+  { ssr: false }
+);
+
 import { StyledInput, StyledLabel, Container } from "./SingleLineInput.styled";
 
 export default function SingleLineInput({

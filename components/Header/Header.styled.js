@@ -12,7 +12,7 @@ export const StyledHeader = styled.header`
   background-color: white;
   width: 100%;
   height: var(--app-header-height);
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
   padding: 0 var(--app-side-padding);
 `;
 
