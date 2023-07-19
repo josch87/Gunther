@@ -20,7 +20,6 @@ export const UnorderedList = styled.ul`
 export const ListItem = styled.li`
   list-style: none;
   width: 100%;
-  text-align: center;
   background-color: white;
 
   background-color: ${(props) =>
@@ -41,5 +40,4 @@ export const StyledLink = styled(Link)`
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 100%;
 `;
