@@ -8,7 +8,7 @@ export default function EditContactPage({ contacts, onUpdateContact }) {
   const contact = contacts.find((contact) => contact.id === id);
 
   if (id === undefined) {
-    return <p>Loading...</p>;
+    return <p>Loading contact details...</p>;
   }
 
   if (contact === undefined) {

@@ -9,6 +9,14 @@ export default function InteractionDetailsPage({ interactions }) {
 
   const interaction = interactions.find((interaction) => interaction.id === id);
 
+  if (id === undefined) {
+    return <p>Loading interaction details...</p>;
+  }
+
+  if (interaction === undefined) {
+    return <p>Interaction with the ID &apos;{id}&apos; not found</p>;
+  }
+
   return (
     <>
       <BackLink href="/interactions">← All Interactions</BackLink>
