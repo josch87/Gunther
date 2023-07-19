@@ -1,4 +1,9 @@
-import CreatableSelect from "react-select/creatable";
+import dynamic from "next/dynamic";
+const CreatableSelect = dynamic(
+  () => import("react-select/creatable").then((mod) => mod.default),
+  { ssr: false }
+);
+
 import {
   ColumnOne,
   ColumnTwo,
