@@ -72,7 +72,7 @@ export default function ContactDetailsSection({ contact }) {
         {contact.emailOneValue ? (
           <ContactDetailsItem
             icon={materialEmail}
-            iconAlt={`${contact.emailOneValue} email address`}
+            iconAlt="Email address"
             value={contact.emailOneValue}
             type={contact.emailOneType}
             href={`mailto:${contact.emailOneValue}`}
@@ -82,7 +82,7 @@ export default function ContactDetailsSection({ contact }) {
         {contact.emailTwoValue ? (
           <ContactDetailsItem
             icon={materialEmail}
-            iconAlt={`${contact.emailTwoValue} email address`}
+            iconAlt="Email address"
             value={contact.emailTwoValue}
             type={contact.emailTwoType}
             href={`mailto:${contact.emailTwoValue}`}
@@ -92,7 +92,7 @@ export default function ContactDetailsSection({ contact }) {
         {contact.phoneOneValue ? (
           <ContactDetailsItem
             icon={materialPhone}
-            iconAlt={`${contact.phoneOneType} phone`}
+            iconAlt="Phone number"
             value={contact.phoneOneValue}
             type={contact.phoneOneType}
             href={`tel:${contact.phoneOneValue}`}
@@ -102,7 +102,7 @@ export default function ContactDetailsSection({ contact }) {
         {contact.phoneTwoValue ? (
           <ContactDetailsItem
             icon={materialPhone}
-            iconAlt={`${contact.phoneTwoType} phone`}
+            iconAlt="Phone number"
             value={contact.phoneTwoValue}
             type={contact.phoneTwoType}
             href={`tel:${contact.phoneTwoValue}`}
@@ -134,9 +134,9 @@ export default function ContactDetailsSection({ contact }) {
         {contact.instagram ? (
           <ContactDetailsItem
             icon={getSocialMediaIcon("Instagram")}
-            iconAlt={"Instagram"}
+            iconAlt="Instagram"
             value={contact.instagram}
-            type={"Instagram"}
+            type="Instagram"
             href={getSocialMediaHyperlink("Instagram", contact.instagram)}
             target="_blank"
           />
@@ -145,9 +145,9 @@ export default function ContactDetailsSection({ contact }) {
         {contact.twitter ? (
           <ContactDetailsItem
             icon={getSocialMediaIcon("Twitter")}
-            iconAlt={"Twitter"}
+            iconAlt="Twitter"
             value={contact.twitter}
-            type={"Twitter"}
+            type="Twitter"
             href={getSocialMediaHyperlink("Twitter", contact.twitter)}
             target="_blank"
           />
@@ -156,9 +156,9 @@ export default function ContactDetailsSection({ contact }) {
         {contact.facebook ? (
           <ContactDetailsItem
             icon={getSocialMediaIcon("Facebook")}
-            iconAlt={"Facebook"}
+            iconAlt="Facebook"
             value={contact.facebook}
-            type={"Facebook"}
+            type="Facebook"
             href={getSocialMediaHyperlink("Facebook", contact.facebook)}
             target="_blank"
           />
@@ -167,7 +167,7 @@ export default function ContactDetailsSection({ contact }) {
         {contact.notes ? (
           <ContactDetailsItem
             icon={materialNotes}
-            iconAlt={"Notes"}
+            iconAlt="Notes"
             value={contact.notes.split("\n").map((line, index) => (
               <React.Fragment key={index}>
                 {line}
