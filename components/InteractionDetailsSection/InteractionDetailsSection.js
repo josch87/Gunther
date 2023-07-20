@@ -7,7 +7,7 @@ import React from "react";
 
 export default function InteractionDetailsSection({ interaction, contacts }) {
   if (!interaction) {
-    return <div>Loading ContactDetailsSection</div>;
+    return <p>Loading ContactDetailsSection</p>;
   }
 
   const participants = interaction.participants.map((participant) =>

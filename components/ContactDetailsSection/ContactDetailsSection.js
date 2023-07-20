@@ -17,7 +17,7 @@ import React from "react";
 
 export default function ContactDetailsSection({ contact }) {
   if (!contact) {
-    return <div>Loading ContactDetailsSection</div>;
+    return <p>Loading ContactDetailsSection</p>;
   }
 
   let addressOne;

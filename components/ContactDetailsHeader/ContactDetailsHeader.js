@@ -13,7 +13,7 @@ import { formatDate } from "@/utils/formatDates";
 
 export default function ContactDetailsHeader({ contact }) {
   if (!contact) {
-    return <div>Loading ContactDetailsHeader</div>;
+    return <p>Loading ContactDetailsHeader</p>;
   }
 
   return (
