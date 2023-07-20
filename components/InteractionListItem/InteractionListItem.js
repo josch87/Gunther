@@ -26,6 +26,9 @@ export default function InteractionListItem({ interaction, contacts }) {
     return 0;
   });
 
+  const interactionIcon = getInteractionIcon(interaction);
+  const formattedInteractionDate = formatDate(interaction.date);
+
   return (
     <ListItem>
       <StyledLink
@@ -33,7 +36,7 @@ export default function InteractionListItem({ interaction, contacts }) {
         title="Show interaction details"
       >
         <Image
-          src={getInteractionIcon(interaction)}
+          src={interactionIcon}
           width={60}
           height={60}
           alt={`Icon of ${interaction.type.toLowerCase()} interaction`}
@@ -44,7 +47,7 @@ export default function InteractionListItem({ interaction, contacts }) {
               .map((participant) => getShortName(participant))
               .join(", ")}
           </ParticipantsContainer>
-          <DateContainer>{formatDate(interaction.date)}</DateContainer>
+          <DateContainer>{formattedInteractionDate}</DateContainer>
         </DetailsContainer>
       </StyledLink>
     </ListItem>

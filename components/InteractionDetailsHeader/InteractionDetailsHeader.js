@@ -13,17 +13,20 @@ export default function InteractionDetailsHeader({ interaction }) {
     return <p>Loading InteractionDetailsHeader</p>;
   }
 
+  const interactionIcon = getInteractionIcon(interaction);
+  const formattedInteractionDate = formatDate(interaction.date);
+
   return (
     <StyledHeader>
       <Image
-        src={getInteractionIcon(interaction)}
+        src={interactionIcon}
         width={60}
         height={60}
         alt={`Icon of ${interaction.type.toLowerCase()} interaction`}
       />
       <DetailsContainer>
         <InteractionTypeHeader>{interaction.type}</InteractionTypeHeader>
-        <DateContainer>{formatDate(interaction.date)}</DateContainer>
+        <DateContainer>{formattedInteractionDate}</DateContainer>
       </DetailsContainer>
     </StyledHeader>
   );
