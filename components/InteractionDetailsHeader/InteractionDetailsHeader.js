@@ -2,7 +2,7 @@ import Image from "next/image";
 import {
   DateContainer,
   DetailsContainer,
-  InteractionTypeContainer,
+  InteractionTypeHeader,
   StyledHeader,
 } from "./InteractionDetailsHeader.styled";
 import { getInteractionIcon } from "@/utils/getInteractionDetails";
@@ -22,7 +22,7 @@ export default function InteractionDetailsHeader({ interaction }) {
         alt={`Icon of ${interaction.type.toLowerCase()} interaction`}
       />
       <DetailsContainer>
-        <InteractionTypeContainer>{interaction.type}</InteractionTypeContainer>
+        <InteractionTypeHeader>{interaction.type}</InteractionTypeHeader>
         <DateContainer>{formatDate(interaction.date)}</DateContainer>
       </DetailsContainer>
     </StyledHeader>

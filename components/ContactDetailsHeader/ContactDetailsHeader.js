@@ -2,7 +2,7 @@ import { getFullName, getProfilePicture } from "@/utils/getContactDetails";
 import {
   BirthdayContainer,
   DetailsContainer,
-  NameContainer,
+  NameHeader,
   ProfileImage,
   ProfileImagePlaceholder,
   StyledHeader,
@@ -35,7 +35,7 @@ export default function ContactDetailsHeader({ contact }) {
         />
       )}
       <DetailsContainer>
-        <NameContainer>{getFullName(contact)}</NameContainer>
+        <NameHeader>{getFullName(contact)}</NameHeader>
         {contact.dateOfBirth ? (
           <BirthdayContainer>
             <Image

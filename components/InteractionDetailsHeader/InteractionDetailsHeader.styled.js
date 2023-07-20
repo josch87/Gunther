@@ -9,7 +9,7 @@ export const DetailsContainer = styled.div`
   margin: 10px;
 `;
 
-export const InteractionTypeContainer = styled.h1`
+export const InteractionTypeHeader = styled.h1`
   font-size: 1.3rem;
 `;
 
