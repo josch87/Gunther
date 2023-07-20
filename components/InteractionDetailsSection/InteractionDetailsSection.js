@@ -46,8 +46,7 @@ export default function InteractionDetailsSection({ interaction, contacts }) {
           iconAlt="Participants"
           value={participantsWithLinks}
         />
-      </ul>
-      <ul>
+
         <InteractionDetailsItem
           icon={materialNotes}
           iconAlt="Notes"
