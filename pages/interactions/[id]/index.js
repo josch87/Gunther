@@ -15,7 +15,7 @@ export default function InteractionDetailsPage({ interactions, contacts }) {
   }
 
   if (interaction === undefined) {
-    return <div>Interaction with the ID &apos;{id}&apos; not found</div>;
+    return <p>Interaction with the ID &apos;{id}&apos; not found</p>;
   }
 
   return (

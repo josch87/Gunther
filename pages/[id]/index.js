@@ -25,7 +25,7 @@ export default function ContactDetailsPage({ contacts }) {
   }
 
   if (contact === undefined) {
-    return <div>Contact with the ID &apos;{id}&apos; not found</div>;
+    return <p>Contact with the ID &apos;{id}&apos; not found</p>;
   }
 
   return (
