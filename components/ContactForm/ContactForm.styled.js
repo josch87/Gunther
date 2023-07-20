@@ -5,7 +5,7 @@ export const Heading = styled.h2`
   margin: 1.5rem 0 1rem 0;
 `;
 
-export const StyledHeader = styled.div`
+export const StickyContainer = styled.div`
   position: sticky;
   z-index: 1;
   top: var(--app-header-height);
