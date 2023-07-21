@@ -1,4 +1,4 @@
-import ContactForm from "@/components/ContactForm/ContactForm";
+import ContactForm from "@/components/Forms/ContactForm/ContactForm";
 import { useRouter } from "next/router";
 
 export default function EditContactPage({ contacts, onUpdateContact }) {

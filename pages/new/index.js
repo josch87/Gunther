@@ -1,4 +1,4 @@
-import ContactForm from "@/components/ContactForm/ContactForm";
+import ContactForm from "@/components/Forms/ContactForm/ContactForm";
 import { emptyContact } from "@/data/SampleData";
 
 export default function CreateNewContactPage({ onAddNewContact }) {

@@ -4,8 +4,8 @@ import {
   baseGender,
   basePhoneInputType,
 } from "@/data/BaseData";
-import SingleLineInput from "./SingleLineInput/SingleLineInput";
-import TwoLineInput from "./TwoLineInput/TwoLineInput";
+import SingleLineInput from "../SingleLineInput/SingleLineInput";
+import TwoLineInput from "../TwoLineInput/TwoLineInput";
 import {
   ButtonsContainer,
   Heading,
@@ -13,11 +13,11 @@ import {
   StyledFieldset,
   StyledTextarea,
 } from "./ContactForm.styled";
-import Button from "../Button/Button";
+import Button from "../../Button/Button";
 import { useRouter } from "next/router";
-import City from "./City/City";
-import Checkbox from "./Checkbox/Checkbox";
-import ContactDetailsHeader from "../ContactDetailsHeader/ContactDetailsHeader";
+import City from "../City/City";
+import Checkbox from "../Checkbox/Checkbox";
+import ContactDetailsHeader from "../../ContactDetailsHeader/ContactDetailsHeader";
 import { useState } from "react";
 
 export default function ContactForm({ onSubmitForm, type, contact }) {
