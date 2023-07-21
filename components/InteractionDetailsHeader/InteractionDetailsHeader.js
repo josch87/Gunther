@@ -1,0 +1,33 @@
+import Image from "next/image";
+import {
+  DateContainer,
+  DetailsContainer,
+  InteractionTypeHeader,
+  StyledHeader,
+} from "./InteractionDetailsHeader.styled";
+import { getInteractionIcon } from "@/utils/getInteractionDetails";
+import { formatDate } from "@/utils/formatDates";
+
+export default function InteractionDetailsHeader({ interaction }) {
+  if (!interaction) {
+    return <p>Loading InteractionDetailsHeader</p>;
+  }
+
+  const interactionIcon = getInteractionIcon(interaction);
+  const formattedInteractionDate = formatDate(interaction.date);
+
+  return (
+    <StyledHeader>
+      <Image
+        src={interactionIcon}
+        width={60}
+        height={60}
+        alt={`Icon of ${interaction.type.toLowerCase()} interaction`}
+      />
+      <DetailsContainer>
+        <InteractionTypeHeader>{interaction.type}</InteractionTypeHeader>
+        <DateContainer>{formattedInteractionDate}</DateContainer>
+      </DetailsContainer>
+    </StyledHeader>
+  );
+}

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 
-export const StyledHeader = styled.div`
+export const StyledHeader = styled.header`
   display: flex;
 `;
 
@@ -19,7 +19,7 @@ export const DetailsContainer = styled.div`
   margin: 10px;
 `;
 
-export const NameContainer = styled.h1`
+export const NameHeader = styled.h1`
   font-size: 1.3rem;
 `;
 

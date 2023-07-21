@@ -1,23 +1,22 @@
-import { getInteractionIcon } from "@/utils/getInteractionDetails";
+import {
+  getInteractionIcon,
+  getParticipant,
+} from "@/utils/getInteractionDetails";
 import {
   DateContainer,
   DetailsContainer,
-  InteractionIcon,
   ListItem,
   ParticipantsContainer,
   StyledLink,
 } from "./InteractionListItem.styled";
 import { formatDate } from "@/utils/formatDates";
 import { getFullSortName, getShortName } from "@/utils/getContactDetails";
+import Image from "next/image";
 
 export default function InteractionListItem({ interaction, contacts }) {
-  function getParticipant(contactId) {
-    return contacts.find((contact) => contact.id === contactId);
-  }
-
-  const participants = interaction.participants.map((participant) => {
-    return getParticipant(participant);
-  });
+  const participants = interaction.participants.map((participant) =>
+    getParticipant(contacts, participant)
+  );
 
   const sortedParticipants = participants.slice().sort((a, b) => {
     const nameA = getFullSortName(a);
@@ -27,11 +26,17 @@ export default function InteractionListItem({ interaction, contacts }) {
     return 0;
   });
 
+  const interactionIcon = getInteractionIcon(interaction);
+  const formattedInteractionDate = formatDate(interaction.date);
+
   return (
     <ListItem>
-      <StyledLink href="">
-        <InteractionIcon
-          src={getInteractionIcon(interaction)}
+      <StyledLink
+        href={`/interactions/${interaction.id}`}
+        title="Show interaction details"
+      >
+        <Image
+          src={interactionIcon}
           width={60}
           height={60}
           alt={`Icon of ${interaction.type.toLowerCase()} interaction`}
@@ -42,7 +47,7 @@ export default function InteractionListItem({ interaction, contacts }) {
               .map((participant) => getShortName(participant))
               .join(", ")}
           </ParticipantsContainer>
-          <DateContainer>{formatDate(interaction.date)}</DateContainer>
+          <DateContainer>{formattedInteractionDate}</DateContainer>
         </DetailsContainer>
       </StyledLink>
     </ListItem>

@@ -16,19 +16,17 @@ export default function ContactDetailsItem({
 }) {
   return (
     <StyledDetailsItem>
-      <div>
-        <Image src={icon} alt={iconAlt} width={20} height={20} />
-      </div>
+      <Image src={icon} alt={iconAlt} width={20} height={20} />
+
       <DataContainer>
-        <div>
-          {href ? (
-            <ExternalLink href={href} target={target}>
-              {value}
-            </ExternalLink>
-          ) : (
-            value
-          )}
-        </div>
+        {href ? (
+          <ExternalLink href={href} target={target}>
+            {value}
+          </ExternalLink>
+        ) : (
+          value
+        )}
+
         <DataType>{type}</DataType>
       </DataContainer>
     </StyledDetailsItem>

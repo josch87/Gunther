@@ -9,11 +9,11 @@ import TwoLineInput from "./TwoLineInput/TwoLineInput";
 import {
   ButtonsContainer,
   Heading,
+  StickyContainer,
   StyledFieldset,
-  StyledHeader,
   StyledTextarea,
 } from "./ContactForm.styled";
-import Button, { PrimaryButton } from "../Button/Button";
+import Button from "../Button/Button";
 import { useRouter } from "next/router";
 import City from "./City/City";
 import Checkbox from "./Checkbox/Checkbox";
@@ -71,9 +71,9 @@ export default function ContactForm({ onSubmitForm, type, contact }) {
 
   return (
     <>
-      <StyledHeader>
+      <StickyContainer>
         <ContactDetailsHeader contact={currentContact} />
-      </StyledHeader>
+      </StickyContainer>
 
       <Heading id="form-heading">
         {type === "update" ? "Update contact" : "Create new contact"}

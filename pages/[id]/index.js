@@ -20,6 +20,14 @@ export default function ContactDetailsPage({ contacts }) {
 
   const contact = contacts.find((contact) => contact.id === id);
 
+  if (id === undefined) {
+    return <p>Loading contact details...</p>;
+  }
+
+  if (contact === undefined) {
+    return <p>Contact with the ID &apos;{id}&apos; not found</p>;
+  }
+
   return (
     <>
       <BackLink href="/">← All Contacts</BackLink>
