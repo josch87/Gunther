@@ -5,6 +5,10 @@ const Select = dynamic(
 );
 
 import { StyledInput, StyledLabel, Container } from "./SingleLineInput.styled";
+const CreatableSelect = dynamic(
+  () => import("react-select/creatable").then((mod) => mod.default),
+  { ssr: false }
+);
 
 export default function SingleLineInput({
   type,
@@ -39,8 +43,27 @@ export default function SingleLineInput({
       <Container>
         <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
         <Select
+          id={id}
+          name={name}
           options={options}
           isClearable={isClearable}
+          value={value ? { label: value, value: value } : undefined}
+          onChange={onChange}
+        />
+      </Container>
+    );
+  }
+
+  if (type === "creatableSelect") {
+    return (
+      <Container>
+        <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
+        <CreatableSelect
+          id={id}
+          name={name}
+          options={options}
+          isClearable={isClearable}
+          required={required}
           value={value ? { label: value, value: value } : undefined}
           onChange={onChange}
         />

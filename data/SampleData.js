@@ -36,6 +36,17 @@ export const emptyContact = {
   isSampleData: false,
 };
 
+export const emptyInteraction = {
+  id: "",
+  type: "",
+  dateOfInteraction: "",
+  participants: [],
+  notes: "",
+  dateCreated: "",
+  dateDeleted: "",
+  isSampleData: false,
+};
+
 export const contactsSampleData = [
   {
     id: "1",
@@ -476,7 +487,7 @@ export const interactionsSampleData = [
   {
     id: "1",
     type: "Call",
-    date: "2038-11-03T00:00:00.000+00:00",
+    dateOfInteraction: "2038-11-03T00:00:00.000+00:00",
     participants: ["1", "3", "4"],
     notes:
       "I was calling coz' I forgot about his birthday and apologised. After a while, he was fine with it and invited me to his party next Friday. I said that I'm pretty busy right now but I'll try to make it ...",
@@ -487,7 +498,7 @@ export const interactionsSampleData = [
   {
     id: "2",
     type: "Call",
-    date: "2038-11-07T18:30:00.000+00:00",
+    dateOfInteraction: "2038-11-07T18:30:00.000+00:00",
     participants: ["1", "3"],
     notes:
       "I called my best friend to catch up. We talked about our recent experiences, shared funny stories, and reminisced about old times. It was a long and enjoyable conversation.",
@@ -498,7 +509,7 @@ export const interactionsSampleData = [
   {
     id: "3",
     type: "Video conference",
-    date: "2038-11-10T19:00:00.000+00:00",
+    dateOfInteraction: "2038-11-10T19:00:00.000+00:00",
     participants: ["1", "3", "6"],
     notes:
       "We had a family video conference to celebrate my sister's graduation. We couldn't all be physically present, so we decided to have a virtual gathering. We congratulated her, shared our pride, and virtually toasted to her success.",
@@ -509,7 +520,7 @@ export const interactionsSampleData = [
   {
     id: "4",
     type: "Homecoming Event",
-    date: "2038-11-09T20:00:00.000+00:00",
+    dateOfInteraction: "2038-11-09T20:00:00.000+00:00",
     participants: ["2", "5"],
 
     notes:
@@ -521,7 +532,7 @@ export const interactionsSampleData = [
   {
     id: "5",
     type: "Party",
-    date: "2038-11-01T20:00:00.000+00:00",
+    dateOfInteraction: "2038-11-01T20:00:00.000+00:00",
     participants: ["2", "3", "1", "4"],
 
     notes:

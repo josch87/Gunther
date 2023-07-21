@@ -31,7 +31,7 @@ export default function InteractionListItem({ interaction, contacts }) {
     () => getInteractionIcon(interaction),
     [interaction]
   );
-  const formattedInteractionDate = formatDate(interaction.date);
+  const formattedInteractionDate = formatDate(interaction.dateOfInteraction);
 
   return (
     <ListItem>

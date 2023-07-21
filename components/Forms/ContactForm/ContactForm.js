@@ -23,7 +23,7 @@ import { useState } from "react";
 export default function ContactForm({ onSubmitForm, type, contact }) {
   const router = useRouter();
 
-  const [currentContact, setCurrentContact] = useState({ ...contact });
+  const [currentContact, setCurrentContact] = useState(contact);
   const isEqual = JSON.stringify(currentContact) === JSON.stringify(contact);
 
   function handleUserInput(event, fieldName) {
