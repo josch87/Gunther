@@ -7,13 +7,18 @@ import {
 } from "./InteractionDetailsHeader.styled";
 import { getInteractionIcon } from "@/utils/getInteractionDetails";
 import { formatDate } from "@/utils/formatDates";
+import { useMemo } from "react";
 
 export default function InteractionDetailsHeader({ interaction }) {
+  const interactionIcon = useMemo(
+    () => getInteractionIcon(interaction),
+    [interaction]
+  );
+
   if (!interaction) {
     return <p>Loading InteractionDetailsHeader</p>;
   }
 
-  const interactionIcon = getInteractionIcon(interaction);
   const formattedInteractionDate = formatDate(interaction.date);
 
   return (

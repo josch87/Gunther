@@ -3,7 +3,7 @@ import { baseInteractionTypes } from "@/data/BaseData";
 
 export function getInteractionIcon({ type }) {
   let icon = materialEngage;
-  baseInteractionTypes.map((baseInteractionType) => {
+  baseInteractionTypes.forEach((baseInteractionType) => {
     if (type === baseInteractionType.type) {
       icon = baseInteractionType.icon;
     }
