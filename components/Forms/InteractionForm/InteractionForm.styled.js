@@ -19,3 +19,12 @@ export const StyledFieldset = styled.fieldset`
   background-color: #f5f5f5;
   padding: 10px 10px 0 10px;
 `;
+
+export const StyledTextarea = styled.textarea`
+  width: 100%;
+  resize: none;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid var(--primary-text-color);
+  border-radius: 5px;
+`;

@@ -3,6 +3,7 @@ import {
   Heading,
   StickyContainer,
   StyledFieldset,
+  StyledTextarea,
 } from "./InteractionForm.styled";
 import { useState } from "react";
 import SingleLineInput from "../SingleLineInput/SingleLineInput";
@@ -67,6 +68,7 @@ export default function InteractionForm({ interaction }) {
             onChange={(event) => handleUserInput(event, "interactionType")}
             required
           />
+
           <SingleLineInput
             type={"date"}
             labelContent="Date (required)"
@@ -80,6 +82,17 @@ export default function InteractionForm({ interaction }) {
             onChange={(event) => handleUserInput(event, "dateOfInteraction")}
             required
           />
+        </StyledFieldset>
+
+        <StyledFieldset>
+          <legend>Notes</legend>
+          <StyledTextarea
+            name="notes"
+            rows="10"
+            maxLength="600"
+            // value={currentContact.notes}
+            onChange={(event) => handleUserInput(event, "notes")}
+          ></StyledTextarea>
         </StyledFieldset>
       </form>
     </>
