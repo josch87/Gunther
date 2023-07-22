@@ -20,7 +20,7 @@ import Checkbox from "../Checkbox/Checkbox";
 import ContactDetailsHeader from "../../ContactDetailsHeader/ContactDetailsHeader";
 import { useState } from "react";
 
-export default function ContactForm({ onSubmitForm, type, contact }) {
+export default function ContactForm({ onSubmitForm, isUpdate, contact }) {
   const router = useRouter();
 
   const [currentContact, setCurrentContact] = useState(contact);
@@ -76,7 +76,7 @@ export default function ContactForm({ onSubmitForm, type, contact }) {
       </StickyContainer>
 
       <Heading id="form-heading">
-        {type === "update" ? "Update contact" : "Create new contact"}
+        {isUpdate ? "Update contact" : "Create new contact"}
       </Heading>
       <form
         aria-labelledby="form-heading"
@@ -310,7 +310,7 @@ export default function ContactForm({ onSubmitForm, type, contact }) {
             Cancel
           </Button>
           <Button type="submit" buttonType="primary" disabled={isEqual}>
-            {type === "update" ? "Update contact" : "Add new contact"}
+            {isUpdate ? "Update contact" : "Add new contact"}
           </Button>
         </ButtonsContainer>
       </form>

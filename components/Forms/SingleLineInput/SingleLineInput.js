@@ -51,6 +51,7 @@ export default function SingleLineInput({
           value={value ? { label: value, value: value } : undefined}
           onChange={onChange}
           isMulti={isMulti}
+          required={required}
         />
       </Container>
     );

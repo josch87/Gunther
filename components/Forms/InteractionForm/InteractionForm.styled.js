@@ -20,6 +20,11 @@ export const StyledFieldset = styled.fieldset`
   padding: 10px 10px 0 10px;
 `;
 
+export const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
 export const StyledTextarea = styled.textarea`
   width: 100%;
   resize: none;

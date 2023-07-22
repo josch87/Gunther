@@ -26,7 +26,6 @@ export default function App({ Component, pageProps }) {
       dateCreated: currentUtcDateTime,
       dateDeleted: "",
       deceased: newContact.deceased ? true : false,
-      isSampleData: false,
     };
 
     setContacts([...contacts, formattedContact]);
@@ -46,6 +45,21 @@ export default function App({ Component, pageProps }) {
     router.push(`/${updatedContact.id}`);
   }
 
+  function handleAddNewInteraction(newInteraction) {
+    console.log("new");
+    const newInteractionId = uid();
+
+    const formattedInteraction = {
+      ...newInteraction,
+      id: newInteractionId,
+      dateCreated: currentUtcDateTime,
+      dateDeleted: "",
+    };
+
+    setInteractions([...interactions, formattedInteraction]);
+    router.push(`/interactions/${formattedInteraction.id}`);
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -56,6 +70,7 @@ export default function App({ Component, pageProps }) {
           interactions={interactions}
           onAddNewContact={handleAddNewContact}
           onUpdateContact={handleUpdateContact}
+          onAddNewInteraction={handleAddNewInteraction}
         />
       </Layout>
     </>

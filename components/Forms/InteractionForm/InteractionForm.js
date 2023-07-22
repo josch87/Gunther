@@ -1,5 +1,6 @@
 import InteractionDetailsHeader from "../../InteractionDetailsHeader/InteractionDetailsHeader";
 import {
+  ButtonsContainer,
   Heading,
   StickyContainer,
   StyledFieldset,
@@ -9,9 +10,19 @@ import { useState } from "react";
 import SingleLineInput from "../SingleLineInput/SingleLineInput";
 import { baseInteractionTypes } from "@/data/BaseData";
 import { getFullName, getFullSortName } from "@/utils/getContactDetails";
+import Button from "@/components/Button/Button";
+import { useRouter } from "next/router";
 
-export default function InteractionForm({ interaction, contacts }) {
+export default function InteractionForm({
+  onSubmitForm,
+  interaction,
+  contacts,
+}) {
+  const router = useRouter();
+
   const [currentInteraction, setCurrentInteraction] = useState(interaction);
+  const isEqual =
+    JSON.stringify(currentInteraction) === JSON.stringify(interaction);
 
   const sortedContacts = contacts.slice().sort((a, b) => {
     const nameA = getFullSortName(a);
@@ -30,6 +41,12 @@ export default function InteractionForm({ interaction, contacts }) {
       setCurrentInteraction({
         ...currentInteraction,
         type: event.value,
+      });
+    } else if (fieldName === "participants") {
+      const participantsArray = event.map((participant) => participant.value);
+      setCurrentInteraction({
+        ...currentInteraction,
+        participants: participantsArray,
       });
     } else {
       setCurrentInteraction({
@@ -68,7 +85,13 @@ export default function InteractionForm({ interaction, contacts }) {
       </StickyContainer>
 
       <Heading id="form-heading">Create new interaction</Heading>
-      <form aria-labelledby="form-heading">
+      <form
+        aria-labelledby="form-heading"
+        onSubmit={(event) => {
+          event.preventDefault();
+          onSubmitForm(currentInteraction);
+        }}
+      >
         <StyledFieldset>
           <legend>Interaction Details</legend>
           <SingleLineInput
@@ -77,24 +100,18 @@ export default function InteractionForm({ interaction, contacts }) {
             id="interactionType"
             name="interactionType"
             options={selectableSortedInteractionTypes}
-            // value={currentContact.firstName}
             onChange={(event) => handleUserInput(event, "interactionType")}
             required
           />
 
           <SingleLineInput
             type="singleSelect"
-            labelContent="Participants (required)"
+            labelContent="Participant(s) (required)"
             id="participants"
             name="participants"
             options={participantOptions}
             isMulti
-            // value={
-            //   currentContact.dateOfBirth
-            //     ? currentContact.dateOfBirth.substring(0, 10)
-            //     : ""
-            // }
-            // onChange={(event) => handleUserInput(event, "participants")}
+            onChange={(event) => handleUserInput(event, "participants")}
             required
           />
 
@@ -103,11 +120,6 @@ export default function InteractionForm({ interaction, contacts }) {
             labelContent="Date (required)"
             id="dateOfInteraction"
             name="dateOfInteraction"
-            // value={
-            //   currentContact.dateOfBirth
-            //     ? currentContact.dateOfBirth.substring(0, 10)
-            //     : ""
-            // }
             onChange={(event) => handleUserInput(event, "dateOfInteraction")}
             required
           />
@@ -119,9 +131,17 @@ export default function InteractionForm({ interaction, contacts }) {
             name="notes"
             rows="10"
             maxLength="600"
-            // value={currentContact.notes}
             onChange={(event) => handleUserInput(event, "notes")}
           ></StyledTextarea>
+
+          <ButtonsContainer>
+            <Button type="button" onClick={() => router.back()}>
+              Cancel
+            </Button>
+            <Button type="submit" buttonType="primary" disabled={isEqual}>
+              Add new interaction
+            </Button>
+          </ButtonsContainer>
         </StyledFieldset>
       </form>
     </>
