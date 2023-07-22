@@ -6,6 +6,10 @@ export const StyledActionMenu = styled.div`
   position: relative;
 `;
 
+export const StyledImage = styled(Image)`
+  cursor: pointer;
+`;
+
 export const Dropdown = styled.ul`
   position: absolute;
   padding: 5px;

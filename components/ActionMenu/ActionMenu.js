@@ -4,16 +4,16 @@ import {
   materialPlus,
 } from "@/assets/Icons8";
 import Image from "next/image";
-import Link from "next/link";
 import {
   Dropdown,
-  DropdownContainer,
   DropdownItem,
   StyledActionMenu,
+  StyledImage,
   StyledLink,
   StyledSpan,
 } from "./ActionMenu.styled";
 import { useEffect, useRef, useState } from "react";
+import { Tooltip } from "react-tooltip";
 
 export default function ActionMenu() {
   const [dropdown, setDropdown] = useState(false);
@@ -56,14 +56,17 @@ export default function ActionMenu() {
 
   return (
     <StyledActionMenu ref={ref}>
-      <Image
+      <Tooltip id="action-menu-tooltip" />
+      <StyledImage
         src={materialPlus}
         width={30}
         height={30}
-        alt="Add new contact"
+        alt="Create new..."
         aria-expanded={dropdown ? "true" : "false"}
         onClick={() => setDropdown((prev) => !prev)}
-        // ref={ref}
+        data-tooltip-id="action-menu-tooltip"
+        data-tooltip-content="Create new &#8230;"
+        data-tooltip-place="bottom"
       />
       {dropdown ? (
         <Dropdown>
