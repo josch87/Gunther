@@ -1,4 +1,8 @@
-import { materialPlus } from "@/assets/Icons8";
+import {
+  materialContact,
+  materialMeeting,
+  materialPlus,
+} from "@/assets/Icons8";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -15,8 +19,12 @@ export default function ActionMenu() {
   const [dropdown, setDropdown] = useState(false);
 
   const actionMenuItems = [
-    { title: "New contact", url: "/new" },
-    { title: "New interaction", url: "/interactions/new" },
+    { icon: materialContact, title: "New contact", url: "/new" },
+    {
+      icon: materialMeeting,
+      title: "New interaction",
+      url: "/interactions/new",
+    },
   ];
 
   return (
@@ -27,7 +35,15 @@ export default function ActionMenu() {
           return (
             <DropdownItem key={index}>
               <StyledLink href={actionMenuItem.url}>
-                <StyledSpan>{actionMenuItem.title}</StyledSpan>
+                <StyledSpan>
+                  <Image
+                    src={actionMenuItem.icon}
+                    width={20}
+                    height={20}
+                    alt=""
+                  />
+                  {actionMenuItem.title}
+                </StyledSpan>
               </StyledLink>
             </DropdownItem>
           );

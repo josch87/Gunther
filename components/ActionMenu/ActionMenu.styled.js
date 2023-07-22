@@ -11,7 +11,7 @@ export const Dropdown = styled.ul`
   padding: 5px;
   z-index: 2;
   right: 0;
-  width: 150px;
+  width: 180px;
   background-color: white;
   border: 1px solid lightgray;
   border-radius: 5px;
@@ -39,6 +39,7 @@ export const StyledLink = styled(Link)`
 `;
 
 export const StyledSpan = styled.span`
-  display: block;
+  display: flex;
+  gap: 5px;
   padding: 5px;
 `;
