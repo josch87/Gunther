@@ -102,6 +102,7 @@ export default function InteractionForm({
             options={selectableSortedInteractionTypes}
             onChange={(event) => handleUserInput(event, "interactionType")}
             required
+            autoFocus
           />
 
           <SingleLineInput
@@ -133,16 +134,16 @@ export default function InteractionForm({
             maxLength="600"
             onChange={(event) => handleUserInput(event, "notes")}
           ></StyledTextarea>
-
-          <ButtonsContainer>
-            <Button type="button" onClick={() => router.back()}>
-              Cancel
-            </Button>
-            <Button type="submit" buttonType="primary" disabled={isEqual}>
-              Add new interaction
-            </Button>
-          </ButtonsContainer>
         </StyledFieldset>
+
+        <ButtonsContainer>
+          <Button type="button" onClick={() => router.back()}>
+            Cancel
+          </Button>
+          <Button type="submit" buttonType="primary" disabled={isEqual}>
+            Add new interaction
+          </Button>
+        </ButtonsContainer>
       </form>
     </>
   );

@@ -95,6 +95,7 @@ export default function ContactForm({ onSubmitForm, isUpdate, contact }) {
             value={currentContact.firstName}
             onChange={(event) => handleUserInput(event, "firstName")}
             required
+            autoFocus
           />
           <SingleLineInput
             type="text"
