@@ -13,10 +13,14 @@ import {
   StyledLink,
   StyledSpan,
 } from "./ActionMenu.styled";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function ActionMenu() {
   const [dropdown, setDropdown] = useState(false);
+
+  function closeDropdown() {
+    dropdown && setDropdown(false);
+  }
 
   const actionMenuItems = [
     {
@@ -33,8 +37,25 @@ export default function ActionMenu() {
     },
   ];
 
+  let ref = useRef();
+
+  useEffect(() => {
+    const handler = (event) => {
+      if (dropdown && ref.current && !ref.current.contains(event.target)) {
+        setDropdown(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    document.addEventListener("touchstart", handler);
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", handler);
+      document.removeEventListener("touchstart", handler);
+    };
+  }, [dropdown]);
+
   return (
-    <StyledActionMenu>
+    <StyledActionMenu ref={ref}>
       <Image
         src={materialPlus}
         width={30}
@@ -42,12 +63,13 @@ export default function ActionMenu() {
         alt="Add new contact"
         aria-expanded={dropdown ? "true" : "false"}
         onClick={() => setDropdown((prev) => !prev)}
+        // ref={ref}
       />
       {dropdown ? (
         <Dropdown>
           {actionMenuItems.map((actionMenuItem, index) => {
             return (
-              <DropdownItem key={index}>
+              <DropdownItem key={index} onClick={closeDropdown}>
                 <StyledLink href={actionMenuItem.url}>
                   <StyledSpan>
                     <Image
