@@ -19,9 +19,15 @@ export default function ActionMenu() {
   const [dropdown, setDropdown] = useState(false);
 
   const actionMenuItems = [
-    { icon: materialContact, title: "New contact", url: "/new" },
+    {
+      icon: materialContact,
+      iconAlt: "Contact icon",
+      title: "New contact",
+      url: "/new",
+    },
     {
       icon: materialMeeting,
+      iconAlt: "Interaction icon",
       title: "New interaction",
       url: "/interactions/new",
     },
@@ -40,7 +46,7 @@ export default function ActionMenu() {
                     src={actionMenuItem.icon}
                     width={20}
                     height={20}
-                    alt=""
+                    alt={actionMenuItem.iconAlt}
                   />
                   {actionMenuItem.title}
                 </StyledSpan>
