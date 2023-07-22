@@ -2,6 +2,7 @@ import { LogoLink, StyledHeader, StyledLogo } from "./Header.styled";
 import Image from "next/image";
 import { materialPlus } from "@/assets/Icons8";
 import Link from "next/link";
+import ActionMenu from "../ActionMenu/ActionMenu";
 
 export default function Header() {
   return (
@@ -15,14 +16,15 @@ export default function Header() {
           alt="Gunther Logo"
         />
       </LogoLink>
-      <Link href="/new">
+      <ActionMenu />
+      {/* <Link href="/new">
         <Image
           src={materialPlus}
           width={30}
           height={30}
           alt="Add new contact"
         />
-      </Link>
+      </Link> */}
     </StyledHeader>
   );
 }
