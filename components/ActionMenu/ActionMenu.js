@@ -35,26 +35,35 @@ export default function ActionMenu() {
 
   return (
     <StyledActionMenu>
-      <Image src={materialPlus} width={30} height={30} alt="Add new contact" />
-      <Dropdown>
-        {actionMenuItems.map((actionMenuItem, index) => {
-          return (
-            <DropdownItem key={index}>
-              <StyledLink href={actionMenuItem.url}>
-                <StyledSpan>
-                  <Image
-                    src={actionMenuItem.icon}
-                    width={20}
-                    height={20}
-                    alt={actionMenuItem.iconAlt}
-                  />
-                  {actionMenuItem.title}
-                </StyledSpan>
-              </StyledLink>
-            </DropdownItem>
-          );
-        })}
-      </Dropdown>
+      <Image
+        src={materialPlus}
+        width={30}
+        height={30}
+        alt="Add new contact"
+        aria-expanded={dropdown ? "true" : "false"}
+        onClick={() => setDropdown((prev) => !prev)}
+      />
+      {dropdown ? (
+        <Dropdown>
+          {actionMenuItems.map((actionMenuItem, index) => {
+            return (
+              <DropdownItem key={index}>
+                <StyledLink href={actionMenuItem.url}>
+                  <StyledSpan>
+                    <Image
+                      src={actionMenuItem.icon}
+                      width={20}
+                      height={20}
+                      alt={actionMenuItem.iconAlt}
+                    />
+                    {actionMenuItem.title}
+                  </StyledSpan>
+                </StyledLink>
+              </DropdownItem>
+            );
+          })}
+        </Dropdown>
+      ) : null}
       {/* <Link href="/new">
         <Image
           src={materialPlus}
