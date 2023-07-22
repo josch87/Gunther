@@ -8,9 +8,22 @@ import {
 import { useState } from "react";
 import SingleLineInput from "../SingleLineInput/SingleLineInput";
 import { baseInteractionTypes } from "@/data/BaseData";
+import { getFullName, getFullSortName } from "@/utils/getContactDetails";
 
-export default function InteractionForm({ interaction }) {
+export default function InteractionForm({ interaction, contacts }) {
   const [currentInteraction, setCurrentInteraction] = useState(interaction);
+
+  const sortedContacts = contacts.slice().sort((a, b) => {
+    const nameA = getFullSortName(a);
+    const nameB = getFullSortName(b);
+    if (nameA < nameB) return -1;
+    if (nameA > nameB) return 1;
+    return 0;
+  });
+
+  const participantOptions = sortedContacts.map((contact) => {
+    return { value: contact.id, label: getFullName(contact) };
+  });
 
   function handleUserInput(event, fieldName) {
     if (fieldName === "interactionType") {
@@ -59,7 +72,7 @@ export default function InteractionForm({ interaction }) {
         <StyledFieldset>
           <legend>Interaction Details</legend>
           <SingleLineInput
-            type={"creatableSelect"}
+            type="creatableSelect"
             labelContent="Interaction (required)"
             id="interactionType"
             name="interactionType"
@@ -70,7 +83,23 @@ export default function InteractionForm({ interaction }) {
           />
 
           <SingleLineInput
-            type={"date"}
+            type="singleSelect"
+            labelContent="Participants (required)"
+            id="participants"
+            name="participants"
+            options={participantOptions}
+            isMulti
+            // value={
+            //   currentContact.dateOfBirth
+            //     ? currentContact.dateOfBirth.substring(0, 10)
+            //     : ""
+            // }
+            // onChange={(event) => handleUserInput(event, "participants")}
+            required
+          />
+
+          <SingleLineInput
+            type="date"
             labelContent="Date (required)"
             id="dateOfInteraction"
             name="dateOfInteraction"

@@ -21,6 +21,7 @@ export default function SingleLineInput({
   required = false,
   onChange,
   value,
+  isMulti,
 }) {
   if (type === "text") {
     return (
@@ -49,6 +50,7 @@ export default function SingleLineInput({
           isClearable={isClearable}
           value={value ? { label: value, value: value } : undefined}
           onChange={onChange}
+          isMulti={isMulti}
         />
       </Container>
     );
@@ -88,5 +90,5 @@ export default function SingleLineInput({
     );
   }
 
-  return "Input type is missing for SingleLineInput";
+  return `Input type '${type}' is missing for SingleLineInput`;
 }

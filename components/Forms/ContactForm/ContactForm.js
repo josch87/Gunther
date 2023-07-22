@@ -88,7 +88,7 @@ export default function ContactForm({ onSubmitForm, type, contact }) {
         <StyledFieldset>
           <legend>Personal Information</legend>
           <SingleLineInput
-            type={"text"}
+            type="text"
             labelContent="First name (required)"
             id="firstName"
             name="firstName"
@@ -97,7 +97,7 @@ export default function ContactForm({ onSubmitForm, type, contact }) {
             required
           />
           <SingleLineInput
-            type={"text"}
+            type="text"
             labelContent="Middle name"
             id="middleName"
             name="middleName"
@@ -105,7 +105,7 @@ export default function ContactForm({ onSubmitForm, type, contact }) {
             onChange={(event) => handleUserInput(event, "middleName")}
           />
           <SingleLineInput
-            type={"text"}
+            type="text"
             labelContent="Last name"
             id="lastName"
             name="lastName"
@@ -113,7 +113,7 @@ export default function ContactForm({ onSubmitForm, type, contact }) {
             onChange={(event) => handleUserInput(event, "lastName")}
           />
           <SingleLineInput
-            type={"text"}
+            type="text"
             labelContent="Nickname"
             id="nickName"
             name="nickName"
@@ -121,7 +121,7 @@ export default function ContactForm({ onSubmitForm, type, contact }) {
             onChange={(event) => handleUserInput(event, "nickName")}
           />
           <SingleLineInput
-            type={"singleSelect"}
+            type="singleSelect"
             labelContent="Gender"
             id="gender"
             name="gender"
@@ -131,7 +131,7 @@ export default function ContactForm({ onSubmitForm, type, contact }) {
             isClearable={true}
           />
           <SingleLineInput
-            type={"date"}
+            type="date"
             labelContent="Birthday"
             id="dateOfBirth"
             name="dateOfBirth"
@@ -155,7 +155,7 @@ export default function ContactForm({ onSubmitForm, type, contact }) {
         <StyledFieldset>
           <legend>Contact Information</legend>
           <TwoLineInput
-            type={"email"}
+            type="email"
             labelContent="E-Mail"
             id="emailOne"
             typeId="emailOneType"
@@ -181,7 +181,7 @@ export default function ContactForm({ onSubmitForm, type, contact }) {
             typeOnChange={(event) => handleUserInput(event, "emailTwoType")}
           />
           <TwoLineInput
-            type={"tel"}
+            type="tel"
             labelContent="Phone"
             id="phoneOne"
             typeID="phoneOneType"
@@ -194,7 +194,7 @@ export default function ContactForm({ onSubmitForm, type, contact }) {
             typeOnChange={(event) => handleUserInput(event, "phoneOneType")}
           />
           <TwoLineInput
-            type={"tel"}
+            type="tel"
             labelContent="Phone"
             id="phoneTwo"
             typeId="phoneTwoType"
@@ -207,7 +207,7 @@ export default function ContactForm({ onSubmitForm, type, contact }) {
             typeOnChange={(event) => handleUserInput(event, "phoneTwoType")}
           />
           <SingleLineInput
-            type={"text"}
+            type="text"
             labelContent="Street"
             id="addressOneStreet"
             name="addressOneStreet"
@@ -252,7 +252,7 @@ export default function ContactForm({ onSubmitForm, type, contact }) {
             cityOnChange={(event) => handleUserInput(event, "addressTwoCity")}
           />
           <TwoLineInput
-            type={"text"}
+            type="text"
             labelContent="Country"
             id="addressTwoCountry"
             typeId="addressTwoType"
@@ -269,7 +269,7 @@ export default function ContactForm({ onSubmitForm, type, contact }) {
         <StyledFieldset>
           <legend>Social Media</legend>
           <SingleLineInput
-            type={"text"}
+            type="text"
             labelContent="Instagram"
             id="instagram"
             name="instagram"
@@ -277,7 +277,7 @@ export default function ContactForm({ onSubmitForm, type, contact }) {
             onChange={(event) => handleUserInput(event, "instagram")}
           />
           <SingleLineInput
-            type={"text"}
+            type="text"
             labelContent="Twitter"
             id="twitter"
             name="twitter"
@@ -285,7 +285,7 @@ export default function ContactForm({ onSubmitForm, type, contact }) {
             onChange={(event) => handleUserInput(event, "twitter")}
           />
           <SingleLineInput
-            type={"text"}
+            type="text"
             labelContent="Facebook"
             id="facebook"
             name="facebook"
