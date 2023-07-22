@@ -61,7 +61,7 @@ export default function ActionMenu() {
         src={materialPlus}
         width={30}
         height={30}
-        alt="Create new..."
+        alt="Create new &#8230; menu"
         aria-expanded={dropdown ? "true" : "false"}
         onClick={() => setDropdown((prev) => !prev)}
         data-tooltip-id="action-menu-tooltip"
