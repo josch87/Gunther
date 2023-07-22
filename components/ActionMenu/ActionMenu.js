@@ -4,7 +4,10 @@ import Link from "next/link";
 import {
   Dropdown,
   DropdownContainer,
+  DropdownItem,
   StyledActionMenu,
+  StyledLink,
+  StyledSpan,
 } from "./ActionMenu.styled";
 import { useState } from "react";
 
@@ -17,14 +20,16 @@ export default function ActionMenu() {
   ];
 
   return (
-    <>
+    <StyledActionMenu>
       <Image src={materialPlus} width={30} height={30} alt="Add new contact" />
       <Dropdown>
         {actionMenuItems.map((actionMenuItem, index) => {
           return (
-            <li key={index}>
-              <Link href={actionMenuItem.url}>{actionMenuItem.title}</Link>
-            </li>
+            <DropdownItem key={index}>
+              <StyledLink href={actionMenuItem.url}>
+                <StyledSpan>{actionMenuItem.title}</StyledSpan>
+              </StyledLink>
+            </DropdownItem>
           );
         })}
       </Dropdown>
@@ -36,6 +41,6 @@ export default function ActionMenu() {
           alt="Add new contact"
         />
       </Link> */}
-    </>
+    </StyledActionMenu>
   );
 }

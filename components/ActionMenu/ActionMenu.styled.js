@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import styled from "styled-components";
 
 export const StyledActionMenu = styled.div`
@@ -7,4 +8,37 @@ export const StyledActionMenu = styled.div`
 
 export const Dropdown = styled.ul`
   position: absolute;
+  padding: 5px;
+  z-index: 2;
+  right: 0;
+  width: 150px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  box-shadow: 0 0 20px lightgrey;
+`;
+
+export const DropdownItem = styled.li`
+  list-style: none;
+`;
+
+export const StyledLink = styled(Link)`
+  display: block;
+  width: 100%;
+  color: var(--primary-text-color);
+  text-decoration: none;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: color-mix(
+      in srgb,
+      var(--mobile-navigation-background-color) 90%,
+      grey
+    );
+  }
+`;
+
+export const StyledSpan = styled.span`
+  display: block;
+  padding: 5px;
 `;
