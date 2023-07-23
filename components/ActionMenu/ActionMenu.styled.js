@@ -13,7 +13,6 @@ export const StyledImage = styled(Image)`
 export const Dropdown = styled.ul`
   position: absolute;
   padding: 5px;
-  z-index: 2;
   right: 0;
   width: 180px;
   background-color: white;

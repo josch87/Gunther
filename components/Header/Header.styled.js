@@ -7,7 +7,7 @@ export const StyledHeader = styled.header`
   justify-content: center;
   align-items: center;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0px;
   background-color: white;
   width: 100%;
