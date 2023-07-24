@@ -26,22 +26,32 @@ export default function InteractionForm({
   const isEqual =
     JSON.stringify(currentInteraction) === JSON.stringify(interaction);
 
-  const sortedContacts = contacts.slice().sort((a, b) => {
-    const nameA = getFullSortName(a);
-    const nameB = getFullSortName(b);
-    if (nameA < nameB) return -1;
-    if (nameA > nameB) return 1;
-    return 0;
-  });
+  const sortedActiveContacts = contacts
+    .filter(
+      (participant) =>
+        participant.dateDeleted === null || participant.dateDeleted === ""
+    )
+    .slice()
+    .sort((a, b) => {
+      const nameA = getFullSortName(a);
+      const nameB = getFullSortName(b);
+      if (nameA < nameB) return -1;
+      if (nameA > nameB) return 1;
+      return 0;
+    });
 
-  const participantOptions = sortedContacts.map((contact) => {
+  const participantOptions = sortedActiveContacts.map((contact) => {
     return { value: contact.id, label: getFullName(contact) };
   });
 
-  const currentParticipants = currentInteraction.participants
+  const currentActiveParticipants = currentInteraction.participants
     .map((currentParticipantObject) => {
       return getParticipant(contacts, currentParticipantObject);
     })
+    .filter(
+      (participant) =>
+        participant.dateDeleted === null || participant.dateDeleted === ""
+    )
     .sort((a, b) => {
       const nameA = getFullSortName(a);
       const nameB = getFullSortName(b);
@@ -135,7 +145,7 @@ export default function InteractionForm({
             name="participants"
             options={participantOptions}
             isMulti
-            defaultValue={currentParticipants}
+            defaultValue={currentActiveParticipants}
             onChange={(event) => handleUserInput(event, "participants")}
             required
           />
