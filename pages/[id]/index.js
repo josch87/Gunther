@@ -1,4 +1,4 @@
-import { materialEdit } from "@/assets/Icons8";
+import { materialDelete, materialEdit } from "@/assets/Icons8";
 import BackLink from "@/components/BackLink/BackLink";
 import ContactDetailsHeader from "@/components/ContactDetailsHeader/ContactDetailsHeader";
 import ContactDetailsSection from "@/components/ContactDetailsSection/ContactDetailsSection";
@@ -8,13 +8,21 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 
-const StyledLink = styled(Link)`
+const ActionButtons = styled.div`
+  display: flex;
+  gap: 5px;
   position: absolute;
   top: -13px;
   right: 13px;
 `;
 
-export default function ContactDetailsPage({ contacts }) {
+const DeleteButton = styled.button`
+  border: none;
+  background: none;
+  cursor: pointer;
+`;
+
+export default function ContactDetailsPage({ contacts, onDeleteContact }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -33,9 +41,28 @@ export default function ContactDetailsPage({ contacts }) {
       <BackLink href="/">← All Contacts</BackLink>
 
       <Scopebox>
-        <StyledLink href={`/${id}/edit`} title="Edit contact">
-          <Image src={materialEdit} alt="Edit contact" height={25} width={25} />
-        </StyledLink>
+        <ActionButtons>
+          <Link href={`/${id}/edit`} title="Edit contact">
+            <Image
+              src={materialEdit}
+              alt="Edit contact"
+              height={25}
+              width={25}
+            />
+          </Link>
+          <DeleteButton
+            title="Delete contact"
+            onClick={() => onDeleteContact(id)}
+          >
+            <Image
+              src={materialDelete}
+              alt="Delete contact"
+              height={25}
+              width={25}
+            />
+          </DeleteButton>
+        </ActionButtons>
+
         <ContactDetailsHeader contact={contact} />
         <ContactDetailsSection contact={contact} />
       </Scopebox>

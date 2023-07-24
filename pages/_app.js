@@ -73,6 +73,15 @@ export default function App({ Component, pageProps }) {
     router.push(`/interactions/${updatedInteraction.id}`);
   }
 
+  function handleDeleteContact(IdOfcontactToDelete) {
+    const newContacts = contacts.filter(
+      (contact) => contact.id !== IdOfcontactToDelete
+    );
+    setContacts(newContacts);
+    console.log("deleted", IdOfcontactToDelete);
+    router.push("/");
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -85,6 +94,7 @@ export default function App({ Component, pageProps }) {
           onUpdateContact={handleUpdateContact}
           onAddNewInteraction={handleAddNewInteraction}
           onUpdateInteraction={handleUpdateInteraction}
+          onDeleteContact={handleDeleteContact}
         />
       </Layout>
     </>
