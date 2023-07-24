@@ -1,7 +1,11 @@
 import InteractionForm from "@/components/Forms/InteractionForm/InteractionForm";
 import { useRouter } from "next/router";
 
-export default function EditInteractionPage({ interactions, contacts }) {
+export default function EditInteractionPage({
+  interactions,
+  contacts,
+  onUpdateInteraction,
+}) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -16,6 +20,11 @@ export default function EditInteractionPage({ interactions, contacts }) {
   }
 
   return (
-    <InteractionForm interaction={interaction} contacts={contacts} isUpdate />
+    <InteractionForm
+      interaction={interaction}
+      contacts={contacts}
+      onSubmitForm={onUpdateInteraction}
+      isUpdate
+    />
   );
 }
