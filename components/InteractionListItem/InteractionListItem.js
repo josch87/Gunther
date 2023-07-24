@@ -12,6 +12,7 @@ import {
 import { formatDate } from "@/utils/formatDates";
 import { getFullSortName, getShortName } from "@/utils/getContactDetails";
 import Image from "next/image";
+import { useMemo } from "react";
 
 export default function InteractionListItem({ interaction, contacts }) {
   const participants = interaction.participants.map((participant) =>
@@ -26,8 +27,11 @@ export default function InteractionListItem({ interaction, contacts }) {
     return 0;
   });
 
-  const interactionIcon = getInteractionIcon(interaction);
-  const formattedInteractionDate = formatDate(interaction.date);
+  const interactionIcon = useMemo(
+    () => getInteractionIcon(interaction),
+    [interaction]
+  );
+  const formattedInteractionDate = formatDate(interaction.dateOfInteraction);
 
   return (
     <ListItem>
