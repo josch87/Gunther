@@ -7,6 +7,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
+import { confirmAlert, onClose } from "react-confirm-alert";
+import ConfirmModal from "@/components/ConfirmModal/ConfirmModal";
+import ConfirmModalAlert from "@/components/ConfirmModal/ConfirmModal";
+import ConfirmModalTest from "@/components/ConfirmModal/ConfirmModal";
 
 const ActionButtons = styled.div`
   display: flex;
@@ -44,6 +48,24 @@ export default function InteractionDetailsPage({
     return <p>Interaction with the ID &apos;{id}&apos; not found</p>;
   }
 
+  function confirmDeletion() {
+    console.log("detete?");
+
+    confirmAlert({
+      title: "Warning",
+      message: "Do you want to delete?",
+      buttons: [
+        { label: "Cancel", onClick: onClose },
+        {
+          label: "Delete",
+          onClick: () => {
+            onDeleteInteraction(id);
+          },
+        },
+      ],
+    });
+  }
+
   return (
     <>
       <BackLink href="/interactions">← All Interactions</BackLink>
@@ -60,7 +82,8 @@ export default function InteractionDetailsPage({
           </Link>
           <DeleteButton
             title="Delete interaction"
-            onClick={() => onDeleteInteraction(id)}
+            // onClick={() => onDeleteInteraction(id)}
+            onClick={confirmDeletion}
           >
             <Image
               src={materialDelete}
