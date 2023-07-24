@@ -16,8 +16,6 @@ export default function EditContactPage({ contacts, onUpdateContact }) {
   }
 
   return (
-    <>
-      <ContactForm contact={contact} onSubmitForm={onUpdateContact} isUpdate />
-    </>
+    <ContactForm contact={contact} onSubmitForm={onUpdateContact} isUpdate />
   );
 }

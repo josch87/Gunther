@@ -17,6 +17,7 @@ export default function InteractionForm({
   onSubmitForm,
   interaction,
   contacts,
+  isUpdate,
 }) {
   const router = useRouter();
 
@@ -84,7 +85,9 @@ export default function InteractionForm({
         <InteractionDetailsHeader interaction={currentInteraction} />
       </StickyContainer>
 
-      <Heading id="form-heading">Create new interaction</Heading>
+      <Heading id="form-heading">
+        {isUpdate ? "Update interaction" : "Create new interaction"}
+      </Heading>
       <form
         aria-labelledby="form-heading"
         onSubmit={(event) => {
@@ -141,7 +144,7 @@ export default function InteractionForm({
             Cancel
           </Button>
           <Button type="submit" buttonType="primary" disabled={isEqual}>
-            Add new interaction
+            {isUpdate ? "Update interaction" : "Add new interaction"}
           </Button>
         </ButtonsContainer>
       </form>
