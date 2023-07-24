@@ -1,5 +1,6 @@
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import Button from "@/components/Button/Button";
 
 // export default function ConfirmModal() {
 //   return confirmAlert({
@@ -24,58 +25,60 @@ import "react-confirm-alert/src/react-confirm-alert.css";
 // }
 
 import styled from "styled-components";
+import Image from "next/image";
+import { materialDelete, materialDeleteWhite } from "@/assets/Icons8";
+import Checkbox from "../Forms/Checkbox/Checkbox";
+import { useState } from "react";
 
-const ConfirmModalWrapper = styled.div`
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  margin: auto;
-  width: 50%;
-  min-width: 300px;
-  background-color: white;
-  border-radius: 5px;
+const ConfirmModalWrapper = styled.section`
   padding: 20px;
+  background-color: white;
   border: 1px solid lightgray;
+  border-radius: 15px;
 `;
 
 const Title = styled.h1`
-  font-size: 24px;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
 `;
 
-const Body = styled.p`
-  font-size: 18px;
+const Body = styled.div`
+  font-size: 1rem;
+  margin-bottom: 30px;
 `;
 
 const ButtonWrapper = styled.div`
   display: flex;
+  gap: 5px;
 `;
 
-const Button = styled.button`
-  font-size: 16px;
-`;
+export default function ConfirmModal({ onClose, onConfirm }) {
+  const [checkbox, setCheckbox] = useState(false);
 
-export const ConfirmModal = ({ onClose }) => {
   return (
     <ConfirmModalWrapper>
       <Title>Warning</Title>
-      <Body>Möchten Sie diese Datei löschen?</Body>
+      <Body>
+        <Checkbox
+          id="confirmationCheckbox"
+          labelContent="I confirm that I want to delete this interaction."
+          onChange={(event) => setCheckbox(event.target.checked)}
+        />
+      </Body>
       <ButtonWrapper>
-        <Button onClick={onClose}>Nein</Button>
+        <Button onClick={onClose}>Cancel</Button>
         <Button
+          buttonType="danger"
+          icon={materialDeleteWhite}
+          disabled={!checkbox}
           onClick={() => {
-            this.handleClickDelete();
+            onConfirm();
             onClose();
           }}
         >
-          Ja, löschen!
+          Delete interaction
         </Button>
       </ButtonWrapper>
     </ConfirmModalWrapper>
   );
-};
-
-// export default function ConfirmModalTest() {
-//   return confirmAlert({
-//     customUI: ConfirmModal,
-//   });
-// }
+}

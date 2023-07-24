@@ -9,8 +9,6 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import { confirmAlert, onClose } from "react-confirm-alert";
 import ConfirmModal from "@/components/ConfirmModal/ConfirmModal";
-import ConfirmModalAlert from "@/components/ConfirmModal/ConfirmModal";
-import ConfirmModalTest from "@/components/ConfirmModal/ConfirmModal";
 
 const ActionButtons = styled.div`
   display: flex;
@@ -52,17 +50,14 @@ export default function InteractionDetailsPage({
     console.log("detete?");
 
     confirmAlert({
-      title: "Warning",
-      message: "Do you want to delete?",
-      buttons: [
-        { label: "Cancel", onClick: onClose },
-        {
-          label: "Delete",
-          onClick: () => {
-            onDeleteInteraction(id);
-          },
-        },
-      ],
+      customUI: ({ onClose }) => {
+        return (
+          <ConfirmModal
+            onClose={onClose}
+            onConfirm={() => onDeleteInteraction(id)}
+          />
+        );
+      },
     });
   }
 
