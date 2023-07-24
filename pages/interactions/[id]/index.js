@@ -33,8 +33,13 @@ export default function InteractionDetailsPage({ interactions, contacts }) {
       <BackLink href="/interactions">← All Interactions</BackLink>
 
       <Scopebox>
-        <StyledLink href={`/interactions/${id}/edit`} title="Edit contact">
-          <Image src={materialEdit} alt="Edit contact" height={25} width={25} />
+        <StyledLink href={`/interactions/${id}/edit`} title="Edit interaction">
+          <Image
+            src={materialEdit}
+            alt="Edit interaction"
+            height={25}
+            width={25}
+          />
         </StyledLink>
         <InteractionDetailsHeader interaction={interaction} />
         <InteractionDetailsSection
