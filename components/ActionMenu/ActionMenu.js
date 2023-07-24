@@ -37,7 +37,7 @@ export default function ActionMenu() {
     },
   ];
 
-  let ref = useRef();
+  const ref = useRef();
 
   useEffect(() => {
     const handler = (event) => {
@@ -89,14 +89,6 @@ export default function ActionMenu() {
           })}
         </Dropdown>
       ) : null}
-      {/* <Link href="/new">
-        <Image
-          src={materialPlus}
-          width={30}
-          height={30}
-          alt="Add new contact"
-        />
-      </Link> */}
     </StyledActionMenu>
   );
 }
