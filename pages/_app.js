@@ -45,6 +45,20 @@ export default function App({ Component, pageProps }) {
     router.push(`/${updatedContact.id}`);
   }
 
+  function handleDeleteContact(IdOfContactToDelete) {
+    setContacts(
+      contacts.map((contact) => {
+        if (contact.id === IdOfContactToDelete) {
+          return { ...contact, dateDeleted: currentUtcDateTime };
+        } else {
+          return contact;
+        }
+      })
+    );
+
+    router.push("/");
+  }
+
   function handleAddNewInteraction(newInteraction) {
     console.log("new");
     const newInteractionId = uid();
@@ -73,13 +87,18 @@ export default function App({ Component, pageProps }) {
     router.push(`/interactions/${updatedInteraction.id}`);
   }
 
-  function handleDeleteContact(IdOfcontactToDelete) {
-    const newContacts = contacts.filter(
-      (contact) => contact.id !== IdOfcontactToDelete
+  function handleDeleteInteraction(IdOfInteractionToDelete) {
+    setInteractions(
+      interactions.map((interaction) => {
+        if (interaction.id === IdOfInteractionToDelete) {
+          return { ...interaction, dateDeleted: currentUtcDateTime };
+        } else {
+          return interaction;
+        }
+      })
     );
-    setContacts(newContacts);
-    console.log("deleted", IdOfcontactToDelete);
-    router.push("/");
+
+    router.push("/interactions");
   }
 
   return (
@@ -92,9 +111,10 @@ export default function App({ Component, pageProps }) {
           interactions={interactions}
           onAddNewContact={handleAddNewContact}
           onUpdateContact={handleUpdateContact}
+          onDeleteContact={handleDeleteContact}
           onAddNewInteraction={handleAddNewInteraction}
           onUpdateInteraction={handleUpdateInteraction}
-          onDeleteContact={handleDeleteContact}
+          onDeleteInteraction={handleDeleteInteraction}
         />
       </Layout>
     </>

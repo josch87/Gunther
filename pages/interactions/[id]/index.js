@@ -1,4 +1,4 @@
-import { materialEdit } from "@/assets/Icons8";
+import { materialDelete, materialEdit } from "@/assets/Icons8";
 import BackLink from "@/components/BackLink/BackLink";
 import InteractionDetailsHeader from "@/components/InteractionDetailsHeader/InteractionDetailsHeader";
 import InteractionDetailsSection from "@/components/InteractionDetailsSection/InteractionDetailsSection";
@@ -8,13 +8,25 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 
-const StyledLink = styled(Link)`
+const ActionButtons = styled.div`
+  display: flex;
+  gap: 5px;
   position: absolute;
   top: -13px;
   right: 13px;
 `;
 
-export default function InteractionDetailsPage({ interactions, contacts }) {
+const DeleteButton = styled.button`
+  border: none;
+  background: none;
+  cursor: pointer;
+`;
+
+export default function InteractionDetailsPage({
+  interactions,
+  contacts,
+  onDeleteInteraction,
+}) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -33,14 +45,28 @@ export default function InteractionDetailsPage({ interactions, contacts }) {
       <BackLink href="/interactions">← All Interactions</BackLink>
 
       <Scopebox>
-        <StyledLink href={`/interactions/${id}/edit`} title="Edit interaction">
-          <Image
-            src={materialEdit}
-            alt="Edit interaction"
-            height={25}
-            width={25}
-          />
-        </StyledLink>
+        <ActionButtons>
+          <Link href={`/interactions/${id}/edit`} title="Edit interaction">
+            <Image
+              src={materialEdit}
+              alt="Edit interaction"
+              height={25}
+              width={25}
+            />
+          </Link>
+          <DeleteButton
+            title="Delete interaction"
+            onClick={() => onDeleteInteraction(id)}
+          >
+            <Image
+              src={materialDelete}
+              alt="Delete interaction"
+              height={25}
+              width={25}
+            />
+          </DeleteButton>
+        </ActionButtons>
+
         <InteractionDetailsHeader interaction={interaction} />
         <InteractionDetailsSection
           interaction={interaction}
