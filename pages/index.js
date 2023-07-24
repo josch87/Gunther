@@ -7,8 +7,6 @@ export default function HomePage({ contacts }) {
     (contact) => contact.dateDeleted === null || contact.dateDeleted === ""
   );
 
-  console.log(contacts);
-
   const contactsSortedByFirstName = activeContacts.slice().sort((a, b) => {
     const nameA = getFullSortName(a);
     const nameB = getFullSortName(b);

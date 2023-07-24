@@ -47,8 +47,6 @@ export default function InteractionDetailsPage({
   }
 
   function confirmDeletion() {
-    console.log("detete?");
-
     confirmAlert({
       customUI: ({ onClose }) => {
         return (

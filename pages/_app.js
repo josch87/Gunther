@@ -60,7 +60,6 @@ export default function App({ Component, pageProps }) {
   }
 
   function handleAddNewInteraction(newInteraction) {
-    console.log("new");
     const newInteractionId = uid();
 
     const formattedInteraction = {
