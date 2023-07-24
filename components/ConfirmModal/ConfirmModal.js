@@ -1,6 +1,5 @@
 import "react-confirm-alert/src/react-confirm-alert.css";
 import Button from "@/components/Button/Button";
-
 import Checkbox from "../Forms/Checkbox/Checkbox";
 import { useState } from "react";
 import {
