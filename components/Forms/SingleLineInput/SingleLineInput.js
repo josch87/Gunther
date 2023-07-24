@@ -23,6 +23,7 @@ export default function SingleLineInput({
   value,
   isMulti,
   autoFocus,
+  defaultValue,
 }) {
   if (type === "text") {
     return (
@@ -54,6 +55,7 @@ export default function SingleLineInput({
           onChange={onChange}
           isMulti={isMulti}
           required={required}
+          defaultValue={defaultValue}
         />
       </Container>
     );

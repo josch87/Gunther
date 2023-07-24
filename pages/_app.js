@@ -60,6 +60,19 @@ export default function App({ Component, pageProps }) {
     router.push(`/interactions/${formattedInteraction.id}`);
   }
 
+  function handleUpdateInteraction(updatedInteraction) {
+    setInteractions(
+      interactions.map((interaction) => {
+        if (interaction.id === updatedInteraction.id) {
+          return { ...updatedInteraction, dateLastUpdate: currentUtcDateTime };
+        } else {
+          return interaction;
+        }
+      })
+    );
+    router.push(`/interactions/${updatedInteraction.id}`);
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -71,6 +84,7 @@ export default function App({ Component, pageProps }) {
           onAddNewContact={handleAddNewContact}
           onUpdateContact={handleUpdateContact}
           onAddNewInteraction={handleAddNewInteraction}
+          onUpdateInteraction={handleUpdateInteraction}
         />
       </Layout>
     </>

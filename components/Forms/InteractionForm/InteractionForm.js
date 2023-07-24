@@ -12,11 +12,13 @@ import { baseInteractionTypes } from "@/data/BaseData";
 import { getFullName, getFullSortName } from "@/utils/getContactDetails";
 import Button from "@/components/Button/Button";
 import { useRouter } from "next/router";
+import { getParticipant } from "@/utils/getInteractionDetails";
 
 export default function InteractionForm({
   onSubmitForm,
   interaction,
   contacts,
+  isUpdate,
 }) {
   const router = useRouter();
 
@@ -35,6 +37,24 @@ export default function InteractionForm({
   const participantOptions = sortedContacts.map((contact) => {
     return { value: contact.id, label: getFullName(contact) };
   });
+
+  const currentParticipants = currentInteraction.participants
+    .map((currentParticipantObject) => {
+      return getParticipant(contacts, currentParticipantObject);
+    })
+    .sort((a, b) => {
+      const nameA = getFullSortName(a);
+      const nameB = getFullSortName(b);
+      if (nameA < nameB) return -1;
+      if (nameA > nameB) return 1;
+      return 0;
+    })
+    .map((currentParticipant) => {
+      return {
+        value: currentParticipant.id,
+        label: getFullName(currentParticipant),
+      };
+    });
 
   function handleUserInput(event, fieldName) {
     if (fieldName === "interactionType") {
@@ -84,7 +104,9 @@ export default function InteractionForm({
         <InteractionDetailsHeader interaction={currentInteraction} />
       </StickyContainer>
 
-      <Heading id="form-heading">Create new interaction</Heading>
+      <Heading id="form-heading">
+        {isUpdate ? "Update interaction" : "Create new interaction"}
+      </Heading>
       <form
         aria-labelledby="form-heading"
         onSubmit={(event) => {
@@ -100,6 +122,7 @@ export default function InteractionForm({
             id="interactionType"
             name="interactionType"
             options={selectableSortedInteractionTypes}
+            value={currentInteraction.type}
             onChange={(event) => handleUserInput(event, "interactionType")}
             required
             autoFocus
@@ -112,6 +135,7 @@ export default function InteractionForm({
             name="participants"
             options={participantOptions}
             isMulti
+            defaultValue={currentParticipants}
             onChange={(event) => handleUserInput(event, "participants")}
             required
           />
@@ -121,6 +145,7 @@ export default function InteractionForm({
             labelContent="Date (required)"
             id="dateOfInteraction"
             name="dateOfInteraction"
+            value={currentInteraction.dateOfInteraction.substring(0, 10)}
             onChange={(event) => handleUserInput(event, "dateOfInteraction")}
             required
           />
@@ -132,6 +157,7 @@ export default function InteractionForm({
             name="notes"
             rows="10"
             maxLength="600"
+            value={currentInteraction.notes}
             onChange={(event) => handleUserInput(event, "notes")}
           ></StyledTextarea>
         </StyledFieldset>
@@ -141,7 +167,7 @@ export default function InteractionForm({
             Cancel
           </Button>
           <Button type="submit" buttonType="primary" disabled={isEqual}>
-            Add new interaction
+            {isUpdate ? "Update interaction" : "Add new interaction"}
           </Button>
         </ButtonsContainer>
       </form>
