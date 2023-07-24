@@ -30,7 +30,11 @@ export default function InteractionDetailsPage({
   const router = useRouter();
   const { id } = router.query;
 
-  const interaction = interactions.find((interaction) => interaction.id === id);
+  const interaction = interactions.find(
+    (interaction) =>
+      interaction.id === id &&
+      (interaction.dateDeleted === null || interaction.dateDeleted === "")
+  );
 
   if (id === undefined) {
     return <p>Loading interaction details...</p>;
