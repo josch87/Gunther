@@ -3,10 +3,10 @@ import InteractionList from "@/components/InteractionList/InteractionList";
 
 export default function InteractionsPage({ interactions, contacts }) {
   const interactionsSortedByDate = interactions.slice().sort((a, b) => {
-    if (a.date < b.date) {
+    if (a.dateOfInteraction < b.dateOfInteraction) {
       return 1;
     }
-    if (a.date > b.date) {
+    if (a.dateOfInteraction > b.dateOfInteraction) {
       return -1;
     }
     return 0;
