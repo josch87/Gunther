@@ -3,7 +3,13 @@ import Heading from "@/components/Heading/Heading";
 import { getFullSortName } from "@/utils/getContactDetails";
 
 export default function HomePage({ contacts }) {
-  const contactsSortedByFirstName = contacts.slice().sort((a, b) => {
+  const activeContacts = contacts.filter(
+    (contact) => contact.dateDeleted === null || contact.dateDeleted === ""
+  );
+
+  console.log(contacts);
+
+  const contactsSortedByFirstName = activeContacts.slice().sort((a, b) => {
     const nameA = getFullSortName(a);
     const nameB = getFullSortName(b);
 
