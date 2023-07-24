@@ -1,4 +1,8 @@
-import { materialDelete, materialEdit } from "@/assets/Icons8";
+import {
+  materialDelete,
+  materialDeleteWhite,
+  materialEdit,
+} from "@/assets/Icons8";
 import BackLink from "@/components/BackLink/BackLink";
 import InteractionDetailsHeader from "@/components/InteractionDetailsHeader/InteractionDetailsHeader";
 import InteractionDetailsSection from "@/components/InteractionDetailsSection/InteractionDetailsSection";
@@ -7,7 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import { confirmAlert, onClose } from "react-confirm-alert";
+import { confirmAlert } from "react-confirm-alert";
 import ConfirmModal from "@/components/ConfirmModal/ConfirmModal";
 
 const ActionButtons = styled.div`
@@ -53,6 +57,10 @@ export default function InteractionDetailsPage({
           <ConfirmModal
             onClose={onClose}
             onConfirm={() => onDeleteInteraction(id)}
+            title="Warning"
+            checkboxLabel="I confirm that I want to delete this interaction."
+            confirmationButtonContent="Delete interaction"
+            confirmationButtonIcon={materialDeleteWhite}
           />
         );
       },
@@ -73,11 +81,7 @@ export default function InteractionDetailsPage({
               width={25}
             />
           </Link>
-          <DeleteButton
-            title="Delete interaction"
-            // onClick={() => onDeleteInteraction(id)}
-            onClick={confirmDeletion}
-          >
+          <DeleteButton title="Delete interaction" onClick={confirmDeletion}>
             <Image
               src={materialDelete}
               alt="Delete interaction"

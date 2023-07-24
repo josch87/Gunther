@@ -1,11 +1,17 @@
-import { materialDelete, materialEdit } from "@/assets/Icons8";
+import {
+  materialDelete,
+  materialDeleteWhite,
+  materialEdit,
+} from "@/assets/Icons8";
 import BackLink from "@/components/BackLink/BackLink";
+import ConfirmModal from "@/components/ConfirmModal/ConfirmModal";
 import ContactDetailsHeader from "@/components/ContactDetailsHeader/ContactDetailsHeader";
 import ContactDetailsSection from "@/components/ContactDetailsSection/ContactDetailsSection";
 import Scopebox from "@/components/Scopebox/Scopebox";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { confirmAlert } from "react-confirm-alert";
 import styled from "styled-components";
 
 const ActionButtons = styled.div`
@@ -40,6 +46,23 @@ export default function ContactDetailsPage({ contacts, onDeleteContact }) {
     return <p>Contact with the ID &apos;{id}&apos; not found</p>;
   }
 
+  function confirmDeletion() {
+    confirmAlert({
+      customUI: ({ onClose }) => {
+        return (
+          <ConfirmModal
+            onClose={onClose}
+            onConfirm={() => onDeleteContact(id)}
+            title="Warning"
+            checkboxLabel="I confirm that I want to delete this contact."
+            confirmationButtonContent="Delete contact"
+            confirmationButtonIcon={materialDeleteWhite}
+          />
+        );
+      },
+    });
+  }
+
   return (
     <>
       <BackLink href="/">← All Contacts</BackLink>
@@ -54,10 +77,7 @@ export default function ContactDetailsPage({ contacts, onDeleteContact }) {
               width={25}
             />
           </Link>
-          <DeleteButton
-            title="Delete contact"
-            onClick={() => onDeleteContact(id)}
-          >
+          <DeleteButton title="Delete contact" onClick={confirmDeletion}>
             <Image
               src={materialDelete}
               alt="Delete contact"
