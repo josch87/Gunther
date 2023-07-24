@@ -6,7 +6,6 @@ export default function EditInteractionPage({ interactions, contacts }) {
   const { id } = router.query;
 
   const interaction = interactions.find((interaction) => interaction.id === id);
-  console.log(interaction);
 
   if (id === undefined) {
     return <p>Loading interaction details...</p>;
