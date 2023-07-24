@@ -18,7 +18,7 @@ export default function ConfirmModal({
   confirmationButtonContent,
   confirmationButtonIcon,
 }) {
-  const [checkboxStatus, setCheckboxStatus] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   return (
     <ConfirmModalWrapper>
@@ -27,7 +27,7 @@ export default function ConfirmModal({
         <Checkbox
           id="confirmationCheckbox"
           labelContent={checkboxLabel}
-          onChange={(event) => setCheckboxStatus(event.target.checked)}
+          onChange={(event) => setIsChecked(event.target.checked)}
         />
       </Body>
       <ButtonWrapper>
@@ -35,7 +35,7 @@ export default function ConfirmModal({
         <Button
           buttonType="danger"
           icon={confirmationButtonIcon}
-          disabled={!checkboxStatus}
+          disabled={!isChecked}
           onClick={() => {
             onConfirm();
             onClose();
