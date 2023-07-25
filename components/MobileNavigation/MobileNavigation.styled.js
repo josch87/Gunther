@@ -22,14 +22,14 @@ export const ListItem = styled.li`
   width: 100%;
   background-color: white;
 
-  background-color: ${(props) =>
-    props.$active
+  background-color: ${({ $active }) =>
+    $active
       ? "var(--mobile-navigation-background-color-active)"
       : "var(--mobile-navigation-background-color)"};
 
   &:hover {
-    background-color: ${(props) =>
-      props.$active
+    background-color: ${({ $active }) =>
+      $active
         ? "color-mix(in srgb, var(--mobile-navigation-background-color-active) 90%, grey);"
         : "color-mix(in srgb, var(--mobile-navigation-background-color) 90%, grey);"};
   }
