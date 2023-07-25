@@ -10,3 +10,8 @@ export const ButtonWrapper = styled.div`
   gap: 5px;
   margin-top: 30px;
 `;
+
+export const Note = styled.p`
+  font-size: 0.8rem;
+  margin: 15px 0;
+`;
