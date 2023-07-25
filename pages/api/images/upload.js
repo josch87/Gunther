@@ -25,7 +25,7 @@ export default async function handler(request, response) {
   const imageFile = files.profilePicture[0];
 
   const uploadResult = await cloudinary.uploader.upload(imageFile.filepath, {
-    folder: "gunther",
+    folder: "gunther/" + process.env.ENVIRONMENT,
   });
 
   console.log(uploadResult);
