@@ -5,7 +5,11 @@ export default function EditContactPage({ contacts, onUpdateContact }) {
   const router = useRouter();
   const { id } = router.query;
 
-  const contact = contacts.find((contact) => contact.id === id);
+  const contact = contacts.find(
+    (contact) =>
+      contact.id === id &&
+      (contact.dateDeleted === null || contact.dateDeleted === "")
+  );
 
   if (id === undefined) {
     return <p>Loading contact details...</p>;

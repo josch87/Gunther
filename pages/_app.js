@@ -45,8 +45,21 @@ export default function App({ Component, pageProps }) {
     router.push(`/${updatedContact.id}`);
   }
 
+  function handleDeleteContact(IdOfContactToDelete) {
+    setContacts(
+      contacts.map((contact) => {
+        if (contact.id === IdOfContactToDelete) {
+          return { ...contact, dateDeleted: currentUtcDateTime };
+        } else {
+          return contact;
+        }
+      })
+    );
+
+    router.push("/");
+  }
+
   function handleAddNewInteraction(newInteraction) {
-    console.log("new");
     const newInteractionId = uid();
 
     const formattedInteraction = {
@@ -73,6 +86,20 @@ export default function App({ Component, pageProps }) {
     router.push(`/interactions/${updatedInteraction.id}`);
   }
 
+  function handleDeleteInteraction(IdOfInteractionToDelete) {
+    setInteractions(
+      interactions.map((interaction) => {
+        if (interaction.id === IdOfInteractionToDelete) {
+          return { ...interaction, dateDeleted: currentUtcDateTime };
+        } else {
+          return interaction;
+        }
+      })
+    );
+
+    router.push("/interactions");
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -83,8 +110,10 @@ export default function App({ Component, pageProps }) {
           interactions={interactions}
           onAddNewContact={handleAddNewContact}
           onUpdateContact={handleUpdateContact}
+          onDeleteContact={handleDeleteContact}
           onAddNewInteraction={handleAddNewInteraction}
           onUpdateInteraction={handleUpdateInteraction}
+          onDeleteInteraction={handleDeleteInteraction}
         />
       </Layout>
     </>

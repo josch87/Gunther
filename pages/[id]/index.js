@@ -1,24 +1,42 @@
-import { materialEdit } from "@/assets/Icons8";
+import {
+  materialDelete,
+  materialDeleteWhite,
+  materialEdit,
+} from "@/assets/Icons8";
 import BackLink from "@/components/BackLink/BackLink";
+import ConfirmModal from "@/components/ConfirmModal/ConfirmModal";
 import ContactDetailsHeader from "@/components/ContactDetailsHeader/ContactDetailsHeader";
 import ContactDetailsSection from "@/components/ContactDetailsSection/ContactDetailsSection";
 import Scopebox from "@/components/Scopebox/Scopebox";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { confirmAlert } from "react-confirm-alert";
 import styled from "styled-components";
 
-const StyledLink = styled(Link)`
+const ActionButtons = styled.div`
+  display: flex;
+  gap: 5px;
   position: absolute;
   top: -13px;
   right: 13px;
 `;
 
-export default function ContactDetailsPage({ contacts }) {
+const DeleteButton = styled.button`
+  border: none;
+  background: none;
+  cursor: pointer;
+`;
+
+export default function ContactDetailsPage({ contacts, onDeleteContact }) {
   const router = useRouter();
   const { id } = router.query;
 
-  const contact = contacts.find((contact) => contact.id === id);
+  const contact = contacts.find(
+    (contact) =>
+      contact.id === id &&
+      (contact.dateDeleted === null || contact.dateDeleted === "")
+  );
 
   if (id === undefined) {
     return <p>Loading contact details...</p>;
@@ -28,14 +46,47 @@ export default function ContactDetailsPage({ contacts }) {
     return <p>Contact with the ID &apos;{id}&apos; not found</p>;
   }
 
+  function confirmDeletion() {
+    confirmAlert({
+      customUI: ({ onClose }) => {
+        return (
+          <ConfirmModal
+            onClose={onClose}
+            onConfirm={() => onDeleteContact(id)}
+            title="Warning"
+            checkboxLabel="I confirm that I want to delete this contact."
+            confirmationButtonContent="Delete contact"
+            confirmationButtonIcon={materialDeleteWhite}
+          />
+        );
+      },
+    });
+  }
+
   return (
     <>
       <BackLink href="/">← All Contacts</BackLink>
 
       <Scopebox>
-        <StyledLink href={`/${id}/edit`} title="Edit contact">
-          <Image src={materialEdit} alt="Edit contact" height={25} width={25} />
-        </StyledLink>
+        <ActionButtons>
+          <Link href={`/${id}/edit`} title="Edit contact">
+            <Image
+              src={materialEdit}
+              alt="Edit contact"
+              height={25}
+              width={25}
+            />
+          </Link>
+          <DeleteButton title="Delete contact" onClick={confirmDeletion}>
+            <Image
+              src={materialDelete}
+              alt="Delete contact"
+              height={25}
+              width={25}
+            />
+          </DeleteButton>
+        </ActionButtons>
+
         <ContactDetailsHeader contact={contact} />
         <ContactDetailsSection contact={contact} />
       </Scopebox>

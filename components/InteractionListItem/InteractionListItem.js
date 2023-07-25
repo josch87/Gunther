@@ -19,13 +19,19 @@ export default function InteractionListItem({ interaction, contacts }) {
     getParticipant(contacts, participant)
   );
 
-  const sortedParticipants = participants.slice().sort((a, b) => {
-    const nameA = getFullSortName(a);
-    const nameB = getFullSortName(b);
-    if (nameA < nameB) return -1;
-    if (nameA > nameB) return 1;
-    return 0;
-  });
+  const sortedActiveParticipants = participants
+    .filter(
+      (participant) =>
+        participant.dateDeleted === null || participant.dateDeleted === ""
+    )
+    .slice()
+    .sort((a, b) => {
+      const nameA = getFullSortName(a);
+      const nameB = getFullSortName(b);
+      if (nameA < nameB) return -1;
+      if (nameA > nameB) return 1;
+      return 0;
+    });
 
   const interactionIcon = useMemo(
     () => getInteractionIcon(interaction),
@@ -47,7 +53,7 @@ export default function InteractionListItem({ interaction, contacts }) {
         />
         <DetailsContainer>
           <ParticipantsContainer>
-            {sortedParticipants
+            {sortedActiveParticipants
               .map((participant) => getShortName(participant))
               .join(", ")}
           </ParticipantsContainer>

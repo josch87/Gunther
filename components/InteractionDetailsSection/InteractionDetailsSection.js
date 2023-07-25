@@ -14,15 +14,21 @@ export default function InteractionDetailsSection({ interaction, contacts }) {
     getParticipant(contacts, participant)
   );
 
-  const sortedParticipants = participants.slice().sort((a, b) => {
-    const nameA = getFullSortName(a);
-    const nameB = getFullSortName(b);
-    if (nameA < nameB) return -1;
-    if (nameA > nameB) return 1;
-    return 0;
-  });
+  const sortedActiveParticipants = participants
+    .filter(
+      (participant) =>
+        participant.dateDeleted === null || participant.dateDeleted === ""
+    )
+    .slice()
+    .sort((a, b) => {
+      const nameA = getFullSortName(a);
+      const nameB = getFullSortName(b);
+      if (nameA < nameB) return -1;
+      if (nameA > nameB) return 1;
+      return 0;
+    });
 
-  const participantsWithLinks = sortedParticipants.map(
+  const participantsWithLinks = sortedActiveParticipants.map(
     (sortedParticipant, index) => (
       <React.Fragment key={sortedParticipant.id}>
         <ParticipantLink
@@ -31,7 +37,7 @@ export default function InteractionDetailsSection({ interaction, contacts }) {
         >
           {getFullName(sortedParticipant)}
         </ParticipantLink>
-        {index < sortedParticipants.length - 1 && ", "}
+        {index < sortedActiveParticipants.length - 1 && ", "}
       </React.Fragment>
     )
   );

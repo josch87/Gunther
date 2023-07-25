@@ -2,7 +2,12 @@ import Heading from "@/components/Heading/Heading";
 import InteractionList from "@/components/InteractionList/InteractionList";
 
 export default function InteractionsPage({ interactions, contacts }) {
-  const interactionsSortedByDate = interactions.slice().sort((a, b) => {
+  const activeInteractions = interactions.filter(
+    (interaction) =>
+      interaction.dateDeleted === null || interaction.dateDeleted === ""
+  );
+
+  const interactionsSortedByDate = activeInteractions.slice().sort((a, b) => {
     if (a.dateOfInteraction < b.dateOfInteraction) {
       return 1;
     }
