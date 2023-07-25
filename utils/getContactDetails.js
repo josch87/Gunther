@@ -50,10 +50,16 @@ export function getFullSortName({ firstName, middleName, lastName }) {
 }
 
 export function getProfilePicture({ profilePicture }) {
-  const path = "/profile-pictures/";
+  if (typeof profilePicture === "string") {
+    return `/profile-pictures/${profilePicture}`;
+  }
 
-  if (profilePicture) {
-    return path + profilePicture;
+  if (profilePicture.url) {
+    const aspectRatio = profilePicture.width / profilePicture.height;
+    if (aspectRatio === 1) {
+      return profilePicture.url;
+    }
+    return `https://res.cloudinary.com/dzbhtso7l/image/upload/c_thumb,g_face,h_800,w_800/${profilePicture.public_id}.${profilePicture.format}`;
   }
 }
 

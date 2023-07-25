@@ -24,11 +24,13 @@ export default async function handler(request, response) {
 
   const imageFile = files.profilePicture[0];
 
-  const uploadResult = await cloudinary.uploader.upload(imageFile.filepath);
+  const uploadResult = await cloudinary.uploader.upload(imageFile.filepath, {
+    folder: "gunther",
+  });
 
   console.log(uploadResult);
 
-  response.status(200).json({
+  response.status(201).json({
     public_id: uploadResult.public_id,
     width: uploadResult.width,
     height: uploadResult.height,
