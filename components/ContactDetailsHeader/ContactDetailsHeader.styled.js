@@ -29,3 +29,14 @@ export const BirthdayContainer = styled.div`
   gap: 5px;
   margin-top: 10px;
 `;
+
+export const ImageContainer = styled.div`
+  position: relative;
+`;
+
+export const UploadImageIcon = styled(Image)`
+  position: absolute;
+  top: -9px;
+  right: -6px;
+  cursor: pointer;
+`;

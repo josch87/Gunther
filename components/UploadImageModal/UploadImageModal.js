@@ -1,6 +1,6 @@
 import Modal from "react-modal";
-import styled from "styled-components";
 import Button from "../Button/Button";
+import { ButtonWrapper, Header } from "./UploadImageModal.styled";
 
 Modal.setAppElement("#__next");
 
@@ -9,7 +9,28 @@ export default function UploadImageModal({
   onRequestClose,
   contentLabel,
   style,
+  contact,
+  onUpdateContact,
 }) {
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+
+    const response = await fetch("/api/images/upload", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response.ok) {
+      const newImage = await response.json();
+
+      const newContact = { ...contact, profilePicture: newImage };
+
+      onUpdateContact(newContact);
+    }
+  }
+
   return (
     <Modal
       isOpen={isOpen}
@@ -18,25 +39,17 @@ export default function UploadImageModal({
       style={style}
     >
       <Header>Upload contact picture</Header>
-      {/* <button onClick={closeUploadModal}>close</button> */}
-      <form>
-        <input type="file" accept="image/*" name="contactProfile" required />
+      <form onSubmit={handleSubmit}>
+        <input type="file" accept="image/*" name="profilePicture" required />
         <ButtonWrapper>
-          <Button onClick={onRequestClose}>Cancel</Button>
-          <Button buttonType="primary">Upload</Button>
+          <Button type="button" onClick={onRequestClose}>
+            Cancel
+          </Button>
+          <Button type="submit" buttonType="primary">
+            Upload
+          </Button>
         </ButtonWrapper>
       </form>
     </Modal>
   );
 }
-
-const Header = styled.h2`
-  font-size: 1rem;
-  margin-bottom: 15px;
-`;
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  gap: 5px;
-  margin-top: 15px;
-`;

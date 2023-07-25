@@ -2,10 +2,12 @@ import { getFullName, getProfilePicture } from "@/utils/getContactDetails";
 import {
   BirthdayContainer,
   DetailsContainer,
+  ImageContainer,
   NameHeader,
   ProfileImage,
   ProfileImagePlaceholder,
   StyledHeader,
+  UploadImageIcon,
 } from "./ContactDetailsHeader.styled";
 import {
   materialImage,
@@ -14,10 +16,7 @@ import {
 } from "@/assets/Icons8";
 import Image from "next/image";
 import { formatDate } from "@/utils/formatDates";
-import Link from "next/link";
 import { useState } from "react";
-import Modal from "react-modal";
-import styled from "styled-components";
 import UploadImageModal from "../UploadImageModal/UploadImageModal";
 
 const customStyles = {
@@ -31,18 +30,11 @@ const customStyles = {
   },
 };
 
-const ImageContainer = styled.div`
-  position: relative;
-`;
-
-const ImageUpload = styled(Image)`
-  position: absolute;
-  top: -9px;
-  right: -6px;
-  cursor: pointer;
-`;
-
-export default function ContactDetailsHeader({ contact, isUpdate }) {
+export default function ContactDetailsHeader({
+  contact,
+  isUpdate,
+  onUpdateContact,
+}) {
   const [isUploadImageModalOpen, setIsUploadImageModalOpen] = useState(false);
 
   function openUploadImageModal() {
@@ -79,7 +71,7 @@ export default function ContactDetailsHeader({ contact, isUpdate }) {
 
         {isUpdate ? (
           <>
-            <ImageUpload
+            <UploadImageIcon
               src={materialAddImage}
               height={20}
               width={20}
@@ -92,6 +84,8 @@ export default function ContactDetailsHeader({ contact, isUpdate }) {
               onRequestClose={closeUploadImageModal}
               contentLabel="Contact picture upload modal"
               style={customStyles}
+              contact={contact}
+              onUpdateContact={onUpdateContact}
             />
           </>
         ) : null}

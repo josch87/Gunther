@@ -72,7 +72,11 @@ export default function ContactForm({ onSubmitForm, isUpdate, contact }) {
   return (
     <>
       <StickyContainer>
-        <ContactDetailsHeader contact={currentContact} isUpdate={isUpdate} />
+        <ContactDetailsHeader
+          contact={currentContact}
+          isUpdate={isUpdate}
+          onUpdateContact={onSubmitForm}
+        />
       </StickyContainer>
 
       <Heading id="form-heading">
