@@ -20,22 +20,43 @@ export default async function handler(request, response) {
   }
 
   const form = formidable({});
-  const [fields, files] = await form.parse(request);
 
-  const imageFile = files.profilePicture[0];
+  try {
+    const [fields, files] = await form.parse(request);
+    if (!files.profilePicture || !files.profilePicture[0]) {
+      return response
+        .status(400)
+        .json({ error: "No profilePicture file provided" });
+    }
 
-  const uploadResult = await cloudinary.uploader.upload(imageFile.filepath, {
-    folder: "gunther/" + process.env.ENVIRONMENT,
-  });
+    const imageFile = files.profilePicture[0];
 
-  response.status(201).json({
-    public_id: uploadResult.public_id,
-    width: uploadResult.width,
-    height: uploadResult.height,
-    format: uploadResult.format,
-    dateCreated: uploadResult.created_at,
-    url: uploadResult.secure_url,
-    folder: uploadResult.folder,
-    originalFilename: imageFile.originalFilename,
-  });
+    try {
+      const uploadResult = await cloudinary.uploader.upload(
+        imageFile.filepath,
+        {
+          folder: "gunther/" + process.env.ENVIRONMENT,
+        }
+      );
+
+      return response.status(201).json({
+        public_id: uploadResult.public_id,
+        width: uploadResult.width,
+        height: uploadResult.height,
+        format: uploadResult.format,
+        dateCreated: uploadResult.created_at,
+        url: uploadResult.secure_url,
+        folder: uploadResult.folder,
+        originalFilename: imageFile.originalFilename,
+      });
+    } catch (error) {
+      console.error("Error uploading to Cloudinary:", error.message);
+      return response
+        .status(500)
+        .json({ error: "Error uploading to Cloudinary " });
+    }
+  } catch (error) {
+    console.error("Error parsing form data", error.message);
+    return response.status(500).json({ error: "Error parsing form data" });
+  }
 }
