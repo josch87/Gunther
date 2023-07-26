@@ -26,6 +26,21 @@ export default function ContactForm({ onSubmitForm, isUpdate, contact }) {
   const [currentContact, setCurrentContact] = useState(contact);
   const isEqual = JSON.stringify(currentContact) === JSON.stringify(contact);
 
+  const [isUploadImageModalOpen, setIsUploadImageModalOpen] = useState(false);
+
+  function openUploadImageModal() {
+    setIsUploadImageModalOpen(true);
+  }
+
+  function closeUploadImageModal() {
+    setIsUploadImageModalOpen(false);
+  }
+
+  function handleUploadImageToNewContact(newContactWithImage) {
+    setCurrentContact(newContactWithImage);
+    closeUploadImageModal();
+  }
+
   function handleUserInput(event, fieldName) {
     if (fieldName === "deceased") {
       setCurrentContact({ ...currentContact, deceased: event.target.checked });
@@ -75,7 +90,14 @@ export default function ContactForm({ onSubmitForm, isUpdate, contact }) {
         <ContactDetailsHeader
           contact={currentContact}
           isUpdate={isUpdate}
-          onUpdateContact={onSubmitForm}
+          // onUpdateContact={onSubmitForm}
+          isEditMode
+          isUploadImageModalOpen={isUploadImageModalOpen}
+          openUploadImageModal={openUploadImageModal}
+          closeUploadImageModal={closeUploadImageModal}
+          onUploadFinished={
+            isUpdate ? onSubmitForm : handleUploadImageToNewContact
+          }
         />
       </StickyContainer>
 

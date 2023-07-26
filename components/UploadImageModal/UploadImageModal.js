@@ -12,7 +12,7 @@ export default function UploadImageModal({
   contentLabel,
   style,
   contact,
-  onUpdateContact,
+  onUploadFinished,
 }) {
   const [isFileChosen, setIsFileChosen] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
@@ -31,8 +31,10 @@ export default function UploadImageModal({
     setIsUploading(true);
     const formData = new FormData(event.target);
 
+    const url = "/api/images/upload";
+
     try {
-      const response = await fetch("/api/images/upload", {
+      const response = await fetch(url, {
         method: "POST",
         body: formData,
       });
@@ -40,17 +42,15 @@ export default function UploadImageModal({
       if (response.ok) {
         const newImage = await response.json();
         const newContact = { ...contact, profilePicture: newImage };
-        onUpdateContact(newContact);
+        onUploadFinished(newContact);
         setIsUploading(false);
       } else {
-        console.log("Did not get a valid response");
+        console.error(`Did not get a valid response fetching ${url}`);
         setIsUploading(false);
       }
     } catch (error) {
+      console.error(`Something went wrong while trying to fetch ${url}`);
       setIsUploading(false);
-      console.log(
-        "Something went wrong while trying to fetch /api/images/upload"
-      );
     }
   }
 

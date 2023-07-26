@@ -16,7 +16,6 @@ import {
 } from "@/assets/Icons8";
 import Image from "next/image";
 import { formatDate } from "@/utils/formatDates";
-import { useState } from "react";
 import UploadImageModal from "../UploadImageModal/UploadImageModal";
 
 const customStyles = {
@@ -32,19 +31,12 @@ const customStyles = {
 
 export default function ContactDetailsHeader({
   contact,
-  isUpdate,
-  onUpdateContact,
+  isEditMode,
+  onUploadFinished,
+  isUploadImageModalOpen,
+  openUploadImageModal,
+  closeUploadImageModal,
 }) {
-  const [isUploadImageModalOpen, setIsUploadImageModalOpen] = useState(false);
-
-  function openUploadImageModal() {
-    setIsUploadImageModalOpen(true);
-  }
-
-  function closeUploadImageModal() {
-    setIsUploadImageModalOpen(false);
-  }
-
   if (!contact) {
     return <p>Loading ContactDetailsHeader</p>;
   }
@@ -69,7 +61,7 @@ export default function ContactDetailsHeader({
           />
         )}
 
-        {isUpdate ? (
+        {isEditMode ? (
           <>
             <UploadImageIcon
               src={materialUpload}
@@ -85,7 +77,7 @@ export default function ContactDetailsHeader({
               contentLabel="Contact picture upload modal"
               style={customStyles}
               contact={contact}
-              onUpdateContact={onUpdateContact}
+              onUploadFinished={onUploadFinished}
             />
           </>
         ) : null}
