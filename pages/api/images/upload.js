@@ -24,11 +24,11 @@ export default async function handler(request, response) {
 
   const imageFile = files.profilePicture[0];
 
+  console.log(imageFile);
+
   const uploadResult = await cloudinary.uploader.upload(imageFile.filepath, {
     folder: "gunther/" + process.env.ENVIRONMENT,
   });
-
-  console.log(uploadResult);
 
   response.status(201).json({
     public_id: uploadResult.public_id,
@@ -38,6 +38,6 @@ export default async function handler(request, response) {
     dateCreated: uploadResult.created_at,
     url: uploadResult.secure_url,
     folder: uploadResult.folder,
-    originalFilename: uploadResult.original_filename,
+    originalFilename: imageFile.originalFilename,
   });
 }

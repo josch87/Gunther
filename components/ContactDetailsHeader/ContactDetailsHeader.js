@@ -73,8 +73,8 @@ export default function ContactDetailsHeader({
           <>
             <UploadImageIcon
               src={materialAddImage}
-              height={20}
-              width={20}
+              height={24}
+              width={24}
               alt="Add image"
               title="Upload an image"
               onClick={openUploadImageModal}
