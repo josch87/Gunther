@@ -7,7 +7,9 @@ import BackLink from "@/components/BackLink/BackLink";
 import ConfirmModal from "@/components/ConfirmModal/ConfirmModal";
 import ContactDetailsHeader from "@/components/ContactDetailsHeader/ContactDetailsHeader";
 import ContactDetailsSection from "@/components/ContactDetailsSection/ContactDetailsSection";
+import DefaultHead from "@/components/Layout/Head/Head";
 import Scopebox from "@/components/Scopebox/Scopebox";
+import { getFullName } from "@/utils/getContactDetails";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -65,6 +67,7 @@ export default function ContactDetailsPage({ contacts, onDeleteContact }) {
 
   return (
     <>
+      <DefaultHead pageTitle={`Contact Details of ${getFullName(contact)}`} />
       <BackLink href="/">← All Contacts</BackLink>
 
       <Scopebox>

@@ -1,5 +1,6 @@
 import ContactList from "@/components/ContactList/ContactList";
 import Heading from "@/components/Heading/Heading";
+import DefaultHead from "@/components/Layout/Head/Head";
 import { getFullSortName } from "@/utils/getContactDetails";
 
 export default function HomePage({ contacts }) {
@@ -22,6 +23,7 @@ export default function HomePage({ contacts }) {
 
   return (
     <div>
+      <DefaultHead pageTitle="Contacts" />
       <Heading level={1}>Contacts</Heading>
       <ContactList contacts={contactsSortedByFirstName} />
     </div>

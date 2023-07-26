@@ -1,4 +1,6 @@
 import InteractionForm from "@/components/Forms/InteractionForm/InteractionForm";
+import DefaultHead from "@/components/Layout/Head/Head";
+import { formatDate } from "@/utils/formatDates";
 import { useRouter } from "next/router";
 
 export default function EditInteractionPage({
@@ -24,11 +26,18 @@ export default function EditInteractionPage({
   }
 
   return (
-    <InteractionForm
-      interaction={interaction}
-      contacts={contacts}
-      onSubmitForm={onUpdateInteraction}
-      isUpdate
-    />
+    <>
+      <DefaultHead
+        pageTitle={`Edit Interaction Details of a ${interaction.type.toLowerCase()} from ${formatDate(
+          interaction.dateOfInteraction
+        )}`}
+      />
+      <InteractionForm
+        interaction={interaction}
+        contacts={contacts}
+        onSubmitForm={onUpdateInteraction}
+        isUpdate
+      />
+    </>
   );
 }
