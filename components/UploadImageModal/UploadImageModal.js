@@ -26,7 +26,7 @@ export default function UploadImageModal({
     }
   }
 
-  async function handleSubmit(event) {
+  async function handleUploadFile(event) {
     event.preventDefault();
     setIsUploading(true);
     const formData = new FormData(event.target);
@@ -41,6 +41,9 @@ export default function UploadImageModal({
         const newImage = await response.json();
         const newContact = { ...contact, profilePicture: newImage };
         onUpdateContact(newContact);
+        setIsUploading(false);
+      } else {
+        console.log("Did not get a valid response");
         setIsUploading(false);
       }
     } catch (error) {
@@ -59,7 +62,7 @@ export default function UploadImageModal({
       style={style}
     >
       <Header>Upload image</Header>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleUploadFile}>
         <input
           type="file"
           accept="image/*"
