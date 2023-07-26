@@ -12,7 +12,7 @@ import {
 import {
   materialImage,
   materialBirthday,
-  materialAddImage,
+  materialUpload,
 } from "@/assets/Icons8";
 import Image from "next/image";
 import { formatDate } from "@/utils/formatDates";
@@ -72,7 +72,7 @@ export default function ContactDetailsHeader({
         {isUpdate ? (
           <>
             <UploadImageIcon
-              src={materialAddImage}
+              src={materialUpload}
               height={24}
               width={24}
               alt="Add image"

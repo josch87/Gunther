@@ -15,7 +15,7 @@ export const config = {
 
 export default async function handler(request, response) {
   if (request.method !== "POST") {
-    response.status(405).json({ error: "Method not allowed" });
+    response.status(405).json({ error: "Method Not Allowed" });
     return;
   }
 
@@ -23,8 +23,6 @@ export default async function handler(request, response) {
   const [fields, files] = await form.parse(request);
 
   const imageFile = files.profilePicture[0];
-
-  console.log(imageFile);
 
   const uploadResult = await cloudinary.uploader.upload(imageFile.filepath, {
     folder: "gunther/" + process.env.ENVIRONMENT,

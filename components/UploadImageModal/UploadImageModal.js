@@ -1,6 +1,7 @@
 import Modal from "react-modal";
 import Button from "../Button/Button";
 import { ButtonWrapper, Header, Note } from "./UploadImageModal.styled";
+import { useState } from "react";
 
 Modal.setAppElement("#__next");
 
@@ -12,6 +13,17 @@ export default function UploadImageModal({
   contact,
   onUpdateContact,
 }) {
+  const [isFileChosen, setIsFileChosen] = useState(false);
+
+  function handleIsFileChosen(event) {
+    const input = event.target.value;
+    if (input) {
+      setIsFileChosen(true);
+    } else {
+      setIsFileChosen(false);
+    }
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -38,9 +50,15 @@ export default function UploadImageModal({
       contentLabel={contentLabel}
       style={style}
     >
-      <Header>Upload contact picture</Header>
+      <Header>Upload image</Header>
       <form onSubmit={handleSubmit}>
-        <input type="file" accept="image/*" name="profilePicture" required />
+        <input
+          type="file"
+          accept="image/*"
+          name="profilePicture"
+          onChange={handleIsFileChosen}
+          required
+        />
         <Note>
           For best results please upload an image with a resolution of at least
           80 x 80 pixels.
@@ -55,7 +73,7 @@ export default function UploadImageModal({
           <Button type="button" onClick={onRequestClose}>
             Cancel
           </Button>
-          <Button type="submit" buttonType="primary">
+          <Button type="submit" buttonType="primary" disabled={!isFileChosen}>
             Upload
           </Button>
         </ButtonWrapper>
