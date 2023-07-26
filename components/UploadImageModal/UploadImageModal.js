@@ -2,6 +2,7 @@ import Modal from "react-modal";
 import Button from "../Button/Button";
 import { ButtonWrapper, Header, Note } from "./UploadImageModal.styled";
 import { useState } from "react";
+import { materialSpinnerFrame4 } from "@/assets/Icons8";
 
 Modal.setAppElement("#__next");
 
@@ -14,6 +15,7 @@ export default function UploadImageModal({
   onUpdateContact,
 }) {
   const [isFileChosen, setIsFileChosen] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
 
   function handleIsFileChosen(event) {
     const input = event.target.value;
@@ -26,20 +28,26 @@ export default function UploadImageModal({
 
   async function handleSubmit(event) {
     event.preventDefault();
-
+    setIsUploading(true);
     const formData = new FormData(event.target);
 
-    const response = await fetch("/api/images/upload", {
-      method: "POST",
-      body: formData,
-    });
+    try {
+      const response = await fetch("/api/images/upload", {
+        method: "POST",
+        body: formData,
+      });
 
-    if (response.ok) {
-      const newImage = await response.json();
-
-      const newContact = { ...contact, profilePicture: newImage };
-
-      onUpdateContact(newContact);
+      if (response.ok) {
+        const newImage = await response.json();
+        const newContact = { ...contact, profilePicture: newImage };
+        onUpdateContact(newContact);
+        setIsUploading(false);
+      }
+    } catch (error) {
+      setIsUploading(false);
+      console.log(
+        "Something went wrong while trying to fetch /api/images/upload"
+      );
     }
   }
 
@@ -73,8 +81,13 @@ export default function UploadImageModal({
           <Button type="button" onClick={onRequestClose}>
             Cancel
           </Button>
-          <Button type="submit" buttonType="primary" disabled={!isFileChosen}>
-            Upload
+          <Button
+            type="submit"
+            buttonType="primary"
+            disabled={!isFileChosen || isUploading}
+            icon={isUploading ? materialSpinnerFrame4 : null}
+          >
+            {isUploading ? "Uploading..." : "Upload"}
           </Button>
         </ButtonWrapper>
       </form>
