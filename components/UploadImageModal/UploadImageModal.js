@@ -18,12 +18,7 @@ export default function UploadImageModal({
   const [isUploading, setIsUploading] = useState(false);
 
   function handleIsFileChosen(event) {
-    const input = event.target.value;
-    if (input) {
-      setIsFileChosen(true);
-    } else {
-      setIsFileChosen(false);
-    }
+    setIsFileChosen(!!event.target.files.length);
   }
 
   async function handleUploadFile(event) {
