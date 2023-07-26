@@ -1,6 +1,11 @@
 import Modal from "react-modal";
 import Button from "../Button/Button";
-import { ButtonWrapper, Header, Note } from "./UploadImageModal.styled";
+import {
+  ButtonWrapper,
+  FileInput,
+  Header,
+  Note,
+} from "./UploadImageModal.styled";
 import { useState } from "react";
 import { materialSpinnerFrame4 } from "@/assets/Icons8";
 
@@ -58,7 +63,7 @@ export default function UploadImageModal({
     >
       <Header>Upload image</Header>
       <form onSubmit={handleUploadFile}>
-        <input
+        <FileInput
           type="file"
           accept="image/*"
           name="profilePicture"

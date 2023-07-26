@@ -5,6 +5,15 @@ export const Header = styled.h2`
   margin-bottom: 30px;
 `;
 
+export const FileInput = styled.input`
+  &::file-selector-button {
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 8px 28px;
+  }
+`;
+
 export const ButtonWrapper = styled.div`
   display: flex;
   gap: 5px;

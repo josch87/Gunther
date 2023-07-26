@@ -50,13 +50,13 @@ export default async function handler(request, response) {
         originalFilename: imageFile.originalFilename,
       });
     } catch (error) {
-      console.error("Error uploading to Cloudinary:", error.message);
+      console.error("Error uploading to Cloudinary:", error);
       return response
         .status(500)
         .json({ error: "Error uploading to Cloudinary " });
     }
   } catch (error) {
-    console.error("Error parsing form data", error.message);
+    console.error("Error parsing form data", error);
     return response.status(500).json({ error: "Error parsing form data" });
   }
 }
