@@ -1,6 +1,8 @@
 import Head from "next/head";
 
 export default function DefaultHead({ pageTitle, ogImage }) {
+  const ogTitle = pageTitle ? "yes" : "no";
+
   return (
     <Head>
       <title>
@@ -13,19 +15,18 @@ export default function DefaultHead({ pageTitle, ogImage }) {
         content="Efficient management of personal contacts for optimal nurturing of social interactions."
       />
 
-      <meta
-        property="og:title"
-        content={
-          pageTitle
-            ? pageTitle
-            : "Gunther – Efficient management of personal contacts for optimal nurturing of social interactions."
-        }
-      />
+      {/* <meta property="og:title" content={pageTitle ? "ja" : "nein"} /> */}
+      {pageTitle ? (
+        <meta property="og:title" content="noTitle" />
+      ) : (
+        <meta property="og:title" content={`title is ${pageTitle}`} />
+      )}
+      {/* <meta property="og:title" content={ogTitle} /> */}
+      <meta property="og:type" content="website" />
       <meta
         property="og:image"
         content={ogImage ? ogImage : "/open-graph/og-default-image.jpg"}
       />
-      <meta property="og:type" content="website" />
       <meta property="og:locale" content="en_US" />
 
       <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
