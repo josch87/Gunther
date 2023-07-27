@@ -1,14 +1,31 @@
+import Link from "next/link";
 import styled from "styled-components";
 
-export const StyledButton = styled.button`
-  display: flex;
-  align-items: center;
-  gap: 5px;
+export const StyledButton = styled(({ href, buttonType, ...props }) => {
+  if (href) {
+    return <Link href={href} {...props} />;
+  }
+  return <button {...props} />;
+})`
   padding: 8px 28px;
-  border: 1px solid #808080;
   border-radius: 5px;
   cursor: pointer;
 
+  ${({ href }) =>
+    href &&
+    `
+    display: inline-block;
+    text-decoration: none;
+  `}
+  ${({ href }) =>
+    !href &&
+    `
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font: inherit;
+  `}
+  
   ${({ $buttonType }) => {
     if ($buttonType === "primary") {
       return `
@@ -37,6 +54,7 @@ export const StyledButton = styled.button`
     } else {
       return `
         background-color: #ffffff;
+        border: 1px solid #808080;
       `;
     }
   }};

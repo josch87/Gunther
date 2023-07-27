@@ -1,11 +1,8 @@
 import Image from "next/image";
-import {
-  StyledButton,
-  StyledDangerButton,
-  StyledPrimaryButton,
-} from "./Button.styled";
+import { StyledButton } from "./Button.styled";
 
 export default function Button({
+  href,
   children,
   type,
   onClick,
@@ -15,6 +12,7 @@ export default function Button({
 }) {
   return (
     <StyledButton
+      href={href}
       type={type}
       onClick={onClick}
       disabled={disabled}
