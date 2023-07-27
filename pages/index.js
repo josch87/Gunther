@@ -1,4 +1,5 @@
 import ContactList from "@/components/ContactList/ContactList";
+import CreateDataInvitation from "@/components/CreateDataInvitation/CreateDataInvitation";
 import Heading from "@/components/Heading/Heading";
 import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
 import { getFullSortName } from "@/utils/getContactDetails";
@@ -8,6 +9,7 @@ export default function HomePage({ contacts }) {
     (contact) => contact.dateDeleted === null || contact.dateDeleted === ""
   );
 
+  console.log(activeContacts.length);
   const contactsSortedByFirstName = activeContacts.slice().sort((a, b) => {
     const nameA = getFullSortName(a);
     const nameB = getFullSortName(b);
@@ -25,7 +27,11 @@ export default function HomePage({ contacts }) {
     <div>
       <DefaultHead pageTitle="Contacts" />
       <Heading level={1}>Contacts</Heading>
-      <ContactList contacts={contactsSortedByFirstName} />
+      {activeContacts.length === 0 ? (
+        <CreateDataInvitation entity="contact" />
+      ) : (
+        <ContactList contacts={contactsSortedByFirstName} />
+      )}
     </div>
   );
 }
