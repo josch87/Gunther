@@ -1,6 +1,6 @@
 import ContactList from "@/components/ContactList/ContactList";
 import Heading from "@/components/Heading/Heading";
-import DefaultHead from "@/components/Layout/Head/Head";
+import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
 import { getFullSortName } from "@/utils/getContactDetails";
 
 export default function HomePage({ contacts }) {

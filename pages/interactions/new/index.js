@@ -1,5 +1,5 @@
 import InteractionForm from "@/components/Forms/InteractionForm/InteractionForm";
-import DefaultHead from "@/components/Layout/Head/Head";
+import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
 import { emptyInteraction } from "@/data/SampleData";
 
 export default function CreateNewInteractionPage({

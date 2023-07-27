@@ -1,5 +1,5 @@
 import ContactForm from "@/components/Forms/ContactForm/ContactForm";
-import DefaultHead from "@/components/Layout/Head/Head";
+import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
 import { emptyContact } from "@/data/SampleData";
 
 export default function CreateNewContactPage({ onAddNewContact }) {

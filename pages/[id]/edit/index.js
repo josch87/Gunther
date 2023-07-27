@@ -1,5 +1,5 @@
 import ContactForm from "@/components/Forms/ContactForm/ContactForm";
-import DefaultHead from "@/components/Layout/Head/Head";
+import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
 import { getFullName } from "@/utils/getContactDetails";
 import { useRouter } from "next/router";
 

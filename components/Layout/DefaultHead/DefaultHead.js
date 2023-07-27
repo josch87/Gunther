@@ -1,13 +1,33 @@
 import Head from "next/head";
 
-export default function DefaultHead({ pageTitle }) {
+export default function DefaultHead({ pageTitle, ogImage }) {
   return (
     <Head>
-      <title>{pageTitle ? `Gunther – ${pageTitle}` : "Gunther"}</title>
+      <title>
+        {pageTitle
+          ? `Gunther – ${pageTitle}`
+          : "Gunther – Efficient management of personal contacts for optimal nurturing of social interactions."}
+      </title>
       <meta
         name="description"
         content="Efficient management of personal contacts for optimal nurturing of social interactions."
       />
+
+      <meta
+        property="og:title"
+        content={
+          pageTitle
+            ? pageTitle
+            : "Gunther – Efficient management of personal contacts for optimal nurturing of social interactions."
+        }
+      />
+      <meta
+        property="og:image"
+        content={ogImage ? ogImage : "/open-graph/og-default-image.jpg"}
+      />
+      <meta property="og:type" content="website" />
+      <meta property="og:locale" content="en_US" />
+
       <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
       <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
       <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />

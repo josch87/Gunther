@@ -7,7 +7,7 @@ import BackLink from "@/components/BackLink/BackLink";
 import ConfirmModal from "@/components/ConfirmModal/ConfirmModal";
 import ContactDetailsHeader from "@/components/ContactDetailsHeader/ContactDetailsHeader";
 import ContactDetailsSection from "@/components/ContactDetailsSection/ContactDetailsSection";
-import DefaultHead from "@/components/Layout/Head/Head";
+import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
 import Scopebox from "@/components/Scopebox/Scopebox";
 import { getFullName } from "@/utils/getContactDetails";
 import Image from "next/image";

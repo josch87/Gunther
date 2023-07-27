@@ -1,5 +1,5 @@
 import InteractionForm from "@/components/Forms/InteractionForm/InteractionForm";
-import DefaultHead from "@/components/Layout/Head/Head";
+import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
 import { formatDate } from "@/utils/formatDates";
 import { useRouter } from "next/router";
 
