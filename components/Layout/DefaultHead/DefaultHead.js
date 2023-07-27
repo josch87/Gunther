@@ -34,7 +34,7 @@ export default function DefaultHead({ pageTitle, ogImage, ogDescription }) {
       <meta property="og:type" content="website" />
       <meta
         property="og:image"
-        content={ogImage ? ogImage : "open-graph/og-default-image.jpg"}
+        content={ogImage ? ogImage : "/open-graph/og-default-image.jpg"}
       />
       <meta property="og:locale" content="en_US" />
 
