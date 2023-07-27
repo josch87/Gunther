@@ -20,5 +20,5 @@ export const ExternalLink = styled.a`
 
 export const DataType = styled.div`
   font-size: 0.8em;
-  color: grey;
+  color: #808080;
 `;

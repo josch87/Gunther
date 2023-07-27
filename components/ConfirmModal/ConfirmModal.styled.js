@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const ConfirmModalWrapper = styled.section`
   padding: 20px;
-  background-color: white;
-  border: 1px solid lightgray;
+  background-color: #ffffff;
+  border: 1px solid #d3d3d3;
   border-radius: 15px;
 `;
 

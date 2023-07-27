@@ -6,7 +6,7 @@ export const StyledHeader = styled.header`
 `;
 
 export const ProfileImage = styled(Image)`
-  border: 1px solid black;
+  border: 1px solid #000000;
   border-radius: 10px;
 `;
 
@@ -28,4 +28,19 @@ export const BirthdayContainer = styled.div`
   align-items: center;
   gap: 5px;
   margin-top: 10px;
+`;
+
+export const ImageContainer = styled.div`
+  position: relative;
+`;
+
+export const UploadImageIcon = styled(Image)`
+  position: absolute;
+  top: -9px;
+  right: -6px;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: 1px solid #d3d3d3;
+  border-radius: 50%;
+  padding: 2px;
 `;

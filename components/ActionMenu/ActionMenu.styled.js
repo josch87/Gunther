@@ -15,10 +15,10 @@ export const Dropdown = styled.ul`
   padding: 5px;
   right: 0;
   width: 180px;
-  background-color: white;
-  border: 1px solid lightgray;
+  background-color: #ffffff;
+  border: 1px solid #d3d3d3;
   border-radius: 5px;
-  box-shadow: 0 0 20px lightgrey;
+  box-shadow: 0 0 20px #d3d3d3;
 `;
 
 export const DropdownItem = styled.li`
@@ -36,7 +36,7 @@ export const StyledLink = styled(Link)`
     background-color: color-mix(
       in srgb,
       var(--mobile-navigation-background-color) 90%,
-      grey
+      #808080
     );
   }
 `;
