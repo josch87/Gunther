@@ -61,7 +61,7 @@ export default function ContactDetailsHeader({
           />
         )}
 
-        {isEditMode ? (
+        {isEditMode && (
           <>
             <UploadImageIcon
               src={materialUpload}
@@ -80,7 +80,7 @@ export default function ContactDetailsHeader({
               onUploadFinished={onUploadFinished}
             />
           </>
-        ) : null}
+        )}
       </ImageContainer>
 
       <DetailsContainer>
