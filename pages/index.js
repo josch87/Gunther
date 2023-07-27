@@ -24,14 +24,14 @@ export default function HomePage({ contacts }) {
   });
 
   return (
-    <div>
+    <>
       <DefaultHead pageTitle="Contacts" />
       <Heading level={1}>Contacts</Heading>
       {activeContacts.length === 0 ? (
-        <CreateDataInvitation entity="contact" />
+        <CreateDataInvitation entity="contact" createEntity="/new" />
       ) : (
         <ContactList contacts={contactsSortedByFirstName} />
       )}
-    </div>
+    </>
   );
 }

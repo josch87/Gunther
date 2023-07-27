@@ -1,11 +1,11 @@
 import { styled } from "styled-components";
 import Button from "../Button/Button";
 
-export default function CreateDataInvitation({ entity, onClick }) {
+export default function CreateDataInvitation({ entity, createEntity }) {
   return (
     <>
       <p>Create your first {entity} so that it can be displayed here.</p>
-      <Button buttonType="primary" onClick={onClick}>
+      <Button buttonType="primary" href={createEntity}>
         Add {entity}
       </Button>
       <Note>
