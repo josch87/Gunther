@@ -10,13 +10,13 @@ Efficient management of **personal contacts** for optimal nurturing of **social 
 
 Gunther is beeing developed by [Aljoscha Zöller](https://www.linkedin.com/in/aljoschazoeller/) as a capstone project of the [neue fische web development bootcamp](https://www.neuefische.de/bootcamp/web-development).
 
-| Milestone            | Date       |
-| -------------------- | ---------- |
-| Bootcamp Finale      | 2023-08-02 |
-| Public Sprint Review | 2023-07-27 |
-| Public Sprint Review | 2023-07-20 |
-| Public Sprint Review | 2023-07-13 |
-| Project Start        | 2023-07-06 |
+| Milestone                               | Date       |
+| --------------------------------------- | ---------- |
+| Bootcamp Closing Event<br>Release 1.0.0 | 2023-08-02 |
+| Public Sprint Review                    | 2023-07-27 |
+| Public Sprint Review                    | 2023-07-20 |
+| Public Sprint Review                    | 2023-07-13 |
+| Project Start                           | 2023-07-06 |
 
 ## Environments
 
@@ -40,23 +40,31 @@ You can [🔗 **use this template on CodeSandbox**](https://codesandbox.io/p/san
 npx -y ghcd@latest neuefische/web-exercises/tree/main/templates/next my-app -i
 ```
 
-## Development
+## Tech Stack
 
-### Local Development
+- [React](https://reactjs.org)
+- [Next.js](https://nextjs.org/)
+- [React Testing Library](https://testing-library.com)
+- [Jest](https://jestjs.io/)
+- [styled-components](https://www.styled-components.com)
+- [Node.js](https://nodejs.org)
+- [next-pwa](https://www.npmjs.com/package/next-pwa)
+- [react-modal](https://reactcommunity.org/react-modal/)
+- [React Select](https://react-select.com/)
+- [React Tooltip](https://react-tooltip.com/)
+- [react-confirm-alert](https://www.npmjs.com/package/react-confirm-alert)
+- [use-local-storage-state](https://www.npmjs.com/package/use-local-storage-state)
+- [Cloudinary](https://cloudinary.com)
+- [formidable](https://www.npmjs.com/package/formidable)
+- [uid](https://www.npmjs.com/package/uid)
 
-To work locally, please install the dependencies using `npm i` first.
+## Project Setup
 
-Run `npm run dev` to start a development server and open the displayed URL in a browser.
-
-Use `npm run test` to run the tests.
-
-### CodeSandbox Cloud
-
-Select the "Preview: 3000" tab to view this project.
-
-Select the "Tests: logs" tab to view the tests.
-
-> The `npm run dev` and `npm run test` scripts run automatically.
+- Clone this repository
+- Install dependencies: `npm install`
+- Create a [Cloudinary](https://cloudinary.com) account
+- Rename sample.env.local to env.local and enter:
+  - Cloudinary Cloud-Name, API-Key and API-Secret
 
 ### Scripts
 
