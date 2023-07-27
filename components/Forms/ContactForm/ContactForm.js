@@ -90,7 +90,6 @@ export default function ContactForm({ onSubmitForm, isUpdate, contact }) {
         <ContactDetailsHeader
           contact={currentContact}
           isUpdate={isUpdate}
-          // onUpdateContact={onSubmitForm}
           isEditMode
           isUploadImageModalOpen={isUploadImageModalOpen}
           openUploadImageModal={openUploadImageModal}
