@@ -6,7 +6,6 @@ import { Main } from "./Layout.styled";
 export default function Layout({ children }) {
   return (
     <>
-      <DefaultHead />
       <Header />
       <Main>{children}</Main>
       <MobileNavigation />

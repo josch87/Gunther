@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-export default function DefaultHead({ pageTitle, ogImage }) {
+export default function DefaultHead({ pageTitle, ogImage, ogDescription }) {
   const ogTitle = pageTitle ? "yes" : "no";
 
   return (
@@ -8,20 +8,29 @@ export default function DefaultHead({ pageTitle, ogImage }) {
       <title>
         {pageTitle
           ? `Gunther – ${pageTitle}`
-          : "Gunther – Efficient management of personal contacts for optimal nurturing of social interactions."}
+          : "Gunther – Personal Relationship Management"}
       </title>
       <meta
         name="description"
         content="Efficient management of personal contacts for optimal nurturing of social interactions."
       />
 
-      {/* <meta property="og:title" content={pageTitle ? "ja" : "nein"} /> */}
       {pageTitle ? (
-        <meta property="og:title" content="noTitle" />
+        <meta property="og:title" content={`${pageTitle}`} />
       ) : (
-        <meta property="og:title" content={`title is ${pageTitle}`} />
+        <meta
+          property="og:title"
+          content="Gunther – Personal Relationship Management"
+        />
       )}
-      {/* <meta property="og:title" content={ogTitle} /> */}
+      {ogDescription ? (
+        <meta property="og:description" content={`${ogDescription}`} />
+      ) : (
+        <meta
+          property="og:description"
+          content="Efficient management of personal contacts for optimal nurturing of social interactions."
+        />
+      )}
       <meta property="og:type" content="website" />
       <meta
         property="og:image"
