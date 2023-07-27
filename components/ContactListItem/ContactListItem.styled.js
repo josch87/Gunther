@@ -14,7 +14,7 @@ export const StyledLink = styled(Link)`
 `;
 
 export const ProfileImage = styled(Image)`
-  border: 1px solid black;
+  border: 1px solid #000000;
   border-radius: 10px;
 `;
 

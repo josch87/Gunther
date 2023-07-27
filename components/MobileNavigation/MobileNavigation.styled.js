@@ -7,8 +7,8 @@ export const StyledNavigation = styled.nav`
   left: 0;
   width: 100%;
   height: var(--mobile-navigation-height);
-  background-color: black;
-  border: 2px solid black;
+  background-color: #000000;
+  border: 2px solid #000000;
 `;
 
 export const UnorderedList = styled.ul`
@@ -20,7 +20,7 @@ export const UnorderedList = styled.ul`
 export const ListItem = styled.li`
   list-style: none;
   width: 100%;
-  background-color: white;
+  background-color: #ffffff;
 
   background-color: ${({ $active }) =>
     $active
@@ -30,8 +30,8 @@ export const ListItem = styled.li`
   &:hover {
     background-color: ${({ $active }) =>
       $active
-        ? "color-mix(in srgb, var(--mobile-navigation-background-color-active) 90%, grey);"
-        : "color-mix(in srgb, var(--mobile-navigation-background-color) 90%, grey);"};
+        ? "color-mix(in srgb, var(--mobile-navigation-background-color-active) 90%, #808080);"
+        : "color-mix(in srgb, var(--mobile-navigation-background-color) 90%, #808080);"};
   }
 `;
 

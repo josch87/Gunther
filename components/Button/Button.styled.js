@@ -5,7 +5,7 @@ export const StyledButton = styled.button`
   align-items: center;
   gap: 5px;
   padding: 8px 28px;
-  border: 1px solid grey;
+  border: 1px solid #808080;
   border-radius: 5px;
   cursor: pointer;
 
@@ -14,11 +14,11 @@ export const StyledButton = styled.button`
       return `
         background-color: var(--primary-color);
         border: 1px solid var(--primary-color);
-        color: white;
+        color: #ffffff;
 
         &:disabled {
-          background-color: color-mix(in srgb, var(--primary-color) 40%, white);
-          border-color: color-mix(in srgb, var(--primary-color) 40%, white);
+          background-color: color-mix(in srgb, var(--primary-color) 40%, #ffffff);
+          border-color: color-mix(in srgb, var(--primary-color) 40%, #ffffff);
           cursor: default;
         }
       `;
@@ -26,17 +26,17 @@ export const StyledButton = styled.button`
       return `
         background-color: var(--danger-color);
         border: 1px solid var(--danger-color);
-        color: white;
+        color: #ffffff;
 
         &:disabled {
-          background-color: color-mix(in srgb, var(--danger-color) 40%, white);
-          border-color: color-mix(in srgb, var(--danger-color) 40%, white);
+          background-color: color-mix(in srgb, var(--danger-color) 40%, #ffffff);
+          border-color: color-mix(in srgb, var(--danger-color) 40%, #ffffff);
           cursor: default;
         }
       `;
     } else {
       return `
-        background-color: white;
+        background-color: #ffffff;
       `;
     }
   }};

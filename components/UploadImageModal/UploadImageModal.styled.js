@@ -7,8 +7,8 @@ export const Header = styled.h2`
 
 export const FileInput = styled.input`
   &::file-selector-button {
-    background-color: white;
-    border: 1px solid grey;
+    background-color: #ffffff;
+    border: 1px solid #808080;
     border-radius: 5px;
     padding: 8px 28px;
   }

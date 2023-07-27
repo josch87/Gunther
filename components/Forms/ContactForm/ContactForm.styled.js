@@ -9,7 +9,7 @@ export const StickyContainer = styled.div`
   position: sticky;
   z-index: 1;
   top: var(--app-header-height);
-  background-color: white;
+  background-color: #ffffff;
   padding: 10px 0;
 `;
 
