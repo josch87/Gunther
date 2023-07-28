@@ -49,7 +49,6 @@ export const emptyInteraction = {
 
 export const contactsSampleData = [
   {
-    id: "1",
     firstName: "Chandler",
     middleName: "Muriel",
     lastName: "Bing",
@@ -86,7 +85,6 @@ export const contactsSampleData = [
     isSampleData: true,
   },
   {
-    id: "2",
     firstName: "Ross",
     middleName: "Eustace",
     lastName: "Geller",
@@ -122,7 +120,6 @@ export const contactsSampleData = [
     isSampleData: true,
   },
   {
-    id: "3",
     firstName: "Rachel",
     middleName: "",
     lastName: "Green",
@@ -158,7 +155,6 @@ export const contactsSampleData = [
     isSampleData: true,
   },
   {
-    id: "4",
     firstName: "Joey",
     middleName: "",
     lastName: "Tribbiani",
@@ -194,7 +190,6 @@ export const contactsSampleData = [
     isSampleData: true,
   },
   {
-    id: "5",
     firstName: "Monica",
     middleName: "Elisabeth",
     lastName: "Geller-Bing",
@@ -230,7 +225,6 @@ export const contactsSampleData = [
     isSampleData: true,
   },
   {
-    id: "6",
     firstName: "Phoebe",
     middleName: "",
     lastName: "Buffay",
@@ -266,13 +260,12 @@ export const contactsSampleData = [
     isSampleData: true,
   },
   {
-    id: "7",
     firstName: "Gunther",
     middleName: "",
     lastName: "",
     nickName: "",
     gender: "male",
-    profilePicture: "",
+    profilePicture: "64c38b7231ccce8a72fae1c4.jpg",
     dateOfBirth: "1975-03-15T00:00:00.000Z",
     deceased: "",
     emailOneValue: "gunther@centralperk.com",
@@ -302,13 +295,12 @@ export const contactsSampleData = [
     isSampleData: true,
   },
   {
-    id: "8",
     firstName: "Janice",
     middleName: "",
     lastName: "",
     nickName: "",
     gender: "female",
-    profilePicture: "",
+    profilePicture: "64c38d9f31ccce8a72fae1c7.jpg",
     dateOfBirth: "1972-08-28T00:00:00.000Z",
     deceased: "",
     emailOneValue: "",
@@ -338,7 +330,6 @@ export const contactsSampleData = [
     isSampleData: true,
   },
   {
-    id: "9",
     firstName: "Mike",
     middleName: "",
     lastName: "Hannigan",
@@ -374,13 +365,12 @@ export const contactsSampleData = [
     isSampleData: true,
   },
   {
-    id: "10",
     firstName: "Richard",
     middleName: "",
     lastName: "Burke",
     nickName: "",
     gender: "male",
-    profilePicture: "",
+    profilePicture: "64c38f2131ccce8a72fae1c8.jpg",
     dateOfBirth: "1962-05-22T00:00:00.000Z",
     deceased: "",
     emailOneValue: "richard@friends.com",
@@ -410,13 +400,12 @@ export const contactsSampleData = [
     isSampleData: true,
   },
   {
-    id: "11",
     firstName: "Frank",
     middleName: "",
     lastName: "Buffay Jr.",
     nickName: "",
     gender: "male",
-    profilePicture: "",
+    profilePicture: "64c38d1731ccce8a72fae1c6.jpg",
     dateOfBirth: "1970-12-03T00:00:00.000Z",
     deceased: "",
     emailOneValue: "frank@friends.com",
@@ -446,7 +435,6 @@ export const contactsSampleData = [
     isSampleData: true,
   },
   {
-    id: "12",
     firstName: "Estelle",
     middleName: "",
     lastName: "Leonard",
@@ -485,10 +473,9 @@ export const contactsSampleData = [
 
 export const interactionsSampleData = [
   {
-    id: "1",
     type: "Call",
     dateOfInteraction: "2038-11-03T00:00:00.000+00:00",
-    participants: ["1", "3", "4"],
+    participants: [],
     notes:
       "I was calling coz' I forgot about his birthday and apologised. After a while, he was fine with it and invited me to his party next Friday. I said that I'm pretty busy right now but I'll try to make it ...",
     dateCreated: "2023-07-06T16:54:11.000+00:00",
@@ -496,10 +483,9 @@ export const interactionsSampleData = [
     isSampleData: true,
   },
   {
-    id: "2",
     type: "Call",
     dateOfInteraction: "2038-11-07T18:30:00.000+00:00",
-    participants: ["1", "3"],
+    participants: [],
     notes:
       "I called my best friend to catch up. We talked about our recent experiences, shared funny stories, and reminisced about old times. It was a long and enjoyable conversation.",
     dateCreated: "2038-11-07T18:30:00.000+00:00",
@@ -507,10 +493,9 @@ export const interactionsSampleData = [
     isSampleData: true,
   },
   {
-    id: "3",
     type: "Video conference",
     dateOfInteraction: "2038-11-10T19:00:00.000+00:00",
-    participants: ["1", "3", "6"],
+    participants: [],
     notes:
       "We had a family video conference to celebrate my sister's graduation. We couldn't all be physically present, so we decided to have a virtual gathering. We congratulated her, shared our pride, and virtually toasted to her success.",
     dateCreated: "2038-11-10T19:00:00.000+00:00",
@@ -518,10 +503,9 @@ export const interactionsSampleData = [
     isSampleData: true,
   },
   {
-    id: "4",
     type: "Homecoming Event",
     dateOfInteraction: "2038-11-09T20:00:00.000+00:00",
-    participants: ["2", "5"],
+    participants: [],
 
     notes:
       "My cousin called to invite me to her wedding. We talked about the ceremony details, the venue, and the guest list. I congratulated her and promised to attend the wedding.",
@@ -530,10 +514,9 @@ export const interactionsSampleData = [
     isSampleData: true,
   },
   {
-    id: "5",
     type: "Party",
     dateOfInteraction: "2038-11-01T20:00:00.000+00:00",
-    participants: ["2", "3", "1", "4"],
+    participants: [],
 
     notes:
       "My cousin called to invite me to her wedding. We talked about the ceremony details, the venue, and the guest list. I congratulated her and promised to attend the wedding.",

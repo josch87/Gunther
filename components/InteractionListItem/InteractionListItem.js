@@ -22,7 +22,7 @@ export default function InteractionListItem({ interaction, contacts }) {
   const sortedActiveParticipants = participants
     .filter(
       (participant) =>
-        participant.dateDeleted === null || participant.dateDeleted === ""
+        participant?.dateDeleted === null || participant?.dateDeleted === ""
     )
     .slice()
     .sort((a, b) => {

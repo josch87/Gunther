@@ -60,16 +60,16 @@ export default function ContactDetailsSection({ contact }) {
       <Heading>Contact Details</Heading>
 
       <ul>
-        {contact.nickName ? (
+        {contact.nickName && (
           <ContactDetailsItem
             icon={materialName}
             iconAlt="Nickname"
             value={contact.nickName}
             type="Nickname"
           />
-        ) : null}
+        )}
 
-        {contact.emailOneValue ? (
+        {contact.emailOneValue && (
           <ContactDetailsItem
             icon={materialEmail}
             iconAlt="Email address"
@@ -77,9 +77,9 @@ export default function ContactDetailsSection({ contact }) {
             type={contact.emailOneType}
             href={`mailto:${contact.emailOneValue}`}
           />
-        ) : null}
+        )}
 
-        {contact.emailTwoValue ? (
+        {contact.emailTwoValue && (
           <ContactDetailsItem
             icon={materialEmail}
             iconAlt="Email address"
@@ -87,9 +87,9 @@ export default function ContactDetailsSection({ contact }) {
             type={contact.emailTwoType}
             href={`mailto:${contact.emailTwoValue}`}
           />
-        ) : null}
+        )}
 
-        {contact.phoneOneValue ? (
+        {contact.phoneOneValue && (
           <ContactDetailsItem
             icon={materialPhone}
             iconAlt="Phone number"
@@ -97,9 +97,9 @@ export default function ContactDetailsSection({ contact }) {
             type={contact.phoneOneType}
             href={`tel:${contact.phoneOneValue}`}
           />
-        ) : null}
+        )}
 
-        {contact.phoneTwoValue ? (
+        {contact.phoneTwoValue && (
           <ContactDetailsItem
             icon={materialPhone}
             iconAlt="Phone number"
@@ -107,9 +107,9 @@ export default function ContactDetailsSection({ contact }) {
             type={contact.phoneTwoType}
             href={`tel:${contact.phoneTwoValue}`}
           />
-        ) : null}
+        )}
 
-        {addressOne ? (
+        {addressOne && (
           <ContactDetailsItem
             icon={materialAddress}
             iconAlt="Address"
@@ -118,9 +118,9 @@ export default function ContactDetailsSection({ contact }) {
             href={getGoogleMapsLink(addressOne)}
             target="_blank"
           />
-        ) : null}
+        )}
 
-        {addressTwo ? (
+        {addressTwo && (
           <ContactDetailsItem
             icon={materialAddress}
             iconAlt="Address"
@@ -129,9 +129,9 @@ export default function ContactDetailsSection({ contact }) {
             href={getGoogleMapsLink(addressTwo)}
             target="_blank"
           />
-        ) : null}
+        )}
 
-        {contact.instagram ? (
+        {contact.instagram && (
           <ContactDetailsItem
             icon={getSocialMediaIcon("Instagram")}
             iconAlt="Instagram"
@@ -140,9 +140,9 @@ export default function ContactDetailsSection({ contact }) {
             href={getSocialMediaHyperlink("Instagram", contact.instagram)}
             target="_blank"
           />
-        ) : null}
+        )}
 
-        {contact.twitter ? (
+        {contact.twitter && (
           <ContactDetailsItem
             icon={getSocialMediaIcon("Twitter")}
             iconAlt="Twitter"
@@ -151,9 +151,9 @@ export default function ContactDetailsSection({ contact }) {
             href={getSocialMediaHyperlink("Twitter", contact.twitter)}
             target="_blank"
           />
-        ) : null}
+        )}
 
-        {contact.facebook ? (
+        {contact.facebook && (
           <ContactDetailsItem
             icon={getSocialMediaIcon("Facebook")}
             iconAlt="Facebook"
@@ -162,9 +162,9 @@ export default function ContactDetailsSection({ contact }) {
             href={getSocialMediaHyperlink("Facebook", contact.facebook)}
             target="_blank"
           />
-        ) : null}
+        )}
 
-        {contact.notes ? (
+        {contact.notes && (
           <ContactDetailsItem
             icon={materialNotes}
             iconAlt="Notes"
@@ -175,7 +175,7 @@ export default function ContactDetailsSection({ contact }) {
               </React.Fragment>
             ))}
           />
-        ) : null}
+        )}
       </ul>
     </>
   );

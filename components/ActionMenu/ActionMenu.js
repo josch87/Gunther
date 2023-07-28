@@ -68,7 +68,7 @@ export default function ActionMenu() {
         data-tooltip-content="Create new &#8230;"
         data-tooltip-place="bottom"
       />
-      {dropdown ? (
+      {dropdown && (
         <Dropdown>
           {actionMenuItems.map((actionMenuItem, index) => {
             return (
@@ -88,7 +88,7 @@ export default function ActionMenu() {
             );
           })}
         </Dropdown>
-      ) : null}
+      )}
     </StyledActionMenu>
   );
 }

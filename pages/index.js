@@ -1,9 +1,10 @@
 import ContactList from "@/components/ContactList/ContactList";
+import CreateDataInvitation from "@/components/CreateDataInvitation/CreateDataInvitation";
 import Heading from "@/components/Heading/Heading";
 import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
 import { getFullSortName } from "@/utils/getContactDetails";
 
-export default function HomePage({ contacts }) {
+export default function HomePage({ contacts, onImportDemoContact }) {
   const activeContacts = contacts.filter(
     (contact) => contact.dateDeleted === null || contact.dateDeleted === ""
   );
@@ -22,10 +23,18 @@ export default function HomePage({ contacts }) {
   });
 
   return (
-    <div>
+    <>
       <DefaultHead pageTitle="Contacts" />
       <Heading level={1}>Contacts</Heading>
-      <ContactList contacts={contactsSortedByFirstName} />
-    </div>
+      {activeContacts.length === 0 ? (
+        <CreateDataInvitation
+          entity="contact"
+          createEntity="/new"
+          onImport={onImportDemoContact}
+        />
+      ) : (
+        <ContactList contacts={contactsSortedByFirstName} />
+      )}
+    </>
   );
 }

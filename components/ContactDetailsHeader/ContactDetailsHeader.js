@@ -85,7 +85,7 @@ export default function ContactDetailsHeader({
 
       <DetailsContainer>
         <NameHeader>{getFullName(contact)}</NameHeader>
-        {contact.dateOfBirth ? (
+        {contact.dateOfBirth && (
           <BirthdayContainer>
             <Image
               src={materialBirthday}
@@ -95,7 +95,7 @@ export default function ContactDetailsHeader({
             />
             <div> {formatDate(contact.dateOfBirth)}</div>
           </BirthdayContainer>
-        ) : null}
+        )}
       </DetailsContainer>
     </StyledHeader>
   );

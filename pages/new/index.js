@@ -6,7 +6,7 @@ export default function CreateNewContactPage({ onAddNewContact }) {
   return (
     <>
       <DefaultHead pageTitle="New Contact" />
-      <ContactForm contact={emptyContact} onSubmitForm={onAddNewContact} />;
+      <ContactForm contact={emptyContact} onSubmitForm={onAddNewContact} />
     </>
   );
 }

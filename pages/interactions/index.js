@@ -1,8 +1,13 @@
+import CreateDataInvitation from "@/components/CreateDataInvitation/CreateDataInvitation";
 import Heading from "@/components/Heading/Heading";
 import InteractionList from "@/components/InteractionList/InteractionList";
 import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
 
-export default function InteractionsPage({ interactions, contacts }) {
+export default function InteractionsPage({
+  interactions,
+  contacts,
+  onImportDemoInteractions,
+}) {
   const activeInteractions = interactions.filter(
     (interaction) =>
       interaction.dateDeleted === null || interaction.dateDeleted === ""
@@ -18,14 +23,28 @@ export default function InteractionsPage({ interactions, contacts }) {
     return 0;
   });
 
+  const activeContacts = contacts.filter(
+    (contact) => contact.dateDeleted === null || contact.dateDeleted === ""
+  );
+  const hasActiveContacts = activeContacts.length === 0 ? false : true;
+
   return (
     <>
       <DefaultHead pageTitle="Interactions" />
       <Heading level={1}>Interactions</Heading>
-      <InteractionList
-        interactions={interactionsSortedByDate}
-        contacts={contacts}
-      />
+      {interactionsSortedByDate.length === 0 ? (
+        <CreateDataInvitation
+          hasActiveContacts={hasActiveContacts}
+          entity="interaction"
+          createEntity={"/interactions/new"}
+          onImport={onImportDemoInteractions}
+        />
+      ) : (
+        <InteractionList
+          interactions={interactionsSortedByDate}
+          contacts={contacts}
+        />
+      )}
     </>
   );
 }

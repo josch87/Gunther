@@ -5,6 +5,7 @@ export default createGlobalStyle`
 :root {
   --primary-color: #4dabf7;
   --danger-color: #ff0000;
+  --warning-color: #f39d02;
   --primary-text-color: #4b4b4b;
   --app-header-height: 60px;
   --app-side-padding: 20px;
