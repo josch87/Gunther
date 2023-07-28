@@ -16,7 +16,7 @@ export default function DefaultHead({ pageTitle, ogImage, ogDescription }) {
       />
 
       {pageTitle ? (
-        <meta property="og:title" content={`${pageTitle}`} />
+        <meta property="og:title" content={`Gunther – ${pageTitle}`} />
       ) : (
         <meta
           property="og:title"
