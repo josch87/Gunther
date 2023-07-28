@@ -53,16 +53,18 @@ export default function InteractionDetailsSection({ interaction, contacts }) {
           value={participantsWithLinks}
         />
 
-        <InteractionDetailsItem
-          icon={materialNotes}
-          iconAlt="Notes"
-          value={interaction.notes.split("\n").map((line, index) => (
-            <React.Fragment key={index}>
-              {line}
-              <br />
-            </React.Fragment>
-          ))}
-        />
+        {interaction.notes && (
+          <InteractionDetailsItem
+            icon={materialNotes}
+            iconAlt="Notes"
+            value={interaction.notes.split("\n").map((line, index) => (
+              <React.Fragment key={index}>
+                {line}
+                <br />
+              </React.Fragment>
+            ))}
+          />
+        )}
       </ul>
     </>
   );
