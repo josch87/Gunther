@@ -88,7 +88,7 @@ export default function UploadImageModal({
             type="submit"
             buttonType="primary"
             disabled={!isFileChosen || isUploading}
-            icon={isUploading ? materialSpinnerFrame4 : null}
+            icon={isUploading && materialSpinnerFrame4}
           >
             {isUploading ? "Uploading..." : "Upload"}
           </Button>

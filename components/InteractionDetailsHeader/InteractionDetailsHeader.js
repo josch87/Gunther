@@ -32,7 +32,7 @@ export default function InteractionDetailsHeader({ interaction }) {
       <DetailsContainer>
         <InteractionTypeHeader>{interaction.type}</InteractionTypeHeader>
         <DateContainer>
-          {interaction.dateOfInteraction ? formattedInteractionDate : null}
+          {interaction.dateOfInteraction && formattedInteractionDate}
         </DateContainer>
       </DetailsContainer>
     </StyledHeader>
