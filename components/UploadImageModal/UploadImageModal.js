@@ -8,6 +8,7 @@ import {
 } from "./UploadImageModal.styled";
 import { useState } from "react";
 import { materialSpinnerFrame4 } from "@/assets/Icons8";
+import { toast } from "react-toastify";
 
 Modal.setAppElement("#__next");
 
@@ -34,6 +35,12 @@ export default function UploadImageModal({
     const url = "/api/images/upload";
 
     try {
+      // toast.promise(response, {
+      //   pending: "Uploading image",
+      //   suceess: "Image uploaded",
+      //   error: "failed",
+      // });
+
       const response = await fetch(url, {
         method: "POST",
         body: formData,
@@ -47,10 +54,18 @@ export default function UploadImageModal({
       } else {
         console.error(`Did not get a valid response fetching ${url}`);
         setIsUploading(false);
+
+        toast.error("Could not upload your image (no valid response)", {
+          progress: undefined,
+        });
       }
     } catch (error) {
       console.error(`Something went wrong while trying to fetch ${url}`);
       setIsUploading(false);
+
+      toast.error("Could not upload your image", {
+        progress: undefined,
+      });
     }
   }
 
