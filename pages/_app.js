@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import useLocalStorageState from "use-local-storage-state";
 import { uid } from "uid";
 import Chance from "chance";
+import { ToastContainer } from "react-toastify";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -167,6 +168,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
+      <ToastContainer />
       <Layout>
         <Component
           {...pageProps}
