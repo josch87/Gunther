@@ -69,12 +69,15 @@ export default function App({ Component, pageProps }) {
         }
       }
 
-      const newInteraction = { id: uid(), ...interaction };
+      const newInteraction = {
+        id: uid(),
+        ...interaction,
+        participants: ArrayOfRandomParticipants,
+      };
 
-      console.log("newInteraction", newInteraction);
-
-      return;
+      return newInteraction;
     });
+
     setInteractions([...interactions, ...demoInteractions]);
   }
 

@@ -473,7 +473,6 @@ export const contactsSampleData = [
 
 export const interactionsSampleData = [
   {
-    id: "1",
     type: "Call",
     dateOfInteraction: "2038-11-03T00:00:00.000+00:00",
     participants: [],
@@ -484,7 +483,6 @@ export const interactionsSampleData = [
     isSampleData: true,
   },
   {
-    id: "2",
     type: "Call",
     dateOfInteraction: "2038-11-07T18:30:00.000+00:00",
     participants: [],
@@ -495,7 +493,6 @@ export const interactionsSampleData = [
     isSampleData: true,
   },
   {
-    id: "3",
     type: "Video conference",
     dateOfInteraction: "2038-11-10T19:00:00.000+00:00",
     participants: [],
@@ -506,7 +503,6 @@ export const interactionsSampleData = [
     isSampleData: true,
   },
   {
-    id: "4",
     type: "Homecoming Event",
     dateOfInteraction: "2038-11-09T20:00:00.000+00:00",
     participants: [],
@@ -518,7 +514,6 @@ export const interactionsSampleData = [
     isSampleData: true,
   },
   {
-    id: "5",
     type: "Party",
     dateOfInteraction: "2038-11-01T20:00:00.000+00:00",
     participants: [],
