@@ -8,13 +8,16 @@ export default function CreateDataInvitation({
   entity,
   createEntity,
   onImport,
+  hideParagraph,
 }) {
   if (entity === "interaction" && hasActiveContacts === false) {
     return (
       <>
-        <StyledParagraph>
-          There are no {entity}s that can be displayed yet.
-        </StyledParagraph>
+        {hideParagraph ? null : (
+          <StyledParagraph>
+            There are no {entity}s that can be displayed yet.
+          </StyledParagraph>
+        )}
         <StyledParagraph $warning>
           <Image src={materialWarning} width={25} height={25} alt="Warning" />
           You need to have at least one contact in order to create interactions.
@@ -27,9 +30,11 @@ export default function CreateDataInvitation({
   }
   return (
     <>
-      <StyledParagraph>
-        Create your first {entity} so that it can be displayed here.
-      </StyledParagraph>
+      {hideParagraph ? null : (
+        <StyledParagraph>
+          Create your first {entity} so that it can be displayed here.
+        </StyledParagraph>
+      )}
       <Button buttonType="primary" href={createEntity}>
         Add {entity}
       </Button>
