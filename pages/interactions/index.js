@@ -3,7 +3,11 @@ import Heading from "@/components/Heading/Heading";
 import InteractionList from "@/components/InteractionList/InteractionList";
 import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
 
-export default function InteractionsPage({ interactions, contacts }) {
+export default function InteractionsPage({
+  interactions,
+  contacts,
+  onImportDemoInteractions,
+}) {
   const activeInteractions = interactions.filter(
     (interaction) =>
       interaction.dateDeleted === null || interaction.dateDeleted === ""
@@ -27,6 +31,7 @@ export default function InteractionsPage({ interactions, contacts }) {
         <CreateDataInvitation
           entity="interaction"
           createEntity={"/interactions/new"}
+          onImport={onImportDemoInteractions}
         />
       ) : (
         <InteractionList

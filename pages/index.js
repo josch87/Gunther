@@ -4,12 +4,11 @@ import Heading from "@/components/Heading/Heading";
 import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
 import { getFullSortName } from "@/utils/getContactDetails";
 
-export default function HomePage({ contacts }) {
+export default function HomePage({ contacts, onImportDemoContact }) {
   const activeContacts = contacts.filter(
     (contact) => contact.dateDeleted === null || contact.dateDeleted === ""
   );
 
-  console.log(activeContacts.length);
   const contactsSortedByFirstName = activeContacts.slice().sort((a, b) => {
     const nameA = getFullSortName(a);
     const nameB = getFullSortName(b);
@@ -28,7 +27,11 @@ export default function HomePage({ contacts }) {
       <DefaultHead pageTitle="Contacts" />
       <Heading level={1}>Contacts</Heading>
       {activeContacts.length === 0 ? (
-        <CreateDataInvitation entity="contact" createEntity="/new" />
+        <CreateDataInvitation
+          entity="contact"
+          createEntity="/new"
+          onImport={onImportDemoContact}
+        />
       ) : (
         <ContactList contacts={contactsSortedByFirstName} />
       )}

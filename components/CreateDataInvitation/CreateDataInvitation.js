@@ -1,7 +1,11 @@
-import { styled } from "styled-components";
 import Button from "../Button/Button";
+import { Import, Note, StyledParagraph } from "./CreateDataInvitation.styled";
 
-export default function CreateDataInvitation({ entity, createEntity }) {
+export default function CreateDataInvitation({
+  entity,
+  createEntity,
+  onImport,
+}) {
   return (
     <>
       <StyledParagraph>
@@ -11,17 +15,11 @@ export default function CreateDataInvitation({ entity, createEntity }) {
         Add {entity}
       </Button>
       <Note>
-        <em>Or import some demo data to get started.</em>
+        <em>
+          Or <Import onClick={onImport}>import some demo data</Import> to get
+          started.
+        </em>
       </Note>
     </>
   );
 }
-
-const Note = styled.p`
-  font-size: 0.6rem;
-  margin-top: 10px;
-`;
-
-const StyledParagraph = styled.p`
-  margin-bottom: 15px;
-`;

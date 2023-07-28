@@ -4,18 +4,79 @@ import Layout from "@/components/Layout/Layout";
 import { useRouter } from "next/router";
 import useLocalStorageState from "use-local-storage-state";
 import { uid } from "uid";
+import Chance from "chance";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   const [contacts, setContacts] = useLocalStorageState("contacts", {
-    defaultValue: contactsSampleData,
+    defaultValue: [],
   });
   const [interactions, setInteractions] = useLocalStorageState("interactions", {
-    defaultValue: interactionsSampleData,
+    defaultValue: [],
   });
+
+  const activeContacts = contacts.filter(
+    (contact) => contact.dateDeleted === null || contact.dateDeleted === ""
+  );
 
   const date = new Date();
   const currentUtcDateTime = date.toISOString();
+
+  function handleImportDemoContacts() {
+    const demoContact = contactsSampleData.map((contact) => {
+      return { id: uid(), ...contact };
+    });
+    setContacts([...contacts, ...demoContact]);
+  }
+
+  function handleImportDemoInteractions() {
+    if (activeContacts.length === 0) {
+      console.warn(
+        "Cannot import demo interactions when no contacts are available"
+      );
+      return;
+    }
+
+    const demoInteractions = interactionsSampleData.map((interaction) => {
+      const chance = new Chance();
+
+      let maxNumberOfParticipants = 5;
+      if (activeContacts.length < 5) {
+        maxNumberOfParticipants = activeContacts.length;
+      }
+
+      const randomNumberOfParticipants = chance.integer({
+        min: 1,
+        max: maxNumberOfParticipants,
+      });
+
+      let ArrayOfRandomParticipants = [];
+
+      while (ArrayOfRandomParticipants.length < randomNumberOfParticipants) {
+        const randomContactIndex = chance.integer({
+          min: 0,
+          max: activeContacts.length - 1,
+        });
+        const randomContact = activeContacts[randomContactIndex];
+
+        const isIncluded = ArrayOfRandomParticipants.includes(randomContact.id);
+
+        if (!isIncluded) {
+          ArrayOfRandomParticipants = [
+            ...ArrayOfRandomParticipants,
+            randomContact.id,
+          ];
+        }
+      }
+
+      const newInteraction = { id: uid(), ...interaction };
+
+      console.log("newInteraction", newInteraction);
+
+      return;
+    });
+    setInteractions([...interactions, ...demoInteractions]);
+  }
 
   function handleAddNewContact(newContact) {
     const newContactId = uid();
@@ -114,6 +175,8 @@ export default function App({ Component, pageProps }) {
           onAddNewInteraction={handleAddNewInteraction}
           onUpdateInteraction={handleUpdateInteraction}
           onDeleteInteraction={handleDeleteInteraction}
+          onImportDemoContact={handleImportDemoContacts}
+          onImportDemoInteractions={handleImportDemoInteractions}
         />
       </Layout>
     </>
