@@ -23,12 +23,18 @@ export default function InteractionsPage({
     return 0;
   });
 
+  const activeContacts = contacts.filter(
+    (contact) => contact.dateDeleted === null || contact.dateDeleted === ""
+  );
+  const hasActiveContacts = activeContacts.length === 0 ? false : true;
+
   return (
     <>
       <DefaultHead pageTitle="Interactions" />
       <Heading level={1}>Interactions</Heading>
       {interactionsSortedByDate.length === 0 ? (
         <CreateDataInvitation
+          hasActiveContacts={hasActiveContacts}
           entity="interaction"
           createEntity={"/interactions/new"}
           onImport={onImportDemoInteractions}

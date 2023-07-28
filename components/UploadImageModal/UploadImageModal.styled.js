@@ -11,6 +11,7 @@ export const FileInput = styled.input`
     border: 1px solid #808080;
     border-radius: 5px;
     padding: 8px 28px;
+    cursor: pointer;
   }
 `;
 
