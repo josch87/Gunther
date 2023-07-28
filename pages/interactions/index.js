@@ -1,5 +1,6 @@
 import Heading from "@/components/Heading/Heading";
 import InteractionList from "@/components/InteractionList/InteractionList";
+import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
 
 export default function InteractionsPage({ interactions, contacts }) {
   const activeInteractions = interactions.filter(
@@ -18,12 +19,13 @@ export default function InteractionsPage({ interactions, contacts }) {
   });
 
   return (
-    <div>
+    <>
+      <DefaultHead pageTitle="Interactions" />
       <Heading level={1}>Interactions</Heading>
       <InteractionList
         interactions={interactionsSortedByDate}
         contacts={contacts}
       />
-    </div>
+    </>
   );
 }

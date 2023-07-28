@@ -13,6 +13,8 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import { confirmAlert } from "react-confirm-alert";
 import ConfirmModal from "@/components/ConfirmModal/ConfirmModal";
+import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
+import { formatDate } from "@/utils/formatDates";
 
 const ActionButtons = styled.div`
   display: flex;
@@ -69,6 +71,11 @@ export default function InteractionDetailsPage({
 
   return (
     <>
+      <DefaultHead
+        pageTitle={`Interaction Details of a ${interaction.type.toLowerCase()} from ${formatDate(
+          interaction.dateOfInteraction
+        )}`}
+      />
       <BackLink href="/interactions">← All Interactions</BackLink>
 
       <Scopebox>

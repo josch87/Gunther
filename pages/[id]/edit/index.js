@@ -1,4 +1,6 @@
 import ContactForm from "@/components/Forms/ContactForm/ContactForm";
+import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
+import { getFullName } from "@/utils/getContactDetails";
 import { useRouter } from "next/router";
 
 export default function EditContactPage({ contacts, onUpdateContact }) {
@@ -20,6 +22,11 @@ export default function EditContactPage({ contacts, onUpdateContact }) {
   }
 
   return (
-    <ContactForm contact={contact} onSubmitForm={onUpdateContact} isUpdate />
+    <>
+      <DefaultHead
+        pageTitle={`Edit Contact Details of ${getFullName(contact)}`}
+      />
+      <ContactForm contact={contact} onSubmitForm={onUpdateContact} isUpdate />
+    </>
   );
 }
