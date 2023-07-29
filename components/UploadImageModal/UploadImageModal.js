@@ -35,12 +35,6 @@ export default function UploadImageModal({
     const url = "/api/images/upload";
 
     try {
-      // toast.promise(response, {
-      //   pending: "Uploading image",
-      //   suceess: "Image uploaded",
-      //   error: "failed",
-      // });
-
       const response = await fetch(url, {
         method: "POST",
         body: formData,
