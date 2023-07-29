@@ -37,7 +37,7 @@
     "jest": "^29.6.0",
     "jest-environment-jsdom": "^29.6.0"
   },
-  "description": "Efficient management of personal contacts for optimal nurturing of social interactions.",
+  "description": "Efficiently manage your personal contacts for optimal nurturing of social interactions.",
   "nf": {
     "template": "next"
   }

@@ -13,7 +13,7 @@ export default function DefaultHead({ pageTitle, ogImage, ogDescription }) {
       </title>
       <meta
         name="description"
-        content="Efficient management of personal contacts for optimal nurturing of social interactions."
+        content="Efficiently manage your personal contacts for optimal nurturing of social interactions."
       />
 
       {pageTitle ? (
@@ -29,7 +29,7 @@ export default function DefaultHead({ pageTitle, ogImage, ogDescription }) {
       ) : (
         <meta
           property="og:description"
-          content="Efficient management of personal contacts for optimal nurturing of social interactions."
+          content="Efficiently manage your personal contacts for optimal nurturing of social interactions."
         />
       )}
       <meta property="og:type" content="website" />
