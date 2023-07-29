@@ -1,3 +1,4 @@
+import { themeColor } from "@/styles";
 import Head from "next/head";
 
 export default function DefaultHead({ pageTitle, ogImage, ogDescription }) {
@@ -94,7 +95,7 @@ export default function DefaultHead({ pageTitle, ogImage, ogDescription }) {
       <link rel="manifest" href="/manifest.json" />
       <meta name="msapplication-TileColor" content="#ffffff" />
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-      <meta name="theme-color" content="#4dabf7"></meta>
+      <meta name="theme-color" content={themeColor}></meta>
     </Head>
   );
 }
