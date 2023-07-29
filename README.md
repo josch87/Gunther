@@ -6,7 +6,7 @@ Efficiently manage your personal contacts for optimal nurturing of social intera
 
 Gunther is a powerful tool designed to help you manage and strengthen your personal and professional relationships. With Gunther, you can easily manage your contacts and take notes on your interactions, ensuring you never miss important details. It's perfect for busy individuals who want to stay connected with their network effortlessly.
 
-[&#x1F517; Visit Gunther](https://gunther.aljoschazoeller.com/)
+[&#x1F517; Visit Gunther](https://gunther.aljoschazoeller.com/) to see it in action!
 
 ## Features
 
@@ -75,7 +75,7 @@ To set up the project locally, follow these steps:
    ```
 3. Rename `sample.env.local` to `.env.local` and enter your Cloudinary credentials in this file.
 
-### Scripts (For Developers)
+### Scripts
 
 You can use the following commands:
 
@@ -91,4 +91,4 @@ You can use the following commands:
 
 Gunther is designed to simplify your personal relationship management. Whether you want to stay in touch with old friends or manage your professional network, Gunther has got you covered. Connect with ease and never miss an opportunity to nurture your social interactions.
 
-[Visit Gunther](https://gunther.aljoschazoeller.com) to see it in action!
+[&#x1F517; Visit Gunther](https://gunther.aljoschazoeller.com/) to see it in action!
