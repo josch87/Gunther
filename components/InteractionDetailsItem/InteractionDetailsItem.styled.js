@@ -6,3 +6,9 @@ export const StyledDetailsItem = styled.li`
   gap: 10px;
   margin-bottom: 10px;
 `;
+
+export const Content = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+`;

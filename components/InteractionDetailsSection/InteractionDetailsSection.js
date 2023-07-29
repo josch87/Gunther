@@ -29,7 +29,7 @@ export default function InteractionDetailsSection({ interaction, contacts }) {
     });
 
   const participantsWithLinks = sortedActiveParticipants.map(
-    (sortedParticipant, index) => (
+    (sortedParticipant) => (
       <React.Fragment key={sortedParticipant.id}>
         <ParticipantLink
           href={`/${sortedParticipant.id}`}
@@ -37,7 +37,6 @@ export default function InteractionDetailsSection({ interaction, contacts }) {
         >
           {getFullName(sortedParticipant)}
         </ParticipantLink>
-        {index < sortedActiveParticipants.length - 1 && ", "}
       </React.Fragment>
     )
   );

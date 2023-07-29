@@ -9,4 +9,8 @@ export const Heading = styled.h2`
 export const ParticipantLink = styled(Link)`
   color: var(--primary-text-color);
   text-decoration: none;
+  background-color: #e6e6e6;
+  padding: 2px 6px;
+  border-radius: 20px;
+  display: inline-block;
 `;
