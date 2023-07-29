@@ -14,6 +14,11 @@ Gunther is a powerful tool designed to help you manage and strengthen your perso
 - **Note-Taking:** Capture important notes about your interactions with contacts to remember key information.
 - **Relationship Tracking:** Build and maintain strong connections by staying updated on your interactions with each contact.
 
+## Impressions
+
+_Gunther is currently beeing optimized for mobile screen only._
+![Mobile screenshots of Gunther](/public/github/screenshots-mobile.jpg)
+
 ## Project Timeline
 
 Gunther is beeing developed by [Aljoscha Zöller](https://github.com/josch87) as a capstone project of the _Web Development Bootcamp_ at [neuefische GmbH](https://www.neuefische.de/en).
@@ -30,7 +35,7 @@ Gunther is beeing developed by [Aljoscha Zöller](https://github.com/josch87) as
 
 These wireframes provide an initial glimpse of Gunther before the project kicks off, allowing you to form an understanding and visual representation.
 
-![First wireframes of Gunther](/public/vision_wireframes.png)
+![First wireframes of Gunther](/public/github/vision_wireframes.png)
 
 ## Tech Stack (For Developers)
 
