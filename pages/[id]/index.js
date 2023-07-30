@@ -68,7 +68,7 @@ export default function ContactDetailsPage({ contacts, onDeleteContact }) {
   return (
     <>
       <DefaultHead pageTitle={`Contact Details of ${getFullName(contact)}`} />
-      <BackLink href="/">← All Contacts</BackLink>
+      <BackLink href="/">All Contacts</BackLink>
 
       <Scopebox>
         <ActionButtons>
