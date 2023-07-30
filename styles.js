@@ -37,5 +37,10 @@ export default createGlobalStyle`
     background-color: var(--background-color);
   }
 
+  ::selection {
+    /* color: green; */
+    background-color: var(--primary-color);
+  }
+
 
 `;
