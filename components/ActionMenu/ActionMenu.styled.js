@@ -15,8 +15,8 @@ export const Dropdown = styled.ul`
   padding: 5px;
   right: 0;
   width: 180px;
-  background-color: #ffffff;
-  border: 1px solid #d3d3d3;
+  background-color: var(--background-color);
+  border: 1px solid var(--scopebox-border-color);
   border-radius: 5px;
   box-shadow: 0 0 20px #d3d3d3;
 `;
