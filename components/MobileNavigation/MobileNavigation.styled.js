@@ -7,9 +7,8 @@ export const StyledNavigation = styled.nav`
   left: 0;
   width: 100%;
   height: var(--mobile-navigation-height);
-  /* background-color: #ffffff; */
-  background: linear-gradient(180deg, #ffffff00 0%, white 40%);
-  /* border: 2px solid #000000; */
+  background-color: #000000;
+  border-top: 2px solid #000000;
 `;
 
 export const UnorderedList = styled.ul`
@@ -21,8 +20,6 @@ export const UnorderedList = styled.ul`
 export const ListItem = styled.li`
   list-style: none;
   width: 100%;
-  border-radius: 20px;
-  border: 2px solid var(--mobile-navigation-background-color-active);
 
   background-color: ${({ $active }) =>
     $active

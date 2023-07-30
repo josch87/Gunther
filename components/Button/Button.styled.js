@@ -31,7 +31,7 @@ export const StyledButton = styled(({ href, buttonType, ...props }) => {
       return `
         background-color: var(--primary-color);
         border: 1px solid var(--primary-color);
-        color: #ffffff;
+        color: inherit;
 
         &:disabled {
           background-color: color-mix(in srgb, var(--primary-color) 40%, #ffffff);

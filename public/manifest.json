@@ -3,8 +3,8 @@
   "description": "Efficiently manage your personal contacts for optimal nurturing of social interactions.",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#c2c2f8",
-  "background_color": "#c2c2f8",
+  "theme_color": "#f8ffff",
+  "background_color": "#f8ffff",
   "icons": [
     {
       "src": "/android-icon-36x36.png",

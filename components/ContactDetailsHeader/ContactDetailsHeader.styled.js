@@ -39,7 +39,7 @@ export const UploadImageIcon = styled(Image)`
   top: -9px;
   right: -6px;
   cursor: pointer;
-  background-color: #ffffff;
+  background-color: var(--background-color);
   border: 1px solid #d3d3d3;
   border-radius: 50%;
   padding: 2px;

@@ -29,4 +29,5 @@ export const DetailsContainer = styled.div`
 
 export const NameContainer = styled.h2`
   font-size: 1.3rem;
+  font-weight: 400;
 `;

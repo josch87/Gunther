@@ -1,23 +1,25 @@
 import { createGlobalStyle } from "styled-components";
 
-export const themeColor = "#c2c2f8";
+export const themeColor = "#f8ffff";
 
 export default createGlobalStyle`
 
 :root {
-  --primary-color: #c2c2f8;
+  --primary-color: #7cf1f1;
   --danger-color: #ff0000;
   --warning-color: #f39d02;
   --primary-text-color: #4b4b4b;
-  --app-header-background: linear-gradient(157deg, #c2c2f8 0%, #bfb4db 60%, #b99ac7 100%);
+  --background-color: #f8ffff;
+  --scopebox-border-color: #b2b2b2;
+  --image-placeholder-border-color: #b2b2b2;
+  --app-header-background-color: var(--background-color);
   --app-header-height: 60px;
   --app-side-padding: 20px;
   --mobile-navigation-height: 50px;
-  --mobile-navigation-background-color: #fff;
-  --mobile-navigation-background-color-active: #c2c2f8;
-  --link-background-color: color-mix(in srgb, var(--primary-color) 30%, white);
-  --scopebox-border-color: color-mix(in srgb, var(--primary-color) 100%, white);
-  --image-placeholder-border-color: var(--primary-color);
+  --mobile-navigation-background-color: var(--background-color);
+  --mobile-navigation-background-color-active: var(--primary-color);
+  --link-background-color: color-mix(in srgb, var(--primary-color) 40%, white); 
+  --toastify-color-success: var(--primary-color);
 }
 
   *,
@@ -32,6 +34,7 @@ export default createGlobalStyle`
     margin: 0;
     font-family: system-ui;
     color: var(--primary-text-color);
+    background-color: var(--background-color);
   }
 
 

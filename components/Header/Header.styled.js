@@ -9,10 +9,10 @@ export const StyledHeader = styled.header`
   position: fixed;
   z-index: 2;
   top: 0px;
-  background: var(--app-header-background);
+  background-color: var(--app-header-background-color);
   width: 100%;
   height: var(--app-header-height);
-  border-radius: 0 0 var(--app-side-padding) var(--app-side-padding);
+  border-bottom: 2px solid #000000;
   box-shadow: 0 0 15px #d3d3d3;
   padding: 0 var(--app-side-padding);
 `;

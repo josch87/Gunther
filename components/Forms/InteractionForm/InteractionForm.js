@@ -4,6 +4,7 @@ import {
   Heading,
   StickyContainer,
   StyledFieldset,
+  StyledLegend,
   StyledTextarea,
 } from "./InteractionForm.styled";
 import { useState } from "react";
@@ -125,7 +126,7 @@ export default function InteractionForm({
         }}
       >
         <StyledFieldset>
-          <legend>Interaction Details</legend>
+          <StyledLegend>Interaction Details</StyledLegend>
           <SingleLineInput
             type="creatableSelect"
             labelContent="Interaction (required)"
@@ -162,7 +163,7 @@ export default function InteractionForm({
         </StyledFieldset>
 
         <StyledFieldset>
-          <legend>Notes</legend>
+          <StyledLegend>Notes</StyledLegend>
           <StyledTextarea
             name="notes"
             rows="10"

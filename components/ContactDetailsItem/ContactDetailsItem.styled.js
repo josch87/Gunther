@@ -18,9 +18,8 @@ export const ExternalLink = styled.a`
   text-decoration: none;
 
   color: var(--primary-text-color);
-  background-color: var(--link-background-color);
-  padding: 2px 8px;
-  border-radius: 10px;
+  text-decoration: underline dashed;
+  text-underline-offset: 3px;
 `;
 
 export const DataType = styled.div`

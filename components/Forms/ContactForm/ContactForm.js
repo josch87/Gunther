@@ -11,6 +11,7 @@ import {
   Heading,
   StickyContainer,
   StyledFieldset,
+  StyledLegend,
   StyledTextarea,
 } from "./ContactForm.styled";
 import Button from "../../Button/Button";
@@ -111,7 +112,7 @@ export default function ContactForm({ onSubmitForm, isUpdate, contact }) {
         }}
       >
         <StyledFieldset>
-          <legend>Personal Information</legend>
+          <StyledLegend>Personal Information</StyledLegend>
           <SingleLineInput
             type="text"
             labelContent="First name (required)"
@@ -179,7 +180,7 @@ export default function ContactForm({ onSubmitForm, isUpdate, contact }) {
         </StyledFieldset>
 
         <StyledFieldset>
-          <legend>Contact Information</legend>
+          <StyledLegend>Contact Information</StyledLegend>
           <TwoLineInput
             type="email"
             labelContent="E-Mail"
@@ -293,7 +294,7 @@ export default function ContactForm({ onSubmitForm, isUpdate, contact }) {
         </StyledFieldset>
 
         <StyledFieldset>
-          <legend>Social Media</legend>
+          <StyledLegend>Social Media</StyledLegend>
           <SingleLineInput
             type="text"
             labelContent="Instagram"
@@ -321,7 +322,7 @@ export default function ContactForm({ onSubmitForm, isUpdate, contact }) {
         </StyledFieldset>
 
         <StyledFieldset>
-          <legend>Notes</legend>
+          <StyledLegend>Notes</StyledLegend>
           <StyledTextarea
             name="notes"
             rows="10"
