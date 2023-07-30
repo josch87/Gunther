@@ -304,7 +304,7 @@ export default function ContactForm({ onSubmitForm, isUpdate, contact }) {
           />
           <SingleLineInput
             type="text"
-            labelContent="Twitter"
+            labelContent="X"
             id="twitter"
             name="twitter"
             value={currentContact.twitter}

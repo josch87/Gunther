@@ -15,7 +15,9 @@ export default createGlobalStyle`
   --mobile-navigation-height: 50px;
   --mobile-navigation-background-color: #fff;
   --mobile-navigation-background-color-active: #c2c2f8;
-
+  --link-background-color: color-mix(in srgb, var(--primary-color) 30%, white);
+  --scopebox-border-color: color-mix(in srgb, var(--primary-color) 100%, white);
+  --image-placeholder-border-color: var(--primary-color);
 }
 
   *,
@@ -31,4 +33,6 @@ export default createGlobalStyle`
     font-family: system-ui;
     color: var(--primary-text-color);
   }
+
+
 `;

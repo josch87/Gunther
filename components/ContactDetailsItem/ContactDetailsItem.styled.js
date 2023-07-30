@@ -16,6 +16,11 @@ export const DataContainer = styled.div`
 export const ExternalLink = styled.a`
   color: inherit;
   text-decoration: none;
+
+  color: var(--primary-text-color);
+  background-color: var(--link-background-color);
+  padding: 2px 8px;
+  border-radius: 10px;
 `;
 
 export const DataType = styled.div`

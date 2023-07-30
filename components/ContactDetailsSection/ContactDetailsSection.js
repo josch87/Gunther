@@ -147,7 +147,7 @@ export default function ContactDetailsSection({ contact }) {
             icon={getSocialMediaIcon("Twitter")}
             iconAlt="Twitter"
             value={contact.twitter}
-            type="Twitter"
+            type="X"
             href={getSocialMediaHyperlink("Twitter", contact.twitter)}
             target="_blank"
           />

@@ -9,7 +9,7 @@ export const Heading = styled.h2`
 export const ParticipantLink = styled(Link)`
   color: var(--primary-text-color);
   text-decoration: none;
-  background-color: color-mix(in srgb, var(--primary-color) 30%, white);
+  background-color: var(--link-background-color);
   padding: 2px 8px;
   border-radius: 10px;
   display: inline-block;
