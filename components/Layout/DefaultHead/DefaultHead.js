@@ -95,7 +95,7 @@ export default function DefaultHead({ pageTitle, ogImage, ogDescription }) {
       <link rel="manifest" href="/manifest.json" />
       <meta name="msapplication-TileColor" content="#ffffff" />
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-      <meta name="theme-color" content={themeColor}></meta>
+      <meta name="theme-color" content={themeColor} />
     </Head>
   );
 }
