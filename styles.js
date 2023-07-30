@@ -1,4 +1,7 @@
 import { createGlobalStyle } from "styled-components";
+import { Open_Sans } from "@next/font/google";
+
+const openSans = Open_Sans({ subsets: ["latin"] });
 
 export const themeColor = "#f8ffff";
 
@@ -20,6 +23,7 @@ export default createGlobalStyle`
   --mobile-navigation-background-color-active: var(--primary-color);
   --link-background-color: color-mix(in srgb, var(--primary-color) 40%, white); 
   --toastify-color-success: var(--primary-color);
+  --toastify-color-light: var(--background-color)
 }
 
   *,
@@ -35,10 +39,10 @@ export default createGlobalStyle`
     font-family: system-ui;
     color: var(--primary-text-color);
     background-color: var(--background-color);
+    font-family: ${openSans.style.fontFamily}; 
   }
 
   ::selection {
-    /* color: green; */
     background-color: var(--primary-color);
   }
 

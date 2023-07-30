@@ -10,7 +10,7 @@ export const DetailsContainer = styled.div`
 `;
 
 export const InteractionTypeHeader = styled.h1`
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 `;
 
 export const DateContainer = styled.div`
