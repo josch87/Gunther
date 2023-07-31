@@ -1,10 +1,4 @@
-import {
-  ColumnOne,
-  ColumnTwo,
-  Container,
-  StyledInput,
-  StyledLabel,
-} from "./City.styled";
+import { ColumnOne, ColumnTwo, Container, StyledLabel } from "./City.styled";
 
 export default function City({
   id,
@@ -19,7 +13,7 @@ export default function City({
     <Container>
       <ColumnOne>
         <StyledLabel htmlFor={`${id}ZipCode`}>Zip code</StyledLabel>
-        <StyledInput
+        <input
           type="text"
           id={`${id}ZipCode`}
           name={`${name}ZipCode`}
@@ -31,7 +25,7 @@ export default function City({
       </ColumnOne>
       <ColumnTwo>
         <StyledLabel htmlFor={`${id}City`}>City</StyledLabel>
-        <StyledInput
+        <input
           type="text"
           id={`${id}City`}
           name={`${name}City`}

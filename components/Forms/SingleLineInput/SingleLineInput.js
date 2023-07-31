@@ -4,7 +4,7 @@ const Select = dynamic(
   { ssr: false }
 );
 
-import { StyledInput, StyledLabel, Container } from "./SingleLineInput.styled";
+import { StyledLabel, Container } from "./SingleLineInput.styled";
 const CreatableSelect = dynamic(
   () => import("react-select/creatable").then((mod) => mod.default),
   { ssr: false }
@@ -29,7 +29,7 @@ export default function SingleLineInput({
     return (
       <Container>
         <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
-        <StyledInput
+        <input
           type="text"
           id={id}
           name={name}
@@ -83,7 +83,7 @@ export default function SingleLineInput({
     return (
       <Container>
         <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
-        <StyledInput
+        <input
           type="date"
           id={id}
           name={name}

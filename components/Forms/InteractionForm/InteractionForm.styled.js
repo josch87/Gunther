@@ -16,7 +16,7 @@ export const StickyContainer = styled.div`
 export const StyledFieldset = styled.fieldset`
   border: 1px solid var(--scopebox-border-color);
   margin-bottom: 20px;
-  background-color: var(--background-color);
+  background-color: #ffffff;
   padding: 10px 10px 0 10px;
 `;
 

@@ -46,5 +46,17 @@ export default createGlobalStyle`
     background-color: var(--primary-color);
   }
 
+  input, textarea {
+    background-color: hsl(0, 0%, 100%);
+    border-color: hsl(0, 0%, 80%);
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    font: inherit;
+    color: #333333;
+    padding: 7px 10px;
+    outline-color: #2684e1;
+  }
+
 
 `;

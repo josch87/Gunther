@@ -29,11 +29,12 @@ export const StyledButton = styled(({ href, buttonType, ...props }) => {
   ${({ $buttonType }) => {
     if ($buttonType === "primary") {
       return `
-        background-color: var(--primary-color);
-        border: 1px solid var(--primary-color);
         color: inherit;
+        background-color: var(--primary-color); 
+        border: 1px solid var(--primary-color);
 
         &:disabled {
+          color: color-mix(in srgb, var(--primary-text-color) 40%, #ffffff);
           background-color: color-mix(in srgb, var(--primary-color) 40%, #ffffff);
           border-color: color-mix(in srgb, var(--primary-color) 40%, #ffffff);
           cursor: default;
