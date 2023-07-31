@@ -1,4 +1,4 @@
-![Banner of Gunther](/public/github/banner.jpg)
+![Banner of Gunther](/public/github/banner.png)
 
 # Gunther – Personal Relationship Management
 
@@ -19,7 +19,7 @@ Gunther is a powerful tool designed to help you manage and strengthen your perso
 ## Impressions
 
 _Gunther is currently beeing optimized for mobile screen only._
-![Mobile screenshots of Gunther](/public/github/screenshots-mobile.jpg)
+![Mobile screenshots of Gunther](/public/github/impressions-mobile.png)
 
 ## Project Timeline
 
