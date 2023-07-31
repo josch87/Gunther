@@ -19,6 +19,7 @@ Gunther is a powerful tool designed to help you manage and strengthen your perso
 ## Impressions
 
 _Gunther is currently beeing optimized for mobile screen only._
+
 ![Mobile screenshots of Gunther](/public/github/impressions-mobile.png)
 
 ## Project Timeline
@@ -35,7 +36,7 @@ Gunther is beeing developed by [Aljoscha Zöller](https://github.com/josch87) as
 
 ## Vision
 
-These wireframes provide an initial glimpse of Gunther before the project kicks off, allowing you to form an understanding and visual representation.
+These wireframes provide an initial glimpse of Gunther during the project kick-off, allowing to form an understanding and visual representation.
 
 ![First wireframes of Gunther](/public/github/vision_wireframes.png)
 
