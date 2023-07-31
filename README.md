@@ -1,3 +1,5 @@
+![Banner of Gunther](/public/github/banner.jpg)
+
 # Gunther – Personal Relationship Management
 
 Efficiently manage your personal contacts for optimal nurturing of social interactions.
@@ -61,7 +63,7 @@ These wireframes provide an initial glimpse of Gunther before the project kicks 
 
 Before running the project locally, ensure you have the following prerequisites:
 
-1. **Node.js**: Gunther requires Node.js to be installed on your machine. You can download and install Node.js from the [nodejs.org](https://nodejs.org/).
+1. **Node.js**: Gunther requires Node.js to be installed on your machine. You can download and install Node.js from [nodejs.org](https://nodejs.org/).
 
 2. **Git**: You will need Git installed to clone the repository. If you don't have Git, you can download it from [git-scm.com](https://git-scm.com).
 
