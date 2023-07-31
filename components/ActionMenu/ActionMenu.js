@@ -1,7 +1,7 @@
 import {
   materialContact,
   materialMeeting,
-  materialPlusPrimaryColor,
+  materialPlus,
 } from "@/assets/Icons8";
 import Image from "next/image";
 import {
@@ -58,7 +58,7 @@ export default function ActionMenu() {
     <StyledActionMenu ref={ref}>
       <Tooltip id="action-menu-tooltip" />
       <StyledImage
-        src={materialPlusPrimaryColor}
+        src={materialPlus}
         width={30}
         height={30}
         alt="Create new &#8230; menu"
