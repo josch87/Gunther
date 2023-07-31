@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import useLocalStorageState from "use-local-storage-state";
 import { uid } from "uid";
 import Chance from "chance";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -27,6 +29,10 @@ export default function App({ Component, pageProps }) {
       return { id: uid(), ...contact };
     });
     setContacts([...contacts, ...demoContact]);
+
+    toast.success("Contacts imported", {
+      progress: undefined,
+    });
   }
 
   function handleImportDemoInteractions() {
@@ -79,6 +85,10 @@ export default function App({ Component, pageProps }) {
     });
 
     setInteractions([...interactions, ...demoInteractions]);
+
+    toast.success("Interactions imported", {
+      progress: undefined,
+    });
   }
 
   function handleAddNewContact(newContact) {
@@ -94,6 +104,10 @@ export default function App({ Component, pageProps }) {
 
     setContacts([...contacts, formattedContact]);
     router.push(formattedContact.id);
+
+    toast.success("Contact created", {
+      progress: undefined,
+    });
   }
 
   function handleUpdateContact(updatedContact) {
@@ -107,6 +121,10 @@ export default function App({ Component, pageProps }) {
       })
     );
     router.push(`/${updatedContact.id}`);
+
+    toast.success("Contact updated", {
+      progress: undefined,
+    });
   }
 
   function handleDeleteContact(IdOfContactToDelete) {
@@ -121,6 +139,10 @@ export default function App({ Component, pageProps }) {
     );
 
     router.push("/");
+
+    toast.success("Contact deleted", {
+      progress: undefined,
+    });
   }
 
   function handleAddNewInteraction(newInteraction) {
@@ -135,6 +157,10 @@ export default function App({ Component, pageProps }) {
 
     setInteractions([...interactions, formattedInteraction]);
     router.push(`/interactions/${formattedInteraction.id}`);
+
+    toast.success("Interaction created", {
+      progress: undefined,
+    });
   }
 
   function handleUpdateInteraction(updatedInteraction) {
@@ -148,6 +174,10 @@ export default function App({ Component, pageProps }) {
       })
     );
     router.push(`/interactions/${updatedInteraction.id}`);
+
+    toast.success("Interaction updated", {
+      progress: undefined,
+    });
   }
 
   function handleDeleteInteraction(IdOfInteractionToDelete) {
@@ -162,11 +192,27 @@ export default function App({ Component, pageProps }) {
     );
 
     router.push("/interactions");
+
+    toast.success("Interaction deleted", {
+      progress: undefined,
+    });
   }
 
   return (
     <>
       <GlobalStyle />
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Layout>
         <Component
           {...pageProps}
