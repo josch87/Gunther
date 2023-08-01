@@ -1,4 +1,4 @@
-![Banner of Gunther](/public/github/banner.png)
+![Banner of Gunther](/public/github/banner_release1.0.0.png)
 
 # Gunther – Personal Relationship Management
 
@@ -20,7 +20,7 @@ Gunther is a powerful tool designed to help you manage and strengthen your perso
 
 _Gunther is currently beeing optimized for mobile screen only._
 
-![Mobile screenshots of Gunther](/public/github/impressions-mobile.png)
+![Mobile screenshots of Gunther](/public/github/impressions-mobile_release1.0.0.png)
 
 ## Project Timeline
 
@@ -49,14 +49,14 @@ These wireframes provide an initial glimpse of Gunther during the project kick-o
 - [styled-components](https://www.styled-components.com)
 - [Node.js](https://nodejs.org)
 - [next-pwa](https://www.npmjs.com/package/next-pwa)
-- [react-modal](https://reactcommunity.org/react-modal/)
-- [React Select](https://react-select.com/)
-- [React Tooltip](https://react-tooltip.com/)
-- [React-toastify](https://fkhadra.github.io/react-toastify/)
 - [react-confirm-alert](https://www.npmjs.com/package/react-confirm-alert)
-- [use-local-storage-state](https://www.npmjs.com/package/use-local-storage-state)
+- [react-modal](https://reactcommunity.org/react-modal/)
+- [react-select](https://react-select.com/)
+- [react-toastify](https://fkhadra.github.io/react-toastify/)
+- [react-tooltip](https://react-tooltip.com/)
 - [Cloudinary](https://cloudinary.com)
 - [formidable](https://www.npmjs.com/package/formidable)
+- [use-local-storage-state](https://www.npmjs.com/package/use-local-storage-state)
 - [uid](https://www.npmjs.com/package/uid)
 - [Chance](https://chancejs.com/)
 
