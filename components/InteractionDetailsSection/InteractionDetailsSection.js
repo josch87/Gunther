@@ -30,14 +30,13 @@ export default function InteractionDetailsSection({ interaction, contacts }) {
 
   const participantsWithLinks = sortedActiveParticipants.map(
     (sortedParticipant) => (
-      <React.Fragment key={sortedParticipant.id}>
-        <ParticipantLink
-          href={`/${sortedParticipant.id}`}
-          title="Show contact details"
-        >
-          {getFullName(sortedParticipant)}
-        </ParticipantLink>
-      </React.Fragment>
+      <ParticipantLink
+        key={sortedParticipant.id}
+        href={`/${sortedParticipant.id}`}
+        title="Show contact details"
+      >
+        {getFullName(sortedParticipant)}
+      </ParticipantLink>
     )
   );
 
