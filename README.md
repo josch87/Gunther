@@ -1,4 +1,4 @@
-![Banner of Gunther](/public/github/banner_release1.0.0.png)
+![Banner of Gunther](/.github/banner_release1.0.0.png)
 
 # Gunther – Personal Relationship Management
 
@@ -20,7 +20,7 @@ Gunther is a powerful tool designed to help you manage and strengthen your perso
 
 _Gunther is currently beeing optimized for mobile screen only._
 
-![Mobile screenshots of Gunther](/public/github/impressions-mobile_release1.0.0.png)
+![Mobile screenshots of Gunther](/.github/impressions-mobile_release1.0.0.png)
 
 ## Project Timeline
 
@@ -38,7 +38,7 @@ Gunther is beeing developed by [Aljoscha Zöller](https://github.com/josch87) as
 
 These wireframes provide an initial glimpse of Gunther during the project kick-off, allowing to form an understanding and visual representation.
 
-![First wireframes of Gunther](/public/github/vision_wireframes.png)
+![First wireframes of Gunther](/.github/vision_wireframes.png)
 
 ## Tech Stack (For Developers)
 
