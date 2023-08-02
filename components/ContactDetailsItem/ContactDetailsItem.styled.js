@@ -16,6 +16,10 @@ export const DataContainer = styled.div`
 export const ExternalLink = styled.a`
   color: inherit;
   text-decoration: none;
+
+  color: var(--primary-text-color);
+  text-decoration: underline dashed;
+  text-underline-offset: 3px;
 `;
 
 export const DataType = styled.div`

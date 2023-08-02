@@ -1,14 +1,30 @@
-# Gunther - Personal Relationship Management
+![Banner of Gunther](/.github/banner_release1.0.0.png)
 
-Efficient management of **personal contacts** for optimal nurturing of **social interactions**.
+# Gunther – Personal Relationship Management
 
-**As a** busy business man/woman\
-**I want to** keep track of my social life\
-**so that** I don't die alone
+Efficiently manage your personal contacts for optimal nurturing of social interactions.
 
-## About
+> **User Story:** As a busy professional, I want to maintain meaningful connections in my social life so that I can cultivate a fulfilling network.
 
-Gunther is beeing developed by [Aljoscha Zöller](https://www.linkedin.com/in/aljoschazoeller/) as a capstone project of the [neue fische web development bootcamp](https://www.neuefische.de/bootcamp/web-development).
+Gunther is a powerful tool designed to help you manage and strengthen your personal and professional relationships. With Gunther, you can easily manage your contacts and take notes on your interactions, ensuring you never miss important details. It's perfect for busy individuals who want to stay connected with their network effortlessly.
+
+[&#x1F517; Visit Gunther](https://gunther.aljoschazoeller.com/) to see it in action!
+
+## Features
+
+- **Contact Management:** Keep track of essential contact details, such as phone numbers, addresses, and social media accounts.
+- **Note-Taking:** Capture important notes about your interactions with contacts to remember key information.
+- **Relationship Tracking:** Build and maintain strong connections by staying updated on your interactions with each contact.
+
+## Impressions
+
+_Gunther is currently beeing optimized for mobile screen only._
+
+![Mobile screenshots of Gunther](/.github/impressions-mobile_release1.0.0.png)
+
+## Project Timeline
+
+Gunther is beeing developed by [Aljoscha Zöller](https://github.com/josch87) as a capstone project of the _Web Development Bootcamp_ at [neuefische GmbH](https://www.neuefische.de/en).
 
 | Milestone                               | Date       |
 | --------------------------------------- | ---------- |
@@ -16,31 +32,15 @@ Gunther is beeing developed by [Aljoscha Zöller](https://www.linkedin.com/in/al
 | Public Sprint Review                    | 2023-07-27 |
 | Public Sprint Review                    | 2023-07-20 |
 | Public Sprint Review                    | 2023-07-13 |
-| Project Start                           | 2023-07-06 |
-
-## Environments
-
-| Environment | Link                                                               |
-| ----------- | ------------------------------------------------------------------ |
-| Production  | [gunther.aljoschazoeller.com](https://gunther.aljoschazoeller.com) |
+| Project Kick-Off                        | 2023-07-06 |
 
 ## Vision
 
-These wireframes provide an initial glimpse of Gunther before the project kicks off, allowing to form an understanding and visual representation.
+These wireframes provide an initial glimpse of Gunther during the project kick-off, allowing to form an understanding and visual representation.
 
-![First wireframes of Gunther](/public/vision_wireframes.png)
+![First wireframes of Gunther](/.github/vision_wireframes.png)
 
-## Template
-
-This project was created from the neue fische `next` template.
-
-You can [🔗 **use this template on CodeSandbox**](https://codesandbox.io/p/sandbox/github/neuefische/web-exercises/tree/main/templates/next?file=/README.md) or locally by running this command in your Terminal:
-
-```bash
-npx -y ghcd@latest neuefische/web-exercises/tree/main/templates/next my-app -i
-```
-
-## Tech Stack
+## Tech Stack (For Developers)
 
 - [React](https://reactjs.org)
 - [Next.js](https://nextjs.org/)
@@ -49,29 +49,54 @@ npx -y ghcd@latest neuefische/web-exercises/tree/main/templates/next my-app -i
 - [styled-components](https://www.styled-components.com)
 - [Node.js](https://nodejs.org)
 - [next-pwa](https://www.npmjs.com/package/next-pwa)
-- [react-modal](https://reactcommunity.org/react-modal/)
-- [React Select](https://react-select.com/)
-- [React Tooltip](https://react-tooltip.com/)
 - [react-confirm-alert](https://www.npmjs.com/package/react-confirm-alert)
-- [use-local-storage-state](https://www.npmjs.com/package/use-local-storage-state)
+- [react-modal](https://reactcommunity.org/react-modal/)
+- [react-select](https://react-select.com/)
+- [react-toastify](https://fkhadra.github.io/react-toastify/)
+- [react-tooltip](https://react-tooltip.com/)
 - [Cloudinary](https://cloudinary.com)
 - [formidable](https://www.npmjs.com/package/formidable)
+- [use-local-storage-state](https://www.npmjs.com/package/use-local-storage-state)
 - [uid](https://www.npmjs.com/package/uid)
+- [Chance](https://chancejs.com/)
 
-## Project Setup
+## Project Setup (For Developers)
 
-- Clone this repository
-- Install dependencies: `npm install`
-- Create a [Cloudinary](https://cloudinary.com) account
-- Rename sample.env.local to env.local and enter:
-  - Cloudinary Cloud-Name, API-Key and API-Secret
+Before running the project locally, ensure you have the following prerequisites:
+
+1. **Node.js**: Gunther requires Node.js to be installed on your machine. You can download and install Node.js from [nodejs.org](https://nodejs.org/).
+
+2. **Git**: You will need Git installed to clone the repository. If you don't have Git, you can download it from [git-scm.com](https://git-scm.com).
+
+3. **Cloudinary Account**: The project uses Cloudinary for media management. Create a [Cloudinary](https://cloudinary.com) account and obtain the Cloud-Name, API-Key, and API-Secret.
+
+To set up the project locally, follow these steps:
+
+1. Clone this repository using Git:
+   ```
+   git clone <repository_url>
+   ```
+2. Navigate to the project directory and install dependencies with npm:
+   ```
+   cd gunther
+   npm install
+   ```
+3. Rename `sample.env.local` to `.env.local` and enter your Cloudinary credentials in this file.
 
 ### Scripts
 
 You can use the following commands:
 
-- `npm run dev` to start a development server
-- `npm run build` to build the project
-- `npm run start` to start a production server
-- `npm run test` to run the tests
-- `npm run lint` to run the linter
+| Scripts         | Description                |
+| --------------- | -------------------------- |
+| `npm run dev`   | Start a development server |
+| `npm run build` | Build the project          |
+| `npm run start` | Start a production server  |
+| `npm run test`  | Run the tests              |
+| `npm run lint`  | Run the linter             |
+
+---
+
+Gunther is designed to simplify your personal relationship management. Whether you want to stay in touch with old friends or manage your professional network, Gunther has got you covered. Connect with ease and never miss an opportunity to nurture your social interactions.
+
+[&#x1F517; Visit Gunther](https://gunther.aljoschazoeller.com/) to see it in action!

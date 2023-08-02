@@ -76,6 +76,7 @@ export default function ContactDetailsSection({ contact }) {
             value={contact.emailOneValue}
             type={contact.emailOneType}
             href={`mailto:${contact.emailOneValue}`}
+            title="Write an email"
           />
         )}
 
@@ -86,6 +87,7 @@ export default function ContactDetailsSection({ contact }) {
             value={contact.emailTwoValue}
             type={contact.emailTwoType}
             href={`mailto:${contact.emailTwoValue}`}
+            title="Write an email"
           />
         )}
 
@@ -96,6 +98,7 @@ export default function ContactDetailsSection({ contact }) {
             value={contact.phoneOneValue}
             type={contact.phoneOneType}
             href={`tel:${contact.phoneOneValue}`}
+            title="Start a call"
           />
         )}
 
@@ -106,6 +109,7 @@ export default function ContactDetailsSection({ contact }) {
             value={contact.phoneTwoValue}
             type={contact.phoneTwoType}
             href={`tel:${contact.phoneTwoValue}`}
+            title="Start a call"
           />
         )}
 
@@ -117,6 +121,7 @@ export default function ContactDetailsSection({ contact }) {
             type={contact.addressOneType}
             href={getGoogleMapsLink(addressOne)}
             target="_blank"
+            title="Visit Google Maps"
           />
         )}
 
@@ -128,6 +133,7 @@ export default function ContactDetailsSection({ contact }) {
             type={contact.addressTwoType}
             href={getGoogleMapsLink(addressTwo)}
             target="_blank"
+            title="Visit Google Maps"
           />
         )}
 
@@ -139,6 +145,7 @@ export default function ContactDetailsSection({ contact }) {
             type="Instagram"
             href={getSocialMediaHyperlink("Instagram", contact.instagram)}
             target="_blank"
+            title="Visit Instagram"
           />
         )}
 
@@ -147,9 +154,10 @@ export default function ContactDetailsSection({ contact }) {
             icon={getSocialMediaIcon("Twitter")}
             iconAlt="Twitter"
             value={contact.twitter}
-            type="Twitter"
+            type="X"
             href={getSocialMediaHyperlink("Twitter", contact.twitter)}
             target="_blank"
+            title="Visit X"
           />
         )}
 
@@ -161,6 +169,7 @@ export default function ContactDetailsSection({ contact }) {
             type="Facebook"
             href={getSocialMediaHyperlink("Facebook", contact.facebook)}
             target="_blank"
+            title="Visit Facebook"
           />
         )}
 

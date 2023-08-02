@@ -1,10 +1,10 @@
 {
   "name": "Gunther",
-  "description": "Efficient management of personal contacts for optimal nurturing of social interactions.",
+  "description": "Efficiently manage your personal contacts for optimal nurturing of social interactions.",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#4dabf7",
-  "background_color": "#4dabf7",
+  "theme_color": "#f8ffff",
+  "background_color": "#f8ffff",
   "icons": [
     {
       "src": "/android-icon-36x36.png",
@@ -45,9 +45,19 @@
   ],
   "screenshots": [
     {
-      "src": "/pwa/screenshot-01.png",
+      "src": "/pwa/mobile-01.png",
       "type": "image/png",
-      "sizes": "750x1334"
+      "sizes": "862x1754"
+    },
+    {
+      "src": "/pwa/mobile-02.png",
+      "type": "image/png",
+      "sizes": "862x1754"
+    },
+    {
+      "src": "/pwa/mobile-03.png",
+      "type": "image/png",
+      "sizes": "862x1754"
     }
   ]
 }

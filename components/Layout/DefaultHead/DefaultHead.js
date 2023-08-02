@@ -1,3 +1,4 @@
+import { themeColor } from "@/styles";
 import Head from "next/head";
 
 export default function DefaultHead({ pageTitle, ogImage, ogDescription }) {
@@ -12,7 +13,7 @@ export default function DefaultHead({ pageTitle, ogImage, ogDescription }) {
       </title>
       <meta
         name="description"
-        content="Efficient management of personal contacts for optimal nurturing of social interactions."
+        content="Efficiently manage your personal contacts for optimal nurturing of social interactions."
       />
 
       {pageTitle ? (
@@ -28,13 +29,13 @@ export default function DefaultHead({ pageTitle, ogImage, ogDescription }) {
       ) : (
         <meta
           property="og:description"
-          content="Efficient management of personal contacts for optimal nurturing of social interactions."
+          content="Efficiently manage your personal contacts for optimal nurturing of social interactions."
         />
       )}
       <meta property="og:type" content="website" />
       <meta
         property="og:image"
-        content={ogImage ? ogImage : "/open-graph/og-default-image.jpg"}
+        content={ogImage ? ogImage : "/open-graph/og-default-image.png"}
       />
       <meta property="og:locale" content="en_US" />
 
@@ -94,7 +95,7 @@ export default function DefaultHead({ pageTitle, ogImage, ogDescription }) {
       <link rel="manifest" href="/manifest.json" />
       <meta name="msapplication-TileColor" content="#ffffff" />
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-      <meta name="theme-color" content="#4dabf7"></meta>
+      <meta name="theme-color" content={themeColor} />
     </Head>
   );
 }

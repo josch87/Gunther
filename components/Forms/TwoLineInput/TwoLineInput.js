@@ -8,7 +8,6 @@ import {
   ColumnOne,
   ColumnTwo,
   Container,
-  StyledInput,
   StyledLabel,
 } from "./TwoLineInput.styled";
 
@@ -31,7 +30,7 @@ export default function TwoLineInput({
       <Container>
         <ColumnOne>
           <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
-          <StyledInput
+          <input
             type="email"
             id={id}
             name={name}
@@ -61,7 +60,7 @@ export default function TwoLineInput({
       <Container>
         <ColumnOne>
           <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
-          <StyledInput
+          <input
             type="tel"
             id={id}
             name={name}
@@ -91,7 +90,7 @@ export default function TwoLineInput({
       <Container>
         <ColumnOne>
           <StyledLabel htmlFor={id}>{labelContent}</StyledLabel>
-          <StyledInput
+          <input
             type="text"
             id={id}
             name={name}

@@ -13,6 +13,7 @@ export default function ContactDetailsItem({
   type,
   href,
   target = "_self",
+  title,
 }) {
   return (
     <StyledDetailsItem>
@@ -20,7 +21,7 @@ export default function ContactDetailsItem({
 
       <DataContainer>
         {href ? (
-          <ExternalLink href={href} target={target}>
+          <ExternalLink href={href} target={target} title={title}>
             {value}
           </ExternalLink>
         ) : (

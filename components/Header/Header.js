@@ -1,8 +1,6 @@
 import { LogoLink, StyledHeader, StyledLogo } from "./Header.styled";
-import Image from "next/image";
-import { materialPlus } from "@/assets/Icons8";
-import Link from "next/link";
 import ActionMenu from "../ActionMenu/ActionMenu";
+import Image from "next/image";
 
 export default function Header() {
   return (

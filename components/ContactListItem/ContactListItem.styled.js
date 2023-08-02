@@ -19,7 +19,7 @@ export const ProfileImage = styled(Image)`
 `;
 
 export const ProfileImagePlaceholder = styled(ProfileImage)`
-  border: 1px solid #b2b2b2;
+  border: 1px solid var(--image-placeholder-border-color);
 `;
 
 export const DetailsContainer = styled.div`
@@ -29,4 +29,5 @@ export const DetailsContainer = styled.div`
 
 export const NameContainer = styled.h2`
   font-size: 1.3rem;
+  font-weight: 400;
 `;

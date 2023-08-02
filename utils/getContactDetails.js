@@ -2,7 +2,7 @@ import {
   materialExternalLink,
   materialFacebook,
   materialInstagram,
-  materialTwitter,
+  materialTwitterx,
 } from "@/assets/Icons8";
 
 export function getFullName({ firstName, middleName, lastName }) {
@@ -69,7 +69,7 @@ export function getSocialMediaIcon(platform) {
   }
 
   if (platform === "Twitter") {
-    return materialTwitter;
+    return materialTwitterx;
   }
 
   if (platform === "Facebook") {

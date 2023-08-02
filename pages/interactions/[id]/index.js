@@ -76,7 +76,7 @@ export default function InteractionDetailsPage({
           interaction.dateOfInteraction
         )}`}
       />
-      <BackLink href="/interactions">← All Interactions</BackLink>
+      <BackLink href="/interactions">All Interactions</BackLink>
 
       <Scopebox>
         <ActionButtons>
