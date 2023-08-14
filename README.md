@@ -81,7 +81,7 @@ To set up the project locally, follow these steps:
    cd gunther
    npm install
    ```
-3. Rename `sample.env.local` to `.env.local` and enter your Cloudinary credentials in this file.
+3. Copy `sample.env.local`, name it `.env.local` and enter your Cloudinary credentials in this file.
 
 ### Scripts
 
