@@ -8,6 +8,7 @@ import Chance from "chance";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getCurrentTimestamp } from "@/utils/dateTime";
+import logActivity from "@/utils/logActivity";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -102,6 +103,8 @@ export default function App({ Component, pageProps }) {
 
     setContacts([...contacts, formattedContact]);
     router.push(formattedContact.id);
+
+    logActivity({ action: "addContact", data: formattedContact });
 
     toast.success("Contact created", {
       progress: undefined,
