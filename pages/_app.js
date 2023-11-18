@@ -8,7 +8,6 @@ import Chance from "chance";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getCurrentTimestamp } from "@/utils/dateTime";
-import logActivity from "@/utils/logActivity";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -18,6 +17,13 @@ export default function App({ Component, pageProps }) {
   const [interactions, setInteractions] = useLocalStorageState("interactions", {
     defaultValue: [],
   });
+  const [activityLog, setActivityLog] = useLocalStorageState("activityLog", {
+    defaultValue: [],
+  });
+
+  function updateActivityLog(data) {
+    setActivityLog([...activityLog, data]);
+  }
 
   const activeContacts = contacts.filter(
     (contact) => contact.dateDeleted === null || contact.dateDeleted === ""
@@ -92,11 +98,12 @@ export default function App({ Component, pageProps }) {
 
   function handleAddNewContact(newContact) {
     const newContactId = uid();
+    const currentDateTime = getCurrentTimestamp();
 
     const formattedContact = {
       ...newContact,
       id: newContactId,
-      dateCreated: getCurrentTimestamp(),
+      dateCreated: currentDateTime,
       dateDeleted: "",
       deceased: newContact.deceased ? true : false,
     };
@@ -104,7 +111,13 @@ export default function App({ Component, pageProps }) {
     setContacts([...contacts, formattedContact]);
     router.push(formattedContact.id);
 
-    logActivity({ action: "addContact", data: formattedContact });
+    updateActivityLog({
+      date: currentDateTime,
+      entity: "Contact",
+      action: "Create",
+      oldData: null,
+      newData: formattedContact,
+    });
 
     toast.success("Contact created", {
       progress: undefined,
@@ -112,15 +125,28 @@ export default function App({ Component, pageProps }) {
   }
 
   function handleUpdateContact(updatedContact) {
+    const currentDateTime = getCurrentTimestamp();
+    let oldContact = {};
+
     setContacts(
       contacts.map((contact) => {
         if (contact.id === updatedContact.id) {
-          return { ...updatedContact, dateLastUpdate: getCurrentTimestamp() };
+          oldContact = contact;
+          return { ...updatedContact, dateLastUpdate: currentDateTime };
         } else {
           return contact;
         }
       })
     );
+
+    updateActivityLog({
+      date: currentDateTime,
+      entity: "Contact",
+      action: "Update",
+      oldData: oldContact,
+      newData: updatedContact,
+    });
+
     router.push(`/${updatedContact.id}`);
 
     toast.success("Contact updated", {
@@ -129,15 +155,29 @@ export default function App({ Component, pageProps }) {
   }
 
   function handleDeleteContact(IdOfContactToDelete) {
+    const currentDateTime = getCurrentTimestamp();
+    let oldContact = {};
+    let updatedContact = {};
+
     setContacts(
       contacts.map((contact) => {
         if (contact.id === IdOfContactToDelete) {
-          return { ...contact, dateDeleted: getCurrentTimestamp() };
+          oldContact = contact;
+          updatedContact = { ...contact, dateDeleted: currentDateTime };
+          return updatedContact;
         } else {
           return contact;
         }
       })
     );
+
+    updateActivityLog({
+      date: currentDateTime,
+      entity: "Contact",
+      action: "Delete",
+      oldData: oldContact,
+      newData: updatedContact,
+    });
 
     router.push("/");
 
