@@ -1,6 +1,6 @@
 import InteractionForm from "@/components/Forms/InteractionForm/InteractionForm";
 import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
-import { formatDate } from "@/utils/formatDates";
+import { formatDate } from "@/utils/dateTime";
 import { useRouter } from "next/router";
 
 export default function EditInteractionPage({

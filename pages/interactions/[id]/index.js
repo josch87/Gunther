@@ -14,7 +14,7 @@ import styled from "styled-components";
 import { confirmAlert } from "react-confirm-alert";
 import ConfirmModal from "@/components/ConfirmModal/ConfirmModal";
 import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
-import { formatDate } from "@/utils/formatDates";
+import { formatDate } from "@/utils/dateTime";
 
 const ActionButtons = styled.div`
   display: flex;
