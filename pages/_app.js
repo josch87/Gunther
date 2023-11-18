@@ -30,10 +30,20 @@ export default function App({ Component, pageProps }) {
   );
 
   function handleImportDemoContacts() {
+    const currentDateTime = getCurrentTimestamp();
+
     const demoContact = contactsSampleData.map((contact) => {
-      return { id: uid(), ...contact };
+      return { id: uid(), ...contact, dateCreated: currentDateTime };
     });
     setContacts([...contacts, ...demoContact]);
+
+    updateActivityLog({
+      date: currentDateTime,
+      entity: "Contact",
+      action: "ImportDemoContacts",
+      oldData: null,
+      newData: demoContact,
+    });
 
     toast.success("Contacts imported", {
       progress: undefined,
