@@ -50,7 +50,6 @@ export default function App({ Component, pageProps }) {
     });
   }
 
-  // TODO: Implement actionLog for Interactions
   function handleImportDemoInteractions() {
     if (activeContacts.length === 0) {
       console.warn(
