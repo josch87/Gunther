@@ -12,7 +12,7 @@ import { materialImage } from "@/assets/Icons8";
 export default function ContactListItem({ contact }) {
   return (
     <ListItem>
-      <StyledLink href={`/${contact.id}`} title="Show contact details">
+      <StyledLink href={`/contacts/${contact.id}`} title="Show contact details">
         {contact.profilePicture ? (
           <ProfileImage
             src={getProfilePicture(contact)}

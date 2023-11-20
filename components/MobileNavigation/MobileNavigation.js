@@ -15,7 +15,7 @@ export default function MobileNavigation() {
     {
       id: 1,
       title: "Contacts",
-      href: "/",
+      href: "/contacts",
       icon: materialContact,
     },
     {
