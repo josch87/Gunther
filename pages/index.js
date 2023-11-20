@@ -16,7 +16,7 @@ export default function Dashboard({ interactions }) {
       const interactionDate = new Date(activeInteraction.dateOfInteraction);
       return interactionDate >= today;
     })
-    .toSorted((a, b) => {
+    .sort((a, b) => {
       if (a.dateOfInteraction < b.dateOfInteraction) {
         return -1;
       }
