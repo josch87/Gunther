@@ -5,7 +5,11 @@ import {
   UnorderedList,
 } from "./MobileNavigation.styled";
 import Image from "next/image";
-import { materialContact, materialMeeting } from "@/assets/Icons8";
+import {
+  materialContact,
+  materialHome,
+  materialMeeting,
+} from "@/assets/Icons8";
 import { useRouter } from "next/router";
 import { Tooltip } from "react-tooltip";
 
@@ -14,12 +18,18 @@ export default function MobileNavigation() {
   const linksData = [
     {
       id: 1,
+      title: "Dashboard",
+      href: "/",
+      icon: materialHome,
+    },
+    {
+      id: 2,
       title: "Contacts",
       href: "/contacts",
       icon: materialContact,
     },
     {
-      id: 2,
+      id: 3,
       title: "Interactions",
       href: "/interactions",
       icon: materialMeeting,

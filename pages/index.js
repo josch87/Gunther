@@ -1,13 +1,12 @@
+import Heading from "@/components/Heading/Heading";
+import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
 import Link from "next/link";
 
 export default function Dashboard() {
   return (
     <>
-      Dashboard
-      <br />
-      <Link href="/contacts">Contacts</Link>
-      <br />
-      <Link href="/interactions">Interactions</Link>
+      <DefaultHead pageTitle="Dashboard" />
+      <Heading level={1}>Dashboard</Heading>
     </>
   );
 }
