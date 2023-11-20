@@ -50,6 +50,7 @@ export default function App({ Component, pageProps }) {
     });
   }
 
+  // TODO: Implement actionLog for Interactions
   function handleImportDemoInteractions() {
     if (activeContacts.length === 0) {
       console.warn(
@@ -140,14 +141,6 @@ export default function App({ Component, pageProps }) {
       newData: enhancedNewContact,
     });
 
-    updateActivityLog({
-      date: currentDateTime,
-      entity: "Contact",
-      action: "Create",
-      oldData: null,
-      newData: formattedContact,
-    });
-
     toast.success("Contact created", {
       progress: undefined,
     });
@@ -181,7 +174,7 @@ export default function App({ Component, pageProps }) {
       newData: updatedContact,
     });
 
-    router.push(`/contacts/${updatedContact.id}`);
+    router.push(`/contacts/${contactToUpdate.id}`);
 
     toast.success("Contact updated", {
       progress: undefined,
