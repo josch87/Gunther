@@ -7,6 +7,7 @@ import { uid } from "uid";
 import Chance from "chance";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { getCurrentTimestamp } from "@/utils/dateTime";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -20,9 +21,6 @@ export default function App({ Component, pageProps }) {
   const activeContacts = contacts.filter(
     (contact) => contact.dateDeleted === null || contact.dateDeleted === ""
   );
-
-  const date = new Date();
-  const currentUtcDateTime = date.toISOString();
 
   function handleImportDemoContacts() {
     const demoContact = contactsSampleData.map((contact) => {
@@ -97,7 +95,7 @@ export default function App({ Component, pageProps }) {
     const formattedContact = {
       ...newContact,
       id: newContactId,
-      dateCreated: currentUtcDateTime,
+      dateCreated: getCurrentTimestamp(),
       dateDeleted: "",
       deceased: newContact.deceased ? true : false,
     };
@@ -114,7 +112,7 @@ export default function App({ Component, pageProps }) {
     setContacts(
       contacts.map((contact) => {
         if (contact.id === updatedContact.id) {
-          return { ...updatedContact, dateLastUpdate: currentUtcDateTime };
+          return { ...updatedContact, dateLastUpdate: getCurrentTimestamp() };
         } else {
           return contact;
         }
@@ -131,7 +129,7 @@ export default function App({ Component, pageProps }) {
     setContacts(
       contacts.map((contact) => {
         if (contact.id === IdOfContactToDelete) {
-          return { ...contact, dateDeleted: currentUtcDateTime };
+          return { ...contact, dateDeleted: getCurrentTimestamp() };
         } else {
           return contact;
         }
@@ -151,7 +149,7 @@ export default function App({ Component, pageProps }) {
     const formattedInteraction = {
       ...newInteraction,
       id: newInteractionId,
-      dateCreated: currentUtcDateTime,
+      dateCreated: getCurrentTimestamp(),
       dateDeleted: "",
     };
 
@@ -167,7 +165,10 @@ export default function App({ Component, pageProps }) {
     setInteractions(
       interactions.map((interaction) => {
         if (interaction.id === updatedInteraction.id) {
-          return { ...updatedInteraction, dateLastUpdate: currentUtcDateTime };
+          return {
+            ...updatedInteraction,
+            dateLastUpdate: getCurrentTimestamp(),
+          };
         } else {
           return interaction;
         }
@@ -184,7 +185,7 @@ export default function App({ Component, pageProps }) {
     setInteractions(
       interactions.map((interaction) => {
         if (interaction.id === IdOfInteractionToDelete) {
-          return { ...interaction, dateDeleted: currentUtcDateTime };
+          return { ...interaction, dateDeleted: getCurrentTimestamp() };
         } else {
           return interaction;
         }

@@ -9,7 +9,7 @@ import {
   ParticipantsContainer,
   StyledLink,
 } from "./InteractionListItem.styled";
-import { formatDate } from "@/utils/formatDates";
+import { formatDate } from "@/utils/dateTime";
 import { getFullSortName, getShortName } from "@/utils/getContactDetails";
 import Image from "next/image";
 import { useMemo } from "react";

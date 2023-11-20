@@ -15,7 +15,7 @@ import {
   materialUpload,
 } from "@/assets/Icons8";
 import Image from "next/image";
-import { formatDate } from "@/utils/formatDates";
+import { formatDate } from "@/utils/dateTime";
 import UploadImageModal from "../UploadImageModal/UploadImageModal";
 
 const customStyles = {

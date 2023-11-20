@@ -4,3 +4,10 @@ export function formatDate(initialDate) {
   const formattedDate = dateObject.toLocaleDateString("en-US", options);
   return formattedDate;
 }
+
+export function getCurrentTimestamp() {
+  const currentTime = new Date();
+  const currentIsoTime = currentTime.toISOString();
+
+  return currentIsoTime;
+}

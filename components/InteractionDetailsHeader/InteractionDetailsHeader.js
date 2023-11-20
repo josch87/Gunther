@@ -6,7 +6,7 @@ import {
   StyledHeader,
 } from "./InteractionDetailsHeader.styled";
 import { getInteractionIcon } from "@/utils/getInteractionDetails";
-import { formatDate } from "@/utils/formatDates";
+import { formatDate } from "@/utils/dateTime";
 import { useMemo } from "react";
 
 export default function InteractionDetailsHeader({ interaction }) {
