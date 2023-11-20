@@ -33,17 +33,21 @@ export default function UpcomingWidget({ interactions, contacts }) {
 
   return (
     <Scopebox heading="Upcoming">
-      <StyledUnorderedList>
-        {futureInteractionsToBeDisplayed.map((interaction) => {
-          return (
-            <InteractionListItem
-              key={interaction.id}
-              interaction={interaction}
-              contacts={contacts}
-            />
-          );
-        })}
-      </StyledUnorderedList>
+      {futureInteractionsToBeDisplayed.length === 0 ? (
+        <p>No upcoming interactions</p>
+      ) : (
+        <StyledUnorderedList>
+          {futureInteractionsToBeDisplayed.map((interaction) => {
+            return (
+              <InteractionListItem
+                key={interaction.id}
+                interaction={interaction}
+                contacts={contacts}
+              />
+            );
+          })}
+        </StyledUnorderedList>
+      )}
     </Scopebox>
   );
 }
