@@ -29,7 +29,7 @@ export default function Contacts({ contacts, onImportDemoContact }) {
       {activeContacts.length === 0 ? (
         <CreateDataInvitation
           entity="contact"
-          createEntity="/new"
+          createEntity="/contacts/new"
           onImport={onImportDemoContact}
         />
       ) : (
