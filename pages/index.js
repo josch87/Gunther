@@ -1,8 +1,9 @@
 import Heading from "@/components/Heading/Heading";
+import InteractionListItem from "@/components/InteractionListItem/InteractionListItem";
 import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
 import Scopebox from "@/components/Scopebox/Scopebox";
 
-export default function Dashboard({ interactions }) {
+export default function Dashboard({ interactions, contacts }) {
   const activeInteractions = interactions.filter(
     (interaction) =>
       interaction.dateDeleted === null || interaction.dateDeleted === ""
@@ -29,12 +30,26 @@ export default function Dashboard({ interactions }) {
 
   const futureInteractionsToBeDisplayed = sortedFutureInteractions.slice(0, 3);
 
+  console.log(futureInteractionsToBeDisplayed);
+
   return (
     <>
       <DefaultHead pageTitle="Dashboard" />
       <Heading level={1}>Dashboard</Heading>
 
-      <Scopebox heading="Upcoming">Test</Scopebox>
+      <Scopebox heading="Upcoming">
+        <ul>
+          {futureInteractionsToBeDisplayed.map((interaction) => {
+            return (
+              <InteractionListItem
+                key={interaction.id}
+                interaction={interaction}
+                contacts={contacts}
+              />
+            );
+          })}
+        </ul>
+      </Scopebox>
     </>
   );
 }

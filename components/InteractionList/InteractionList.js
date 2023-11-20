@@ -1,8 +1,9 @@
 import InteractionListItem from "../InteractionListItem/InteractionListItem";
+import { StyledUnorderedList } from "./InteractionList.styled";
 
 export default function InteractionList({ interactions, contacts }) {
   return (
-    <ul>
+    <StyledUnorderedList>
       {interactions.map((interaction) => {
         return (
           <InteractionListItem
@@ -12,6 +13,6 @@ export default function InteractionList({ interactions, contacts }) {
           />
         );
       })}
-    </ul>
+    </StyledUnorderedList>
   );
 }
