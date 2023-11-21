@@ -29,8 +29,6 @@ export default function UpcomingWidget({ interactions, contacts }) {
 
   const futureInteractionsToBeDisplayed = sortedFutureInteractions.slice(0, 3);
 
-  console.log(futureInteractionsToBeDisplayed);
-
   return (
     <>
       {futureInteractionsToBeDisplayed.length === 0 ? null : (
