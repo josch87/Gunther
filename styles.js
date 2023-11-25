@@ -58,5 +58,10 @@ export default createGlobalStyle`
     outline-color: #2684e1;
   }
 
+  a {
+    color: var(--primary-text-color);
+    text-decoration-color: var(--primary-color);
+    text-underline-offset: 2px;
+  }
 
 `;
