@@ -157,7 +157,7 @@ export const contactsTestData = [
 
 export const interactionsTestData = [
   {
-    id: 1,
+    id: "1",
     type: "Call",
     dateOfInteraction: "2012-11-03T00:00:00.000+00:00",
     participants: [],
@@ -168,7 +168,7 @@ export const interactionsTestData = [
     isSampleData: true,
   },
   {
-    id: 2,
+    id: "2",
     type: "Call",
     dateOfInteraction: "2038-11-07T18:30:00.000+00:00",
     participants: [],
@@ -179,7 +179,7 @@ export const interactionsTestData = [
     isSampleData: true,
   },
   {
-    id: 3,
+    id: "3",
     type: "Video conference",
     dateOfInteraction: "2038-11-10T19:00:00.000+00:00",
     participants: [],
@@ -190,7 +190,7 @@ export const interactionsTestData = [
     isSampleData: true,
   },
   {
-    id: 4,
+    id: "4",
     type: "Homecoming Event",
     dateOfInteraction: "2038-11-09T20:00:00.000+00:00",
     participants: [],
@@ -202,7 +202,7 @@ export const interactionsTestData = [
     isSampleData: true,
   },
   {
-    id: 5,
+    id: "5",
     type: "Party",
     dateOfInteraction: "2038-11-01T20:00:00.000+00:00",
     participants: [],
@@ -217,7 +217,7 @@ export const interactionsTestData = [
 
 export const pastInteractionsTestData = [
   {
-    id: 1,
+    id: "1",
     type: "Call",
     dateOfInteraction: "2018-11-03",
     participants: [],
@@ -228,7 +228,7 @@ export const pastInteractionsTestData = [
     isSampleData: true,
   },
   {
-    id: 2,
+    id: "2",
     type: "Call",
     dateOfInteraction: "2005-07-12",
     participants: [],
@@ -239,7 +239,7 @@ export const pastInteractionsTestData = [
     isSampleData: true,
   },
   {
-    id: 3,
+    id: "3",
     type: "Video conference",
     dateOfInteraction: "1995-06-01",
     participants: [],
@@ -253,7 +253,7 @@ export const pastInteractionsTestData = [
 
 export const threeFutureInteractionsTestData = [
   {
-    id: 1,
+    id: "1",
     type: "Call",
     dateOfInteraction: "2089-11-03",
     participants: [],
@@ -264,7 +264,7 @@ export const threeFutureInteractionsTestData = [
     isSampleData: true,
   },
   {
-    id: 2,
+    id: "2",
     type: "Call",
     dateOfInteraction: "2070-07-12",
     participants: [],
@@ -275,7 +275,7 @@ export const threeFutureInteractionsTestData = [
     isSampleData: true,
   },
   {
-    id: 3,
+    id: "3",
     type: "Video conference",
     dateOfInteraction: "2098-06-01",
     participants: [],
