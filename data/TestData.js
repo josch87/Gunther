@@ -157,8 +157,9 @@ export const contactsTestData = [
 
 export const interactionsTestData = [
   {
+    id: 1,
     type: "Call",
-    dateOfInteraction: "2038-11-03T00:00:00.000+00:00",
+    dateOfInteraction: "2012-11-03T00:00:00.000+00:00",
     participants: [],
     notes:
       "I was calling coz' I forgot about his birthday and apologised. After a while, he was fine with it and invited me to his party next Friday. I said that I'm pretty busy right now but I'll try to make it ...",
@@ -167,16 +168,18 @@ export const interactionsTestData = [
     isSampleData: true,
   },
   {
+    id: 2,
     type: "Call",
     dateOfInteraction: "2038-11-07T18:30:00.000+00:00",
     participants: [],
     notes:
       "I called my best friend to catch up. We talked about our recent experiences, shared funny stories, and reminisced about old times. It was a long and enjoyable conversation.",
     dateCreated: "2038-11-07T18:30:00.000+00:00",
-    dateDeleted: "",
+    dateDeleted: "2023-11-25T16:23:30.742Z",
     isSampleData: true,
   },
   {
+    id: 3,
     type: "Video conference",
     dateOfInteraction: "2038-11-10T19:00:00.000+00:00",
     participants: [],
@@ -187,6 +190,7 @@ export const interactionsTestData = [
     isSampleData: true,
   },
   {
+    id: 4,
     type: "Homecoming Event",
     dateOfInteraction: "2038-11-09T20:00:00.000+00:00",
     participants: [],
@@ -198,6 +202,7 @@ export const interactionsTestData = [
     isSampleData: true,
   },
   {
+    id: 5,
     type: "Party",
     dateOfInteraction: "2038-11-01T20:00:00.000+00:00",
     participants: [],
@@ -212,6 +217,7 @@ export const interactionsTestData = [
 
 export const pastInteractionsTestData = [
   {
+    id: 1,
     type: "Call",
     dateOfInteraction: "2018-11-03",
     participants: [],
@@ -222,6 +228,7 @@ export const pastInteractionsTestData = [
     isSampleData: true,
   },
   {
+    id: 2,
     type: "Call",
     dateOfInteraction: "2005-07-12",
     participants: [],
@@ -232,8 +239,45 @@ export const pastInteractionsTestData = [
     isSampleData: true,
   },
   {
+    id: 3,
     type: "Video conference",
     dateOfInteraction: "1995-06-01",
+    participants: [],
+    notes:
+      "We had a family video conference to celebrate my sister's graduation. We couldn't all be physically present, so we decided to have a virtual gathering. We congratulated her, shared our pride, and virtually toasted to her success.",
+    dateCreated: "2038-11-10T19:00:00.000+00:00",
+    dateDeleted: "",
+    isSampleData: true,
+  },
+];
+
+export const threeFutureInteractionsTestData = [
+  {
+    id: 1,
+    type: "Call",
+    dateOfInteraction: "2089-11-03",
+    participants: [],
+    notes:
+      "I was calling coz' I forgot about his birthday and apologised. After a while, he was fine with it and invited me to his party next Friday. I said that I'm pretty busy right now but I'll try to make it ...",
+    dateCreated: "2023-07-06T16:54:11.000+00:00",
+    dateDeleted: "",
+    isSampleData: true,
+  },
+  {
+    id: 2,
+    type: "Call",
+    dateOfInteraction: "2070-07-12",
+    participants: [],
+    notes:
+      "I called my best friend to catch up. We talked about our recent experiences, shared funny stories, and reminisced about old times. It was a long and enjoyable conversation.",
+    dateCreated: "2038-11-07T18:30:00.000+00:00",
+    dateDeleted: "",
+    isSampleData: true,
+  },
+  {
+    id: 3,
+    type: "Video conference",
+    dateOfInteraction: "2098-06-01",
     participants: [],
     notes:
       "We had a family video conference to celebrate my sister's graduation. We couldn't all be physically present, so we decided to have a virtual gathering. We congratulated her, shared our pride, and virtually toasted to her success.",

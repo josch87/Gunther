@@ -3,7 +3,17 @@ import Heading from "@/components/Heading/Heading";
 import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
 import { getSortedActiveFutureInteractions } from "@/utils/getInteractionDetails";
 import Link from "next/link";
-import { StyledParagraph } from "./Dashboard.styled";
+import styled from "styled-components";
+
+const StyledParagraph = styled.p`
+  line-height: 1.5rem;
+`;
+
+const FlexContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+`;
 
 export default function Dashboard({ interactions, contacts }) {
   const futureInteractionsToBeDisplayed = getSortedActiveFutureInteractions(
@@ -14,16 +24,25 @@ export default function Dashboard({ interactions, contacts }) {
   return (
     <>
       <DefaultHead pageTitle="Dashboard" />
-      <Heading level={1}>Dashboard</Heading>
-      {futureInteractionsToBeDisplayed.length === 0 ? (
-        <>
+      <FlexContainer>
+        <section>
+          <Heading level={1}>Dashboard</Heading>
           <StyledParagraph>
-            Start by adding some <Link href="/contacts">contacts</Link> and{" "}
-            <Link href="/interactions">interactions</Link>.
+            Welcome to Gunther - your Personal Relationship Management. Manage
+            your <Link href="/contacts">contacts</Link> and social{" "}
+            <Link href="/interactions">interactions</Link> and cultivate a
+            fulfilling network!
           </StyledParagraph>
-        </>
-      ) : null}
-      <UpcomingWidget interactions={interactions} contacts={contacts} />
+        </section>
+        {futureInteractionsToBeDisplayed.length > 0 ? (
+          <section>
+            <UpcomingWidget
+              interactions={futureInteractionsToBeDisplayed}
+              contacts={contacts}
+            />
+          </section>
+        ) : null}
+      </FlexContainer>
     </>
   );
 }
