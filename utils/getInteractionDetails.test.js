@@ -1,22 +1,21 @@
 import { contactsTestData, interactionsTestData } from "@/data/TestData";
 import {
   getActiveInteractions,
-  getInteractionIcon,
   getParticipant,
   getSortedActiveFutureInteractions,
 } from "./getInteractionDetails";
+
+test("get a participant", () => {
+  const participant = getParticipant(contactsTestData, "3");
+  expect(participant.firstName).toBe("Rachel");
+  expect(participant.lastName).toBe("Green");
+});
 
 test("get only active interactions", () => {
   const activeInteractions = getActiveInteractions(interactionsTestData, 3);
   expect(
     activeInteractions.every((interaction) => interaction.dateDeleted === "")
   ).toBe(true);
-});
-
-test("get a participant", () => {
-  const participant = getParticipant(contactsTestData, "3");
-  expect(participant.firstName).toBe("Rachel");
-  expect(participant.lastName).toBe("Green");
 });
 
 test("get three SortedActiveFutureInteractions", () => {

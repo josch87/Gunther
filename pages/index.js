@@ -28,8 +28,8 @@ export default function Dashboard({ interactions, contacts }) {
         <section>
           <Heading level={1}>Dashboard</Heading>
           <StyledParagraph>
-            Welcome to Gunther - your Personal Relationship Management. Manage
-            your <Link href="/contacts">contacts</Link> and social{" "}
+            Welcome to Gunther - your Personal Relationship Management app.
+            Manage your <Link href="/contacts">contacts</Link> and social{" "}
             <Link href="/interactions">interactions</Link> and cultivate a
             fulfilling network!
           </StyledParagraph>
