@@ -26,22 +26,27 @@ test("get three sortedActiveFutureInteractions", () => {
   expect(threeInteractions).toHaveLength(3);
 });
 
-test("get only active future sortedActiveFutureInteractions", () => {
-  const activeFutureInteractions = getSortedActiveFutureInteractions(
+test("get only active sortedActiveFutureInteractions", () => {
+  const activeInteractions = getSortedActiveFutureInteractions(
     interactionsTestData,
     5
   );
   expect(
-    activeFutureInteractions.every(
-      (interaction) => interaction.dateDeleted === ""
-    )
+    activeInteractions.every((interaction) => interaction.dateDeleted === "")
   ).toBe(true);
+});
+
+test("get only future sortedActiveFutureInteractions", () => {
+  const futureInteractions = getSortedActiveFutureInteractions(
+    interactionsTestData,
+    5
+  );
 
   let today = new Date();
   today = today.toISOString();
 
   expect(
-    activeFutureInteractions.every(
+    futureInteractions.every(
       (interaction) => interaction.dateOfInteraction >= today
     )
   ).toBe(true);
