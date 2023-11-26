@@ -25,6 +25,10 @@ export function getActiveInteractions(interactions) {
 }
 
 export function getSortedActiveFutureInteractions(interactions, count) {
+  if (!interactions) {
+    return [];
+  }
+
   const activeInteractions = getActiveInteractions(interactions);
 
   const today = new Date();
