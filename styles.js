@@ -64,4 +64,8 @@ export default createGlobalStyle`
     text-underline-offset: 2px;
   }
 
+  a:active {
+    background-color: var(--primary-color);
+  }
+
 `;
