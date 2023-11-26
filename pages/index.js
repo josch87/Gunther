@@ -15,6 +15,16 @@ const FlexContainer = styled.div`
   gap: 1.5rem;
 `;
 
+const StyledLink = styled(Link)`
+  color: var(--primary-text-color);
+  text-decoration-color: var(--primary-color);
+  text-underline-offset: 2px;
+
+  &:active {
+    background-color: var(--primary-color);
+  }
+`;
+
 export default function Dashboard({ interactions, contacts }) {
   const futureInteractionsToBeDisplayed = getSortedActiveFutureInteractions(
     interactions,
@@ -29,9 +39,9 @@ export default function Dashboard({ interactions, contacts }) {
           <Heading level={1}>Dashboard</Heading>
           <StyledParagraph>
             Welcome to Gunther - your Personal Relationship Management app.
-            Manage your <Link href="/contacts">contacts</Link> and social{" "}
-            <Link href="/interactions">interactions</Link> and cultivate a
-            fulfilling network!
+            Manage your <StyledLink href="/contacts">contacts</StyledLink> and
+            social <StyledLink href="/interactions">interactions</StyledLink>{" "}
+            and cultivate a fulfilling network!
           </StyledParagraph>
         </section>
         {futureInteractionsToBeDisplayed.length > 0 ? (
