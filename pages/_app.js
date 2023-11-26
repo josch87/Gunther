@@ -24,7 +24,6 @@ export default function App({ Component, pageProps }) {
   function updateActivityLog(data) {
     const activityId = uid();
     data = { ...data, id: activityId };
-    console.log(data);
     setActivityLog([...activityLog, data]);
   }
 
