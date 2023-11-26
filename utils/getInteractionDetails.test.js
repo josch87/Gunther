@@ -18,7 +18,7 @@ test("get only active interactions", () => {
   ).toBe(true);
 });
 
-test("get three SortedActiveFutureInteractions", () => {
+test("get three sortedActiveFutureInteractions", () => {
   const threeInteractions = getSortedActiveFutureInteractions(
     interactionsTestData,
     3
@@ -26,7 +26,7 @@ test("get three SortedActiveFutureInteractions", () => {
   expect(threeInteractions).toHaveLength(3);
 });
 
-test("get only active future SortedActiveFutureInteractions", () => {
+test("get only active future sortedActiveFutureInteractions", () => {
   const activeFutureInteractions = getSortedActiveFutureInteractions(
     interactionsTestData,
     5
@@ -47,7 +47,7 @@ test("get only active future SortedActiveFutureInteractions", () => {
   ).toBe(true);
 });
 
-test("get sorted SortedActiveFutureInteractions", () => {
+test("get sorted sortedActiveFutureInteractions", () => {
   const sortedInteractions = getSortedActiveFutureInteractions(
     interactionsTestData,
     3
