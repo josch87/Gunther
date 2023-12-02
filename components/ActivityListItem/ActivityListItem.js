@@ -6,7 +6,10 @@ import {
   StyledParticipantsContainer,
 } from "./ActivityListItem.styled";
 import { useMemo } from "react";
-import { getActivityOperationIcon } from "@/utils/getActivityDetails";
+import {
+  getActivityOperationDisplayName,
+  getActivityOperationIcon,
+} from "@/utils/getActivityDetails";
 import { getFormattedDateTime } from "@/utils/dateTime";
 
 export default function ActivityListItem({ activity }) {
@@ -14,6 +17,13 @@ export default function ActivityListItem({ activity }) {
     () => getActivityOperationIcon(activity),
     [activity]
   );
+
+  const operationDisplayName = useMemo(
+    () => getActivityOperationDisplayName(activity),
+    [activity]
+  );
+
+  const entityDisplayName = activity.entity.toLowerCase();
 
   const formattedActivityDate = getFormattedDateTime({
     dateToFormat: activity.date,
@@ -34,7 +44,7 @@ export default function ActivityListItem({ activity }) {
               .map((participant) => getShortName(participant))
               .join(", ")} */}
         </StyledParticipantsContainer>
-        <StyledDateContainer>{formattedActivityDate}</StyledDateContainer>
+        <StyledDateContainer>{`${operationDisplayName} ${entityDisplayName} on ${formattedActivityDate}`}</StyledDateContainer>
       </StyledDetailsContainer>
     </StyledListItem>
   );

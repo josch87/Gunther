@@ -10,6 +10,16 @@ export function getActivityOperationIcon({ operation }) {
   return icon;
 }
 
+export function getActivityOperationDisplayName({ operation }) {
+  let displayName = "";
+  baseActivityOperations.forEach((baseActivityOperation) => {
+    if (operation === baseActivityOperation.operation) {
+      displayName = baseActivityOperation.displayName;
+    }
+  });
+  return displayName;
+}
+
 export function getSortedActivities(activities, count) {
   if (!activities) return [];
 

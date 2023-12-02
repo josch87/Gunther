@@ -59,8 +59,12 @@ export const baseInteractionTypes = [
 ];
 
 export const baseActivityOperations = [
-  { operation: "Create", icon: materialPlusBlack },
-  { operation: "Update", icon: materialRefresh },
-  { operation: "Delete", icon: materialDeleteBlack },
-  { operation: "ImportSampleData", icon: materialImport },
+  { operation: "Create", icon: materialPlusBlack, displayName: "Created" },
+  { operation: "Update", icon: materialRefresh, displayName: "Updated" },
+  { operation: "Delete", icon: materialDeleteBlack, displayName: "Deleted" },
+  {
+    operation: "ImportSampleData",
+    icon: materialImport,
+    displayName: "Imported Sample Data",
+  },
 ];
