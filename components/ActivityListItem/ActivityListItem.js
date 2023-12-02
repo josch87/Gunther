@@ -33,6 +33,20 @@ export default function ActivityListItem({ activity }) {
 
   const entityTitle = getActivityEntityTitle(activity);
 
+  function getDetails(activity) {
+    let detailsToReturn = "";
+
+    if (activity.operation === "ImportSampleData") {
+      detailsToReturn = `${operationDisplayName}`;
+    }
+
+    if (activity.operation != "ImportSampleData") {
+      detailsToReturn = `${operationDisplayName} ${entityDisplayName}`;
+    }
+
+    return detailsToReturn;
+  }
+
   return (
     <StyledListItem>
       <Image
@@ -43,7 +57,9 @@ export default function ActivityListItem({ activity }) {
       />
       <StyledDetailsContainer>
         <StyledParticipantsContainer>{entityTitle}</StyledParticipantsContainer>
-        <StyledDateContainer>{`${operationDisplayName} ${entityDisplayName} on ${formattedActivityDate}`}</StyledDateContainer>
+        <StyledDateContainer>{`${getDetails(
+          activity
+        )} on ${formattedActivityDate}`}</StyledDateContainer>
       </StyledDetailsContainer>
     </StyledListItem>
   );

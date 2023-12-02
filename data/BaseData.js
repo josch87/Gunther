@@ -65,6 +65,6 @@ export const baseActivityOperations = [
   {
     operation: "ImportSampleData",
     icon: materialImport,
-    displayName: "Imported Sample Data",
+    displayName: "Imported sample data",
   },
 ];
