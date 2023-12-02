@@ -3,6 +3,7 @@ import UpcomingWidget from "@/components/DashboardWidgets/UpcomingWidget/Upcomin
 import WelcomeMessageWidget from "@/components/DashboardWidgets/WelcomeMessageWidget/WelcomeMessageWidget";
 import Heading from "@/components/Heading/Heading";
 import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
+import { getSortedActivities } from "@/utils/getActivityDetails";
 import { getSortedActiveFutureInteractions } from "@/utils/getInteractionDetails";
 import styled from "styled-components";
 
@@ -18,16 +19,7 @@ export default function Dashboard({ interactions, contacts, activityLog }) {
     3
   );
 
-  const sortedActivities = activityLog.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1;
-    }
-    if (a.date > b.date) {
-      return -1;
-    }
-
-    return 0;
-  });
+  const sortedActivitiesToDisplay = getSortedActivities(activityLog, 5);
 
   return (
     <>
@@ -47,7 +39,7 @@ export default function Dashboard({ interactions, contacts, activityLog }) {
         ) : null}
         {activityLog.length > 0 ? (
           <section>
-            <ActivityWidget activities={sortedActivities} />
+            <ActivityWidget activities={sortedActivitiesToDisplay} />
           </section>
         ) : null}
       </FlexContainer>
