@@ -9,7 +9,7 @@ import {
   StyledParticipantsContainer,
   StyledLink,
 } from "./InteractionListItem.styled";
-import { formatDate } from "@/utils/dateTime";
+import { getFormattedDateTime } from "@/utils/dateTime";
 import { getFullSortName, getShortName } from "@/utils/getContactDetails";
 import Image from "next/image";
 import { useMemo } from "react";
@@ -37,7 +37,7 @@ export default function InteractionListItem({ interaction, contacts }) {
     () => getInteractionIcon(interaction),
     [interaction]
   );
-  const formattedInteractionDate = formatDate({
+  const formattedInteractionDate = getFormattedDateTime({
     dateToFormat: interaction.dateOfInteraction,
   });
 

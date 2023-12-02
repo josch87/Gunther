@@ -1,6 +1,6 @@
 import InteractionForm from "@/components/Forms/InteractionForm/InteractionForm";
 import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
-import { formatDate } from "@/utils/dateTime";
+import { getFormattedDateTime } from "@/utils/dateTime";
 import { useRouter } from "next/router";
 
 export default function EditInteractionPage({
@@ -28,7 +28,7 @@ export default function EditInteractionPage({
   return (
     <>
       <DefaultHead
-        pageTitle={`Edit Interaction Details of a ${interaction.type.toLowerCase()} from ${formatDate(
+        pageTitle={`Edit Interaction Details of a ${interaction.type.toLowerCase()} from ${getFormattedDateTime(
           { dateToFormat: interaction.dateOfInteraction }
         )}`}
       />

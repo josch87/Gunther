@@ -7,7 +7,7 @@ import {
 } from "./ActivityListItem.styled";
 import { useMemo } from "react";
 import { getActivityOperationIcon } from "@/utils/getActivityDetails";
-import { formatDate } from "@/utils/dateTime";
+import { getFormattedDateTime } from "@/utils/dateTime";
 
 export default function ActivityListItem({ activity }) {
   const operationIcon = useMemo(
@@ -15,7 +15,7 @@ export default function ActivityListItem({ activity }) {
     [activity]
   );
 
-  const formattedActivityDate = formatDate({
+  const formattedActivityDate = getFormattedDateTime({
     dateToFormat: activity.date,
     type: "datetime",
   });

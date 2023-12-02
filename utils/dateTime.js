@@ -1,4 +1,4 @@
-export function formatDate({ dateToFormat, type = "date" }) {
+export function getFormattedDateTime({ dateToFormat, type = "date" }) {
   const dateObject = new Date(dateToFormat);
   let formattedDate = null;
 
