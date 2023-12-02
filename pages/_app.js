@@ -329,6 +329,7 @@ export default function App({ Component, pageProps }) {
           {...pageProps}
           contacts={contacts}
           interactions={interactions}
+          activityLog={activityLog}
           onAddNewContact={handleAddNewContact}
           onUpdateContact={handleUpdateContact}
           onDeleteContact={handleDeleteContact}

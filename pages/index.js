@@ -11,7 +11,7 @@ const FlexContainer = styled.div`
   gap: 1.5rem;
 `;
 
-export default function Dashboard({ interactions, contacts }) {
+export default function Dashboard({ interactions, contacts, activityLog }) {
   const futureInteractionsToBeDisplayed = getSortedActiveFutureInteractions(
     interactions,
     3
@@ -32,6 +32,9 @@ export default function Dashboard({ interactions, contacts }) {
               contacts={contacts}
             />
           </section>
+        ) : null}
+        {activityLog.length > 0 ? (
+          <section>{/* Display Widget*/}</section>
         ) : null}
       </FlexContainer>
     </>
