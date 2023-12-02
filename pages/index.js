@@ -1,3 +1,4 @@
+import ActivityWidget from "@/components/DashboardWidgets/ActivityWidget/ActivityWidget";
 import UpcomingWidget from "@/components/DashboardWidgets/UpcomingWidget/UpcomingWidget";
 import WelcomeMessageWidget from "@/components/DashboardWidgets/WelcomeMessageWidget/WelcomeMessageWidget";
 import Heading from "@/components/Heading/Heading";
@@ -17,6 +18,17 @@ export default function Dashboard({ interactions, contacts, activityLog }) {
     3
   );
 
+  const sortedActivities = activityLog.sort((a, b) => {
+    if (a.date < b.date) {
+      return 1;
+    }
+    if (a.date > b.date) {
+      return -1;
+    }
+
+    return 0;
+  });
+
   return (
     <>
       <DefaultHead pageTitle="Dashboard" />
@@ -34,7 +46,9 @@ export default function Dashboard({ interactions, contacts, activityLog }) {
           </section>
         ) : null}
         {activityLog.length > 0 ? (
-          <section>{/* Display Widget*/}</section>
+          <section>
+            <ActivityWidget activities={sortedActivities} />
+          </section>
         ) : null}
       </FlexContainer>
     </>
