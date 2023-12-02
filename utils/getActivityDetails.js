@@ -35,11 +35,12 @@ export function getActivityEntityTitle({ operation, entity, newData }) {
   }
 
   if (entity === "Contact") {
+    const contactId = newData.id;
     title = getFullName(newData);
   }
 
   if (entity === "Interaction") {
-    title = "inter";
+    title = `${newData.type}`;
   }
 
   return title;
