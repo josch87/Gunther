@@ -29,7 +29,7 @@ export default function EditInteractionPage({
     <>
       <DefaultHead
         pageTitle={`Edit Interaction Details of a ${interaction.type.toLowerCase()} from ${formatDate(
-          interaction.dateOfInteraction
+          { dateToFormat: interaction.dateOfInteraction }
         )}`}
       />
       <InteractionForm

@@ -15,7 +15,7 @@ export default function ActivityListItem({ activity }) {
     [activity]
   );
 
-  const formattedActivityDate = formatDate(activity.date);
+  const formattedActivityDate = formatDate({ dateToFormat: activity.date });
 
   console.log(operationIcon);
   return (

@@ -19,7 +19,9 @@ export default function InteractionDetailsHeader({ interaction }) {
     return <p>Loading InteractionDetailsHeader</p>;
   }
 
-  const formattedInteractionDate = formatDate(interaction.dateOfInteraction);
+  const formattedInteractionDate = formatDate({
+    dateToFormat: interaction.dateOfInteraction,
+  });
 
   return (
     <StyledHeader>

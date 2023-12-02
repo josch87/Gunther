@@ -1,5 +1,5 @@
-export function formatDate(initialDate) {
-  const dateObject = new Date(initialDate);
+export function formatDate({ dateToFormat }) {
+  const dateObject = new Date(dateToFormat);
   const options = { day: "numeric", month: "long", year: "numeric" };
   const formattedDate = dateObject.toLocaleDateString("en-US", options);
   return formattedDate;

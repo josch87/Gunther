@@ -93,7 +93,7 @@ export default function ContactDetailsHeader({
               height={20}
               alt={"Birthday icon"}
             />
-            <div> {formatDate(contact.dateOfBirth)}</div>
+            <div> {formatDate({ dateToFormat: contact.dateOfBirth })}</div>
           </BirthdayContainer>
         )}
       </DetailsContainer>

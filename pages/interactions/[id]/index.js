@@ -73,7 +73,7 @@ export default function InteractionDetailsPage({
     <>
       <DefaultHead
         pageTitle={`Interaction Details of a ${interaction.type.toLowerCase()} from ${formatDate(
-          interaction.dateOfInteraction
+          { dateToFormat: interaction.dateOfInteraction }
         )}`}
       />
       <BackLink href="/interactions">All Interactions</BackLink>
