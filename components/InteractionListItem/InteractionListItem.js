@@ -10,28 +10,21 @@ import {
   StyledLink,
 } from "./InteractionListItem.styled";
 import { getFormattedDateTime } from "@/utils/dateTime";
-import { getFullSortName, getShortName } from "@/utils/getContactDetails";
+import {
+  getFullSortName,
+  getShortName,
+  getSortedActiveParticipantsShortList,
+} from "@/utils/getContactDetails";
 import Image from "next/image";
 import { useMemo } from "react";
 
 export default function InteractionListItem({ interaction, contacts }) {
-  const participants = interaction.participants.map((participant) =>
-    getParticipant(contacts, participant)
+  const participants = interaction.participants.map((participantId) =>
+    getParticipant(contacts, participantId)
   );
 
-  const sortedActiveParticipants = participants
-    .filter(
-      (participant) =>
-        participant?.dateDeleted === null || participant?.dateDeleted === ""
-    )
-    .slice()
-    .sort((a, b) => {
-      const nameA = getFullSortName(a);
-      const nameB = getFullSortName(b);
-      if (nameA < nameB) return -1;
-      if (nameA > nameB) return 1;
-      return 0;
-    });
+  const sortedActiveParticipantsShortList =
+    getSortedActiveParticipantsShortList(participants);
 
   const interactionIcon = useMemo(
     () => getInteractionIcon(interaction),
@@ -55,9 +48,7 @@ export default function InteractionListItem({ interaction, contacts }) {
         />
         <StyledDetailsContainer>
           <StyledParticipantsContainer>
-            {sortedActiveParticipants
-              .map((participant) => getShortName(participant))
-              .join(", ")}
+            {sortedActiveParticipantsShortList}
           </StyledParticipantsContainer>
           <StyledDateContainer>{formattedInteractionDate}</StyledDateContainer>
         </StyledDetailsContainer>

@@ -1,4 +1,5 @@
 import { baseActivityOperations } from "@/data/BaseData";
+import { getFullName } from "./getContactDetails";
 
 export function getActivityOperationIcon({ operation }) {
   let icon = "";
@@ -18,6 +19,30 @@ export function getActivityOperationDisplayName({ operation }) {
     }
   });
   return displayName;
+}
+
+export function getActivityEntityTitle({ operation, entity, newData }) {
+  let title = "test";
+
+  if (operation === "ImportSampleData") {
+    title = `${newData.length}`;
+    if (entity === "Interaction") {
+      title += " interactions";
+    } else if (entity === "Contact") {
+      title += " contacts";
+    }
+    return title;
+  }
+
+  if (entity === "Contact") {
+    title = getFullName(newData);
+  }
+
+  if (entity === "Interaction") {
+    title = "inter";
+  }
+
+  return title;
 }
 
 export function getSortedActivities(activities, count) {
