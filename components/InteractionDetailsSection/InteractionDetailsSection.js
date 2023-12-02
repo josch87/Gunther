@@ -32,7 +32,7 @@ export default function InteractionDetailsSection({ interaction, contacts }) {
     (sortedParticipant) => (
       <ParticipantLink
         key={sortedParticipant.id}
-        href={`/${sortedParticipant.id}`}
+        href={`/contacts/${sortedParticipant.id}`}
         title="Show contact details"
       >
         {getFullName(sortedParticipant)}

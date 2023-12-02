@@ -58,5 +58,4 @@ export default createGlobalStyle`
     outline-color: #2684e1;
   }
 
-
 `;

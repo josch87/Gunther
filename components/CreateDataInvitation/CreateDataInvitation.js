@@ -22,7 +22,7 @@ export default function CreateDataInvitation({
           <Image src={materialWarning} width={25} height={25} alt="Warning" />
           You need to have at least one contact in order to create interactions.
         </StyledParagraph>
-        <Button buttonType="primary" href="/">
+        <Button buttonType="primary" href="/contacts">
           Switch to contacts
         </Button>
       </>

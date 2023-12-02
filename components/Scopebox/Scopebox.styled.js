@@ -7,3 +7,8 @@ export const StyledScopebox = styled.article`
   margin-top: 10px;
   background-color: #ffffff;
 `;
+
+export const StyledHeading = styled.h2`
+  font-size: 1rem;
+  margin-bottom: -5px;
+`;

@@ -27,7 +27,7 @@ export default function ActionMenu() {
       icon: materialContact,
       iconAlt: "Contact icon",
       title: "New contact",
-      url: "/new",
+      url: "/contacts/new",
     },
     {
       icon: materialMeeting,

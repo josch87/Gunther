@@ -1,40 +1,39 @@
-import ContactList from "@/components/ContactList/ContactList";
-import CreateDataInvitation from "@/components/CreateDataInvitation/CreateDataInvitation";
+import UpcomingWidget from "@/components/DashboardWidgets/UpcomingWidget/UpcomingWidget";
+import WelcomeMessageWidget from "@/components/DashboardWidgets/WelcomeMessageWidget/WelcomeMessageWidget";
 import Heading from "@/components/Heading/Heading";
 import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
-import { getFullSortName } from "@/utils/getContactDetails";
+import { getSortedActiveFutureInteractions } from "@/utils/getInteractionDetails";
+import styled from "styled-components";
 
-export default function HomePage({ contacts, onImportDemoContact }) {
-  const activeContacts = contacts.filter(
-    (contact) => contact.dateDeleted === null || contact.dateDeleted === ""
+const FlexContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+`;
+
+export default function Dashboard({ interactions, contacts }) {
+  const futureInteractionsToBeDisplayed = getSortedActiveFutureInteractions(
+    interactions,
+    3
   );
-
-  const contactsSortedByFirstName = activeContacts.slice().sort((a, b) => {
-    const nameA = getFullSortName(a);
-    const nameB = getFullSortName(b);
-
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-    return 0;
-  });
 
   return (
     <>
-      <DefaultHead pageTitle="Contacts" />
-      <Heading level={1}>Contacts</Heading>
-      {activeContacts.length === 0 ? (
-        <CreateDataInvitation
-          entity="contact"
-          createEntity="/new"
-          onImport={onImportDemoContact}
-        />
-      ) : (
-        <ContactList contacts={contactsSortedByFirstName} />
-      )}
+      <DefaultHead pageTitle="Dashboard" />
+      <Heading level={1}>Dashboard</Heading>
+      <FlexContainer>
+        <section>
+          <WelcomeMessageWidget />
+        </section>
+        {futureInteractionsToBeDisplayed.length > 0 ? (
+          <section>
+            <UpcomingWidget
+              interactions={futureInteractionsToBeDisplayed}
+              contacts={contacts}
+            />
+          </section>
+        ) : null}
+      </FlexContainer>
     </>
   );
 }

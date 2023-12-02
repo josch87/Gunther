@@ -118,7 +118,7 @@ export default function App({ Component, pageProps }) {
         }
       })
     );
-    router.push(`/${updatedContact.id}`);
+    router.push(`/contacts/${updatedContact.id}`);
 
     toast.success("Contact updated", {
       progress: undefined,
@@ -136,7 +136,7 @@ export default function App({ Component, pageProps }) {
       })
     );
 
-    router.push("/");
+    router.push("/contacts");
 
     toast.success("Contact deleted", {
       progress: undefined,
