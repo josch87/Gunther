@@ -40,7 +40,7 @@ export default function App({ Component, pageProps }) {
     setContacts([...contacts, ...demoContact]);
 
     updateActivityLog({
-      date: currentDateTime,
+      dateCreated: currentDateTime,
       entity: "Contact",
       operation: "ImportSampleData",
       oldData: null,
@@ -107,7 +107,7 @@ export default function App({ Component, pageProps }) {
     setInteractions([...interactions, ...demoInteractions]);
 
     updateActivityLog({
-      date: currentDateTime,
+      dateCreated: currentDateTime,
       entity: "Interaction",
       operation: "ImportSampleData",
       oldData: null,
@@ -135,7 +135,7 @@ export default function App({ Component, pageProps }) {
     router.push(enhancedNewContact.id);
 
     updateActivityLog({
-      date: currentDateTime,
+      dateCreated: currentDateTime,
       entity: "Contact",
       operation: "Create",
       oldData: null,
@@ -168,7 +168,7 @@ export default function App({ Component, pageProps }) {
     );
 
     updateActivityLog({
-      date: currentDateTime,
+      dateCreated: currentDateTime,
       entity: "Contact",
       operation: "Update",
       oldData: oldContact,
@@ -200,7 +200,7 @@ export default function App({ Component, pageProps }) {
     );
 
     updateActivityLog({
-      date: currentDateTime,
+      dateCreated: currentDateTime,
       entity: "Contact",
       operation: "Delete",
       oldData: oldContact,
@@ -228,7 +228,7 @@ export default function App({ Component, pageProps }) {
     setInteractions([...interactions, formattedInteraction]);
 
     updateActivityLog({
-      date: currentDateTime,
+      dateCreated: currentDateTime,
       entity: "Interaction",
       operation: "Create",
       oldData: null,
@@ -263,7 +263,7 @@ export default function App({ Component, pageProps }) {
     );
 
     updateActivityLog({
-      date: currentDateTime,
+      dateCreated: currentDateTime,
       entity: "Interaction",
       operation: "Update",
       oldData: oldInteraction,
@@ -295,7 +295,7 @@ export default function App({ Component, pageProps }) {
     );
 
     updateActivityLog({
-      date: currentDateTime,
+      dateCreated: currentDateTime,
       entity: "Interaction",
       operation: "Delete",
       oldData: oldInteraction,

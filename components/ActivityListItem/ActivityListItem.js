@@ -27,7 +27,7 @@ export default function ActivityListItem({ activity }) {
   const entityDisplayName = activity.entity.toLowerCase();
 
   const formattedActivityDate = getFormattedDateTime({
-    dateToFormat: activity.date,
+    dateToFormat: activity.dateCreated,
     type: "datetime",
   });
 

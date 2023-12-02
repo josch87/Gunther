@@ -50,10 +50,10 @@ export function getSortedActivities(activities, count) {
   if (!activities) return [];
 
   const sortedActivities = activities.sort((a, b) => {
-    if (a.date < b.date) {
+    if (a.dateCreated < b.dateCreated) {
       return 1;
     }
-    if (a.date > b.date) {
+    if (a.dateCreated > b.dateCreated) {
       return -1;
     }
 
