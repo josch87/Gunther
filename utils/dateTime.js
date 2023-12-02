@@ -1,7 +1,20 @@
-export function formatDate({ dateToFormat }) {
+export function formatDate({ dateToFormat, type = "date" }) {
   const dateObject = new Date(dateToFormat);
-  const options = { day: "numeric", month: "long", year: "numeric" };
-  const formattedDate = dateObject.toLocaleDateString("en-US", options);
+  let formattedDate = null;
+
+  if (type === "date") {
+    const options = { day: "numeric", month: "long", year: "numeric" };
+    formattedDate = dateObject.toLocaleDateString("en-US", options);
+  }
+
+  if (type === "datetime") {
+    const options = {
+      dateStyle: "long",
+      timeStyle: "medium",
+    };
+    formattedDate = Intl.DateTimeFormat("en-US", options).format(dateObject);
+  }
+
   return formattedDate;
 }
 

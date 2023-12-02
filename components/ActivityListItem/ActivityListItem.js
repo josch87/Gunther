@@ -15,9 +15,11 @@ export default function ActivityListItem({ activity }) {
     [activity]
   );
 
-  const formattedActivityDate = formatDate({ dateToFormat: activity.date });
+  const formattedActivityDate = formatDate({
+    dateToFormat: activity.date,
+    type: "datetime",
+  });
 
-  console.log(operationIcon);
   return (
     <StyledListItem>
       <Image
