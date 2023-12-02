@@ -24,17 +24,16 @@ export default function ActivityListItem({ activity }) {
     [activity]
   );
 
-  const entityDisplayName = activity.entity.toLowerCase();
-
-  const formattedActivityDate = getFormattedDateTime({
-    dateToFormat: activity.dateCreated,
-    type: "datetime",
-  });
-
   const entityTitle = getActivityEntityTitle(activity);
 
-  function getDetails(activity) {
+  function getActivityDetails(activity) {
     let detailsToReturn = "";
+    const formattedActivityDate = getFormattedDateTime({
+      dateToFormat: activity.dateCreated,
+      type: "datetime",
+    });
+
+    const entityDisplayName = activity.entity.toLowerCase();
 
     if (activity.operation === "ImportSampleData") {
       detailsToReturn = `${operationDisplayName}`;
@@ -43,6 +42,8 @@ export default function ActivityListItem({ activity }) {
     if (activity.operation != "ImportSampleData") {
       detailsToReturn = `${operationDisplayName} ${entityDisplayName}`;
     }
+
+    detailsToReturn += ` on ${formattedActivityDate}`;
 
     return detailsToReturn;
   }
@@ -57,9 +58,9 @@ export default function ActivityListItem({ activity }) {
       />
       <StyledDetailsContainer>
         <StyledParticipantsContainer>{entityTitle}</StyledParticipantsContainer>
-        <StyledDateContainer>{`${getDetails(
-          activity
-        )} on ${formattedActivityDate}`}</StyledDateContainer>
+        <StyledDateContainer>
+          {getActivityDetails(activity)}
+        </StyledDateContainer>
       </StyledDetailsContainer>
     </StyledListItem>
   );
