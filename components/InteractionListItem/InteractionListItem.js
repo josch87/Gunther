@@ -3,10 +3,10 @@ import {
   getParticipant,
 } from "@/utils/getInteractionDetails";
 import {
-  DateContainer,
-  DetailsContainer,
-  ListItem,
-  ParticipantsContainer,
+  StyledDateContainer,
+  StyledDetailsContainer,
+  StyledListItem,
+  StyledParticipantsContainer,
   StyledLink,
 } from "./InteractionListItem.styled";
 import { formatDate } from "@/utils/dateTime";
@@ -40,7 +40,7 @@ export default function InteractionListItem({ interaction, contacts }) {
   const formattedInteractionDate = formatDate(interaction.dateOfInteraction);
 
   return (
-    <ListItem>
+    <StyledListItem>
       <StyledLink
         href={`/interactions/${interaction.id}`}
         title="Show interaction details"
@@ -51,15 +51,15 @@ export default function InteractionListItem({ interaction, contacts }) {
           height={60}
           alt={`Icon of ${interaction.type.toLowerCase()} interaction`}
         />
-        <DetailsContainer>
-          <ParticipantsContainer>
+        <StyledDetailsContainer>
+          <StyledParticipantsContainer>
             {sortedActiveParticipants
               .map((participant) => getShortName(participant))
               .join(", ")}
-          </ParticipantsContainer>
-          <DateContainer>{formattedInteractionDate}</DateContainer>
-        </DetailsContainer>
+          </StyledParticipantsContainer>
+          <StyledDateContainer>{formattedInteractionDate}</StyledDateContainer>
+        </StyledDetailsContainer>
       </StyledLink>
-    </ListItem>
+    </StyledListItem>
   );
 }
