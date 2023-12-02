@@ -42,7 +42,7 @@ export default function App({ Component, pageProps }) {
     updateActivityLog({
       date: currentDateTime,
       entity: "Contact",
-      action: "ImportSampleData",
+      operation: "ImportSampleData",
       oldData: null,
       newData: demoContact,
     });
@@ -109,7 +109,7 @@ export default function App({ Component, pageProps }) {
     updateActivityLog({
       date: currentDateTime,
       entity: "Interaction",
-      action: "ImportSampleData",
+      operation: "ImportSampleData",
       oldData: null,
       newData: demoInteractions,
     });
@@ -137,7 +137,7 @@ export default function App({ Component, pageProps }) {
     updateActivityLog({
       date: currentDateTime,
       entity: "Contact",
-      action: "Create",
+      operation: "Create",
       oldData: null,
       newData: enhancedNewContact,
     });
@@ -170,7 +170,7 @@ export default function App({ Component, pageProps }) {
     updateActivityLog({
       date: currentDateTime,
       entity: "Contact",
-      action: "Update",
+      operation: "Update",
       oldData: oldContact,
       newData: updatedContact,
     });
@@ -202,7 +202,7 @@ export default function App({ Component, pageProps }) {
     updateActivityLog({
       date: currentDateTime,
       entity: "Contact",
-      action: "Delete",
+      operation: "Delete",
       oldData: oldContact,
       newData: updatedContact,
     });
@@ -230,7 +230,7 @@ export default function App({ Component, pageProps }) {
     updateActivityLog({
       date: currentDateTime,
       entity: "Interaction",
-      action: "Create",
+      operation: "Create",
       oldData: null,
       newData: formattedInteraction,
     });
@@ -265,7 +265,7 @@ export default function App({ Component, pageProps }) {
     updateActivityLog({
       date: currentDateTime,
       entity: "Interaction",
-      action: "Update",
+      operation: "Update",
       oldData: oldInteraction,
       newData: updatedInteraction,
     });
@@ -297,7 +297,7 @@ export default function App({ Component, pageProps }) {
     updateActivityLog({
       date: currentDateTime,
       entity: "Interaction",
-      action: "Delete",
+      operation: "Delete",
       oldData: oldInteraction,
       newData: updatedInteraction,
     });
