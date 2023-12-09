@@ -39,7 +39,10 @@ export default function Dashboard({ interactions, contacts, activityLog }) {
         ) : null}
         {activityLog.length > 0 ? (
           <section>
-            <ActivityWidget activities={sortedActivitiesToDisplay} />
+            <ActivityWidget
+              activities={sortedActivitiesToDisplay}
+              contacts={contacts}
+            />
           </section>
         ) : null}
       </FlexContainer>

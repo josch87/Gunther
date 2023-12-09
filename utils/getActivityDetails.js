@@ -21,26 +21,30 @@ export function getActivityOperationDisplayName({ operation }) {
   return displayName;
 }
 
-export function getActivityEntityTitle({ operation, entity, newData }) {
-  let title = "test";
+export function getActivityEntityTitle(activity, contact) {
+  let title = "";
 
-  if (operation === "ImportSampleData") {
-    title = `${newData.length}`;
-    if (entity === "Interaction") {
+  if (activity.operation === "ImportSampleData") {
+    title = `${activity.newData.length}`;
+    if (activity.entity === "Interaction") {
       title += " interactions";
-    } else if (entity === "Contact") {
+    } else if (activity.entity === "Contact") {
       title += " contacts";
     }
     return title;
   }
 
-  if (entity === "Contact") {
-    const contactId = newData.id;
-    title = getFullName(newData);
+  if (
+    activity.entity === "Contact" &&
+    (contact.dateDeleted === null || contact.dateDeleted === "")
+  ) {
+    title = getFullName(contact);
+  } else if (activity.entity === "Contact") {
+    title = "A deleted contact";
   }
 
-  if (entity === "Interaction") {
-    title = `${newData.type}`;
+  if (activity.entity === "Interaction") {
+    title = `${activity.newData.type}`;
   }
 
   return title;
