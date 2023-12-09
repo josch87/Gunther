@@ -24,8 +24,10 @@ export default function ActivityListItem({ activity }) {
     [activity]
   );
 
+  //TODO: get the current title of the activity (instead of newData title)
   const entityTitle = getActivityEntityTitle(activity);
 
+  //TODO: display dateTime of activity on hover
   function getActivityDetails(activity) {
     let detailsToReturn = "";
     const activityDate = new Date(activity.dateCreated);
