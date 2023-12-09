@@ -13,7 +13,7 @@ export const StyledDetailsContainer = styled.div`
   margin: 10px;
 `;
 
-export const StyledParticipantsContainer = styled.h2`
+export const StyledEntityTitleContainer = styled.h2`
   font-size: 1rem;
   line-height: 1.2rem;
   font-weight: 400;

@@ -3,7 +3,7 @@ import {
   StyledDateContainer,
   StyledDetailsContainer,
   StyledListItem,
-  StyledParticipantsContainer,
+  StyledEntityTitleContainer,
 } from "./ActivityListItem.styled";
 import { useMemo } from "react";
 import {
@@ -55,7 +55,7 @@ export default function ActivityListItem({ activity }) {
         alt={`Icon of ${activity.operation.toLowerCase()} operation`}
       />
       <StyledDetailsContainer>
-        <StyledParticipantsContainer>{entityTitle}</StyledParticipantsContainer>
+        <StyledEntityTitleContainer>{entityTitle}</StyledEntityTitleContainer>
         <StyledDateContainer>
           {getActivityDetails(activity)}
         </StyledDateContainer>
