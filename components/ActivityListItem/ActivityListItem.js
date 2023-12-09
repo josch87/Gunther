@@ -42,16 +42,28 @@ export default function ActivityListItem({ activity }) {
 
   const elapsedTimeSince = getElapsedTimeSince(activityDate);
 
-  const activityDateTime = (
-    <span
-      title={getFormattedDateTime({
-        dateToFormat: activityDate,
-        type: "datetime",
-      })}
-    >
-      {elapsedTimeSince}
-    </span>
-  );
+  let activityDateTime;
+  const formattedActivityDateTime = getFormattedDateTime({
+    dateToFormat: activityDate,
+    type: "datetime",
+  });
+  const formattedActivityDate = getFormattedDateTime({
+    dateToFormat: activityDate,
+    type: "date",
+  });
+
+  if (elapsedTimeSince === activityDate) {
+    activityDateTime = (
+      <>
+        on{" "}
+        <span title={formattedActivityDateTime}>{formattedActivityDate}</span>
+      </>
+    );
+  } else {
+    activityDateTime = (
+      <span title={formattedActivityDateTime}>{elapsedTimeSince}</span>
+    );
+  }
 
   return (
     <StyledListItem>

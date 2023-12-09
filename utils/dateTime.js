@@ -99,14 +99,9 @@ export function getElapsedTimeSince(startTime) {
     }
 
     if (elapsedDays >= 7) {
-      const formatedStartTime = getFormattedDateTime({
-        dateToFormat: startTime,
-        type: "datetime",
-      });
-
-      return formatedStartTime;
+      return startTime;
     }
   }
-  console.error("getElapsedTimeSince could not execute");
+  console.error("getElapsedTimeSince was not able to return a value");
   return;
 }
