@@ -90,11 +90,12 @@ export function getElapsedTimeSince(startTime) {
 
     if (elapsedDays >= 1 && elapsedDays < 7) {
       if (elapsedDays === 1) {
-        sufix = "day ago";
+        sufix = "yesterday";
+        return `${sufix}`;
       } else if (elapsedDays < 7) {
         sufix = "days ago";
+        return `${elapsedDays} ${sufix}`;
       }
-      return `${elapsedDays} ${sufix}`;
     }
 
     if (elapsedDays >= 7) {
