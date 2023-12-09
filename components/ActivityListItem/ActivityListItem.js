@@ -13,9 +13,7 @@ import {
 } from "@/utils/getActivityDetails";
 import { getElapsedTimeSince, getFormattedDateTime } from "@/utils/dateTime";
 
-export default function ActivityListItem({ activity, contact }) {
-  // console.log(contact);
-
+export default function ActivityListItem({ activity, contact, interaction }) {
   const operationIcon = useMemo(
     () => getActivityOperationIcon(activity),
     [activity]
@@ -27,7 +25,7 @@ export default function ActivityListItem({ activity, contact }) {
   );
 
   //TODO: get the current title of the activity (instead of newData title)
-  const entityTitle = getActivityEntityTitle(activity, contact);
+  const entityTitle = getActivityEntityTitle(activity, contact, interaction);
 
   let activityDetails = "";
   const activityDate = new Date(activity.dateCreated);

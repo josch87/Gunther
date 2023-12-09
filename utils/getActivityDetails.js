@@ -21,7 +21,7 @@ export function getActivityOperationDisplayName({ operation }) {
   return displayName;
 }
 
-export function getActivityEntityTitle(activity, contact) {
+export function getActivityEntityTitle(activity, contact, interaction) {
   let title = "";
 
   if (activity.operation === "ImportSampleData") {
@@ -44,7 +44,7 @@ export function getActivityEntityTitle(activity, contact) {
   }
 
   if (activity.entity === "Interaction") {
-    title = `${activity.newData.type}`;
+    title = `${interaction.type}`;
   }
 
   return title;

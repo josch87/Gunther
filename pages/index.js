@@ -42,6 +42,7 @@ export default function Dashboard({ interactions, contacts, activityLog }) {
             <ActivityWidget
               activities={sortedActivitiesToDisplay}
               contacts={contacts}
+              interactions={interactions}
             />
           </section>
         ) : null}
