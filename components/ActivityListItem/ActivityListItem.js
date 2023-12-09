@@ -11,7 +11,7 @@ import {
   getActivityOperationDisplayName,
   getActivityOperationIcon,
 } from "@/utils/getActivityDetails";
-import { getFormattedDateTime } from "@/utils/dateTime";
+import { getElapsedTimeSince } from "@/utils/dateTime";
 
 export default function ActivityListItem({ activity }) {
   const operationIcon = useMemo(
@@ -28,10 +28,7 @@ export default function ActivityListItem({ activity }) {
 
   function getActivityDetails(activity) {
     let detailsToReturn = "";
-    const formattedActivityDate = getFormattedDateTime({
-      dateToFormat: activity.dateCreated,
-      type: "datetime",
-    });
+    const activityDate = new Date(activity.dateCreated);
 
     const entityDisplayName = activity.entity.toLowerCase();
 
@@ -43,7 +40,8 @@ export default function ActivityListItem({ activity }) {
       detailsToReturn = `${operationDisplayName} ${entityDisplayName}`;
     }
 
-    detailsToReturn += ` on ${formattedActivityDate}`;
+    const elapsedTimeSince = getElapsedTimeSince(activityDate);
+    detailsToReturn += ` ${elapsedTimeSince}`;
 
     return detailsToReturn;
   }
