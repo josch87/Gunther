@@ -43,8 +43,13 @@ export function getActivityEntityTitle(activity, contact, interaction) {
     title = "A deleted contact";
   }
 
-  if (activity.entity === "Interaction") {
+  if (
+    activity.entity === "Interaction" &&
+    (interaction.dateDeleted === null || interaction.dateDeleted === "")
+  ) {
     title = `${interaction.type}`;
+  } else if (activity.entity === "Interaction") {
+    title = "A deleted interaction";
   }
 
   return title;

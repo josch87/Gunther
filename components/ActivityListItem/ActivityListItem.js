@@ -24,7 +24,6 @@ export default function ActivityListItem({ activity, contact, interaction }) {
     [activity]
   );
 
-  //TODO: get the current title of the activity (instead of newData title)
   const entityTitle = getActivityEntityTitle(activity, contact, interaction);
 
   let activityDetails = "";
