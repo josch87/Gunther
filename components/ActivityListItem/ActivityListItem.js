@@ -11,7 +11,7 @@ import {
   getActivityOperationDisplayName,
   getActivityOperationIcon,
 } from "@/utils/getActivityDetails";
-import { getElapsedTimeSince } from "@/utils/dateTime";
+import { getElapsedTimeSince, getFormattedDateTime } from "@/utils/dateTime";
 
 export default function ActivityListItem({ activity }) {
   const operationIcon = useMemo(
@@ -27,26 +27,31 @@ export default function ActivityListItem({ activity }) {
   //TODO: get the current title of the activity (instead of newData title)
   const entityTitle = getActivityEntityTitle(activity);
 
-  //TODO: display dateTime of activity on hover
-  function getActivityDetails(activity) {
-    let detailsToReturn = "";
-    const activityDate = new Date(activity.dateCreated);
+  let activityDetails = "";
+  const activityDate = new Date(activity.dateCreated);
 
-    const entityDisplayName = activity.entity.toLowerCase();
+  const entityDisplayName = activity.entity.toLowerCase();
 
-    if (activity.operation === "ImportSampleData") {
-      detailsToReturn = `${operationDisplayName}`;
-    }
-
-    if (activity.operation != "ImportSampleData") {
-      detailsToReturn = `${operationDisplayName} ${entityDisplayName}`;
-    }
-
-    const elapsedTimeSince = getElapsedTimeSince(activityDate);
-    detailsToReturn += ` ${elapsedTimeSince}`;
-
-    return detailsToReturn;
+  if (activity.operation === "ImportSampleData") {
+    activityDetails = `${operationDisplayName}`;
   }
+
+  if (activity.operation != "ImportSampleData") {
+    activityDetails = `${operationDisplayName} ${entityDisplayName}`;
+  }
+
+  const elapsedTimeSince = getElapsedTimeSince(activityDate);
+
+  const activityDateTime = (
+    <span
+      title={getFormattedDateTime({
+        dateToFormat: activityDate,
+        type: "datetime",
+      })}
+    >
+      {elapsedTimeSince}
+    </span>
+  );
 
   return (
     <StyledListItem>
@@ -59,7 +64,7 @@ export default function ActivityListItem({ activity }) {
       <StyledDetailsContainer>
         <StyledEntityTitleContainer>{entityTitle}</StyledEntityTitleContainer>
         <StyledActivityDetailsContainer>
-          {getActivityDetails(activity)}
+          {activityDetails} {activityDateTime}
         </StyledActivityDetailsContainer>
       </StyledDetailsContainer>
     </StyledListItem>
