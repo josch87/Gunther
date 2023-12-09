@@ -30,7 +30,6 @@ export function getElapsedTimeSince(startTime) {
     console.error(
       "getElapsedTimeSince did not receive startTime as date object"
     );
-    result = "error";
   }
 
   const currentDate = new Date();
