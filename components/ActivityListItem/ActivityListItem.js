@@ -1,6 +1,6 @@
 import Image from "next/image";
 import {
-  StyledDateContainer,
+  StyledActivityDetailsContainer,
   StyledDetailsContainer,
   StyledListItem,
   StyledEntityTitleContainer,
@@ -58,9 +58,9 @@ export default function ActivityListItem({ activity }) {
       />
       <StyledDetailsContainer>
         <StyledEntityTitleContainer>{entityTitle}</StyledEntityTitleContainer>
-        <StyledDateContainer>
+        <StyledActivityDetailsContainer>
           {getActivityDetails(activity)}
-        </StyledDateContainer>
+        </StyledActivityDetailsContainer>
       </StyledDetailsContainer>
     </StyledListItem>
   );

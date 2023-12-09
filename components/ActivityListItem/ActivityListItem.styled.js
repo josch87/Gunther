@@ -19,7 +19,7 @@ export const StyledEntityTitleContainer = styled.h2`
   font-weight: 400;
 `;
 
-export const StyledDateContainer = styled.div`
+export const StyledActivityDetailsContainer = styled.div`
   margin-top: 5px;
   font-size: 0.8rem;
 `;
