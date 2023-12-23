@@ -15,7 +15,7 @@ import {
   materialUpload,
 } from "@/assets/Icons8";
 import Image from "next/image";
-import { formatDate } from "@/utils/dateTime";
+import { getFormattedDateTime } from "@/utils/dateTime";
 import UploadImageModal from "../UploadImageModal/UploadImageModal";
 
 const customStyles = {
@@ -93,7 +93,10 @@ export default function ContactDetailsHeader({
               height={20}
               alt={"Birthday icon"}
             />
-            <div> {formatDate(contact.dateOfBirth)}</div>
+            <div>
+              {" "}
+              {getFormattedDateTime({ dateToFormat: contact.dateOfBirth })}
+            </div>
           </BirthdayContainer>
         )}
       </DetailsContainer>

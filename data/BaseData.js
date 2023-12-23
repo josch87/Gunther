@@ -1,6 +1,10 @@
 import {
   materialCall,
+  materialDeleteBlack,
+  materialImport,
   materialParty,
+  materialPlusBlack,
+  materialRefresh,
   materialVideoConference,
 } from "@/assets/Icons8";
 
@@ -51,5 +55,16 @@ export const baseInteractionTypes = [
     type: "Party",
     icon: materialParty,
     isSelectable: true,
+  },
+];
+
+export const baseActivityOperations = [
+  { operation: "Create", icon: materialPlusBlack, displayName: "Created" },
+  { operation: "Update", icon: materialRefresh, displayName: "Updated" },
+  { operation: "Delete", icon: materialDeleteBlack, displayName: "Deleted" },
+  {
+    operation: "ImportSampleData",
+    icon: materialImport,
+    displayName: "Imported sample data",
   },
 ];

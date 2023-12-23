@@ -17,16 +17,35 @@ export default function App({ Component, pageProps }) {
   const [interactions, setInteractions] = useLocalStorageState("interactions", {
     defaultValue: [],
   });
+  const [activityLog, setActivityLog] = useLocalStorageState("activityLog", {
+    defaultValue: [],
+  });
+
+  function updateActivityLog(data) {
+    const activityId = uid();
+    data = { ...data, id: activityId };
+    setActivityLog([...activityLog, data]);
+  }
 
   const activeContacts = contacts.filter(
     (contact) => contact.dateDeleted === null || contact.dateDeleted === ""
   );
 
   function handleImportDemoContacts() {
+    const currentDateTime = getCurrentTimestamp();
+
     const demoContact = contactsSampleData.map((contact) => {
-      return { id: uid(), ...contact };
+      return { id: uid(), ...contact, dateCreated: currentDateTime };
     });
     setContacts([...contacts, ...demoContact]);
+
+    updateActivityLog({
+      dateCreated: currentDateTime,
+      entity: "Contact",
+      operation: "ImportSampleData",
+      oldData: null,
+      newData: demoContact,
+    });
 
     toast.success("Contacts imported", {
       progress: undefined,
@@ -40,6 +59,8 @@ export default function App({ Component, pageProps }) {
       );
       return;
     }
+
+    const currentDateTime = getCurrentTimestamp();
 
     const demoInteractions = interactionsSampleData.map((interaction) => {
       const chance = new Chance();
@@ -77,12 +98,21 @@ export default function App({ Component, pageProps }) {
         id: uid(),
         ...interaction,
         participants: ArrayOfRandomParticipants,
+        dateCreated: currentDateTime,
       };
 
       return newInteraction;
     });
 
     setInteractions([...interactions, ...demoInteractions]);
+
+    updateActivityLog({
+      dateCreated: currentDateTime,
+      entity: "Interaction",
+      operation: "ImportSampleData",
+      oldData: null,
+      newData: demoInteractions,
+    });
 
     toast.success("Interactions imported", {
       progress: undefined,
@@ -91,34 +121,61 @@ export default function App({ Component, pageProps }) {
 
   function handleAddNewContact(newContact) {
     const newContactId = uid();
+    const currentDateTime = getCurrentTimestamp();
 
-    const formattedContact = {
+    const enhancedNewContact = {
       ...newContact,
       id: newContactId,
-      dateCreated: getCurrentTimestamp(),
+      dateCreated: currentDateTime,
       dateDeleted: "",
       deceased: newContact.deceased ? true : false,
     };
 
-    setContacts([...contacts, formattedContact]);
-    router.push(formattedContact.id);
+    setContacts([...contacts, enhancedNewContact]);
+    router.push(enhancedNewContact.id);
+
+    updateActivityLog({
+      dateCreated: currentDateTime,
+      entity: "Contact",
+      operation: "Create",
+      oldData: null,
+      newData: enhancedNewContact,
+    });
 
     toast.success("Contact created", {
       progress: undefined,
     });
   }
 
-  function handleUpdateContact(updatedContact) {
+  function handleUpdateContact(contactToUpdate) {
+    const currentDateTime = getCurrentTimestamp();
+    let oldContact = {};
+    let updatedContact = {};
+
     setContacts(
       contacts.map((contact) => {
-        if (contact.id === updatedContact.id) {
-          return { ...updatedContact, dateLastUpdate: getCurrentTimestamp() };
+        if (contact.id === contactToUpdate.id) {
+          oldContact = contact;
+          updatedContact = {
+            ...contactToUpdate,
+            dateLastUpdate: currentDateTime,
+          };
+          return updatedContact;
         } else {
           return contact;
         }
       })
     );
-    router.push(`/contacts/${updatedContact.id}`);
+
+    updateActivityLog({
+      dateCreated: currentDateTime,
+      entity: "Contact",
+      operation: "Update",
+      oldData: oldContact,
+      newData: updatedContact,
+    });
+
+    router.push(`/contacts/${contactToUpdate.id}`);
 
     toast.success("Contact updated", {
       progress: undefined,
@@ -126,15 +183,29 @@ export default function App({ Component, pageProps }) {
   }
 
   function handleDeleteContact(IdOfContactToDelete) {
+    const currentDateTime = getCurrentTimestamp();
+    let oldContact = {};
+    let updatedContact = {};
+
     setContacts(
       contacts.map((contact) => {
         if (contact.id === IdOfContactToDelete) {
-          return { ...contact, dateDeleted: getCurrentTimestamp() };
+          oldContact = contact;
+          updatedContact = { ...contact, dateDeleted: currentDateTime };
+          return updatedContact;
         } else {
           return contact;
         }
       })
     );
+
+    updateActivityLog({
+      dateCreated: currentDateTime,
+      entity: "Contact",
+      operation: "Delete",
+      oldData: oldContact,
+      newData: updatedContact,
+    });
 
     router.push("/contacts");
 
@@ -145,15 +216,25 @@ export default function App({ Component, pageProps }) {
 
   function handleAddNewInteraction(newInteraction) {
     const newInteractionId = uid();
+    const currentDateTime = getCurrentTimestamp();
 
     const formattedInteraction = {
       ...newInteraction,
       id: newInteractionId,
-      dateCreated: getCurrentTimestamp(),
+      dateCreated: currentDateTime,
       dateDeleted: "",
     };
 
     setInteractions([...interactions, formattedInteraction]);
+
+    updateActivityLog({
+      dateCreated: currentDateTime,
+      entity: "Interaction",
+      operation: "Create",
+      oldData: null,
+      newData: formattedInteraction,
+    });
+
     router.push(`/interactions/${formattedInteraction.id}`);
 
     toast.success("Interaction created", {
@@ -161,20 +242,35 @@ export default function App({ Component, pageProps }) {
     });
   }
 
-  function handleUpdateInteraction(updatedInteraction) {
+  function handleUpdateInteraction(interactionToUpdate) {
+    const currentDateTime = getCurrentTimestamp();
+    let oldInteraction = {};
+    let updatedInteraction = {};
+
     setInteractions(
       interactions.map((interaction) => {
-        if (interaction.id === updatedInteraction.id) {
-          return {
-            ...updatedInteraction,
-            dateLastUpdate: getCurrentTimestamp(),
+        if (interaction.id === interactionToUpdate.id) {
+          oldInteraction = interaction;
+          updatedInteraction = {
+            ...interactionToUpdate,
+            dateLastUpdate: currentDateTime,
           };
+          return updatedInteraction;
         } else {
           return interaction;
         }
       })
     );
-    router.push(`/interactions/${updatedInteraction.id}`);
+
+    updateActivityLog({
+      dateCreated: currentDateTime,
+      entity: "Interaction",
+      operation: "Update",
+      oldData: oldInteraction,
+      newData: updatedInteraction,
+    });
+
+    router.push(`/interactions/${interactionToUpdate.id}`);
 
     toast.success("Interaction updated", {
       progress: undefined,
@@ -182,15 +278,29 @@ export default function App({ Component, pageProps }) {
   }
 
   function handleDeleteInteraction(IdOfInteractionToDelete) {
+    const currentDateTime = getCurrentTimestamp();
+    let oldInteraction = {};
+    let updatedInteraction = {};
+
     setInteractions(
       interactions.map((interaction) => {
         if (interaction.id === IdOfInteractionToDelete) {
-          return { ...interaction, dateDeleted: getCurrentTimestamp() };
+          oldInteraction = interaction;
+          updatedInteraction = { ...interaction, dateDeleted: currentDateTime };
+          return updatedInteraction;
         } else {
           return interaction;
         }
       })
     );
+
+    updateActivityLog({
+      dateCreated: currentDateTime,
+      entity: "Interaction",
+      operation: "Delete",
+      oldData: oldInteraction,
+      newData: updatedInteraction,
+    });
 
     router.push("/interactions");
 
@@ -219,6 +329,7 @@ export default function App({ Component, pageProps }) {
           {...pageProps}
           contacts={contacts}
           interactions={interactions}
+          activityLog={activityLog}
           onAddNewContact={handleAddNewContact}
           onUpdateContact={handleUpdateContact}
           onDeleteContact={handleDeleteContact}

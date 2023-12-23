@@ -49,6 +49,28 @@ export function getFullSortName({ firstName, middleName, lastName }) {
   return sortName;
 }
 
+export function getSortedActiveParticipantsShortList(participants) {
+  const sortedActiveParticipants = participants
+    .filter(
+      (participant) =>
+        participant?.dateDeleted === null || participant?.dateDeleted === ""
+    )
+    .slice()
+    .sort((a, b) => {
+      const nameA = getFullSortName(a);
+      const nameB = getFullSortName(b);
+      if (nameA < nameB) return -1;
+      if (nameA > nameB) return 1;
+      return 0;
+    });
+
+  const sortedActiveParticipantsShortList = sortedActiveParticipants
+    .map((participant) => getShortName(participant))
+    .join(", ");
+
+  return sortedActiveParticipantsShortList;
+}
+
 export function getProfilePicture({ profilePicture }) {
   if (typeof profilePicture === "string") {
     return `/profile-pictures/${profilePicture}`;

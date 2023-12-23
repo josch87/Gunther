@@ -1,11 +1,7 @@
-import Link from "next/link";
 import styled from "styled-components";
 
 export const StyledListItem = styled.li`
   list-style: none;
-`;
-
-export const StyledLink = styled(Link)`
   display: flex;
   color: var(--primary-text-color);
   text-decoration: none;
@@ -17,13 +13,13 @@ export const StyledDetailsContainer = styled.div`
   margin: 10px;
 `;
 
-export const StyledParticipantsContainer = styled.h2`
+export const StyledEntityTitleContainer = styled.h2`
   font-size: 1rem;
   line-height: 1.2rem;
   font-weight: 400;
 `;
 
-export const StyledDateContainer = styled.div`
+export const StyledActivityDetailsContainer = styled.div`
   margin-top: 5px;
   font-size: 0.8rem;
 `;

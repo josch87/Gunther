@@ -3,44 +3,39 @@ import {
   getParticipant,
 } from "@/utils/getInteractionDetails";
 import {
-  DateContainer,
-  DetailsContainer,
-  ListItem,
-  ParticipantsContainer,
+  StyledDateContainer,
+  StyledDetailsContainer,
+  StyledListItem,
+  StyledParticipantsContainer,
   StyledLink,
 } from "./InteractionListItem.styled";
-import { formatDate } from "@/utils/dateTime";
-import { getFullSortName, getShortName } from "@/utils/getContactDetails";
+import { getFormattedDateTime } from "@/utils/dateTime";
+import {
+  getFullSortName,
+  getShortName,
+  getSortedActiveParticipantsShortList,
+} from "@/utils/getContactDetails";
 import Image from "next/image";
 import { useMemo } from "react";
 
 export default function InteractionListItem({ interaction, contacts }) {
-  const participants = interaction.participants.map((participant) =>
-    getParticipant(contacts, participant)
+  const participants = interaction.participants.map((participantId) =>
+    getParticipant(contacts, participantId)
   );
 
-  const sortedActiveParticipants = participants
-    .filter(
-      (participant) =>
-        participant?.dateDeleted === null || participant?.dateDeleted === ""
-    )
-    .slice()
-    .sort((a, b) => {
-      const nameA = getFullSortName(a);
-      const nameB = getFullSortName(b);
-      if (nameA < nameB) return -1;
-      if (nameA > nameB) return 1;
-      return 0;
-    });
+  const sortedActiveParticipantsShortList =
+    getSortedActiveParticipantsShortList(participants);
 
   const interactionIcon = useMemo(
     () => getInteractionIcon(interaction),
     [interaction]
   );
-  const formattedInteractionDate = formatDate(interaction.dateOfInteraction);
+  const formattedInteractionDate = getFormattedDateTime({
+    dateToFormat: interaction.dateOfInteraction,
+  });
 
   return (
-    <ListItem>
+    <StyledListItem>
       <StyledLink
         href={`/interactions/${interaction.id}`}
         title="Show interaction details"
@@ -51,15 +46,13 @@ export default function InteractionListItem({ interaction, contacts }) {
           height={60}
           alt={`Icon of ${interaction.type.toLowerCase()} interaction`}
         />
-        <DetailsContainer>
-          <ParticipantsContainer>
-            {sortedActiveParticipants
-              .map((participant) => getShortName(participant))
-              .join(", ")}
-          </ParticipantsContainer>
-          <DateContainer>{formattedInteractionDate}</DateContainer>
-        </DetailsContainer>
+        <StyledDetailsContainer>
+          <StyledParticipantsContainer>
+            {sortedActiveParticipantsShortList}
+          </StyledParticipantsContainer>
+          <StyledDateContainer>{formattedInteractionDate}</StyledDateContainer>
+        </StyledDetailsContainer>
       </StyledLink>
-    </ListItem>
+    </StyledListItem>
   );
 }
