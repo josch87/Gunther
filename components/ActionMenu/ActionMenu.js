@@ -5,8 +5,8 @@ import {
 } from "@/assets/Icons8";
 import Image from "next/image";
 import {
-  Dropdown,
-  DropdownItem,
+  DropdownList,
+  DropdownListItem,
   StyledActionMenu,
   StyledImage,
   StyledLink,
@@ -69,10 +69,10 @@ export default function ActionMenu() {
         data-tooltip-place="bottom"
       />
       {dropdown && (
-        <Dropdown>
+        <DropdownList>
           {actionMenuItems.map((actionMenuItem, index) => {
             return (
-              <DropdownItem key={index} onClick={closeDropdown}>
+              <DropdownListItem key={index} onClick={closeDropdown}>
                 <StyledLink href={actionMenuItem.url}>
                   <StyledSpan>
                     <Image
@@ -84,10 +84,10 @@ export default function ActionMenu() {
                     {actionMenuItem.title}
                   </StyledSpan>
                 </StyledLink>
-              </DropdownItem>
+              </DropdownListItem>
             );
           })}
-        </Dropdown>
+        </DropdownList>
       )}
     </StyledActionMenu>
   );
