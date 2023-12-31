@@ -16,10 +16,10 @@ import { useEffect, useRef, useState } from "react";
 import { Tooltip } from "react-tooltip";
 
 export default function ActionMenu() {
-  const [dropdown, setDropdown] = useState(false);
+  const [isActionMenuOpen, setIsActionMenuOpen] = useState(false);
 
   function closeDropdown() {
-    dropdown && setDropdown(false);
+    isActionMenuOpen && setIsActionMenuOpen(false);
   }
 
   const actionMenuItems = [
@@ -41,8 +41,12 @@ export default function ActionMenu() {
 
   useEffect(() => {
     const handler = (event) => {
-      if (dropdown && ref.current && !ref.current.contains(event.target)) {
-        setDropdown(false);
+      if (
+        isActionMenuOpen &&
+        ref.current &&
+        !ref.current.contains(event.target)
+      ) {
+        setIsActionMenuOpen(false);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -52,23 +56,23 @@ export default function ActionMenu() {
       document.removeEventListener("mousedown", handler);
       document.removeEventListener("touchstart", handler);
     };
-  }, [dropdown]);
+  }, [isActionMenuOpen]);
 
   return (
     <StyledActionMenu ref={ref}>
-      {dropdown ? null : <Tooltip id="action-menu-tooltip" />}
+      {isActionMenuOpen ? null : <Tooltip id="action-menu-tooltip" />}
       <StyledImage
         src={materialPlus}
         width={30}
         height={30}
         alt="Create new &#8230; menu"
-        aria-expanded={dropdown ? "true" : "false"}
-        onClick={() => setDropdown((prev) => !prev)}
+        aria-expanded={isActionMenuOpen ? "true" : "false"}
+        onClick={() => setIsActionMenuOpen((prev) => !prev)}
         data-tooltip-id="action-menu-tooltip"
         data-tooltip-content="Create new &#8230;"
         data-tooltip-place="bottom"
       />
-      {dropdown && (
+      {isActionMenuOpen && (
         <DropdownList>
           {actionMenuItems.map((actionMenuItem, index) => {
             return (
