@@ -56,7 +56,7 @@ export default function ActionMenu() {
 
   return (
     <StyledActionMenu ref={ref}>
-      <Tooltip id="action-menu-tooltip" />
+      {dropdown ? null : <Tooltip id="action-menu-tooltip" />}
       <StyledImage
         src={materialPlus}
         width={30}
