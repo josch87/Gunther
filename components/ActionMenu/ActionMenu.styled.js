@@ -10,7 +10,7 @@ export const StyledImage = styled(Image)`
   cursor: pointer;
 `;
 
-export const DropdownList = styled.ul`
+export const StyledDropdownList = styled.ul`
   position: absolute;
   padding: 5px;
   right: 0;
@@ -21,7 +21,7 @@ export const DropdownList = styled.ul`
   box-shadow: 0 0 20px #d3d3d3;
 `;
 
-export const DropdownListItem = styled.li`
+export const StyledDropdownListItem = styled.li`
   list-style: none;
 `;
 
