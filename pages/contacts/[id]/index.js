@@ -31,6 +31,12 @@ const DeleteButton = styled.button`
   cursor: pointer;
 `;
 
+const FlexContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+`;
+
 export default function ContactDetailsPage({
   contacts,
   onDeleteContact,
@@ -84,43 +90,54 @@ export default function ContactDetailsPage({
       return 0;
     });
 
+  const sortedContactInteractionsToDisplay = sortedContactInteractions.slice(
+    0,
+    5
+  );
+
   return (
     <>
       <DefaultHead pageTitle={`Contact Details of ${getFullName(contact)}`} />
       <BackLink href="/contacts">All Contacts</BackLink>
 
-      <Scopebox>
-        <ActionButtons>
-          <Link href={`/contacts/${id}/edit`} title="Edit contact">
-            <Image
-              src={materialEdit}
-              alt="Edit contact"
-              height={25}
-              width={25}
-            />
-          </Link>
-          <DeleteButton title="Delete contact" onClick={confirmDeletion}>
-            <Image
-              src={materialDelete}
-              alt="Delete contact"
-              height={25}
-              width={25}
-            />
-          </DeleteButton>
-        </ActionButtons>
+      <FlexContainer>
+        <section>
+          <Scopebox>
+            <ActionButtons>
+              <Link href={`/contacts/${id}/edit`} title="Edit contact">
+                <Image
+                  src={materialEdit}
+                  alt="Edit contact"
+                  height={25}
+                  width={25}
+                />
+              </Link>
+              <DeleteButton title="Delete contact" onClick={confirmDeletion}>
+                <Image
+                  src={materialDelete}
+                  alt="Delete contact"
+                  height={25}
+                  width={25}
+                />
+              </DeleteButton>
+            </ActionButtons>
 
-        <ContactDetailsHeader contact={contact} />
-        <ContactDetailsSection contact={contact} />
-      </Scopebox>
+            <ContactDetailsHeader contact={contact} />
+            <ContactDetailsSection contact={contact} />
+          </Scopebox>
+        </section>
 
-      {sortedContactInteractions.length > 0 ? (
-        <Scopebox>
-          <InteractionList
-            contacts={contacts}
-            interactions={sortedContactInteractions}
-          />
-        </Scopebox>
-      ) : null}
+        <section>
+          {sortedContactInteractionsToDisplay.length > 0 ? (
+            <Scopebox heading="Interactions">
+              <InteractionList
+                contacts={contacts}
+                interactions={sortedContactInteractionsToDisplay}
+              />
+            </Scopebox>
+          ) : null}
+        </section>
+      </FlexContainer>
     </>
   );
 }
