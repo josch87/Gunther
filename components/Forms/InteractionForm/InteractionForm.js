@@ -67,6 +67,12 @@ export default function InteractionForm({
       };
     });
 
+  const currentInactiveParticipants = currentInteraction.participants
+    .map((currentParticipantObject) => {
+      return getParticipant(contacts, currentParticipantObject);
+    })
+    .filter((participant) => participant.dateDeleted !== "");
+
   function handleUserInput(event, fieldName) {
     if (fieldName === "interactionType") {
       setCurrentInteraction({
@@ -74,10 +80,19 @@ export default function InteractionForm({
         type: event.value,
       });
     } else if (fieldName === "participants") {
-      const participantsArray = event.map((participant) => participant.value);
+      const updatedActiveParticipantsArray = event.map(
+        (participant) => participant.value
+      );
+      const currentInactiveParticipantsArray = currentInactiveParticipants.map(
+        (participant) => participant.id
+      );
+
       setCurrentInteraction({
         ...currentInteraction,
-        participants: participantsArray,
+        participants: [
+          ...updatedActiveParticipantsArray,
+          ...currentInactiveParticipantsArray,
+        ],
       });
     } else {
       setCurrentInteraction({
