@@ -84,8 +84,6 @@ export default function ContactDetailsPage({
       return 0;
     });
 
-  console.log("sortedContactInteractions", sortedContactInteractions);
-
   return (
     <>
       <DefaultHead pageTitle={`Contact Details of ${getFullName(contact)}`} />
