@@ -113,12 +113,16 @@ export default function ContactDetailsPage({
 
         <ContactDetailsHeader contact={contact} />
         <ContactDetailsSection contact={contact} />
-
-        {/* <InteractionList
-          contacts={contacts}
-          interactions={sortedContactInteractions}
-        /> */}
       </Scopebox>
+
+      {sortedContactInteractions.length > 0 ? (
+        <Scopebox>
+          <InteractionList
+            contacts={contacts}
+            interactions={sortedContactInteractions}
+          />
+        </Scopebox>
+      ) : null}
     </>
   );
 }
