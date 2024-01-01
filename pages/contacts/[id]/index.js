@@ -7,6 +7,7 @@ import BackLink from "@/components/BackLink/BackLink";
 import ConfirmModal from "@/components/ConfirmModal/ConfirmModal";
 import ContactDetailsHeader from "@/components/ContactDetailsHeader/ContactDetailsHeader";
 import ContactDetailsSection from "@/components/ContactDetailsSection/ContactDetailsSection";
+import InteractionList from "@/components/InteractionList/InteractionList";
 import DefaultHead from "@/components/Layout/DefaultHead/DefaultHead";
 import Scopebox from "@/components/Scopebox/Scopebox";
 import { getFullName } from "@/utils/getContactDetails";
@@ -30,7 +31,11 @@ const DeleteButton = styled.button`
   cursor: pointer;
 `;
 
-export default function ContactDetailsPage({ contacts, onDeleteContact }) {
+export default function ContactDetailsPage({
+  contacts,
+  onDeleteContact,
+  interactions,
+}) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -65,6 +70,22 @@ export default function ContactDetailsPage({ contacts, onDeleteContact }) {
     });
   }
 
+  const sortedContactInteractions = interactions
+    .filter((interaction) => interaction.participants.includes(contact.id))
+    .sort((a, b) => {
+      const dateA = a.dateOfInteraction;
+      const dateB = b.dateOfInteraction;
+      if (dateA < dateB) {
+        return 1;
+      }
+      if (dateA > dateB) {
+        return -1;
+      }
+      return 0;
+    });
+
+  console.log("sortedContactInteractions", sortedContactInteractions);
+
   return (
     <>
       <DefaultHead pageTitle={`Contact Details of ${getFullName(contact)}`} />
@@ -92,6 +113,11 @@ export default function ContactDetailsPage({ contacts, onDeleteContact }) {
 
         <ContactDetailsHeader contact={contact} />
         <ContactDetailsSection contact={contact} />
+
+        <InteractionList
+          contacts={contacts}
+          interactions={sortedContactInteractions}
+        />
       </Scopebox>
     </>
   );
