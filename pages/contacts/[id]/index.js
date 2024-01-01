@@ -114,10 +114,10 @@ export default function ContactDetailsPage({
         <ContactDetailsHeader contact={contact} />
         <ContactDetailsSection contact={contact} />
 
-        <InteractionList
+        {/* <InteractionList
           contacts={contacts}
           interactions={sortedContactInteractions}
-        />
+        /> */}
       </Scopebox>
     </>
   );
