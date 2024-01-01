@@ -76,8 +76,12 @@ export default function ContactDetailsPage({
     });
   }
 
-  const sortedContactInteractions = interactions
-    .filter((interaction) => interaction.participants.includes(contact.id))
+  const sortedActiveContactInteractions = interactions
+    .filter(
+      (interaction) =>
+        interaction.participants.includes(contact.id) &&
+        (interaction.dateDeleted === "" || interaction.dateDeleted === null)
+    )
     .sort((a, b) => {
       const dateA = a.dateOfInteraction;
       const dateB = b.dateOfInteraction;
@@ -90,10 +94,8 @@ export default function ContactDetailsPage({
       return 0;
     });
 
-  const sortedContactInteractionsToDisplay = sortedContactInteractions.slice(
-    0,
-    5
-  );
+  const sortedContactInteractionsToDisplay =
+    sortedActiveContactInteractions.slice(0, 5);
 
   return (
     <>
