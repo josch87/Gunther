@@ -29,3 +29,11 @@ module.exports = withPWA({
 });
 
 module.exports = nextConfig;
+
+const { version, dependencies } = require("./package.json");
+module.exports = {
+  publicRuntimeConfig: {
+    version,
+    dependencies,
+  },
+};

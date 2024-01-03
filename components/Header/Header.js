@@ -1,6 +1,8 @@
 import { LogoLink, StyledHeader, StyledLogo } from "./Header.styled";
 import ActionMenu from "../ActionMenu/ActionMenu";
 import Image from "next/image";
+import getConfig from "next/config";
+const { publicRuntimeConfig } = getConfig();
 
 export default function Header() {
   return (
@@ -12,6 +14,12 @@ export default function Header() {
           height={255}
           priority={true}
           alt="Gunther Logo"
+          title={
+            "Gunther v" +
+            publicRuntimeConfig.version +
+            " on " +
+            process.env.NEXT_PUBLIC_ENVIRONMENT
+          }
         />
       </LogoLink>
       <ActionMenu />

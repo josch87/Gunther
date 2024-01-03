@@ -57,7 +57,6 @@ export default function ContactDetailsHeader({
             width={80}
             height={80}
             alt={`Placeholder for profile picture of ${getFullName(contact)}`}
-            placeholder={true}
           />
         )}
 
